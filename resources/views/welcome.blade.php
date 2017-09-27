@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://gitlab.com/johnnatas/SrVicos">GitLab</a>
+                    <a href="https://gitlab.com/johnnatas/SrVicos" target="_blank">GitLab</a>
                 </div>
             </div>
         </div>
