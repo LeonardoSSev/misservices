@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAclTable extends Migration
+class CreateTypeUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateAclTable extends Migration
      */
     public function up()
     {
-        Schema::create('acl', function (Blueprint $table) {
+        Schema::create('type_users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('descricao', 15)->nullable();
+            $table->foreign('idAcl')->references('id')->on('acl')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateAclTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acl');
+        Schema::dropIfExists('type_users');
     }
 }

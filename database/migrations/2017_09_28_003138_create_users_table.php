@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->char('cep', 8)->nullable();
             $table->string('bairro', 250)->nullable();
             $table->string('endereco', 250)->nullable();
-            $table->foreign('idAcl')->references('id')->on('acl')->nullable()->onDelete('cascade');
+            $table->int('idAcl')->nullable();
         });
     }
 
