@@ -18,9 +18,9 @@ class CreateProvidedServiceTable extends Migration
             $table->text('comentario');
             $table->float('valor');
             $table->boolean('status');
-            $table->int('idCliente')->nullable();
-            $table->int('idPrestador')nullable();
-            $table->int('idServico')->nullable();
+            $table->integer('idCliente');
+            $table->integer('idPrestador');
+            $table->integer('idServico');
             $table->timestamps();
         });
     }

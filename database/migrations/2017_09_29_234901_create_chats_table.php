@@ -17,9 +17,10 @@ class CreateChatsTable extends Migration
             $table->increments('id');
             $table->text('mensagem');
             $table->date('data');
-            $table->boolean('status')->nullable();
-            $table->int('idCliente')->nullable();
-            $table->int('idPrestador')->nullable();
+            $table->boolean('status');
+            $table->integer('idCliente');
+            $table->integer('idPrestador');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

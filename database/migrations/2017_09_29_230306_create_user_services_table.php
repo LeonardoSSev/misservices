@@ -15,8 +15,11 @@ class CreateUserServicesTable extends Migration
     {
         Schema::create('user_services', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('idUser')->references('id')->on('users')->nullable()->onDelete('cascade');
-            $table->foreign('idServices')->references('id')->on('services')->nullable()->onDelete('cascade');
+            $table->integer('idUser')->unsigned();
+            $table->integer('idServices')->unsigned();
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('idServices')->references('id')->on('services')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

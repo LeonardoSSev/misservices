@@ -15,7 +15,8 @@ class CreateTypeUsersTable extends Migration
     {
         Schema::create('type_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descricao', 15)->nullable();
+            $table->string('descricao', 15);
+            $table->integer('idAcl')->unsigned();
             $table->foreign('idAcl')->references('id')->on('acl')->onDelete('cascade');
             $table->timestamps();
         });

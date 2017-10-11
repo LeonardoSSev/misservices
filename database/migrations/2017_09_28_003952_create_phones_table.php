@@ -16,8 +16,10 @@ class CreatePhonesTable extends Migration
         Schema::create('phones', function (Blueprint $table) {
             $table->increments('id');
             $table->char('telefone', 10);
-            $table->char('celular', 11)->unique()->nullable();
-            $table->foreign('idUser')->references('id')->on('users')->nullable()->onDelete('cascade');
+            $table->char('celular', 11)->unique();
+            $table->integer('idUser')->unsigned();
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
