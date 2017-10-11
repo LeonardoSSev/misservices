@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +12,25 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::post('auth/login', 'AuthenticationController@check_login');
+Route::get('auth/refresh', 'AuthenticationController@refresh_token');
+
+Route::group(['middleware' => 'jwt.auth:api'], function(){
+	Route::get('/auth/teste', function(){
+		$user = JWTAuth::parseToken()->authenticate();
+		return [
+			'teste' => 'testado', 
+			'dsad'  => $user
+		];
+	});
 });
+
+
+
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});*/
+
+
+
+
