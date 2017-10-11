@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,6 +24,10 @@ Route::group(['middleware' => 'jwt.auth:api'], function(){
 			'dsad'  => $user
 		];
 	});
+	Route::group(['prefix' => 'user'], function(){
+		Route::get('/list/{id}', 'UserController@show');
+	});
+
 });
 
 

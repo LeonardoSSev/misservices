@@ -3,9 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Tymon\JWTAuth\Facades\JWTAuth;
 
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->user = JWTAuth::parseToken()->authenticate();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +19,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        try{
+
+
+        } catch (Exception $ex){
+
+        }
     }
 
     /**
@@ -23,7 +34,12 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        try{
+            
+
+        } catch (Exception $ex){
+
+        }
     }
 
     /**
@@ -34,7 +50,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            
+
+        } catch (Exception $ex){
+
+        }
     }
 
     /**
@@ -45,7 +66,12 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+         //try{
+            
+            return User::find($id)->phone;
+        //} catch (Exception $ex){
+
+        //}      
     }
 
     /**
@@ -56,7 +82,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        try{
+            
+
+        } catch (Exception $ex){
+
+        }
     }
 
     /**
@@ -68,7 +99,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            
+
+        } catch (Exception $ex){
+
+        }
     }
 
     /**
@@ -79,6 +115,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            
+
+        } catch (Exception $ex){
+
+        }
     }
 }

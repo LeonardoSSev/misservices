@@ -16,4 +16,8 @@ class User extends Authenticatable
         'nome', 'email', 'password', 'cpf', 'uf', 'cidade', 'cep', 'bairro', 'endereco', 'idUserType'
     ];
 
+    public function phone(){
+    	return $this->hasMany('App\Models\Phone', 'idUser', 'id');
+    }
+
 }
