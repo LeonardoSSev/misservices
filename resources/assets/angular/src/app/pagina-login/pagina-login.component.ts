@@ -25,7 +25,7 @@ export class PaginaLoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.cpf, this.model.password)
             .subscribe(result => {
                 if (result === true) {
                     this.router.navigate(['/']);

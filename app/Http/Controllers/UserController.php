@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         try{
 
-
+            return response('Index', 200);
         } catch (Exception $ex){
 
         }
@@ -32,11 +32,11 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         try{
 
-
+            return response('Create', 200);
         } catch (Exception $ex){
 
         }
@@ -51,8 +51,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try{
-            
-
+//            $dataForm = $request->all();
+//            $insert = $this->user->create($dataForm);
+            return response('Store', 200);
         } catch (Exception $ex){
 
         }
@@ -66,12 +67,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-         //try{
+         try{
             
-            return User::find($id)->phone;
-        //} catch (Exception $ex){
+            //return User::find($id)->phone;
+             return response('Show', 200);
+        } catch (Exception $ex){
 
-        //}      
+        }
     }
 
     /**
@@ -84,7 +86,7 @@ class UserController extends Controller
     {
         try{
             
-
+            return response('Edit', 200);
         } catch (Exception $ex){
 
         }
@@ -101,7 +103,7 @@ class UserController extends Controller
     {
         try{
             
-
+            return response('Update', 200);
         } catch (Exception $ex){
 
         }
@@ -117,7 +119,7 @@ class UserController extends Controller
     {
         try{
             
-
+            return response('Destroy', 200);
         } catch (Exception $ex){
 
         }
