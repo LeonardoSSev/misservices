@@ -70,6 +70,8 @@ class UserController extends Controller
          try{
             
             //return User::find($id)->phone;
+
+
              return response('Show', 200);
         } catch (Exception $ex){
 
@@ -118,7 +120,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         try{
-            
+            User::query()->find($id)->delete();
             return response('Destroy', 200);
         } catch (Exception $ex){
 
