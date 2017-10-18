@@ -12,6 +12,12 @@
     border: 1px solid #000;
 }
 
+.cat{
+    border: 1px solid #000;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
 #inicio{
     margin-top: 150px;
     margin-bottom: 80px;
@@ -20,4 +26,13 @@
 #como-funciona{
     margin-bottom: 50px;
     margin-top: 30px;
+}
+
+#categorias{
+    padding-bottom: 100px;
+    padding-top: 10px;
+}
+
+#cadastro{
+    margin-bottom: 150px;
 }

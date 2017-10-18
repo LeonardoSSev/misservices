@@ -102,7 +102,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Pesquise <span class="text-muted">Encontre aqui os melhores profissionais na área que você deseja</span></h2>
+          <h2 class="featurette-heading">Pesquise, <span class="text-muted">encontre aqui os melhores profissionais na área que você deseja</span></h2>
           <p class="lead">Após realizar seu cadastro, você pode pesquisar os profissionais que
               realizam aquilo que você precisa. Você é totalmente livre para filtrar os resultados
               como quiser e escolher o profissional que achar melhor
@@ -117,7 +117,7 @@
 
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading">Avalie <span class="text-muted">Aponte a qualidade de um serviço prestado</span></h2>
+          <h2 class="featurette-heading">Avalie, <span class="text-muted">aponte a qualidade de um serviço prestado</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5 order-md-1">
@@ -129,7 +129,7 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">Anuncie <span class="text-muted">Seja um profissional no MisServices e ganhe mais!</span></h2>
+          <h2 class="featurette-heading">Anuncie, <span class="text-muted">seja um profissional no MisServices e ganhe mais!</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
@@ -144,13 +144,13 @@
     <div id="categorias">
     <h1>Principais Categorias</h1>
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 cat">
                 <h1>Cat1</h1>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 cat">
                 <h1>Cat2</h1>
             </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
+            <div class="col-lg-4 cat">
                 <h1>Cat3</h1>
             </div><!-- /.col-lg-4 -->
             <button class="btn btn-secondary btn-block">Veja mais &raquo;</button>
@@ -200,7 +200,7 @@
 var $doc = $('html, body');
 $('a').click(function() {
     $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top -150
+        scrollTop: $( $.attr(this, 'href') ).offset().top -100
     }, 500);
     return false;
 });
