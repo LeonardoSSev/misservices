@@ -35,7 +35,7 @@ class UserController extends Controller
     public function create()
     {
         try{
-            
+
 
         } catch (Exception $ex){
 
