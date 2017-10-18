@@ -1,0 +1,23 @@
+.box{
+    margin-top: 8px;
+    margin-bottom: 5px;
+}
+
+.card{
+    background-color: #f0f0f0;
+    margin: 15px;
+    margin-bottom: 30px;
+    color: #06067C;    
+    padding: 30px;
+    border: 1px solid #000;
+}
+
+#inicio{
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+
+#como-funciona{
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
