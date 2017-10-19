@@ -17,6 +17,67 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
+/***/ "../../../../../src/app/admin/admin.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  admin works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/admin/admin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AdminComponent = (function () {
+    function AdminComponent() {
+    }
+    AdminComponent.prototype.ngOnInit = function () {
+    };
+    return AdminComponent;
+}());
+AdminComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-admin',
+        template: __webpack_require__("../../../../../src/app/admin/admin.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/admin/admin.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], AdminComponent);
+
+//# sourceMappingURL=admin.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -93,12 +154,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -131,7 +194,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
             __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
             __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */]
+            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__admin_admin_component__["a" /* AdminComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -154,14 +218,17 @@ AppModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+
 
 
 
 var APP_ROUTES = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
+    { path: 'acesso/admin', component: __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(APP_ROUTES);
 //# sourceMappingURL=app.routing.js.map
@@ -298,7 +365,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#login-adm{\r\n    margin-top:150px;\r\n}\r\n\r\n.box{\r\n    margin-bottom: 10px;\r\n    margin-top: 5px;\r\n}", ""]);
 
 // exports
 
@@ -311,7 +378,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-adm/pagina-adm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  pagina-adm works!\n</p>\n"
+module.exports = "<div class=\"container\">\n  \n      <div id=\"login-adm\">\n        <form class=\"form-signin\">\n          <h2 class=\"form-signin-heading\">Portal Administrador:</h2>\n          <label for=\"inputEmail\" class=\"sr-only\">Usuario Administrador</label>\n          <input type=\"email\" id=\"inputEmail\" class=\"box form-control\" placeholder=\"Usuario\" required autofocus>\n          <label for=\"inputPassword\" class=\"sr-only\">Senha</label>\n          <input type=\"password\" id=\"inputPassword\" class=\"box form-control\" placeholder=\"Senha\" required>        \n          <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Entrar</button>\n          <a href=\"#\">Esqueci minha senha</a>\n        </form>\n      </div>\n  \n      </div> <!-- /container -->\n"
 
 /***/ }),
 
@@ -372,7 +439,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"cadastro\">\n  <h1>Cadastre-se</h1>\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\">\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\">\n          <select name=\"\" id=\"UF\" class=\"box form-control\">\n              <option value=\"\">Selecione o seu estado</option>\n              <option value=\"\">ES</option>\n              <option value=\"\">MG</option>\n              <option value=\"\">SP</option>\n              <option value=\"\">RJ</option>\n          </select>\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Senha para seu perfil\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Digite sua senha novamente\" class=\"box form-control\">\n\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\n      </form>\n  </div>"
+module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\">\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\">\r\n          <select name=\"\" id=\"UF\" class=\"box form-control\">\r\n              <option value=\"\">Selecione o seu estado</option>\r\n              <option value=\"\">ES</option>\r\n              <option value=\"\">MG</option>\r\n              <option value=\"\">SP</option>\r\n              <option value=\"\">RJ</option>\r\n          </select>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Senha para seu perfil\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Digite sua senha\" class=\"box form-control\">\r\n\r\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\r\n      </form>\r\n  </div>"
 
 /***/ }),
 

@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-/*Route::get('/login', function(){ return view('login');});*/
+//Gambiarra monstruosa aqui
+Route::get('/acesso/admin', function(){ return view('index');});
 
 Route::resource('user', 'UserController');
