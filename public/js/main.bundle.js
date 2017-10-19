@@ -17,67 +17,6 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_gendir lazy recursive";
 
 /***/ }),
 
-/***/ "../../../../../src/app/admin/admin.component.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/admin/admin.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  admin works!\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/admin/admin.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var AdminComponent = (function () {
-    function AdminComponent() {
-    }
-    AdminComponent.prototype.ngOnInit = function () {
-    };
-    return AdminComponent;
-}());
-AdminComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
-        selector: 'app-admin',
-        template: __webpack_require__("../../../../../src/app/admin/admin.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/admin/admin.component.css")]
-    }),
-    __metadata("design:paramtypes", [])
-], AdminComponent);
-
-//# sourceMappingURL=admin.component.js.map
-
-/***/ }),
-
 /***/ "../../../../../src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -154,14 +93,12 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__admin_admin_component__ = __webpack_require__("../../../../../src/app/admin/admin.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -194,13 +131,12 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
             __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
             __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */],
-            __WEBPACK_IMPORTED_MODULE_15__admin_admin_component__["a" /* AdminComponent */]
+            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_14__app_routing__["a" /* routing */]
         ],
         providers: [],
@@ -230,7 +166,7 @@ var APP_ROUTES = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
 ];
-var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(APP_ROUTES);
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
 //# sourceMappingURL=app.routing.js.map
 
 /***/ }),
@@ -426,7 +362,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#cadastro{\r\n    margin-bottom: 150px;\r\n}\r\n\r\n.box{\r\n    margin-top: 8px;\r\n    margin-bottom: 5px;\r\n}", ""]);
+exports.push([module.i, "#cadastro{\r\n    margin-bottom: 150px;\r\n}\r\n\r\n.box{\r\n    margin-top: 8px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.ng-invalid.ng-touched:not(form){\r\n    border: 1px solid red;\r\n}", ""]);
 
 // exports
 
@@ -439,7 +375,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\">\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\">\r\n          <select name=\"\" id=\"UF\" class=\"box form-control\">\r\n              <option value=\"\">Selecione o seu estado</option>\r\n              <option value=\"\">ES</option>\r\n              <option value=\"\">MG</option>\r\n              <option value=\"\">SP</option>\r\n              <option value=\"\">RJ</option>\r\n          </select>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Senha para seu perfil\" class=\"box form-control\">\r\n          <input type=\"text\" placeholder=\"Digite sua senha\" class=\"box form-control\">\r\n\r\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\r\n      </form>\r\n  </div>"
+module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n      <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\" name=\"nome\" id=\"nome\" \r\n          ngModel required #nome=\"ngModel\">\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">É necessário inserir seu nome</div>\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\" name=\"email\" id=\"email\" ngModel email required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">E-mail inválido</div>\r\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\" name=\"cpf\" id=\"cpf\" ngModel required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">CPF inválido</div>\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\" name=\"cep\" id=\"cep\" ngModel required \r\n          #cep=\"ngModel\" \r\n          (blur)=\"consultaCEP($event.target.value, f)\">\r\n         <!-- <select name=\"uf\" id=\"UF\" class=\"box form-control\" ngModel required>\r\n              <option value=\"\">Selecione o seu estado</option>\r\n              <option value=\"\">ES</option>\r\n              <option value=\"\">MG</option>\r\n              <option value=\"\">SP</option>\r\n              <option value=\"\">RJ</option>\r\n          </select> -->\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">Selecione corretamente</div>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\" name=\"cidade\" id=\"cidade\" ngModel>\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\" name=\"bairro\" id=\"bairro\" ngModel>\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\" name=\"endereco\" id=\"endereco\" ngModel>\r\n          <input type=\"password\" placeholder=\"Senha para seu perfil\" class=\"box form-control\" name=\"senha\" ngModel id=\"senha\">\r\n          <input type=\"password\" placeholder=\"Digite sua senha\" class=\"box form-control\" name=\"senha2\" ngModel id=\"senha2\">\r\n          <button class=\"btn btn-block btn-success\" >Cadastrar</button>\r\n      </form>\r\n  </div>\r\n  <!-- [disabled]=\"!f.valid\" -->"
 
 /***/ }),
 
@@ -448,7 +384,10 @@ module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n      <form
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CadastroComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -459,22 +398,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var CadastroComponent = (function () {
-    function CadastroComponent() {
+    function CadastroComponent(http) {
+        this.http = http;
+        this.usuario = {
+            nome: null,
+            email: null
+        };
     }
     CadastroComponent.prototype.ngOnInit = function () {
+    };
+    CadastroComponent.prototype.onSubmit = function (form) {
+        console.log(form.value);
+        form.value;
+        console.log(this.usuario);
+    };
+    CadastroComponent.prototype.consultaCEP = function (cep, form) {
+        var _this = this;
+        cep = cep.replace(/\D/g, '');
+        if (cep != "") {
+            var validacep = /^[0-9]{8}$/;
+            if (validacep.test(cep)) {
+                this.http.get("//viacep.com.br/ws/" + cep + "/json")
+                    .map(function (dados) { return dados.json(); })
+                    .subscribe(function (dados) { return _this.populaDados(dados, form); });
+            }
+        }
+    };
+    CadastroComponent.prototype.populaDados = function (dados, form) {
+        form.setValue({
+            nome: form.value.nome,
+            email: form.value.email,
+            cpf: form.value.cpf,
+            cep: dados.cep,
+            uf: dados.uf,
+            cidade: dados.localidade,
+            bairro: dados.bairro,
+            endereco: dados.logradouro
+        });
     };
     return CadastroComponent;
 }());
 CadastroComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
         selector: 'app-cadastro',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], CadastroComponent);
 
+var _a;
 //# sourceMappingURL=cadastro.component.js.map
 
 /***/ }),
@@ -754,6 +730,8 @@ module.exports = "<div class=\"container\">\n  \n      <div id=\"login\">\n     
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginaLoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -764,10 +742,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var PaginaLoginComponent = (function () {
-    function PaginaLoginComponent() {
+    function PaginaLoginComponent(router, authenticationService) {
+        this.router = router;
+        this.authenticationService = authenticationService;
+        this.model = {};
+        this.loading = false;
+        this.error = '';
     }
     PaginaLoginComponent.prototype.ngOnInit = function () {
+        // reset login status
+        this.authenticationService.logout();
+    };
+    PaginaLoginComponent.prototype.login = function () {
+        var _this = this;
+        this.loading = true;
+        this.authenticationService.login(this.model.username, this.model.password)
+            .subscribe(function (result) {
+            if (result === true) {
+                _this.router.navigate(['/']);
+            }
+            else {
+                _this.error = 'CPF ou senha está incorreto(a)';
+                _this.loading = false;
+            }
+        });
     };
     return PaginaLoginComponent;
 }());
@@ -777,10 +778,138 @@ PaginaLoginComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_index__["a" /* AuthenticationService */]) === "function" && _b || Object])
 ], PaginaLoginComponent);
 
+var _a, _b;
 //# sourceMappingURL=pagina-login.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/authentication.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthenticationService = (function () {
+    function AuthenticationService(http) {
+        this.http = http;
+        // set token if saved in local storage
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.token = currentUser && currentUser.token;
+    }
+    AuthenticationService.prototype.login = function (cpf, password) {
+        var _this = this;
+        return this.http.post('/api/auth/login', JSON.stringify({ cpf: cpf, password: password }))
+            .map(function (response) {
+            // login successful if there's a jwt token in the response
+            var token = response.json() && response.json().token;
+            if (token) {
+                // set token property
+                _this.token = token;
+                // store cpf and jwt token in local storage to keep user logged in between page refreshes
+                localStorage.setItem('currentUser', JSON.stringify({ cpf: cpf, token: token }));
+                // return true to indicate successful login
+                return true;
+            }
+            else {
+                // return false to indicate failed login
+                return false;
+            }
+        });
+    };
+    AuthenticationService.prototype.logout = function () {
+        // clear token remove user from local storage to log user out
+        this.token = null;
+        localStorage.removeItem('currentUser');
+    };
+    return AuthenticationService;
+}());
+AuthenticationService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], AuthenticationService);
+
+var _a;
+//# sourceMappingURL=authentication.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/index.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__authentication_service__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__user_service__ = __webpack_require__("../../../../../src/app/services/user.service.ts");
+/* unused harmony namespace reexport */
+
+
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/user.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export UserService */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_index__ = __webpack_require__("../../../../../src/app/services/index.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UserService = (function () {
+    function UserService(http, authenticationService) {
+        this.http = http;
+        this.authenticationService = authenticationService;
+    }
+    UserService.prototype.getUsers = function () {
+        // add authorization header with jwt token
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({ headers: headers });
+        // get users from api
+        return this.http.get('/api/users', options)
+            .map(function (response) { return response.json(); });
+    };
+    return UserService;
+}());
+UserService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_index__["a" /* AuthenticationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_index__["a" /* AuthenticationService */]) === "function" && _b || Object])
+], UserService);
+
+var _a, _b;
+//# sourceMappingURL=user.service.js.map
 
 /***/ }),
 
