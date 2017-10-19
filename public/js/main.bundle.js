@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container marketing\">\r\n  \r\n  <app-header></app-header>\r\n    <app-pagina-inicial></app-pagina-inicial>\r\n  <app-footer></app-footer>\r\n\r\n</div><!-- /.container -->\r\n\r\n"
+module.exports = "<div class=\"container marketing\">\r\n  \r\n  <app-header></app-header>\r\n    <router-outlet></router-outlet>\r\n  <app-footer></app-footer>\r\n\r\n</div><!-- /.container -->\r\n\r\n"
 
 /***/ }),
 
@@ -62,7 +62,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../src/app/app.component.css")]
@@ -80,16 +80,19 @@ AppComponent = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pagina_inicial_inicio_inicio_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pagina_inicial_como_funciona_como_funciona_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_categorias_categorias_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_inicio_inicio_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -108,34 +111,60 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_3__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */],
-            __WEBPACK_IMPORTED_MODULE_4__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__pagina_inicial_inicio_inicio_component__["a" /* InicioComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */]
+            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_inicio_inicio_component__["a" /* InicioComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
+            __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_14__app_routing__["a" /* routing */]
         ],
         providers: [],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/app.routing.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+
+
+
+var APP_ROUTES = [
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
+];
+var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* RouterModule */].forRoot(APP_ROUTES);
+//# sourceMappingURL=app.routing.js.map
 
 /***/ }),
 
@@ -188,7 +217,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-footer',
         template: __webpack_require__("../../../../../src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../src/app/footer/footer.component.css")]
@@ -221,7 +250,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark fixed-top bg-dark\">\n  <a class=\"navbar-brand\" href=\"#\">MisServices</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#inicio\">Inicio</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#como-funciona\">Como Funciona</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#categorias\">Categorias</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#cadastro\">Cadastre-se</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"login\">Acesse</a>\n      </li>\n    </ul>\n    <form class=\"form-inline mt-2 mt-md-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Pesquise um serviço...\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Pesquisar</button>\n    </form>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-md navbar-dark fixed-top bg-dark\">\n  <a class=\"navbar-brand\" routerLink=\"\">MisServices</a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#inicio\">Inicio</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#como-funciona\">Como Funciona</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#categorias\">Categorias</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#cadastro\">Cadastre-se</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"login\">Acesse</a>\n      </li>\n    </ul>\n    <form class=\"form-inline mt-2 mt-md-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Pesquise um serviço...\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Pesquisar</button>\n    </form>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -249,7 +278,7 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-header',
         template: __webpack_require__("../../../../../src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../src/app/header/header.component.css")]
@@ -310,7 +339,7 @@ var PaginaAdmComponent = (function () {
     return PaginaAdmComponent;
 }());
 PaginaAdmComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-pagina-adm',
         template: __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.css")]
@@ -343,7 +372,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"cadastro\">\n  <h1>Cadastre-se</h1>\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\">\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\">\n          <select name=\"\" id=\"UF\" class=\"box form-control\">\n              <option value=\"\">Selecione o seu estado</option>\n              <option value=\"\">ES</option>\n              <option value=\"\">MG</option>\n              <option value=\"\">SP</option>\n              <option value=\"\">RJ</option>\n          </select>\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\">\n\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\n      </form>\n  </div>"
+module.exports = "<div id=\"cadastro\">\n  <h1>Cadastre-se</h1>\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\">\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\">\n          <select name=\"\" id=\"UF\" class=\"box form-control\">\n              <option value=\"\">Selecione o seu estado</option>\n              <option value=\"\">ES</option>\n              <option value=\"\">MG</option>\n              <option value=\"\">SP</option>\n              <option value=\"\">RJ</option>\n          </select>\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Senha para seu perfil\" class=\"box form-control\">\n          <input type=\"text\" placeholder=\"Digite sua senha novamente\" class=\"box form-control\">\n\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\n      </form>\n  </div>"
 
 /***/ }),
 
@@ -371,7 +400,7 @@ var CadastroComponent = (function () {
     return CadastroComponent;
 }());
 CadastroComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-cadastro',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.css")]
@@ -432,7 +461,7 @@ var CategoriasComponent = (function () {
     return CategoriasComponent;
 }());
 CategoriasComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-categorias',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.css")]
@@ -493,7 +522,7 @@ var ComoFuncionaComponent = (function () {
     return ComoFuncionaComponent;
 }());
 ComoFuncionaComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-como-funciona',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.css")]
@@ -554,7 +583,7 @@ var InicioComponent = (function () {
     return InicioComponent;
 }());
 InicioComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-inicio',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.css")]
@@ -615,7 +644,7 @@ var PaginaInicialComponent = (function () {
     return PaginaInicialComponent;
 }());
 PaginaInicialComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-pagina-inicial',
         template: __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.css")]
@@ -635,7 +664,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "#login{\r\n    margin-top: 150px;\r\n}", ""]);
 
 // exports
 
@@ -648,7 +677,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-login/pagina-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  pagina-login works!\n</p>\n"
+module.exports = "<div class=\"container\">\n  \n      <div id=\"login\">\n        <form class=\"form-signin\">\n          <h2 class=\"form-signin-heading\">Acesse:</h2>\n          <label for=\"inputEmail\" class=\"sr-only\">CPF</label>\n          <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"CPF\" required autofocus>\n          <label for=\"inputPassword\" class=\"sr-only\">Senha</label>\n          <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Senha\" required>        \n          <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Entrar</button>\n          <a href=\"#\">Esqueci minha senha</a>\n        </form>\n      </div>\n  \n      </div> <!-- /container -->"
 
 /***/ }),
 
@@ -676,7 +705,7 @@ var PaginaLoginComponent = (function () {
     return PaginaLoginComponent;
 }());
 PaginaLoginComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-pagina-login',
         template: __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.css")]
@@ -719,7 +748,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_19" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_23" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

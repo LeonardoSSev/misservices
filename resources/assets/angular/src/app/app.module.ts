@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
@@ -11,6 +13,7 @@ import { ComoFuncionaComponent } from './pagina-inicial/como-funciona/como-funci
 import { CategoriasComponent } from './pagina-inicial/categorias/categorias.component';
 import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component';
 import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
     PaginaAdmComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
