@@ -1,0 +1,11 @@
+
+.cat{
+    border: 1px solid #000;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+#categorias{
+    padding-bottom: 100px;
+    padding-top: 10px;
+}
