@@ -24,8 +24,8 @@ Route::group(['middleware' => 'jwt.auth:api'], function(){
 			'dsad'  => $user
 		];
 	});
-	Route::group(['prefix' => 'user'], function(){
-		Route::get('/list/{id}', 'UserController@show');
+	Route::group(['prefix' => 'users'], function(){
+		Route::get('/', 'UserController@index');
 	});
 
 });

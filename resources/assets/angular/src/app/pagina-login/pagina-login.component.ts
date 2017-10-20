@@ -25,12 +25,12 @@ export class PaginaLoginComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(result => {
                 if (result === true) {
                     this.router.navigate(['/']);
                 } else {
-                    this.error = 'CPF ou senha está incorreto(a)';
+                    this.error = 'E-mail ou senha está incorreto(a)';
                     this.loading = false;
                 }
             });

@@ -14,6 +14,8 @@ import { CategoriasComponent } from './pagina-inicial/categorias/categorias.comp
 import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component';
 import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
 import { routing } from './app.routing';
+import {AuthenticationService} from "./services/authentication.service";
+
 
 @NgModule({
   declarations: [
@@ -34,7 +36,7 @@ import { routing } from './app.routing';
     HttpModule,
     routing
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

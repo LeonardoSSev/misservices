@@ -93,12 +93,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -139,7 +141,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_14__app_routing__["a" /* routing */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_15__services_authentication_service__["a" /* AuthenticationService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -157,12 +159,14 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+
 
 
 
 
 var APP_ROUTES = [
-    { path: 'acesso/admin', component: __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */] },
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__["a" /* AuthGuard */]] },
     { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
 ];
@@ -229,6 +233,49 @@ FooterComponent = __decorate([
 ], FooterComponent);
 
 //# sourceMappingURL=footer.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/guards/auth.guard.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthGuard = (function () {
+    function AuthGuard(router) {
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        if (localStorage.getItem('currentUser')) {
+            // logged in so return true
+            return true;
+        }
+        // not logged in so redirect to login page
+        this.router.navigate(['/login']);
+        return false;
+    };
+    return AuthGuard;
+}());
+AuthGuard = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
+], AuthGuard);
+
+var _a;
+//# sourceMappingURL=auth.guard.js.map
 
 /***/ }),
 
@@ -375,7 +422,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-inicial/cadastro/cadastro.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n      <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\" name=\"nome\" id=\"nome\" \r\n          ngModel required #nome=\"ngModel\">\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">É necessário inserir seu nome</div>\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\" name=\"email\" id=\"email\" ngModel email required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">E-mail inválido</div>\r\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\" name=\"cpf\" id=\"cpf\" ngModel required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">CPF inválido</div>\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\" name=\"cep\" id=\"cep\" ngModel required \r\n          #cep=\"ngModel\" \r\n          (blur)=\"consultaCEP($event.target.value, f)\">\r\n         <!-- <select name=\"uf\" id=\"UF\" class=\"box form-control\" ngModel required>\r\n              <option value=\"\">Selecione o seu estado</option>\r\n              <option value=\"\">ES</option>\r\n              <option value=\"\">MG</option>\r\n              <option value=\"\">SP</option>\r\n              <option value=\"\">RJ</option>\r\n          </select> -->\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">Selecione corretamente</div>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\" name=\"cidade\" id=\"cidade\" ngModel>\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\" name=\"bairro\" id=\"bairro\" ngModel>\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\" name=\"endereco\" id=\"endereco\" ngModel>\r\n          <input type=\"password\" placeholder=\"Senha para seu perfil\" class=\"box form-control\" name=\"senha\" ngModel id=\"senha\">\r\n          <input type=\"password\" placeholder=\"Digite sua senha\" class=\"box form-control\" name=\"senha2\" ngModel id=\"senha2\">\r\n          <button class=\"btn btn-block btn-success\" >Cadastrar</button>\r\n      </form>\r\n  </div>\r\n  <!-- [disabled]=\"!f.valid\" -->"
+module.exports = "<div id=\"cadastro\">\r\n  <h1>Cadastre-se</h1>\r\n<<<<<<< HEAD\r\n      <form #f=\"ngForm\" (ngSubmit)=\"onSubmit(f)\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\" name=\"nome\" id=\"nome\" \r\n          ngModel required #nome=\"ngModel\">\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">É necessário inserir seu nome</div>\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\" name=\"email\" id=\"email\" ngModel email required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">E-mail inválido</div>\r\n          <input type=\"text\" placeholder=\"CPF\" class=\"box form-control\" name=\"cpf\" id=\"cpf\" ngModel required>\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">CPF inválido</div>\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\" name=\"cep\" id=\"cep\" ngModel required \r\n          #cep=\"ngModel\" \r\n          (blur)=\"consultaCEP($event.target.value, f)\">\r\n         <!-- <select name=\"uf\" id=\"UF\" class=\"box form-control\" ngModel required>\r\n=======\r\n      <form method=\"post\" action=\"\" class=\"align-self-start\">\r\n          <input type=\"text\" placeholder=\"Nome\" class=\"box form-control\" name=\"nome\" id=\"nome\">\r\n          <input type=\"email\" placeholder=\"E-mail\" class=\"box form-control\" name=\"email\" id=\"email\">\r\n          <input type=\"text\" placeholder=\"E-mail\" class=\"box form-control\" name=\"cpf\" id=\"cpf\">\r\n          <select name=\"UF\" id=\"UF\" class=\"box form-control\">\r\n>>>>>>> 150b3601481bf5f6f4e3c9cd4fd09668193970bd\r\n              <option value=\"\">Selecione o seu estado</option>\r\n              <option value=\"\">ES</option>\r\n              <option value=\"\">MG</option>\r\n              <option value=\"\">SP</option>\r\n              <option value=\"\">RJ</option>\r\n<<<<<<< HEAD\r\n          </select> -->\r\n            <div class=\"alert alert-danger\" *ngIf=\"!nome.valid && nome.touched\">Selecione corretamente</div>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\" name=\"cidade\" id=\"cidade\" ngModel>\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\" name=\"bairro\" id=\"bairro\" ngModel>\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\" name=\"endereco\" id=\"endereco\" ngModel>\r\n          <input type=\"password\" placeholder=\"Senha para seu perfil\" class=\"box form-control\" name=\"senha\" ngModel id=\"senha\">\r\n          <input type=\"password\" placeholder=\"Digite sua senha\" class=\"box form-control\" name=\"senha2\" ngModel id=\"senha2\">\r\n          <button class=\"btn btn-block btn-success\" >Cadastrar</button>\r\n=======\r\n          </select>\r\n          <input type=\"text\" placeholder=\"Cidade\" class=\"box form-control\" name=\"cidade\" id=\"cidade\">\r\n          <input type=\"text\" placeholder=\"CEP\" class=\"box form-control\" name=\"cep\" id=\"cep\">\r\n          <input type=\"text\" placeholder=\"Bairro\" class=\"box form-control\" name=\"bairro\" id=\"bairro\">\r\n          <input type=\"text\" placeholder=\"Endereço\" class=\"box form-control\" name=\"endereco\" id=\"endereco\">\r\n          <input type=\"password\" placeholder=\"Senha\" class=\"box form-control\" name=\"senha\" id=\"senha\">\r\n          <!--input type=\"password\" placeholder=\"Confirme a senha\" class=\"box form-control\" name=\"senha2\" id=\"senha2\"-->\r\n          <button class=\"btn btn-block btn-success\">Cadastrar</button>\r\n>>>>>>> 150b3601481bf5f6f4e3c9cd4fd09668193970bd\r\n      </form>\r\n  </div>\r\n  <!-- [disabled]=\"!f.valid\" -->"
 
 /***/ }),
 
@@ -720,7 +767,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-login/pagina-login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  \n      <div id=\"login\">\n        <form class=\"form-signin\">\n          <h2 class=\"form-signin-heading\">Acesse:</h2>\n          <label for=\"inputEmail\" class=\"sr-only\">CPF</label>\n          <input type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"CPF\" required autofocus>\n          <label for=\"inputPassword\" class=\"sr-only\">Senha</label>\n          <input type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Senha\" required>        \n          <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Entrar</button>\n          <a href=\"#\">Esqueci minha senha</a>\n        </form>\n      </div>\n  \n      </div> <!-- /container -->"
+module.exports = "<div class=\"container\">\r\n  \r\n      <div id=\"login\">\r\n        <div class=\"form-signin\">\r\n          <h2 class=\"form-signin-heading\">Acesse:</h2>\r\n          <label for=\"inputEmail\" class=\"sr-only\">E-mail</label>\r\n          <input [(ngModel)]=\"model.email\" type=\"email\" id=\"inputEmail\" class=\"form-control\" placeholder=\"E-mail\" required autofocus>\r\n          <label for=\"inputPassword\" class=\"sr-only\">Senha</label>\r\n          <input [(ngModel)]=\"model.password\" type=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Senha\" required>\r\n          <button (click)=\"login()\" class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Entrar</button>\r\n          <a href=\"#\">Esqueci minha senha</a>\r\n        </div>\r\n      </div>\r\n  \r\n      </div> <!-- /container -->"
 
 /***/ }),
 
@@ -759,13 +806,13 @@ var PaginaLoginComponent = (function () {
     PaginaLoginComponent.prototype.login = function () {
         var _this = this;
         this.loading = true;
-        this.authenticationService.login(this.model.username, this.model.password)
+        this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(function (result) {
             if (result === true) {
                 _this.router.navigate(['/']);
             }
             else {
-                _this.error = 'CPF ou senha está incorreto(a)';
+                _this.error = 'E-mail ou senha está incorreto(a)';
                 _this.loading = false;
             }
         });
@@ -814,9 +861,9 @@ var AuthenticationService = (function () {
         var currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.token = currentUser && currentUser.token;
     }
-    AuthenticationService.prototype.login = function (cpf, password) {
+    AuthenticationService.prototype.login = function (email, password) {
         var _this = this;
-        return this.http.post('/api/auth/login', JSON.stringify({ cpf: cpf, password: password }))
+        return this.http.post('/api/auth/login', { email: email, password: password })
             .map(function (response) {
             // login successful if there's a jwt token in the response
             var token = response.json() && response.json().token;
@@ -824,7 +871,7 @@ var AuthenticationService = (function () {
                 // set token property
                 _this.token = token;
                 // store cpf and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify({ cpf: cpf, token: token }));
+                localStorage.setItem('currentUser', JSON.stringify({ email: email, token: token }));
                 // return true to indicate successful login
                 return true;
             }
