@@ -1,7 +1,8 @@
-import { Http, HttpModule } from '@angular/http';
+import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import { CadastroModule } from './cadastro.module';
 import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-cadastro',
@@ -23,8 +24,12 @@ export class CadastroComponent implements OnInit {
   onSubmit(form){
     console.log(form.value);
 
-    form.value
-    console.log(this.usuario);
+    /*form.value
+    console.log(this.usuario);*/
+
+    this.http.post('/register', JSON.stringify(form.value))
+        .map(dados => dados)
+        .subscribe(dados => console.log(dados));
 
   }
 
@@ -38,7 +43,7 @@ export class CadastroComponent implements OnInit {
         if(validacep.test(cep)){
           this.http.get(`//viacep.com.br/ws/${cep}/json`)
           .map(dados => dados.json())
-          .subscribe(dados => this.populaDados(dados, form));
+          .subscribe(dados => console.log(dados)); //this.populaDados(dados, form)
         }
     }
 
