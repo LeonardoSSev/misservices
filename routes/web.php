@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::post('/register', 'RegisterController@create');
+
 //Gambiarra monstruosa aqui
 Route::get('/acesso/admin', function(){ return view('index');});
 
