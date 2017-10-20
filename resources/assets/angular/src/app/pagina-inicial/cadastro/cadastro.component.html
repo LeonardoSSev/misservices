@@ -1,11 +1,11 @@
 <div id="cadastro">
   <h1>Cadastre-se</h1>
-<<<<<<< HEAD
       <form #f="ngForm" (ngSubmit)="onSubmit(f)" class="align-self-start">
           <input type="text" placeholder="Nome" class="box form-control" name="nome" id="nome" 
           ngModel required #nome="ngModel">
             <div class="alert alert-danger" *ngIf="!nome.valid && nome.touched">É necessário inserir seu nome</div>
-          <input type="email" placeholder="E-mail" class="box form-control" name="email" id="email" ngModel email required>
+          <input type="email" placeholder="E-mail" class="box form-control" name="email" id="email" 
+          ngModel email required>
             <div class="alert alert-danger" *ngIf="!nome.valid && nome.touched">E-mail inválido</div>
           <input type="text" placeholder="CPF" class="box form-control" name="cpf" id="cpf" ngModel required>
             <div class="alert alert-danger" *ngIf="!nome.valid && nome.touched">CPF inválido</div>
@@ -13,19 +13,11 @@
           #cep="ngModel" 
           (blur)="consultaCEP($event.target.value, f)">
          <!-- <select name="uf" id="UF" class="box form-control" ngModel required>
-=======
-      <form method="post" action="" class="align-self-start">
-          <input type="text" placeholder="Nome" class="box form-control" name="nome" id="nome">
-          <input type="email" placeholder="E-mail" class="box form-control" name="email" id="email">
-          <input type="text" placeholder="E-mail" class="box form-control" name="cpf" id="cpf">
-          <select name="UF" id="UF" class="box form-control">
->>>>>>> 150b3601481bf5f6f4e3c9cd4fd09668193970bd
               <option value="">Selecione o seu estado</option>
               <option value="">ES</option>
               <option value="">MG</option>
               <option value="">SP</option>
               <option value="">RJ</option>
-<<<<<<< HEAD
           </select> -->
             <div class="alert alert-danger" *ngIf="!nome.valid && nome.touched">Selecione corretamente</div>
           <input type="text" placeholder="Cidade" class="box form-control" name="cidade" id="cidade" ngModel>
@@ -34,16 +26,6 @@
           <input type="password" placeholder="Senha para seu perfil" class="box form-control" name="senha" ngModel id="senha">
           <input type="password" placeholder="Digite sua senha" class="box form-control" name="senha2" ngModel id="senha2">
           <button class="btn btn-block btn-success" >Cadastrar</button>
-=======
-          </select>
-          <input type="text" placeholder="Cidade" class="box form-control" name="cidade" id="cidade">
-          <input type="text" placeholder="CEP" class="box form-control" name="cep" id="cep">
-          <input type="text" placeholder="Bairro" class="box form-control" name="bairro" id="bairro">
-          <input type="text" placeholder="Endereço" class="box form-control" name="endereco" id="endereco">
-          <input type="password" placeholder="Senha" class="box form-control" name="senha" id="senha">
-          <!--input type="password" placeholder="Confirme a senha" class="box form-control" name="senha2" id="senha2"-->
-          <button class="btn btn-block btn-success">Cadastrar</button>
->>>>>>> 150b3601481bf5f6f4e3c9cd4fd09668193970bd
       </form>
   </div>
   <!-- [disabled]="!f.valid" -->
