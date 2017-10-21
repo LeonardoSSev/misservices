@@ -6,7 +6,9 @@
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="icon" href="images/icone-misservices.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="images/icone-misservices.ico" type="image/x-icon" />
 
 </head>
 <body>
