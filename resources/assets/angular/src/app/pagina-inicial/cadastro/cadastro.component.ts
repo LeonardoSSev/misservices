@@ -16,10 +16,16 @@ export class CadastroComponent implements OnInit {
     nome: null,
     email: null
   }
+
+  ischecked: boolean = false;
   
   constructor(private http: Http) { }
 
   ngOnInit() {
+  }
+
+  check(){
+    this.ischecked = !this.ischecked;
   }
 
   onSubmit(form){
