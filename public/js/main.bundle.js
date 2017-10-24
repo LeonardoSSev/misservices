@@ -471,7 +471,7 @@ var CadastroComponent = (function () {
         console.log(form.value);
         /*form.value
         console.log(this.usuario);*/
-        this.http.post('/register', (form.value))
+        this.http.post('/api/register', (form.value))
             .map(function (dados) { return dados; })
             .subscribe(function (dados) { return console.log(dados); });
     };

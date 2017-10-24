@@ -35,7 +35,8 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         try{
-            return $request->get('nome');
+
+
         }catch(Exceptin $ex){
 
         }

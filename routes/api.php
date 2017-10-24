@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::post('auth/login', 'AuthenticationController@check_login');
 Route::get('auth/refresh', 'AuthenticationController@refresh_token');
 
+Route::post('/register', 'UserController@store');
+
 Route::group(['middleware' => 'jwt.auth:api'], function(){
 	Route::get('/auth/teste', function(){
 		$user = JWTAuth::parseToken()->authenticate();
