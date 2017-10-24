@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container marketing\">\r\n  \r\n  <app-header></app-header>\r\n    <router-outlet></router-outlet>\r\n  <app-footer></app-footer>\r\n\r\n</div><!-- /.container -->\r\n\r\n"
+module.exports = "\r\n  <app-header></app-header>\r\n  <slides></slides>\r\n    <div class=\"container marketing\">\r\n      <router-outlet></router-outlet>\r\n    </div><!-- /.container -->\r\n  <app-footer></app-footer>"
 
 /***/ }),
 
@@ -82,24 +82,28 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_inicio_inicio_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__nicky_lenaers_ngx_scroll_to__ = __webpack_require__("../../../../@nicky-lenaers/ngx-scroll-to/@nicky-lenaers/ngx-scroll-to.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__header_header_component__ = __webpack_require__("../../../../../src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_inicio_inicio_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/inicio/inicio.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_como_funciona_como_funciona_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/como-funciona/como-funciona.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_categorias_categorias_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/categorias/categorias.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pagina_inicial_cadastro_cadastro_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/cadastro/cadastro.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__app_routing__ = __webpack_require__("../../../../../src/app/app.routing.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_authentication_service__ = __webpack_require__("../../../../../src/app/services/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__slides_slides_component__ = __webpack_require__("../../../../../src/app/slides/slides.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -124,25 +128,27 @@ var AppModule = (function () {
 AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["M" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__pagina_inicial_inicio_inicio_component__["a" /* InicioComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
-            __WEBPACK_IMPORTED_MODULE_13__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */]
+            __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__pagina_inicial_inicio_inicio_component__["a" /* InicioComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__pagina_inicial_como_funciona_como_funciona_component__["a" /* ComoFuncionaComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__pagina_inicial_categorias_categorias_component__["a" /* CategoriasComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__pagina_inicial_cadastro_cadastro_component__["a" /* CadastroComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__slides_slides_component__["a" /* SlidesComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["c" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_14__app_routing__["a" /* routing */]
+            __WEBPACK_IMPORTED_MODULE_4__nicky_lenaers_ngx_scroll_to__["a" /* ScrollToModule */].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_15__app_routing__["a" /* routing */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_15__services_authentication_service__["a" /* AuthenticationService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        providers: [__WEBPACK_IMPORTED_MODULE_16__services_authentication_service__["a" /* AuthenticationService */]],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -156,9 +162,9 @@ AppModule = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return routing; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
 
 
@@ -166,9 +172,9 @@ AppModule = __decorate([
 
 
 var APP_ROUTES = [
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_1__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_2__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_3__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_3__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
 //# sourceMappingURL=app.routing.js.map
@@ -300,7 +306,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-expand-md fixed-top bg-dark\">\n  <a class=\"navbar-brand\" routerLink=\"\"><img src=\"images/logo-misservices.png\" class=\"responsive\"></a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#inicio\">Inicio</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#como-funciona\">Como Funciona</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#categorias\">Categorias</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" href=\"#cadastro\">Cadastre-se</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"login\">Acesse</a>\n      </li>\n    </ul>\n    <form class=\"form-inline mt-2 mt-md-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Pesquise um serviço...\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Pesquisar</button>\n    </form>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar navbar-expand-md fixed-top bg-dark\">\n  <a class=\"navbar-brand\" routerLink=\"\"><img src=\"images/logo-misservices.png\" class=\"responsive\"></a>\n  <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarCollapse\" aria-controls=\"navbarCollapse\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarCollapse\">\n    <ul class=\"navbar-nav mr-auto\">\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngx-scroll-to]=\"'#inicio'\" [ngx-scroll-to-offset]=\"-150\">Inicio</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngx-scroll-to]=\"'#como-funciona'\" [ngx-scroll-to-offset]=\"-150\">Como Funciona</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngx-scroll-to]=\"'#categorias'\" [ngx-scroll-to-offset]=\"-150\">Categorias</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" [ngx-scroll-to]=\"'#cadastro'\" [ngx-scroll-to-offset]=\"-150\">Cadastre-se</a>\n      </li>\n      <li class=\"nav-item\">\n        <a class=\"nav-link\" routerLink=\"login\">Acesse</a>\n      </li>\n    </ul>\n    <form class=\"form-inline mt-2 mt-md-0\">\n      <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Pesquise um serviço...\" aria-label=\"Search\">\n      <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">Pesquisar</button>\n    </form>\n  </div>\n</nav>"
 
 /***/ }),
 
@@ -647,7 +653,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-inicial/inicio/inicio.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"inicio\">\n  <h1 class=\"digita\">Bem Vindo ao MisServices</h1>\n  <div class=\"row\">\n      <div class=\"col-lg-4\">\n      <img class=\"rounded-circle\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Generic placeholder image\" width=\"140\" height=\"140\">\n      <h2>Pesquise</h2>\n      <p>Encontre aqui os melhores profissionais na área que você deseja</p>\n      </div><!-- /.col-lg-4 -->\n      <div class=\"col-lg-4\">\n      <img class=\"rounded-circle\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Generic placeholder image\" width=\"140\" height=\"140\">\n      <h2>Avalie</h2>\n      <p>Aponte a qualidade de um serviço prestado</p>\n      </div><!-- /.col-lg-4 -->\n      <div class=\"col-lg-4\">\n      <img class=\"rounded-circle\" src=\"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==\" alt=\"Generic placeholder image\" width=\"140\" height=\"140\">\n      <h2>Anuncie</h2>\n      <p>Seja um profissional no MisServices e ganhe mais!</p>\n      </div><!-- /.col-lg-4 -->\n</div><!-- /.row -->\n</div>\n"
+module.exports = "<div id=\"inicio\">\n  <h1 class=\"digita\">Bem Vindo ao MisServices</h1>\n</div>"
 
 /***/ }),
 
@@ -959,6 +965,67 @@ UserService = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=user.service.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/slides/slides.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "main{\r\n    margin-top: 100px;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/slides/slides.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<main role=\"main\">\n  \n        <div id=\"myCarousel\" class=\"carousel slide\" data-ride=\"carousel\">\n          <ol class=\"carousel-indicators\">\n            <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n            <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n            <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n          </ol>\n          <div class=\"carousel-inner\">\n            <div class=\"carousel-item active\">\n              <img class=\"first-slide\" src=\"images/banner-1.jpg\" alt=\"First slide\">\n            </div>\n            <div class=\"carousel-item\">\n              <img class=\"second-slide\" src=\"images/banner-3.jpg\" alt=\"Second slide\">\n            </div>\n            <div class=\"carousel-item\">\n              <img class=\"third-slide\" src=\"\" alt=\"Third slide\">\n            </div>\n          </div>\n          <a class=\"carousel-control-prev\" href=\"#myCarousel\" role=\"button\" data-slide=\"prev\">\n            <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n            <span class=\"sr-only\">Previous</span>\n          </a>\n          <a class=\"carousel-control-next\" href=\"#myCarousel\" role=\"button\" data-slide=\"next\">\n            <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n            <span class=\"sr-only\">Next</span>\n          </a>\n        </div>\n\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/slides/slides.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SlidesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SlidesComponent = (function () {
+    function SlidesComponent() {
+    }
+    SlidesComponent.prototype.ngOnInit = function () {
+    };
+    return SlidesComponent;
+}());
+SlidesComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'slides',
+        template: __webpack_require__("../../../../../src/app/slides/slides.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/slides/slides.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SlidesComponent);
+
+//# sourceMappingURL=slides.component.js.map
 
 /***/ }),
 
