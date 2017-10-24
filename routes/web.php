@@ -15,7 +15,13 @@ Route::get('/', function () {
     return view('index');
 });
 
-
+//Route::get('*', function(){
+//    return file_exists(public_path('js/index.html'));
+//});
+Route::any('{path?}', function()
+{
+    return view("index");
+})->where("path", ".+");
 
 //Gambiarra monstruosa aqui
 Route::get('/acesso/admin', function(){ return view('index');});
