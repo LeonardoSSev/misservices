@@ -40,7 +40,7 @@ export class CadastroComponent implements OnInit {
 
   }
 
-  consultaCEP(cep, form){
+  /*consultaCEP(cep, form){
 
     cep = cep.replace(/\D/g, '');
 
@@ -54,7 +54,7 @@ export class CadastroComponent implements OnInit {
         }
     }
 
-  }
+  }*/
 
   populaDados(dados, form){
     form.setValue({
