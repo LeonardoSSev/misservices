@@ -57,15 +57,16 @@ export class CadastroComponent implements OnInit {
   }*/
 
   populaDados(dados, form){
-    form.setValue({
-        nome: form.value.nome,
-        email: form.value.email,
-        cpf: form.value.cpf,
-        cep: dados.cep,
-        uf: dados.uf,
-        cidade: dados.localidade,
-        bairro: dados.bairro,
-        endereco: dados.logradouro
+      form.setValue({
+          nome: form.value.nome,
+          email: form.value.email,
+          cpf: form.value.cpf,
+          cep: dados.cep,
+          uf: dados.uf,
+          cidade: dados.cidade,
+          bairro: dados.bairro,
+          endereco: dados.endereco,
+          tipo: dados.tipo
       });
   }
 

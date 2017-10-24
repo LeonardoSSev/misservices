@@ -21,9 +21,9 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        echo 'Cadastrou!';
+        print_r($request->all());
     }
 
     /**
