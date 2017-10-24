@@ -23,7 +23,7 @@ class RegisterController extends Controller
      */
     public function create(Request $request)
     {
-        print_r($request->all());
+        //print_r($request->all());
     }
 
     /**
@@ -34,7 +34,12 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            return "Cadastrou";
+        }catch(Exceptin $ex){
+
+        }
+
     }
 
     /**
