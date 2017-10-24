@@ -10,9 +10,11 @@ class UserController extends Controller
 {
 
     public function __construct(){
-        if(){
+        if(JWTAuth::getToken()){
             $this->user = JWTAuth::parseToken()->authenticate();
-        } else
+        } else{
+            $this->user = null;
+        }
 
     }
     /**
@@ -54,11 +56,23 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try{
-//            $dataForm = $request->all();
-//            $insert = $this->user->create($dataForm);
-            return response('Store', 200);
-        } catch (Exception $ex){
+            $user = new User();
+            $user = $request->except('servico');
+            $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
+            $user['password'] = bcrypt($user['password']);
+            $insert = User::create($user);
 
+            if($insert){
+                return response($user, 200);
+            }else{
+                return response("Erro ao cadastrar", 200);
+            }
+
+        } catch (Exception $ex){
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
