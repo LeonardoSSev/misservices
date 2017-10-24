@@ -34,7 +34,7 @@ export class CadastroComponent implements OnInit {
     /*form.value
     console.log(this.usuario);*/
 
-    this.http.post('/register', JSON.stringify(form.value))
+    this.http.post('/register', (form.value))
         .map(dados => dados)
         .subscribe(dados => console.log(dados));
 
