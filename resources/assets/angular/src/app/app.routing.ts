@@ -1,9 +1,10 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
 import { PaginaLoginComponent } from './pagina-login/pagina-login.component';
+import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
+
 import {AuthGuard} from "./guards/auth.guard";
 
 const APP_ROUTES: Routes = [

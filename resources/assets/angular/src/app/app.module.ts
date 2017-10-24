@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 import { AppComponent } from './app.component';
 import { PaginaInicialComponent } from './pagina-inicial/pagina-inicial.component';
@@ -15,6 +16,7 @@ import { CadastroComponent } from './pagina-inicial/cadastro/cadastro.component'
 import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
 import { routing } from './app.routing';
 import {AuthenticationService} from "./services/authentication.service";
+import { SlidesComponent } from './slides/slides.component';
 
 
 @NgModule({
@@ -28,12 +30,14 @@ import {AuthenticationService} from "./services/authentication.service";
     ComoFuncionaComponent,
     CategoriasComponent,
     CadastroComponent,
-    PaginaAdmComponent
+    PaginaAdmComponent,
+    SlidesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
+    ScrollToModule.forRoot(),
     routing
   ],
   providers: [AuthenticationService],
