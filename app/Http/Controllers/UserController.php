@@ -33,17 +33,7 @@ class UserController extends Controller
                 ], 500);
         }
     }
-    public function teste()
-    {
-        try{
-            return response(User::all(), 200);
-        } catch (Exception $ex){
-            return response([
-                "error" => true,
-                "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
-        }
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -142,8 +132,22 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         try{
-            
-            return response('Update', 200);
+
+        $user = new User();
+        $user = $request->except('servico');
+        $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
+        $user['password'] = bcrypt($user['password']);
+        $oldUser = User::find($id);
+
+        $update = $oldUser->update($user);
+
+        if($update){
+                return response($user, 200);
+            }else{
+                return response("Erro ao atualizar informações.", 200);
+            }
+
+        return response()
         } catch (Exception $ex){
             return response([
                 "error" => true,
