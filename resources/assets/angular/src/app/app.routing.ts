@@ -8,9 +8,11 @@ import { PaginaAdmComponent } from './pagina-adm/pagina-adm.component';
 import {AuthGuard} from "./guards/auth.guard";
 
 const APP_ROUTES: Routes = [
-    {path: 'admin', component: PaginaAdmComponent, canActivate: [AuthGuard]},
+    {path: 'admin', component: PaginaAdmComponent },
     {path: '', component: PaginaInicialComponent },
     {path: 'login', component: PaginaLoginComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+
+// canActivate: [AuthGuard]
