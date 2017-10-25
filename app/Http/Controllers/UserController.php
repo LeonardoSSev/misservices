@@ -25,7 +25,17 @@ class UserController extends Controller
     public function index()
     {
         try{
-
+            return response(User::all(), 200);
+        } catch (Exception $ex){
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
+        }
+    }
+    public function teste()
+    {
+        try{
             return response(User::all(), 200);
         } catch (Exception $ex){
             return response([
@@ -43,7 +53,6 @@ class UserController extends Controller
     public function create(Request $request)
     {
         try{
-
             return response('Create', 200);
         } catch (Exception $ex){
             return response([
