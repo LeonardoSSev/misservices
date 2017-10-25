@@ -1,8 +1,7 @@
-#login-adm{
-    margin-top:150px;
+#admin{
+    margin-top: 150px;
 }
 
-.box{
-    margin-bottom: 10px;
-    margin-top: 5px;
+a{
+    font-size: 1.3em;
 }

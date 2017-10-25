@@ -17,7 +17,11 @@ Route::post('auth/login', 'AuthenticationController@check_login');
 Route::get('auth/refresh', 'AuthenticationController@refresh_token');
 
 Route::post('/register', 'UserController@store');
+<<<<<<< HEAD
 Route::post('/admin', 'UserController@index')
+=======
+Route::get('/admin', 'UserController@index');
+>>>>>>> bf508b412fc1e54f65b1d945b3c8edc15ff570b0
 
 Route::group(['middleware' => 'jwt.auth:api'], function(){
 	Route::get('/auth/teste', function(){
