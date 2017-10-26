@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n  <app-header></app-header>\r\n    <div class=\"container marketing\">\r\n      <router-outlet></router-outlet>\r\n    </div><!-- /.container -->\r\n  <app-footer></app-footer>"
+module.exports = "\r\n  <app-header></app-header>\r\n<<<<<<< HEAD\r\n=======\r\n \r\n>>>>>>> f5d3af49f0ad3fa649bf43eda12d4ca3c02bdc5d\r\n    <div class=\"container marketing\">\r\n      <router-outlet></router-outlet>\r\n    </div><!-- /.container -->\r\n  <app-footer></app-footer>"
 
 /***/ }),
 
@@ -323,7 +323,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-adm/pagina-adm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <nav class=\"col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar\">\r\n        <ul class=\"nav nav-pills flex-column\">\r\n          \r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Usuários</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Serviços</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Perfil Administrador</a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr>\r\n                <td>1,001</td>\r\n                <td>Lorem</td>\r\n                <td>ipsum</td>\r\n                <td>dolor</td>\r\n                <td>sit</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n  </div>\r\n</div>"
+module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <nav class=\"col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar\">\r\n        <ul class=\"nav nav-pills flex-column\">\r\n          \r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Usuários</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Serviços</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Perfil Administrador</a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let user of users\">\r\n                <td>{{ user.id }}</td>\r\n                <td>{{ user.nome }}</td>\r\n                <td>{{ user.email }}</td>\r\n                <td>{{ user.cpf }}</td>\r\n                \r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -334,6 +334,8 @@ module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginaAdmComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -345,14 +347,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var PaginaAdmComponent = (function () {
     function PaginaAdmComponent(http) {
         this.http = http;
+        this.users = [];
     }
     PaginaAdmComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        setTimeout(function () {
+            _this.listaUsers()
+                .subscribe(function (data) { return _this.users = data; });
+        }, 100);
     };
     PaginaAdmComponent.prototype.listaUsers = function () {
-        // this.http.get('');
+        return this.http.get('/api/admin')
+            .map(function (response) { return response.json(); });
     };
     return PaginaAdmComponent;
 }());

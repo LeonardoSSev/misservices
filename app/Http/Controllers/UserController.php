@@ -26,9 +26,12 @@ class UserController extends Controller
     {
         try{
 
-            return response('Index', 200);
+            return response(User::all(), 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
@@ -43,7 +46,10 @@ class UserController extends Controller
 
             return response('Create', 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
@@ -91,7 +97,10 @@ class UserController extends Controller
 
              return response('Show', 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
@@ -107,7 +116,10 @@ class UserController extends Controller
             
             return response('Edit', 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
@@ -124,7 +136,10 @@ class UserController extends Controller
             
             return response('Update', 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 
@@ -140,7 +155,10 @@ class UserController extends Controller
             User::query()->find($id)->delete();
             return response('Destroy', 200);
         } catch (Exception $ex){
-
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+                ], 500);
         }
     }
 }
