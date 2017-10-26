@@ -165,18 +165,17 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__ = __webpack_require__("../../../../../src/app/pagina-inicial/pagina-inicial.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__ = __webpack_require__("../../../../../src/app/pagina-login/pagina-login.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pagina_adm_pagina_adm_component__ = __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
-
 
 
 
 
 var APP_ROUTES = [
-    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_3__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_4__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'admin', component: __WEBPACK_IMPORTED_MODULE_3__pagina_adm_pagina_adm_component__["a" /* PaginaAdmComponent */] },
     { path: '', component: __WEBPACK_IMPORTED_MODULE_1__pagina_inicial_pagina_inicial_component__["a" /* PaginaInicialComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_2__pagina_login_pagina_login_component__["a" /* PaginaLoginComponent */] }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["b" /* RouterModule */].forRoot(APP_ROUTES);
+// canActivate: [AuthGuard] 
 //# sourceMappingURL=app.routing.js.map
 
 /***/ }),
@@ -239,49 +238,6 @@ FooterComponent = __decorate([
 ], FooterComponent);
 
 //# sourceMappingURL=footer.component.js.map
-
-/***/ }),
-
-/***/ "../../../../../src/app/guards/auth.guard.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AuthGuard = (function () {
-    function AuthGuard(router) {
-        this.router = router;
-    }
-    AuthGuard.prototype.canActivate = function () {
-        if (localStorage.getItem('currentUser')) {
-            // logged in so return true
-            return true;
-        }
-        // not logged in so redirect to login page
-        this.router.navigate(['/login']);
-        return false;
-    };
-    return AuthGuard;
-}());
-AuthGuard = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
-], AuthGuard);
-
-var _a;
-//# sourceMappingURL=auth.guard.js.map
 
 /***/ }),
 
@@ -367,7 +323,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-adm/pagina-adm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  \r\n      <div id=\"login-adm\">\r\n        <form class=\"form-signin\">\r\n          <h2 class=\"form-signin-heading\">Portal Administrador:</h2>\r\n          <label for=\"inputEmail\" class=\"sr-only\">Usuario Administrador</label>\r\n          <input type=\"email\" id=\"inputEmail\" class=\"box form-control\" placeholder=\"Usuario\" required autofocus>\r\n          <label for=\"inputPassword\" class=\"sr-only\">Senha</label>\r\n          <input type=\"password\" id=\"inputPassword\" class=\"box form-control\" placeholder=\"Senha\" required>        \r\n          <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Entrar</button>\r\n          <a href=\"#\">Esqueci minha senha</a>\r\n        </form>\r\n      </div>\r\n  \r\n      </div> <!-- /container -->\r\n"
+module.exports = "\r\n    <app-header></app-header>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr>\r\n                <td>1,001</td>\r\n                <td>Lorem</td>\r\n                <td>ipsum</td>\r\n                <td>dolor</td>\r\n                <td>sit</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n"
 
 /***/ }),
 
@@ -376,7 +332,8 @@ module.exports = "<div class=\"container\">\r\n  \r\n      <div id=\"login-adm\"
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaginaAdmComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -387,22 +344,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var PaginaAdmComponent = (function () {
-    function PaginaAdmComponent() {
+    function PaginaAdmComponent(http) {
+        this.http = http;
     }
     PaginaAdmComponent.prototype.ngOnInit = function () {
+    };
+    PaginaAdmComponent.prototype.listaUsers = function () {
     };
     return PaginaAdmComponent;
 }());
 PaginaAdmComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
         selector: 'app-pagina-adm',
         template: __webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.html"),
         styles: [__webpack_require__("../../../../../src/app/pagina-adm/pagina-adm.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], PaginaAdmComponent);
 
+var _a;
 //# sourceMappingURL=pagina-adm.component.js.map
 
 /***/ }),
@@ -826,7 +788,7 @@ var PaginaLoginComponent = (function () {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(function (result) {
             if (result === true) {
-                _this.router.navigate(['/']);
+                _this.router.navigate(['/admin']);
             }
             else {
                 _this.error = 'E-mail ou senha está incorreto(a)';

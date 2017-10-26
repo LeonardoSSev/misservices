@@ -28,7 +28,7 @@ export class PaginaLoginComponent implements OnInit {
         this.authenticationService.login(this.model.email, this.model.password)
             .subscribe(result => {
                 if (result === true) {
-                    this.router.navigate(['/']);
+                    this.router.navigate(['/admin']);
                 } else {
                     this.error = 'E-mail ou senha está incorreto(a)';
                     this.loading = false;
