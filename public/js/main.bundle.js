@@ -310,7 +310,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#login-adm{\r\n    margin-top:150px;\r\n}\r\n\r\n.box{\r\n    margin-bottom: 10px;\r\n    margin-top: 5px;\r\n}", ""]);
+exports.push([module.i, "#admin{\r\n    margin-top: 150px;\r\n}\r\n\r\na{\r\n    font-size: 1.3em;\r\n}", ""]);
 
 // exports
 
@@ -323,7 +323,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-adm/pagina-adm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n    <app-header></app-header>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr>\r\n                <td>1,001</td>\r\n                <td>Lorem</td>\r\n                <td>ipsum</td>\r\n                <td>dolor</td>\r\n                <td>sit</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n"
+module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <nav class=\"col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar\">\r\n        <ul class=\"nav nav-pills flex-column\">\r\n          \r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Usuários</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Serviços</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Perfil Administrador</a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr>\r\n                <td>1,001</td>\r\n                <td>Lorem</td>\r\n                <td>ipsum</td>\r\n                <td>dolor</td>\r\n                <td>sit</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -352,6 +352,7 @@ var PaginaAdmComponent = (function () {
     PaginaAdmComponent.prototype.ngOnInit = function () {
     };
     PaginaAdmComponent.prototype.listaUsers = function () {
+        // this.http.get('');
     };
     return PaginaAdmComponent;
 }());

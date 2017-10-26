@@ -14,7 +14,7 @@ export class PaginaAdmComponent implements OnInit {
   }
 
   listaUsers(){
-    
+    // this.http.get('');
   }
 
 }
