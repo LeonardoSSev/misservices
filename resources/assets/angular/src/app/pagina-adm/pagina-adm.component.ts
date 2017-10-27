@@ -25,4 +25,10 @@ export class PaginaAdmComponent implements OnInit {
      .map(response => response.json());
   }
 
+  remover(id){
+    return this.http.get(`/api/admin/delete/{id}`)
+    .map(response => response.json())
+    .subscribe(data => id = data);
+  }
+
 }

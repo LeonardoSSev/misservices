@@ -33,7 +33,7 @@
                 <td>{{ user.nome }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.cpf }}</td>
-                
+                <td><a routerLink="editar">Editar</a> | <a routerLink="remover" (click)="remover({{ user.id }})">Remover</a></td>
               </tr>
             </tbody>
           </table>

@@ -323,7 +323,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/pagina-adm/pagina-adm.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <nav class=\"col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar\">\r\n        <ul class=\"nav nav-pills flex-column\">\r\n          \r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Usuários</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Serviços</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Perfil Administrador</a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let user of users\">\r\n                <td>{{ user.id }}</td>\r\n                <td>{{ user.nome }}</td>\r\n                <td>{{ user.email }}</td>\r\n                <td>{{ user.cpf }}</td>\r\n                \r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n  </div>\r\n</div>"
+module.exports = "<div id=\"admin\" class=\"container-fluid\">\r\n    <div class=\"row\">\r\n      <nav class=\"col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar\">\r\n        <ul class=\"nav nav-pills flex-column\">\r\n          \r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Usuários</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Serviços</a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link\" href=\"#\">Perfil Administrador</a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n    <main role=\"main\" class=\"col-sm-9 ml-sm-auto col-md-10 pt-3\">\r\n      <h2>Usuários</h2>\r\n        <div class=\"table-responsive\">\r\n          <table class=\"table table-striped\">\r\n            <thead>\r\n              <tr>\r\n                <th>Id</th>\r\n                <th>Nome</th>\r\n                <th>E-mail</th>\r\n                <th>CPF</th>\r\n                <th></th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let user of users\">\r\n                <td>{{ user.id }}</td>\r\n                <td>{{ user.nome }}</td>\r\n                <td>{{ user.email }}</td>\r\n                <td>{{ user.cpf }}</td>\r\n                <td><a routerLink=\"editar\">Editar</a> | <a routerLink=\"remover\" (click)=\"remover({{ user.id }})\">Remover</a></td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n    </main>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -363,6 +363,11 @@ var PaginaAdmComponent = (function () {
     PaginaAdmComponent.prototype.listaUsers = function () {
         return this.http.get('/api/admin')
             .map(function (response) { return response.json(); });
+    };
+    PaginaAdmComponent.prototype.remover = function (id) {
+        return this.http.get("/api/admin/delete/{id}")
+            .map(function (response) { return response.json(); })
+            .subscribe(function (data) { return id = data; });
     };
     return PaginaAdmComponent;
 }());
