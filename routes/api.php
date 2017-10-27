@@ -18,6 +18,9 @@ Route::get('auth/refresh', 'AuthenticationController@refresh_token');
 
 Route::post('/register', 'UserController@store');
 Route::get('/admin', 'UserController@index');
+Route::get('/admin/edit/{id}', 'UserController@update');
+Route::get('/admin/delete/{id}', 'UserController@destroy');
+
 
 Route::group(['middleware' => 'jwt.auth:api'], function(){
 	Route::get('/auth/teste', function(){
