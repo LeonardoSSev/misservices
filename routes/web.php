@@ -11,19 +11,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+
+
+Route::group([], function(){
+    Route::get('/', function () {
+        return view('index');
+    });
+    Route::get('/servicos', function () {
+        return view('servicos');
+    });
+    Route::get('/como-funciona', function () {
+        return view('como-funciona');
+    });
+    Route::get('/contato', function () {
+        return view('contato');
+    });
+    Route::get('/acesse', function () {
+        return view('acesse');
+    });
+    Route::get('/cadastro', function () {
+        return view('cadastro');
+    });
 });
 
-//Route::get('*', function(){
-//    return file_exists(public_path('js/index.html'));
-//});
-
-Route::any('{path?}', function() {
-    return view("index");
-})->where("path", ".+");
-//Route::post('/register', 'UserController@store');
-//Gambiarra monstruosa aqui
-Route::get('/acesso/admin', function(){ return view('index');});
 
 Route::resource('user', 'UserController');

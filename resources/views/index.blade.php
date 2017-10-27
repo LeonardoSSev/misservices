@@ -30,6 +30,7 @@
                    <li><a href="/como-funciona">Como Funciona</a></li>
                    <li><a href="/contato">Contato</a></li>
                    <li><a href="/acesse">Acesse</a></li>
+                   <li><a href="/cadastro">Cadastro</a></li>
                </ul>
            </nav>          
         </header>
@@ -41,7 +42,7 @@
                   à sua necessidade.</h3>
             </div>
             <div class="buttons">
-                <form action="/cadastrar" method="get">
+                <form action="/cadastro" method="get">
                   <button class="btn btn-cadastrar bg-white radius"> Cadastrar <i class="fa fa-arrow-circle-right"></i></button>
                 </form>
                 <form action ="/como-funciona" method="get">
