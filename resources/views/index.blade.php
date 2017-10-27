@@ -25,12 +25,11 @@
            <nav class="menu">
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
-                   <li><a href="#">Home</a></li>
-                   <li><a href="#">Clientes</a></li>
+                   <li><a href="#">Inicio</a></li>
                    <li><a href="#">Serviços</a></li>
-                   <li><a href="#">Blog</a></li>
-                   <li><a href="#">Quem somos</a></li>
+                   <li><a href="#">Como Funciona</a></li>
                    <li><a href="#">Contato</a></li>
+                   <li><a href="#">Acesse</a></li>
                </ul>
            </nav>          
         </header>
