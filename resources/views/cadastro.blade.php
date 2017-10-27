@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,85 +7,46 @@
 
         <title>MisServices</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
+    <div id="cadastro">
+        <h1>Cadastre-se</h1>
+            <form class="">
+                <input type="text" placeholder="Nome" class="" name="nome" id="nome" required>
+                    <div class="alert alert-danger">É necessário inserir seu nome</div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    MisServices
-                </div>
+                <input type="email" placeholder="E-mail" class="" name="email" id="email" required>
+                    <div class="alert alert-danger" >E-mail inválido</div>
 
-                <div class="links">
-                    <a href="https://gitlab.com/johnnatas/SrVicos" target="_blank">GitLab</a>
+                <input type="text" placeholder="CPF" class="" name="cpf" id="cpf" required>
+                    <div class="alert alert-danger" >CPF inválido</div>
+
+                <input type="text" placeholder="CEP" class="" name="cep" id="cep" required>
+                    <!--div class="alert alert-danger" *ngIf="!cep.valid && cep.touched">Selecione corretamente</div-->
+                <select name="uf" id="UF" class="" ngModel required>
+                    <option value="">Selecione o seu estado</option>
+                    <option value="ES">ES</option>
+                    <option value="MG">MG</option>
+                    <option value="SP">SP</option>
+                    <option value="RJ">RJ</option>
+                </select>
+                <input type="text" placeholder="Cidade" class="" name="cidade" id="cidade" ngModel required>
+                <input type="text" placeholder="Bairro" class="" name="bairro" id="bairro" ngModel required>
+                <input type="text" placeholder="Endereço" class="" name="endereco" id="endereco" ngModel required>
+                <input type="password" placeholder="Senha para seu perfil" class="" name="password" ngModel id="senha" required>
+                <!--input type="password" placeholder="Digite sua senha" class="" name="senha2" ngModel id="senha2"-->
+                <div class="">
+                    <label class="">
+                    <input type="checkbox" class="box form-check-input" ngModel name="idUserType" id="idUserType">
+                        Desejo ser um profissional
+                    </label>
                 </div>
-            </div>
+                <select name="servico" id="servico" class="" ngModel>
+                    <option value="1">Serviço 1</option>
+                    <option value="2">Serviço 2</option>
+                    <option value="3">Serviço 3</option>
+                </select>
+                <button class="">Cadastrar</button>
+            </form>
         </div>
     </body>
 </html>

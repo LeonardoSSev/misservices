@@ -20,16 +20,16 @@
 </head>
 <body>
 <header class="cabecalho container">
-           <a href="index.html"><h1 class="logo"> NodeProp - Especializada em Soluções Digitais </h1></a>
+           <a href="/"><h1 class="logo"> NodeProp - Especializada em Soluções Digitais </h1></a>
            <button class="btn-menu bg-gradient"><i class="fa fa-bars fa-lg"></i></button>
            <nav class="menu">
                <a class="btn-close"><i class="fa fa-times"></i></a>
                <ul>
-                   <li><a href="#">Inicio</a></li>
-                   <li><a href="#">Serviços</a></li>
-                   <li><a href="#">Como Funciona</a></li>
-                   <li><a href="#">Contato</a></li>
-                   <li><a href="#">Acesse</a></li>
+                   <li><a href="/">Inicio</a></li>
+                   <li><a href="/servicos">Serviços</a></li>
+                   <li><a href="/como-funciona">Como Funciona</a></li>
+                   <li><a href="/contato">Contato</a></li>
+                   <li><a href="/acesse">Acesse</a></li>
                </ul>
            </nav>          
         </header>
@@ -41,8 +41,12 @@
                   à sua necessidade.</h3>
             </div>
             <div class="buttons">
-                <button class="btn btn-cadastrar bg-white radius"> Cadastrar <i class="fa fa-arrow-circle-right"></i></button>
-                <button class="btn btn-sobre bg-black radius"> Sobre <i class="fa fa-question-circle"></i></button>
+                <form action="/cadastrar" method="get">
+                  <button class="btn btn-cadastrar bg-white radius"> Cadastrar <i class="fa fa-arrow-circle-right"></i></button>
+                </form>
+                <form action ="/como-funciona" method="get">
+                  <button class="btn btn-sobre bg-black radius"> Sobre <i class="fa fa-question-circle"></i></button>
+                </form>
             </div>
         </div>
         <!-- SERVICOS --> 
