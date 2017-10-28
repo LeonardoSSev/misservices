@@ -14,8 +14,10 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope){
         { sigla: "SP"},{ sigla: "SE"},{ sigla: "TO"}
     ];
     
-    $scope.cadastrar = function(cadastro){
-        $scope.cadastro.push(angular.copy(cadastro));
-        delete $scope.cadastro;
-    }
+    //função de cadastramento -- incompleta --
+    // $scope.cadastrar = function(cadastro){
+    //     $scope.cadastro.push(angular.copy(cadastro));
+    //     delete $scope.cadastro;
+    //     $scope.contatoForm.$setPristine();
+    // }
 });

@@ -2,19 +2,21 @@
 
 <div id="cadastro" class="container" ng-app="cadastro">
         <h1>Cadastre-se</h1>
-            <form ng-controller="CadastroCtrl">
+            <form name="cadastroForm" ng-controller="CadastroCtrl">
             
-                <input type="text" placeholder="Nome" class="box box-desk radius" name="nome" id="nome" ng-model="cadastro.nome" >
-                    <!-- <div class="alert alert-danger">É necessário inserir seu nome</div> -->
+                <input type="text" placeholder="Nome" class="box box-desk radius" name="nome" id="nome" ng-model="cadastro.nome" ng-required="true">
+                    <div ng-show="cadastroForm.nome.$invalid && cadastroForm.nome.$dirty" class="alert alert-danger radius">É necessário inserir seu nome</div> 
 
-                <input type="email" placeholder="E-mail" class="box box-desk radius" name="email" id="email" ng-model="cadastro.email" >
-                    <!-- <div class="alert alert-danger" >E-mail inválido</div> -->
+                <input type="email" placeholder="E-mail" class="box box-desk radius" name="email" id="email" ng-model="cadastro.email" ng-required="true">
+                    <div ng-show="cadastroForm.email.$invalid && cadastroForm.email.$dirty" class="alert alert-danger radius" >E-mail inválido</div>
 
-                <input type="text" placeholder="CPF" class="box box-desk radius" name="cpf" id="cpf" ng-model="cadastro.cpf" >
-                    <!-- <div class="alert alert-danger" >CPF inválido</div> -->
+                <input type="text" placeholder="CPF" class="box box-desk radius" name="cpf" id="cpf" ng-model="cadastro.cpf" ng-required="true">
+                    <div ng-show="cadastroForm.cpf.$invalid && cadastroForm.cpf.$dirty" class="alert alert-danger radius" >CPF inválido</div>
 
-                <input type="text" placeholder="CEP" class="box box-desk radius" name="cep" id="cep" ng-model="cadastro.cep" >
-                    <!--div class="alert alert-danger" *ngIf="!cep.valid && cep.touched">Selecione corretamente</div-->
+                <input type="text" placeholder="CEP" class="box box-desk radius" name="cep" id="cep" ng-model="cadastro.cep" 
+                ng-required="true"
+                ng-pattern="/^\d{5}-\d{3}$/">
+                    <div ng-show="cadastroForm.cep.$invalid && cadastroForm.cep.$dirty" class="alert alert-danger radius">Selecione corretamente</div>
                 <select name="uf" id="UF" class="box box-desk radius" ng-model="cadastro.uf" ng-options="estado.sigla for estado in estados">
                     <option value="">Selecione o seu estado</option>
                 </select>
@@ -33,7 +35,7 @@
                     <option value="2">Serviço 2</option>
                     <option value="3">Serviço 3</option>
                 </select>
-                <button class="btn btn-desk radius bg-white" ng-click="cadastrar(cadastro)" ng-disabled="true">Cadastrar</button>
+                <button class="btn btn-desk radius bg-white" ng-click="cadastrar(cadastro)" ng-disable="contatoForm.">Cadastrar</button>
                 
             </form>
         </div>
