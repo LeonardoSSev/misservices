@@ -1,9 +1,7 @@
-angular.module("cadastro", []);
-angular.module("cadastro").controller("CadastroCtrl", function($scope){
-    $scope.cadastro =[
-        {nome: "Jonatas", email: "jonatas@gmail.com", cpf:"44485312879", cep: "11340020", uf:"SP", 
-        cidade: "São Vicente", bairro: "Esplanada dos Barreiros", endereco: "Rua Caminho dos Barreiros", senha: "123"}
-    ];
+angular.module("cadastro", ['ngMask']);
+angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
+    
+    $scope.cadastro =[];
 
     //array estados
     $scope.estados = [
@@ -15,9 +13,13 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope){
     ];
     
     //função de cadastramento -- incompleta --
-    // $scope.cadastrar = function(cadastro){
-    //     $scope.cadastro.push(angular.copy(cadastro));
-    //     delete $scope.cadastro;
-    //     $scope.contatoForm.$setPristine();
-    // }
+    $scope.cadastrar = function(cadastro){
+        $http.post("http://localhost:8000/user", JSON.stringify(cadastro));
+    };
+
+    $scope.checagem = false;
+    $scope.isCheck = function(){
+        $scope.checagem = !$scope.checagem;
+        return $scope.checagem;
+    };
 });

@@ -25,7 +25,7 @@
 <script src="js/jquery.min.js"></script>
 <script src="js/angular.min.js"></script>
 <script src="js/app.js"></script>
-        
+<script src="js/ngMask.min.js"></script>
         
         <!-- JQUERY -->
 <script>

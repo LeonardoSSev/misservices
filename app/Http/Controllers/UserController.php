@@ -147,7 +147,7 @@ class UserController extends Controller
                 return response("Erro ao atualizar informações.", 200);
             }
 
-        return response()
+        return response();
         } catch (Exception $ex){
             return response([
                 "error" => true,
