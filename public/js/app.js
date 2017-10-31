@@ -14,7 +14,7 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
     
     //função de cadastramento -- incompleta --
     $scope.cadastrar = function(cadastro){
-        $http.post("http://localhost:8000/user", JSON.stringify(cadastro));
+        $http.post("http://localhost:8000/api/register", cadastro);
     };
 
     $scope.checagem = false;
