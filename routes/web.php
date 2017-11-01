@@ -32,6 +32,9 @@ Route::group([], function(){
     Route::get('/cadastro', function () {
         return view('cadastro');
     });
+    Route::get('/admin', function () {
+        return view('admin');
+    });
 });
 
 

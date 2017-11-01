@@ -31,9 +31,11 @@
 <script>
     $(".btn-menu").click(function(){
       $(".menu").show();
+      $(".menu-admin").show();
     });
     $(".btn-close").click(function(){
       $(".menu").hide();
+      $(".menu-admin").hide();
     });
 </script>
 

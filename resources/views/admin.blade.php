@@ -1,4 +1,3 @@
 @extends('template.temp')
-@include('template.header')
-
+    @include('sections.admin.crud')
 @include('template.footer')

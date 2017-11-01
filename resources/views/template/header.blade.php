@@ -1,5 +1,5 @@
 <header class="cabecalho container">
-           <a href="/"><h1 class="logo"> NodeProp - Especializada em Soluções Digitais </h1></a>
+           <a href="/"><h1 class="logo">MisServices </h1></a>
            <button class="btn-menu bg-gradient"><i class="fa fa-bars fa-lg"></i></button>
            <nav class="menu">
                <a class="btn-close"><i class="fa fa-times"></i></a>
