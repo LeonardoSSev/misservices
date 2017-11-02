@@ -21,12 +21,14 @@
                 ng-required="true"
                 >
                     <div ng-if="cadastroForm.cep.$invalid && cadastroForm.cep.$dirty" class="alert alert-danger radius">Selecione corretamente</div>
-                <select name="uf" id="UF" class="box box-desk radius" ng-model="cadastro.uf" ng-options="estado.sigla for estado in estados">
+                <!-- <select name="uf" id="UF" class="box box-desk radius" ng-model="cadastro.uf" > 
+                <!-- ng-options="estado.sigla for estado in estados" 
                     <option value="">Selecione o seu estado</option>
-                </select>
+                </select> -->
+                <input type="text" placeholder="UF" class="box box-desk radius" name="uf" id="uf" ng-model="cadastro.uf" >
                 <input type="text" placeholder="Cidade" class="box box-desk radius" name="cidade" id="cidade" ng-model="cadastro.cidade" >
                 <input type="text" placeholder="Bairro" class="box box-desk radius" name="bairro" id="bairro" ng-model="cadastro.bairro" >
-                <input type="text" placeholder="Endereço" class="box box-desk radius" name="endereco" id="endereco" ng-model="cadastro.enderco" >
+                <input type="text" placeholder="Endereço" class="box box-desk radius" name="endereco" id="endereco" ng-model="cadastro.endereco" >
                 <input type="password" placeholder="Senha para seu perfil" class="box box-desk radius" name="password" ng-model="cadastro.password" id="senha" >
                 <!--input type="password" placeholder="Digite sua senha" class="" name="senha2" nModel id="senha2"-->
                 <div class="">

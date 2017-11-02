@@ -1,7 +1,25 @@
-angular.module("cadastro", ['ngMask']);
+angular.module("cadastro", []);
 angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
+    // $http.defaults.headers.post["Content-type"] = "application/x-www-form-urlencoded";
+    $scope.cadastro = {};
     
-    $scope.cadastro =[];
+    //função de cadastramento
+    $scope.cadastrar = function(cadastro){
+        $http.post("http://localhost:8000/api/register", {data: cadastro}).then(function onSuccess(result){
+            console.log(result);
+            console.log("success: " + cadastro); //confirmação da passagem dos dados
+        })
+        .catch(function onError(er){
+            console.log(er);
+            console.log("error: " + cadastro); //verficação de dados no array
+        })
+    };
+
+    $scope.checagem = false;
+    $scope.isCheck = function(){
+        $scope.checagem = !$scope.checagem;
+        return $scope.checagem;
+    };
 
     //array estados
     $scope.estados = [
@@ -11,19 +29,6 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
         { sigla: "RJ"},{ sigla: "RN"},{ sigla: "RS"},{ sigla: "RO"},{ sigla: "RR"},{ sigla: "SC"},
         { sigla: "SP"},{ sigla: "SE"},{ sigla: "TO"}
     ];
-    
-    //função de cadastramento -- incompleta --
-    $scope.cadastrar = function(cadastro){
-        $http.post("http://localhost/api/register", cadastro).then( function (result){
-            console.log(result);
-        });
-    };
-
-    $scope.checagem = false;
-    $scope.isCheck = function(){
-        $scope.checagem = !$scope.checagem;
-        return $scope.checagem;
-    };
 });
 
 angular.module("crudAdmin", []);
@@ -34,8 +39,13 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
     ];
 
     var listarUsuarios = function(){
-        $http.get("http://localhost:8000/api/admin").success(function(data){
+        $http.get("/api/admin").then(function(data){
             $scope.users = data;
+            console.log(data);
+        })
+        .catch(function onError(err){
+            console.log(err)
         });
     };
+    listarUsuarios();
 });

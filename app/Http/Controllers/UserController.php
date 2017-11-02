@@ -61,14 +61,16 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try{
+            
             $user = new User();
             $user = $request->except('servico');
             $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
             $user['password'] = bcrypt($user['password']);
             $insert = User::create($user);
-
+            
             if($insert){
                 return response($user, 200);
+                // return view('index');
             }else{
                 return response("Erro ao cadastrar", 200);
             }
