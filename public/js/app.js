@@ -40,12 +40,13 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
 
     var listarUsuarios = function(){
         $http.get("/api/admin").then(function(data){
-            $scope.users = data;
+            $scope.users = data.data;
             console.log(data);
         })
         .catch(function onError(err){
             console.log(err)
         });
     };
+    
     listarUsuarios();
 });

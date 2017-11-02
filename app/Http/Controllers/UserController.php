@@ -66,6 +66,7 @@ class UserController extends Controller
             $user = $request->except('servico');
             $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
             $user['password'] = bcrypt($user['password']);
+            dd($user);
             $insert = User::create($user);
             
             if($insert){
