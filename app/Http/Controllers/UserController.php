@@ -136,13 +136,12 @@ class UserController extends Controller
     {
         try{
 
-        $user = new User();
-        $user = $request->except('servico');
-        $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
-        $user['password'] = bcrypt($user['password']);
-        $oldUser = User::find($id);
+        $service = new Service();
+        $service = $request->all();
+        
+        $oldService = Service::find($id);
 
-        $update = $oldUser->update($user);
+        $update = $oldService->update($user);
 
         if($update){
                 return response($user, 200);
