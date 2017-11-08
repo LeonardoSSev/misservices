@@ -21,8 +21,8 @@ class AuthenticationController extends Controller
             return response(trans('auth.could_not_create_token'),500);
         }
 
-        return response(compact('user', 'token'),200);
-        return view('userlogado');
+        //return response(compact('user', 'token'),200);
+        return redirect('/user/');
     }
 
     public function refresh_token(Request $request)

@@ -12,6 +12,7 @@ class UserController extends Controller
     public function __construct(){
         if(JWTAuth::getToken()){
             $this->user = JWTAuth::parseToken()->authenticate();
+            print_r($this->user);
         } else{
             $this->user = null;
         }
@@ -25,7 +26,11 @@ class UserController extends Controller
     public function index()
     {
         try{
-            return response(User::all(), 200);
+            $user = $this->user;
+            $nome = $user['nome'];
+
+            //dd($user);
+            return view('user.index', compact($nome));
         } catch (Exception $ex){
             return response([
                 "error" => true,
@@ -69,7 +74,6 @@ class UserController extends Controller
             $insert = User::create($user);
             
             if($insert){
-                
                 return view('acesse');
             }else{
                 return response("Erro ao cadastrar", 200);

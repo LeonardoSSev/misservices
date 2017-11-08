@@ -36,9 +36,9 @@ Route::group([], function(){
         return view('admin');
     });
 });
+Route::get('/user/', 'UserController@index');
 
-
-Route::resource('user', 'UserController');
+Route::resource('/user/', 'UserController');
 
 Route::group([], function(){
     Route::get('/admin/edit', function(){
