@@ -1,6 +1,6 @@
 @extends('template.temp')
 @include('sections.admin.menu-admin')
-<div class="edit-admin">
+<div class="edit-admin" ng-app="crudAdmin">
     <form name="editUserForm" ng-controller="EditUserCtrl">
     
         <input type="text" placeholder="Nome" class="box box-desk radius" name="nome" id="nome" ng-model="cadastro.nome" ng-required="true">
@@ -40,7 +40,7 @@
             <option value="2">Serviço 2</option>
             <option value="3">Serviço 3</option>
         </select>
-        <button class="btn btn-desk radius bg-white" ng-click="cadastrar(cadastro)" ng-disable="contatoForm.">Cadastrar</button>
+        <button class="btn btn-desk radius bg-white" >Atualizar</button>
         
     </form>
 </div>

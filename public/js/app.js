@@ -49,6 +49,10 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
     listarUsuarios();
 });
 
+angular.module("crudAdmin").controller("EditUserCtrl", function($scope, $http){
+    
+});
+
 angular.module("crudAdmin").config(function($routeProvider){
     $routeProvider.when("/create",{
         templateUrl: "../templates/admin/create.php",

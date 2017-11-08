@@ -14,7 +14,10 @@
                 <td>@{{ user.id }}</td>
                 <td>@{{ user.nome }}</td>
                 <td>@{{ user.email }}</td>
-                <td><a href="/admin/edit"><i class="fa fa-lg fa-pencil"></i></a> <a href=""><i class="fa fa-lg fa-times"></i></td></a>
+                <td>
+                    <a href="/admin/edit/@{{ user.id }}"><i class="fa fa-lg fa-pencil"></i></a> 
+                    <a href="/admin/destroy/@{{ user.id }}"><i class="fa fa-lg fa-times"></i></a>
+                </td>
             </tr>
         </table>
     </main>

@@ -12,7 +12,6 @@ class AuthenticationController extends Controller
      public function check_login(Request $request)
     {
     	$credentials = $request->only('email', 'password');
-    	//dd($credentials);
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response(trans('auth.failed'),401);
@@ -23,6 +22,7 @@ class AuthenticationController extends Controller
 
         //return response(compact('user', 'token'),200);
         return redirect('/user/');
+
     }
 
     public function refresh_token(Request $request)
