@@ -81,6 +81,9 @@
     .table td .fa-pencil:hover{ color: rgb(255, 238, 2);}
     .table td .fa-times:hover{ color: rgb(185, 2, 2);}
 
+    /* ADMIN/EDIT */
+    .edit-admin{margin-left: 40%;}
+
     /* ========== MOBILE FIRST ==========*/
     /* SMALL DEVICES - SMARTPHONES */
     @media screen and (min-width: 480px) {

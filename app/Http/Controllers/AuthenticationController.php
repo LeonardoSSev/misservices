@@ -21,7 +21,7 @@ class AuthenticationController extends Controller
             return response(trans('auth.could_not_create_token'),500);
         }
 
-        return response(compact('user', 'token'),200);
+        // return response(compact('user', 'token'),200);
         return view('userlogado');
     }
 
