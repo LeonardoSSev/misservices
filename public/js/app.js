@@ -34,9 +34,7 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
 angular.module("crudAdmin", []);
 angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
 
-    $scope.users = [
-        // {nome: "John", email: "jonatas_lopes@outlook.com", cpf: "44485312879"}
-    ];
+    $scope.users = [];
 
     var listarUsuarios = function(){
         $http.get("/api/admin").then(function(data){
