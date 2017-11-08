@@ -1,7 +1,7 @@
 <!-- MENU ADMIN-->
 <div ng-app="crudAdmin">
         @include('sections.admin.menu-admin')
-    <main class="painel container">
+    <main class="painel container" ng-controller="CrudCtrl">
         <h1>Painel de Administração</h1>
         <input type="text" class="box box-desk radius" ng-model="busca" placeholder="Pesquise um usuário..." name="pesquisar" ng-model="user.pesquisar">
         <div ng-view></div>
@@ -14,7 +14,7 @@
                 <td>@{{ user.id }}</td>
                 <td>@{{ user.nome }}</td>
                 <td>@{{ user.email }}</td>
-                <td><a href="#/create"><i class="fa fa-lg fa-pencil"></i></a> <a href=""><i class="fa fa-lg fa-times"></i></td></a>
+                <td><a href="/admin/edit"><i class="fa fa-lg fa-pencil"></i></a> <a href=""><i class="fa fa-lg fa-times"></i></td></a>
             </tr>
         </table>
     </main>

@@ -1,3 +1,5 @@
+@extends('template.temp')
+@include('sections.admin.menu-admin')
 <div class="edit-admin">
     <form name="editUserForm" ng-controller="EditUserCtrl">
     

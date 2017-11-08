@@ -39,3 +39,9 @@ Route::group([], function(){
 
 
 Route::resource('user', 'UserController');
+
+Route::group([], function(){
+    Route::get('/admin/edit', function(){
+        return view('sections.admin.edit');
+    });
+});

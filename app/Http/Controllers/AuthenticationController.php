@@ -22,6 +22,7 @@ class AuthenticationController extends Controller
         }
 
         return response(compact('user', 'token'),200);
+        return view('userlogado');
     }
 
     public function refresh_token(Request $request)

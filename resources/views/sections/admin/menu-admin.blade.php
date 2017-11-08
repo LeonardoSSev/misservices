@@ -4,10 +4,10 @@
     <nav class="menu-admin">
         <a class="btn-close"><i class="fa fa-times"></i></a>
         <ul>
-            <li><a href="">Usuários</a></li>
-            <li><a href="">Serviços</a></li>
-            <li><a href="">Configurações</a></li>
-            <li><a href="">Sair</a></li>
+            <li><a href="/admin">Usuários</a></li>
+            <li><a href="/admin/servicos">Serviços</a></li>
+            <li><a href="/admin/config">Configurações</a></li>
+            <li><a href="/api/auth/logout">Sair</a></li>
         </ul>
     </nav>
 </header>
