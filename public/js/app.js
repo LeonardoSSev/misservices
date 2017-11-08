@@ -31,7 +31,7 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
     ];
 });
 
-angular.module("crudAdmin", []);
+angular.module("crudAdmin", ["ngRoute"]);
 angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
 
     $scope.users = [];
@@ -47,4 +47,11 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
     };
     
     listarUsuarios();
+});
+
+angular.module("crudAdmin").config(function($routeProvider){
+    $routeProvider.when("/create",{
+        templateUrl: "../templates/admin/create.php",
+        controller: "CrudCtrl"
+    });
 });
