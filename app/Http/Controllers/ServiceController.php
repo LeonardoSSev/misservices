@@ -3,20 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
-class UserController extends Controller
+class ServiceController extends Controller
 {
-
-    public function __construct(){
-        if(JWTAuth::getToken()){
-            $this->user = JWTAuth::parseToken()->authenticate();
-        } else{
-            $this->user = null;
-        }
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -24,32 +13,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        try{
-            return response(User::all(), 200);
-        } catch (Exception $ex){
-            return response([
-                "error" => true,
-                "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
-        }
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
-        try{
-            return response('Create', 200);
-        } catch (Exception $ex){
-            return response([
-                "error" => true,
-                "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
-        }
+        //
     }
 
     /**
@@ -60,14 +34,12 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        try{
+       try{
             
-            $user = new User();
-            $user = $request->except('servico');
-            $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
-            $user['password'] = bcrypt($user['password']);
-            dd($user);
-            $insert = User::create($user);
+            $service = new Service();
+            $service = $request->all();
+            
+            $insert = User::create($service);
             
             if($insert){
                 return response($user, 200);
@@ -92,18 +64,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-         try{
-            
-            //return User::find($id)->phone;
-
-
-             return response('Show', 200);
-        } catch (Exception $ex){
-            return response([
-                "error" => true,
-                "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
-        }
+        //
     }
 
     /**
@@ -114,15 +75,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        try{
-            
-            return response('Edit', 200);
-        } catch (Exception $ex){
-            return response([
-                "error" => true,
-                "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
-        }
+        //
     }
 
     /**
@@ -134,14 +87,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{
+       try{
 
         $service = new Service();
-        $service = $request->all();
-        
-        $oldService = Service::find($id);
+        $service = $request->except('servico');
+        $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
+        $user['password'] = bcrypt($user['password']);
+        $oldUser = User::find($id);
 
-        $update = $oldService->update($user);
+        $update = $oldUser->update($user);
 
         if($update){
                 return response($user, 200);
@@ -167,7 +121,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         try{
-            User::query()->find($id)->delete();
+            Service::query()->find($id)->delete();
             return response('Destroy', 200);
         } catch (Exception $ex){
             return response([
