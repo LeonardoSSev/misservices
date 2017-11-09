@@ -36,7 +36,8 @@ Route::group([], function(){
         return view('admin');
     });
 });
-Route::get('/user/', 'UserController@index');
+Route::get('user/{idTipo}', 'UserController@cliente');
+
 
 Route::resource('/user/', 'UserController');
 
