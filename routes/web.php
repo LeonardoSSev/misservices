@@ -41,7 +41,7 @@ Route::get('/user/', 'UserController@index');
 Route::resource('/user/', 'UserController');
 
 Route::group([], function(){
-    Route::get('/admin/edit', function(){
-        return view('sections.admin.edit');
+    Route::get('/admin/edit/{id}', function($id){
+        return view('sections.admin.edit', compact('id'));
     });
 });

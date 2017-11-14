@@ -51,6 +51,18 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
 
 angular.module("crudAdmin").controller("EditUserCtrl", function($scope, $http){
     
+    // var $id = document.getElementsByClassName("id")[0].getAttribute('value');
+    // console.log($id);
+
+    var id = 73;
+    var listUser = function(id){
+        console.log(id);
+        $http.get("/api/admin/edit/" + id ).then(function(data){
+            $scope.user = data.data;
+        });
+    }
+
+    listUser();
 });
 
 angular.module("crudAdmin").config(function($routeProvider){

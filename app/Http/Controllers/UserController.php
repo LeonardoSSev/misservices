@@ -97,10 +97,8 @@ class UserController extends Controller
     {
          try{
             
-            //return User::find($id)->phone;
+            return User::find($id);
 
-
-             return response('Show', 200);
         } catch (Exception $ex){
             return response([
                 "error" => true,

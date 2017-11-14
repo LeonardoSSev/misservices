@@ -18,7 +18,7 @@ Route::get('auth/refresh', 'AuthenticationController@refresh_token');
 
 Route::post('/register', 'UserController@store');
 Route::get('/admin', 'UserController@index');
-Route::get('/admin/edit/{id}', 'UserController@update');
+Route::get('/admin/edit/{id}', 'UserController@show');
 Route::get('/admin/delete/{id}', 'UserController@destroy');
 
 

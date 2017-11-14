@@ -3,7 +3,8 @@
         @include('sections.admin.menu-admin')
     <main class="painel container" ng-controller="CrudCtrl">
         <h1>Painel de Administração</h1>
-        <input type="text" class="box box-desk radius" ng-model="busca" placeholder="Pesquise um usuário..." name="pesquisar" ng-model="user.pesquisar">
+        <input type="text" class="box box-desk radius" ng-model="busca" placeholder="Pesquise um usuário..." 
+            name="pesquisar" ng-model="user.pesquisar">
         <div ng-view></div>
         <table class="table">            
             <th>ID</th>
