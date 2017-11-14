@@ -13,7 +13,7 @@ class UserController extends Controller
         if(JWTAuth::getToken()){
             $this->user = JWTAuth::parseToken()->authenticate();
             print_r($this->user);
-        } else{
+        } else {
             $this->user = null;
         }
 
@@ -23,14 +23,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function cliente($idTipo){
+
+        if($idTipo == 2){
+            return view('user/index');
+        }
+
+
+
+    }
+
+    public static function index()
     {
         try{
-            $user = $this->user;
-            $nome = $user['nome'];
-
-            //dd($user);
-            return view('user.index', compact($nome));
+            return response(User::all(), 200);
         } catch (Exception $ex){
             return response([
                 "error" => true,
@@ -175,6 +181,22 @@ class UserController extends Controller
                 "error" => true,
                 "mensagem" => "Erro: ".$ex->getMessage()
                 ], 500);
+        }
+    }
+
+    public static function getAclByEmail($email){
+        try{
+            //echo $email;
+            $id = 1;
+            $user = User::where('email', $email)->first();
+
+            //echo $user['idUserType'];
+            return $user['idUserType'];
+        } catch(Exception $ex){
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+            ], 500);
         }
     }
 }

@@ -1,5 +1,6 @@
 @extends('template.temp')
 @include('template.header')
+{{$erro or ''}}
 <div class="login container">
     <form method="post" action="/api/auth/login">
         <input type="text" placeholder="Username" name="email" class="box box-desk radius" >

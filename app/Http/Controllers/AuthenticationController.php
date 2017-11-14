@@ -14,14 +14,24 @@ class AuthenticationController extends Controller
     	$credentials = $request->only('email', 'password');
         try {
             if (!$token = JWTAuth::attempt($credentials)) {
-                return response(trans('auth.failed'),401);
+                //return response(trans('auth.failed'),401);
+                $erro = "Dados incorretos";
+                return view('acesse', compact('erro'));
             }
         } catch (JWTException $e) {
             return response(trans('auth.could_not_create_token'),500);
         }
 
-        //return response(compact('user', 'token'),200);
-        return redirect('/user/');
+
+        $usuarioTipo = UserController::getAclByEmail($request->get('email'));
+
+        if($usuarioTipo == 1){
+            return redirect('admin');
+        }else if($usuarioTipo == 2){
+            return redirect('user/'.$usuarioTipo);
+        }
+
+
 
     }
 
