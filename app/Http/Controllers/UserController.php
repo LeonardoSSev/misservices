@@ -103,7 +103,8 @@ class UserController extends Controller
     {
          try{
             
-            return User::find($id);
+            $result = User::find($id);
+            return view('sections.admin.edit', compact('result'));
 
         } catch (Exception $ex){
             return response([
@@ -120,9 +121,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
         try{
-            
             return response('Edit', 200);
         } catch (Exception $ex){
             return response([
@@ -174,8 +174,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         try{
-            User::query()->find($id)->delete();
-            return response('Destroy', 200);
+            $usuario = User::find($id);
+            $usuario->delete();
+            return redirect('/admin');
         } catch (Exception $ex){
             return response([
                 "error" => true,

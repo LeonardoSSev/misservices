@@ -42,7 +42,10 @@ Route::get('user/{idTipo}', 'UserController@cliente');
 Route::resource('/user/', 'UserController');
 
 Route::group([], function(){
-    Route::get('/admin/edit/{id}', function($id){
-        return view('sections.admin.edit', compact('id'));
+    Route::get('/admin/edit/{id}', 'UserController@show');
+    Route::put('/admin/update/{id}', 'UserController@edit');
+    Route::get('/admin/destroy/{id}', 'UserController@destroy');
+    Route::get('/admin/confirm/{id}', function($id){
+        return view('sections.admin.confirm', compact('id'));
     });
 });
