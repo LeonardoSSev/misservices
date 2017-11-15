@@ -31,12 +31,10 @@ angular.module("cadastro").controller("CadastroCtrl", function($scope, $http){
     ];
 });
 
-angular.module("crudAdmin", []);
+angular.module("crudAdmin", ["ngRoute"]);
 angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
 
-    $scope.users = [
-        // {nome: "John", email: "jonatas_lopes@outlook.com", cpf: "44485312879"}
-    ];
+    $scope.users = [];
 
     var listarUsuarios = function(){
         $http.get("/api/admin").then(function(data){
@@ -49,4 +47,27 @@ angular.module("crudAdmin").controller("CrudCtrl", function($scope, $http){
     };
     
     listarUsuarios();
+});
+
+angular.module("crudAdmin").controller("EditUserCtrl", function($scope, $http){
+    
+    // var $id = document.getElementsByClassName("id")[0].getAttribute('value');
+    // console.log($id);
+
+    var id = 73;
+    var listUser = function(id){
+        console.log(id);
+        $http.get("/api/admin/edit/" + id ).then(function(data){
+            $scope.user = data.data;
+        });
+    }
+
+    listUser();
+});
+
+angular.module("crudAdmin").config(function($routeProvider){
+    $routeProvider.when("/create",{
+        templateUrl: "../templates/admin/create.php",
+        controller: "CrudCtrl"
+    });
 });

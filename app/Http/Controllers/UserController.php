@@ -12,7 +12,8 @@ class UserController extends Controller
     public function __construct(){
         if(JWTAuth::getToken()){
             $this->user = JWTAuth::parseToken()->authenticate();
-        } else{
+            print_r($this->user);
+        } else {
             $this->user = null;
         }
 
@@ -22,7 +23,17 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function cliente($idTipo){
+
+        if($idTipo == 2){
+            return view('user/index');
+        }
+
+
+
+    }
+
+    public static function index()
     {
         try{
             return response(User::all(), 200);
@@ -66,12 +77,10 @@ class UserController extends Controller
             $user = $request->except('servico');
             $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
             $user['password'] = bcrypt($user['password']);
-            dd($user);
             $insert = User::create($user);
             
             if($insert){
-                return response($user, 200);
-                // return view('index');
+                return view('acesse');
             }else{
                 return response("Erro ao cadastrar", 200);
             }
@@ -94,10 +103,9 @@ class UserController extends Controller
     {
          try{
             
-            //return User::find($id)->phone;
+            $result = User::find($id);
+            return view('sections.admin.edit', compact('result'));
 
-
-             return response('Show', 200);
         } catch (Exception $ex){
             return response([
                 "error" => true,
@@ -113,9 +121,8 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {   
         try{
-            
             return response('Edit', 200);
         } catch (Exception $ex){
             return response([
@@ -167,13 +174,30 @@ class UserController extends Controller
     public function destroy($id)
     {
         try{
-            User::query()->find($id)->delete();
-            return response('Destroy', 200);
+            $usuario = User::find($id);
+            $usuario->delete();
+            return redirect('/admin');
         } catch (Exception $ex){
             return response([
                 "error" => true,
                 "mensagem" => "Erro: ".$ex->getMessage()
                 ], 500);
+        }
+    }
+
+    public static function getAclByEmail($email){
+        try{
+            //echo $email;
+            $id = 1;
+            $user = User::where('email', $email)->first();
+
+            //echo $user['idUserType'];
+            return $user['idUserType'];
+        } catch(Exception $ex){
+            return response([
+                "error" => true,
+                "mensagem" => "Erro: ".$ex->getMessage()
+            ], 500);
         }
     }
 }

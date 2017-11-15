@@ -22,22 +22,12 @@
 
         @yield('content')
 
-<script src="js/jquery.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/app.js"></script>
-<script src="js/ngMask.min.js"></script>
-        
-        <!-- JQUERY -->
-<script>
-    $(".btn-menu").click(function(){
-      $(".menu").show();
-      $(".menu-admin").show();
-    });
-    $(".btn-close").click(function(){
-      $(".menu").hide();
-      $(".menu-admin").hide();
-    });
-</script>
 
+<script src="js/angular.min.js"></script>
+<script src="js/ngMask.min.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/script.js"></script>
     </body>
 </html>
