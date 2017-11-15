@@ -35,14 +35,12 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
        try{
-            
-            $service = new Service();
             $service = $request->all();
             
-            $insert = User::create($service);
+            $insert = Service::create($service);
             
             if($insert){
-                return response($user, 200);
+                return redirect('admin');
                 // return view('index');
             }else{
                 return response("Erro ao cadastrar", 200);
@@ -89,19 +87,13 @@ class ServiceController extends Controller
     {
        try{
 
-        $service = new Service();
-        $service = $request->except('servico');
-        $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
-        $user['password'] = bcrypt($user['password']);
-        $oldUser = User::find($id);
+        $oldService = Service::find($id);
 
-        $update = $oldUser->update($user);
+        $update = $oldService->update($request->all());
 
         if($update){
-                return response($user, 200);
-            }else{
-                return response("Erro ao atualizar informações.", 200);
-            }
+                return redirect('/admin');
+        }
 
         return response();
         } catch (Exception $ex){
@@ -122,7 +114,7 @@ class ServiceController extends Controller
     {
         try{
             Service::query()->find($id)->delete();
-            return response('Destroy', 200);
+            return redirect('/admin');
         } catch (Exception $ex){
             return response([
                 "error" => true,

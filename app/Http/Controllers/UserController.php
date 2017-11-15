@@ -72,8 +72,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try{
-            
-            $user = new User();
             $user = $request->except('servico');
             $user['idUserType'] = (isset($user['idUserType']) == '' ) ? 2 : 3;
             $user['password'] = bcrypt($user['password']);
