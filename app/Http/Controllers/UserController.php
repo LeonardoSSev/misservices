@@ -141,28 +141,27 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try{
+        try {
+            $user = $request->except(['telefone', 'servico']);
 
-        $service = new Service();
-        $service = $request->all();
-        
-        $oldService = Service::find($id);
+            $oldUser = User::find($id);
 
-        $update = $oldService->update($user);
+            $update = $oldUser->update($user);
 
-        if($update){
-                return response($user, 200);
-            }else{
+            if ($update) {
+                return redirect('/admin');
+            } else {
                 return response("Erro ao atualizar informações.", 200);
             }
-
-        return response();
-        } catch (Exception $ex){
+        }catch(Exception $ex){
             return response([
                 "error" => true,
                 "mensagem" => "Erro: ".$ex->getMessage()
-                ], 500);
+            ], 500);
         }
+
+
+
     }
 
     /**

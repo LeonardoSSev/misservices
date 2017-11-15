@@ -2,7 +2,7 @@
 @include('sections.admin.menu-admin')
 <div class="edit-admin" ng-app="crudAdmin">
 
-    <form name="editUserForm" ng-controller="EditUserCtrl" action="/admin/update/{{ $result->id }}">
+    <form name="editUserForm" ng-controller="EditUserCtrl" method="post" action="/admin/update/{{ $result->id }}">
         <input type="text" placeholder="Nome" value="{{ $result->nome }}" class="box box-desk radius" name="nome" id="nome"  ng-required="true">
             <div ng-if="editUserForm.nome.$invalid && editUserForm.nome.$dirty" class="alert alert-danger radius">É necessário inserir seu nome</div> 
 

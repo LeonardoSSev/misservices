@@ -43,7 +43,7 @@ Route::resource('/user/', 'UserController');
 
 Route::group([], function(){
     Route::get('/admin/edit/{id}', 'UserController@show');
-    Route::put('/admin/update/{id}', 'UserController@edit');
+    Route::post('/admin/update/{id}', 'UserController@update');
     Route::get('/admin/destroy/{id}', 'UserController@destroy');
     Route::get('/admin/confirm/{id}', function($id){
         return view('sections.admin.confirm', compact('id'));
