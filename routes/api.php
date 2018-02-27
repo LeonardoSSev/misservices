@@ -13,35 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::post('auth/login', 'AuthenticationController@check_login');
-Route::get('auth/refresh', 'AuthenticationController@refresh_token');
-
-Route::post('/register', 'UserController@store');
-Route::get('/admin', 'UserController@index');
-Route::get('/admin/edit/{id}', 'UserController@show');
-Route::get('/admin/delete/{id}', 'UserController@destroy');
-
-
-Route::group(['middleware' => 'jwt.auth:api'], function(){
-	Route::get('/auth/teste', function(){
-		$user = JWTAuth::parseToken()->authenticate();
-		return [
-			'teste' => 'testado', 
-			'dsad'  => $user
-		];
-	});
-	Route::group(['prefix' => 'users'], function(){
-		Route::get('/', 'UserController@index');
-	});
-
-});
-
-
-
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});*/
-
-
-
-
+});

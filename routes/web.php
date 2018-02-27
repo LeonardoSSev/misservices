@@ -13,39 +13,58 @@
 
 
 
-Route::group([], function(){
-    Route::get('/', function () {
-        return view('index');
-    });
-    Route::get('/servicos', function () {
-        return view('servicos');
-    });
-    Route::get('/como-funciona', function () {
-        return view('como-funciona');
-    });
-    Route::get('/contato', function () {
-        return view('contato');
-    });
-    Route::get('/acesse', function () {
-        return view('acesse');
-    });
-    Route::get('/cadastro', function () {
-        return view('cadastro');
-    });
-    Route::get('/admin', function () {
-        return view('admin');
-    });
-});
-Route::get('user/{idTipo}', 'UserController@cliente');
+Auth::routes();
 
+Route::get('/roles-permission', 'Portal\SiteController@rolesPermissions');
 
-Route::resource('/user/', 'UserController');
+Route::get('/', 'Portal\SiteController@index')->name('index');
+Route::get('/contact', 'Portal\SiteController@contact');
+Route::get('/how', 'Portal\SiteController@howItWork');
 
-Route::group([], function(){
-    Route::get('/admin/edit/{id}', 'UserController@show');
-    Route::post('/admin/update/{id}', 'UserController@update');
-    Route::get('/admin/destroy/{id}', 'UserController@destroy');
-    Route::get('/admin/confirm/{id}', function($id){
-        return view('sections.admin.confirm', compact('id'));
-    });
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('/', 'Portal\SiteController@admin');
+
+    Route::get('users/', 'Painel\UserController@index');
+    Route::get('user/create/', 'Painel\UserController@createUser');
+    Route::post('user/store/', 'Painel\UserController@storeUser');
+    Route::get('user/roles/{id}', 'Painel\UserController@rolesUser');
+    Route::get('user/edit/{id}', 'Painel\UserController@editUser');
+    Route::get('user/update/{id}', 'Painel\UserController@updateUser');
+    Route::get('user/delete/{id}', 'Painel\UserController@deleteUser');
+    Route::get('user/view/{id}', 'Painel\UserController@viewUser');
+
+    Route::get('services/', 'Painel\ServiceController@index');
+    Route::get('service/create/', 'Painel\ServiceController@createService');
+    Route::post('service/store/', 'Painel\ServiceController@storeService');
+    Route::get('service/edit/{id}', 'Painel\ServiceController@editService');
+    Route::get('service/update/{id}', 'Painel\ServiceController@updateService');
+    Route::get('service/delete/{id}', 'Painel\ServiceController@deleteService');
+    Route::get('service/view/{id}', 'Painel\ServiceController@viewService');
+
+    Route::get('roles/', 'Painel\RoleController@index');
+    Route::get('role/create/', 'Painel\RoleController@createRole');
+    Route::post('role/store/', 'Painel\RoleController@storeRole');
+    Route::get('role/users/{id}', 'Painel\RoleController@usersRole');
+    Route::get('role/permissions/{id}', 'Painel\RoleController@permissionsRole');
+    Route::get('role/edit/{id}', 'Painel\RoleController@editRole');
+    Route::get('role/update/{id}', 'Painel\RoleController@updateRole');
+    Route::get('role/delete/{id}', 'Painel\RoleController@deleteRole');
+    Route::get('role/view/{id}', 'Painel\RoleController@viewRole');
+
+    Route::get('permissions/', 'Painel\PermissionController@index');
+    Route::get('permission/create/', 'Painel\PermissionController@createPermission');
+    Route::post('permission/store/', 'Painel\PermissionController@storePermission');
+    Route::get('permission/edit/{id}', 'Painel\PermissionController@editPermission');
+    Route::get('permission/update/{id}', 'Painel\PermissionController@updatePermission');
+    Route::get('permission/delete/{id}', 'Painel\PermissionController@deletePermission');
+    Route::get('permission/view/{id}', 'Painel\PermissionController@viewPermission');
+
+    Route::get('categories/', 'Painel\CategoryController@index');
+    Route::get('category/create/', 'Painel\CategoryController@createCategory');
+    Route::post('category/store/', 'Painel\CategoryController@storeCategory');
+    Route::get('category/edit/{id}', 'Painel\CategoryController@editCategory');
+    Route::get('category/update/{id}', 'Painel\CategoryController@updateCategory');
+    Route::get('category/delete/{id}', 'Painel\CategoryController@deleteCategory');
+    Route::get('category/view/{id}', 'Painel\CategoryController@viewCategory');
+
 });

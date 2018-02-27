@@ -1,0 +1,6 @@
+@extends('templates.temp')
+@include('templates.sections.header')
+@include('templates.sections.banner')
+@include('templates.sections.servicos')
+@include('templates.sections.newsletter')
+@include('templates.sections.footer')

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,9 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-    	factory(\App\Models\User::class, 20)->create();
-        $this->call(UserSeeder::class);
-
+        // $this->call(UsersTableSeeder::class);
+        $this->call(RoleTableSeeder::class);
     }
 }

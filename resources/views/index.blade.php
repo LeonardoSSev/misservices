@@ -1,6 +1,0 @@
-@extends('template.temp')
-@include('template.header')
-  @include('sections.home.banner')
-  @include('sections.home.servicos')
-  @include('sections.home.newsletter')
-@include('template.footer')

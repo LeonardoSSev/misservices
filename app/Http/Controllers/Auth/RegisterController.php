@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -39,6 +39,11 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    protected function redirectTo()
+    {
+        return '/';
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -48,9 +53,15 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:250',
+            'email' => 'required|string|email|max:250|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'cpf' => 'required|max:11|unique:users',
+            'state' => 'required|max:2|string',
+            'city' => 'string',
+            'zipcode' => 'required|max:8',
+            'neighbourhood' => 'string',
+            'address' => 'string'
         ]);
     }
 
@@ -58,7 +69,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Models\User
+     * @return \App\User
      */
     protected function create(array $data)
     {
@@ -66,6 +77,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'cpf' => $data['cpf'],
+            'state' => $data['state'],
+            'city' => ($data['city']),
+            'zipcode' => $data['zipcode'],
+            'neighbourhood' => $data['neighbourhood'],
+            'address' => $data['address'],
         ]);
     }
 }

@@ -1,23 +1,68 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Role;
+
 
 class User extends Authenticatable
 {
     use Notifiable;
-    use SoftDeletes;
 
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
-        'nome', 'email', 'password', 'cpf', 'uf', 'cidade', 'cep', 'bairro', 'endereco', 'idUserType'
+        'name', 'email', 'password', 'cpf', 'state', 'city', 'zipcode', 'neighbourhood', 'address'
     ];
 
-    public function phone(){
-    	return $this->hasMany('App\Models\Phone', 'idUser', 'id');
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function roles()
+    {
+        return $this->belongsToMany(\App\Role::class);
     }
 
+    public function hasPermission(Permission $permission){
+        return $this->hasAnyRoles($permission->roles);
+    }
+
+    public function hasAnyRoles($roles)
+    {
+        if(is_array($roles) || is_object($roles) ) {
+            return !! $roles->intersect($this->roles)->count();
+        }
+
+        return $this->roles->contains('name', $roles);
+    }
+
+    public function isAdmin() {
+        return $this->roles()->where('name', 'Admin')->exists();
+    }
+
+    public function getNoAdminUsers() {
+        $users = User::all();
+        $noAdminUsers = array();
+
+        foreach ($users as $user) {
+            foreach ($user->roles as $role) {
+                if ($role->name !== 'Admin') {
+                    array_push($noAdminUsers, $user);
+                }
+            }
+        }
+
+        return $noAdminUsers;
+    }
 }
