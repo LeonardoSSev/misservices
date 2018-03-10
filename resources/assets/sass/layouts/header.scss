@@ -1,0 +1,167 @@
+header {
+    text-align: center;
+    color: #fff;
+    background: #25aae1;
+
+    .container {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+     img {
+        display: block;
+        margin: 0 auto 20px;
+    }
+    .intro-text{
+        .name {
+            display: block;
+            text-transform: uppercase;
+            font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 2em;
+            font-weight: 700;
+        }
+    }
+
+    .intro-text{
+        .skills {
+            font-size: 1.25em;
+            font-weight: 300;
+        }
+    }
+
+    .buscar{
+        width: 100%;
+        margin-top: 30px;
+
+        button{
+            background: transparent;
+            position: absolute;
+            margin-top: 20px;
+            right: 10%;
+            border: none;
+        }
+
+        .txt_buscar{
+            background: transparent;
+            text-align: center;
+            border: none;
+            border-bottom: 2px solid #233140;
+            width: 80%;
+            height: 40px;
+            font-size: 1.3em;
+            margin-top: 15px;
+        }
+
+        .txt_buscar:focus{
+            outline: none;
+            border-bottom: 2px solid #ffffff;
+            transition: all 0.8s;
+        }
+
+    }
+}
+
+.navbar {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+
+    .navbar-header{
+        a{
+            img{
+                width: 100px;
+                margin-top: -12px;
+            }
+        }   
+    }
+
+    a:focus {
+        outline: 0;
+    }
+}
+
+.navbar-nav {
+    letter-spacing: 1px;
+
+    li{
+        a:focus{
+            outline: 0;   
+        }
+    }
+}
+.navbar-default{
+background: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-default,
+.navbar-inverse {
+border: 0;
+}
+
+
+@media(min-width: 768px){
+
+    //Header
+    header{
+        .buscar{
+            .txt_buscar{
+                width: 60%;
+            }
+
+            button{
+                right: 20%;
+            }
+        }
+
+        .container {
+            padding: 200px 0 100px;
+        }
+
+        .intro-text{
+            .name{
+                font-size: 5em;
+            }
+
+            .skills {
+                font-size: 1.75em;
+            }
+        }
+    }
+
+    //Navbar 
+    .navbar-fixed-top {
+        padding: 25px 0;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+
+        .navbar-brand {
+            font-size: 2em;
+            -webkit-transition: all .3s;
+            -moz-transition: all .3s;
+            transition: all .3s;
+        }
+    }
+
+    .navbar-fixed-top.navbar-shrink {
+        padding: 10px 0;
+
+        .navbar-brand {
+            font-size: 1.5em;
+        }
+    }
+}
+
+@media(min-width: 1024px){
+    header{
+        .buscar{
+            .txt_buscar{
+                width: 50%;
+            }
+
+            button{
+                right: 25%;
+            }
+        }
+    } 
+}
