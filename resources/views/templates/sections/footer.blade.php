@@ -1,10 +1,18 @@
 <!-- RODAPÉ -->
-<footer class="rodape container bg-gradient">
-    <div class="social-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
+<footer class="text-center">
+    <div class="footer-below">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; <?php echo date('Y') ?> - MisServices
+                </div>
+            </div>
+        </div>
     </div>
-    <p class="copyright">
-        Copyright © MisServices 2017. Todos os direitos reservados.
 </footer>
+
+<div class="scroll-top page-scroll visible-xs visble-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>

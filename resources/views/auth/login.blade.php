@@ -1,56 +1,60 @@
 @extends('templates.temp')
 @include('templates.sections.header')
 
-<div class="login container">
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <div class="form-group row">
-            <div class="col-md-6">
-                <input id="email" type="email" placeholder="E-mail" class="form-group box box-desk radius{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                @if ($errors->has('email'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('email') }}</strong>
-                    </span>
-                @endif
-            </div>
+<div id="login">
+    <div class="container">
+        <div class="col-g-12 text-center">
+            <h1>Faça seu Login</h1>
+            <hr class="star-primary">
         </div>
 
-        <div class="form-group row">
-            <div class="col-md-6">
-                <input id="password" type="password" placeholder="Senha" class="box box-desk radius{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-                @if ($errors->has('password'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
+            <div class="row">
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <label for="email">Seu e-mail</label>
+                    <input id="email" type="email" placeholder="Seu e-mail" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
-        <!--iv class="form-group row">
-            <div class="col-md-6 offset-md-4">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                    </label>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
                 </div>
-            </div>
-        </div-->
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <label for="password">Sua senha</label>
+                    <input id="password" type="password" placeholder="Sua senha" class="form-control {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-8 offset-md-4">
-                <button type="submit" class="btn btn-desk bg-black radius">
-                    Entrar
-                </button>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
 
-                <!--a class="btn btn-link" href="{{ route('password.request') }}">
-                    Esqueceu sua senha?
-                </a-->
+                <!--iv class="form-group row">
+                    <div class="col-md-6 offset-md-4">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                </div-->
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-lg btn-form">
+                        Entrar
+                    </button>
+                </div>
+
+                    <!--a class="btn btn-link" href="{{ route('password.request') }}">
+                        Esqueceu sua senha?
+                    </a-->
+                
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
 
 @include('templates.sections.footer')

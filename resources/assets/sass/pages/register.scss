@@ -1,0 +1,11 @@
+#cadastro, #login{
+    padding: 20% 0 5%;
+
+    @media (min-width: 768px){
+        padding: 15% 0;
+    }
+
+    @media (min-width: 1024px){
+        padding: 10% 0;
+    }
+}

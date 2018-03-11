@@ -67,6 +67,9 @@ header {
     font-weight: 700;
 
     .navbar-header{
+
+        padding: 2% 0;
+
         a{
             img{
                 width: 100px;
@@ -80,17 +83,23 @@ header {
     }
 }
 
-.navbar-nav {
-    letter-spacing: 1px;
-
-    li{
-        a:focus{
-            outline: 0;   
+.navbar-default{
+    background: rgba(0, 0, 0, 0.9);
+    .navbar-nav {
+        letter-spacing: 1px;
+    
+        li{
+            a{
+                &:focus{
+                    outline: 0;   
+                }   
+    
+                &:hover{
+                    color: #25aae1;
+                }
+            }
         }
     }
-}
-.navbar-default{
-background: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-default,
@@ -129,6 +138,11 @@ border: 0;
     }
 
     //Navbar 
+    .navbar{
+        .navbar-header{
+            padding: 0;
+        }
+    }
     .navbar-fixed-top {
         padding: 25px 0;
         -webkit-transition: padding .3s;
