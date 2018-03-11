@@ -14,6 +14,12 @@
                 <li><a href="{{ route("register") }}">Cadastro</a></li>
                 <li><a href="{{ route("login") }}">Entrar</a></li>
             @else
+                @can('search_provider')
+                        <li><a href="/">Procurar</a></li>
+                @endcan
+                @can('view_own_profile')
+                    <li><a href="/">Perfil</a></li>
+                @endcan
                 <li class="nav-item dropdown">
                         <a class="dropdown-item" href="{{ route('logout') }}"
                            onclick="event.preventDefault();
