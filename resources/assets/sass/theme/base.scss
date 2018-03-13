@@ -1,5 +1,11 @@
 body {
     overflow-x: hidden;
+    font-family: 'Lato';
+}
+
+::selection{
+    background-color: $blue;
+    color: #fff;
 }
 
 p {
@@ -35,6 +41,15 @@ hr.star-primary {
     max-width: 250px;
     border: 0;
     border-top: solid 5px;
+    text-align: center;
+}
+
+hr.star-second {
+    margin: 25px auto 30px;
+    padding: 0;
+    max-width: 150px;
+    border: 0;
+    border-top: solid 3px;
     text-align: center;
 }
 

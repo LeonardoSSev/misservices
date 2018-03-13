@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" href="{{ asset("css/main.css") }}">
     <link rel="stylesheet" href="{{ asset("css/font-awesome.min.css") }}">
-    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="icon" href="{{ asset("images/icone-misservices.ico") }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset("images/icone-misservices.ico") }}" type="image/x-icon" />
 

@@ -15,6 +15,7 @@ mix.scripts([
         'resources/assets/js/jquery.min.js',
         'resources/assets/js/bootstrap.min.js',
         'resources/assets/js/jquery.easing.min.js',
+        'resources/assets/js/owl.carousel.js',
         'resources/assets/js/classie.js',
         'resources/assets/js/cbpAnimatedHeader.min.js',
         'resources/assets/js/freelancer.js',

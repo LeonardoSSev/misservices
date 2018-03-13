@@ -1,0 +1,38 @@
+#como-funciona{
+    margin-top: 30px;
+
+    .txt-intro{
+        text-align: center;
+        padding: 2%;
+
+        span{
+            color: $blue;
+        }
+    }
+
+    .slider{
+        margin-top: 20px;
+        h3{
+            text-align: center;
+            color: $blue;
+        }
+    }
+
+    .quadros{
+
+        .cliente, .prestador{
+            border: 1px solid $blue;
+            margin: 10px 15px;
+            color: $blue;
+            padding: 2%;
+            text-align: center;
+            background: none;
+
+            &:hover, .active{
+                color: #fff;
+                background: $blue;
+                outline: #fff;
+            }
+        }
+    }
+}

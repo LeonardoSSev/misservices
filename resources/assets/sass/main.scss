@@ -2,10 +2,13 @@
 @import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
 
 //Themes
-@import 'theme/base';
 @import 'theme/fonts';
-@import 'theme/mixins';
 @import 'theme/variables';
+@import 'theme/mixins';
+@import 'theme/base';
+
+//Plugins
+@import 'plugins/owl.carousel';
 
 //Layouts
 @import 'layouts/header';
@@ -14,5 +17,6 @@
 
 //Pages
 @import 'pages/index';
-@import 'pages/contato';
+@import 'pages/contact';
+@import 'pages/how';
 @import 'pages/register';
