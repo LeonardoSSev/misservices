@@ -1,4 +1,13 @@
 {
     "/css/main.css": "/css/main.css",
-    "/js/app.js": "/js/app.js"
+    "/js/app.js": "/js/app.js",
+    "/images/eletricista.jpg": "/images/eletricista.jpg",
+    "/images/limpeza.jpg": "/images/limpeza.jpg",
+    "/images/manutencao.jpg": "/images/manutencao.jpg",
+    "/images/marceneiro.jpg": "/images/marceneiro.jpg",
+    "/images/pedreiro.jpg": "/images/pedreiro.jpg",
+    "/images/pintor.jpg": "/images/pintor.jpg",
+    "/images/contrate.jpg": "/images/contrate.jpg",
+    "/images/escolha.jpg": "/images/escolha.jpg",
+    "/images/seguranca.jpg": "/images/seguranca.jpg"
 }

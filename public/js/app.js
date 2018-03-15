@@ -2035,7 +2035,7 @@ $('body').scrollspy({
 
 //require('./bootstrap');
 
-window.Vue = require('vue');
+//window.Vue = require('vue');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -2043,16 +2043,37 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+//Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
-
-var owl = $('.owl-carousel');
-
-('.slide').owlCarousel({
+//const app = new Vue({
+    //el: '#app'
+//});
+// Index
+$('.slider.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
-    nav:true
+    responsive:{
+        0:{
+            items: 1
+        },
+
+        1200:{
+            items: 3
+        }
+    },
+    autoplay:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});
+
+
+//Como Funciona
+$('.cliente').click(function(){
+    $('.prestador').removeClass('.active');
+    this.addClass('.active');
+});
+
+$('.prestador').click(function(){
+    $('.cliente').removeClass('.active');
+    this.addClass('.active');
 });

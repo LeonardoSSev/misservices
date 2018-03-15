@@ -19,7 +19,9 @@ mix.scripts([
         'resources/assets/js/classie.js',
         'resources/assets/js/cbpAnimatedHeader.min.js',
         'resources/assets/js/freelancer.js',
-        'resources/assets/js/app.js'
+        'resources/assets/js/app.js',
+        'resources/assets/js/script.js'
     ], 'public/js/app.js')
    .sass('resources/assets/sass/main.scss', 'public/css/')
+   .copy('resources/assets/img/**/*', 'public/images')
    .browserSync('localhost:8000');

@@ -9113,6 +9113,21 @@ form .row:first-child .floating-label-form-group {
   color: #25aae1;
 }
 
+#como-funciona .slider .slide h1 {
+  text-align: center;
+  font-size: 1.4em;
+}
+
+#como-funciona .slider .slide .img-how {
+  border-radius: 100% !important;
+  height: 340px !important;
+}
+
+#como-funciona .quadros .active {
+  color: #fff !important;
+  background: #25aae1 !important;
+}
+
 #como-funciona .quadros .cliente,
 #como-funciona .quadros .prestador {
   border: 1px solid #25aae1;
@@ -9124,9 +9139,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 #como-funciona .quadros .cliente:hover,
-#como-funciona .quadros .cliente .active,
-#como-funciona .quadros .prestador:hover,
-#como-funciona .quadros .prestador .active {
+#como-funciona .quadros .prestador:hover {
   color: #fff;
   background: #25aae1;
   outline: #fff;
@@ -9149,5 +9162,11 @@ form .row:first-child .floating-label-form-group {
   #login {
     padding: 10% 0;
   }
+}
+
+#servicos img {
+  margin-top: 15px;
+  width: 350px;
+  height: 240px;
 }
 
