@@ -12,6 +12,7 @@
 
     .slider{
         margin-top: 20px;
+        overflow: hidden;
 
         h3{
             text-align: center;
@@ -19,6 +20,7 @@
         }
 
         .slide{
+
             h1{
                 text-align: center;
                 font-size: 1.4em;
@@ -32,6 +34,7 @@
     }
 
     .quadros{
+        padding-left: 40px;
         .active{
             color: #fff !important;
             background: $blue !important;
@@ -39,7 +42,6 @@
 
         .cliente, .prestador{
             border: 1px solid $blue;
-            margin: 10px 15px;
             color: $blue;
             padding: 2%;
             text-align: center;

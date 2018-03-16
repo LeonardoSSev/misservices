@@ -1,0 +1,65 @@
+.header-admin{
+    @media(min-width: 768px){
+        .navbar-header{
+            a{
+                img{
+                    width: 80%;
+                    margin-left: 0;
+                    margin-top: -5px;
+                }
+            }
+        }
+
+        .navbar-nav{
+            margin: 80px 0 0 -200px;
+        }
+    }
+
+    @media(min-width: 1024px){
+        .navbar-nav{
+            margin: 80px 0 0 -180px;
+        }
+    }
+
+    @media(min-width: 1200px){
+        .navbar-header{
+            a{
+                img{
+                    width: 100%;
+                    margin-left: 30px;
+                    margin-top: -5px;
+                }
+            }
+        }
+
+        .navbar-nav{
+            margin: 80px 0 0 -160px;
+        }
+    }
+
+    .navbar-default{
+        background: $blue;
+        .navbar-nav {
+            
+            li{
+                display: block !important;
+                float: none;
+                a{
+                    color: #fff;
+                    &:focus{
+                        outline: 0;   
+                    }   
+        
+                    &:hover{
+                        color: $dkblue;
+                    }
+                }
+            }
+        }
+    }
+
+    .container{
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}

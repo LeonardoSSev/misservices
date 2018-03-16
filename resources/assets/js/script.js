@@ -19,11 +19,11 @@ $('.slider.owl-carousel').owlCarousel({
 
 //Como Funciona
 $('.cliente').click(function(){
-    $('.prestador').removeClass('.active');
-    this.addClass('.active');
+    $('.prestador').removeClass('active');
+    $('.cliente').addClass('active');
 });
 
 $('.prestador').click(function(){
-    $('.cliente').removeClass('.active');
-    this.addClass('.active');
+    $('.cliente').removeClass('active');
+    $('.prestador').addClass('active');
 });

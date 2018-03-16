@@ -22,12 +22,12 @@
             <?php if($i%3 == 1 && $i%3 != 0):  ?>
                 <div class="row">
             <?php endif; ?>
-                    <div class="col-sm-4 portfolio-item">
-                        <div class="caption">
+                    <div class="col-sm-4 service-item">
+                        <!-- <div class="caption">
                             <div class="caption-content">
-                                
+                                <i></i>
                             </div>
-                        </div>
+                        </div> -->
                         <img src="<?php echo $img ?>" class="img-responsive" alt="" />
                     </div>
             <?php if($i%3 < 1): ?>

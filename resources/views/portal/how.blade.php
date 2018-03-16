@@ -14,11 +14,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="quadros">
-                <button class="cliente col-xs-5 active">
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8 col-sm-offset-3 col-md-offset-2 col-lg-offset-2 quadros">
+                <button class="cliente col-xs-5 col-sm-5 col-md-3 col-md-offset-2 active">
                     <p>Cliente</p>
                 </button>
-                <button class="prestador col-xs-5">
+                <button class="prestador col-xs-5 col-sm-5 col-md-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
                     <p>Profissional</p>
                 </button>
             </div>
@@ -54,6 +54,13 @@
             </div>
         </div>
     </div>
+</section>
+@include('portal.sections.how.how-works')
+
+<section class="join-us">
+    <h2>Junte-se a nós</h2>
+    <h3>O que você está esperando?</h3>
+    <a href="{{ route('register') }}"><button>Comece aqui</button></a>
 </section>
 
 @include('templates.sections.footer')

@@ -9,6 +9,7 @@
 
 //Plugins
 @import 'plugins/owl.carousel';
+@import 'plugins/bootstrap-xxl';
 
 //Layouts
 @import 'layouts/header';
@@ -20,3 +21,5 @@
 @import 'pages/contact';
 @import 'pages/how';
 @import 'pages/register';
+@import 'pages/admin/header';
+@import 'pages/admin/main';
