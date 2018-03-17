@@ -6,6 +6,8 @@
 @import 'theme/variables';
 @import 'theme/mixins';
 @import 'theme/base';
+@import 'theme/preloader';
+@import 'theme/scroll';
 
 //Plugins
 @import 'plugins/owl.carousel';
@@ -14,7 +16,6 @@
 //Layouts
 @import 'layouts/header';
 @import 'layouts/footer';
-@import 'layouts/scroll';
 
 //Pages
 @import 'pages/index';

@@ -12,6 +12,7 @@
             @csrf
 
             <div class="row">
+            <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
                 <div class="form-group col-xs-12 floating-label-form-group">
                     <label for="email">Seu e-mail</label>
                     <input id="email" type="email" placeholder="Seu e-mail" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -52,6 +53,7 @@
                         Esqueceu sua senha?
                     </a-->
                 
+                </div>
             </div>
         </form>
     </div>

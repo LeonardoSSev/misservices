@@ -1,5 +1,9 @@
 <body id="page-top" class="index">
 
+<div class="preloader">
+    <div class="loader"></div>
+</div>
+
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">

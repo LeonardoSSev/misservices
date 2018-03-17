@@ -31,6 +31,26 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
+                    <label for="telephone">UF</label>
+                    <input id="telephone" type="text" placeholder="Telefone" class="form-control {{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ old('telephone') }}" required>
+
+                    @if ($errors->has('telephone'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('telephone') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
+                    <label for="celphone">UF</label>
+                    <input id="celphone" type="text" placeholder="Celular" class="form-control {{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="state" value="{{ old('celphone') }}" required>
+
+                    @if ($errors->has('celphone'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('celphone') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="cpf">CPF</label>
                     <input id="cpf" type="text" placeholder="CPF (Sem traços e pontos)"  class="form-control {{ $errors->has('cpf') ? ' is-invalid' : '' }}" name="cpf" value="{{ old('cpf') }}" required>
 
