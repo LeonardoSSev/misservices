@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Phone;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\PhoneType;
@@ -25,9 +26,9 @@ class PhoneTypesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createPhoneType()
     {
-        //
+        return view('painel.phoneTypes.create');
     }
 
     /**
@@ -36,9 +37,16 @@ class PhoneTypesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storePhoneType(Request $request)
     {
-        //
+        $phone_type = new PhoneType;
+
+        $phone_type->name = $request->name;
+        $phone_type->description = $request->description;
+
+        $phone_type->save();
+
+        return redirect('/admin/');
     }
 
     /**
