@@ -9511,6 +9511,11 @@ form .row:first-child .floating-label-form-group {
   }
 }
 
+#cadastro #state,
+#login #state {
+  text-transform: uppercase;
+}
+
 @media (min-width: 768px) {
   .header-admin .navbar-header a img {
     width: 80%;
