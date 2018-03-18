@@ -26,6 +26,8 @@
                 <li><a href="/admin/services">Serviços</a></li>
                 <li><a href="/admin/roles">Papéis</a></li>
                 <li><a href="/admin/permissions">Permissões</a></li>
+                <li><a href="/admin/phone_types">Tipos de telefone</a></li>
+                <li><a href="/admin/phones">Telefones</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
