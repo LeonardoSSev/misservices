@@ -13,6 +13,6 @@ class Phone extends Model
 
     public function phoneType()
     {
-        return $this->belongsTo(\App\PhoneType::class);
+        return $this->belongsTo(\App\PhoneType::class, 'phone_type_id');
     }
 }
