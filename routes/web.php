@@ -82,4 +82,5 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('phone/update/{id}', 'Painel\PhoneController@updatePhone');
     Route::get('phone/delete/{id}', 'Painel\PhoneController@deletePhone');
     Route::get('phone/view/{id}', 'Painel\PhoneController@viewPhone');
+    Route::get('phone/users/{id}', 'Painel\PhoneController@usersPhone');
 });

@@ -44,9 +44,7 @@ class ServiceController extends Controller
     public function editService($idService, User $users)
     {
         $service = Service::find($idService);
-
         $categories = Category::all();
-
         $users = $users->getNoAdminUsers();
 
         return view('painel.services.edit', compact(['service', 'categories', 'users']));

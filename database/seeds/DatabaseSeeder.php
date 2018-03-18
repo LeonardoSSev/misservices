@@ -15,11 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(PermissionTableSeeder::class);
         $this->call(PhoneTypeTableSeeder::class);
         $this->call(PhoneTableSeeder::class);
-
-
-
-        //factory('App\User', 10)->create();
     }
 }
