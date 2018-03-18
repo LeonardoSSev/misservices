@@ -1,13 +1,4 @@
-(function($){
-"use strict";
-$(document).ready(function(){    
-
-    // Preloader
-    $(window).load(function() {
-        $('.preloader').fadeOut();
-        $('.loader').delay(300).fadeOut('slow');
-        $('body').delay(300).css({'overflow-x':'hidden'});
-    });
+$(document).ready(function(){
 
     // Index
     $('.slider.owl-carousel').owlCarousel({
@@ -45,4 +36,3 @@ $(document).ready(function(){
     });
 
 });
-})(jQuery);
