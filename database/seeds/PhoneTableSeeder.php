@@ -26,7 +26,7 @@ class PhoneTableSeeder extends Seeder
         $phone = new Phone;
         $phone->ddd = '11';
         $phone->number = '97610-9834';
-        $phone->phone_types_id = 2;
+        $phone->phone_type_id = 2;
 
         $phone->save();
         $phone->users()->sync(1);
@@ -39,7 +39,7 @@ class PhoneTableSeeder extends Seeder
 
         $phone->ddd = '13';
         $phone->number = $helper->phoneGenerator($type);
-        $phone->phone_types_id = $type === 'cellphone' ? 2 : 1;
+        $phone->phone_type_id = $type === 'cellphone' ? 2 : 1;
 
         $phone->save();
         $phone->users()->sync($idFor);
