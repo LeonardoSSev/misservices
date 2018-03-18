@@ -23,9 +23,12 @@ class Helper extends Model
         } else {
             $phone = $this->numberGenerator(8);
             $phone = preg_replace("/([0-9]{4})/", "$1-$2", $phone);
+            $phone = substr($phone, 0, -1);
         }
 
         return $phone;
     }
+
+
 
 }
