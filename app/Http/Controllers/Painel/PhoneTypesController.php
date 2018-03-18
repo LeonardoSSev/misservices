@@ -55,9 +55,11 @@ class PhoneTypesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function viewPhoneType($id)
     {
-        //
+        $phoneType = PhoneType::find($id);
+
+        return view('painel.phoneTypes.view', compact('phoneType'));
     }
 
     /**
