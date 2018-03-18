@@ -114,4 +114,19 @@ class PhoneController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * Show the users that are associated with this resource.
+     *
+     * @param  int  $idPhone
+     */
+    public function usersPhone($idPhone)
+    {
+
+        $phone = Phone::find($idPhone);
+
+        $users = $phone->users()->get();
+
+        return view('painel.phones.users', compact(['phone', 'users']));
+    }
 }
