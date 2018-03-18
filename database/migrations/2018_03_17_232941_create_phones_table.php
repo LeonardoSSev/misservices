@@ -17,8 +17,8 @@ class CreatePhonesTable extends Migration
             $table->increments('id');
             $table->string('ddd')->default('13');
             $table->string('number', 20);
-            $table->integer('phone_types_id')->unsigned();
-            $table->foreign('phone_types_id')
+            $table->integer('phone_type_id')->unsigned();
+            $table->foreign('phone_type_id')
                 ->references('id')
                 ->on('phone_types')
                 ->onDelete('cascade');
