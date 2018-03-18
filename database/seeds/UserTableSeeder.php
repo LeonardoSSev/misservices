@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Helper;
 
 
 class UserTableSeeder extends Seeder
@@ -39,11 +40,12 @@ class UserTableSeeder extends Seeder
 
     private function createClientUser($relativeNumber)
     {
+        $helper = new Helper;
         $user = new User;
         $user->name = 'Cliente '.$relativeNumber;
         $user->email = 'client'.$relativeNumber.'@misservices.com';
         $user->password = bcrypt('123456');
-        $user->cpf = $this->simpleNumberGenerator();
+        $user->cpf = $helper->numberGenerator(11);
         $user->state = 'SP';
         $user->city = 'Praia Grande';
         $user->zipcode = '11700100';
@@ -54,9 +56,5 @@ class UserTableSeeder extends Seeder
         $user->roles()->sync(2);
     }
 
-    private function simpleNumberGenerator()
-    {
-        return str_shuffle('12345678901');
-    }
 
 }
