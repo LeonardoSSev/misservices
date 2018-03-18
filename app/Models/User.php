@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->belongsToMany(\App\Role::class);
     }
 
+    public function phones()
+    {
+        return $this->belongsToMany(\App\Phone::class);
+    }
+
     public function hasPermission(Permission $permission){
         return $this->hasAnyRoles($permission->roles);
     }
