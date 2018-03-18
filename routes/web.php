@@ -67,4 +67,19 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('category/delete/{id}', 'Painel\CategoryController@deleteCategory');
     Route::get('category/view/{id}', 'Painel\CategoryController@viewCategory');
 
+    Route::get('phone_types/', 'Painel\PhoneTypes@index');
+    Route::get('phone_type/create/', 'Painel\PhoneTypesController@createPhoneType');
+    Route::post('phone_type/store/', 'Painel\PhoneTypesController@storePhoneType');
+    Route::get('phone_type/edit/{id}', 'Painel\PhoneTypesController@editPhoneType');
+    Route::get('phone_type/update/{id}', 'Painel\PhoneTypesController@updatePhoneType');
+    Route::get('phone_type/delete/{id}', 'Painel\PhoneTypesController@deletePhoneType');
+    Route::get('phone_type/view/{id}', 'Painel\PhoneTypesController@viewPhoneType');
+
+    Route::get('phones/', 'Painel\PhoneController@index');
+    Route::get('phones/create/', 'Painel\PhoneController@createPhone');
+    Route::post('phones/store/', 'Painel\PhoneController@storePhone');
+    Route::get('phones/edit/{id}', 'Painel\PhoneController@editPhone');
+    Route::get('phones/update/{id}', 'Painel\PhoneController@updatePhone');
+    Route::get('phones/delete/{id}', 'Painel\PhoneController@deletePhone');
+    Route::get('phones/view/{id}', 'Painel\PhoneController@viewPhone');
 });
