@@ -100,8 +100,12 @@ class PhoneTypesController extends Controller
      * @param  int  $idPhoneType
      * @return \Illuminate\Http\Response
      */
-    public function destroy($idPhoneType)
+    public function deletePhoneType($idPhoneType)
     {
-        //
+        PhoneType::destroy($idPhoneType);
+
+        return redirect()->back();
+
+
     }
 }
