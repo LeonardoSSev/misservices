@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="cellphone">Celular</label>
-                    <input id="cellphone" type="text" placeholder="Celular" class="form-control {{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="state" value="{{ old('cellphone') }}" required>
+                    <input id="cellphone" type="text" placeholder="Celular" class="form-control {{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="cellphone" value="{{ old('cellphone') }}" required>
 
                     @if ($errors->has('cellphone'))
                         <span class="invalid-feedback">

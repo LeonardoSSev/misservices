@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Phone;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -73,16 +74,40 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'cpf' => $data['cpf'],
-            'state' => $data['state'],
-            'city' => ($data['city']),
-            'zipcode' => $data['zipcode'],
-            'neighbourhood' => $data['neighbourhood'],
-            'address' => $data['address'],
-        ]);
+        $user = new User;
+
+        $user->name          = $data['name'];
+        $user->email         = $data['email'];
+        $user->password      = bcrypt($data['password']);
+        $user->cpf           = $data['cpf'];
+        $user->state         = $data['state'];
+        $user->city          = $data['city'];
+        $user->zipcode       = $data['zipcode'];
+        $user->neighbourhood = $data['neighbourhood'];
+        $user->address       = $data['address'];
+
+        $user->save();
+
+        if ($data['cellphone']) {
+            $cellphone = new Phone;
+            $cellphone->ddd           = $data['dddCellphone'];
+            $cellphone->number        = $data['cellphone'];
+            $cellphone->phone_types_id = 2;
+
+            $cellphone->save();
+            $cellphone->users()->sync($user->id);
+        }
+        if ($data['telephone']) {
+            $telephone = new Phone;
+
+            $cellphone->ddd           = $data['dddTelephone'];
+            $telephone->number        = $data['telephone'];
+            $telephone->phone_types_id = 1;
+
+            $telephone->save();
+            $telephone->users()->sync($user->id);
+        }
+
+        return $user;
     }
 }
