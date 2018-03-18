@@ -57,45 +57,61 @@ class PhoneController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idPhone
      * @return \Illuminate\Http\Response
      */
-    public function viewPhone($id)
+    public function viewPhone($idPhone)
     {
-        //
+        $phone = Phone::find($idPhone);
+
+        return view('painel.phones.view', compact('phone'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idPhone
      * @return \Illuminate\Http\Response
      */
-    public function editPhone($id)
+    public function editPhone($idPhone, User $user)
     {
-        //
+        $phone = Phone::find($idPhone);
+        $phone_types = PhoneType::all();
+        $users = $user->getNoAdminUsers();
+
+        return view('painel.phones.edit', compact(['phone', 'phone_types', 'users']));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $idPhone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatePhone(Request $request, $idPhone)
     {
-        //
+        $phone = Phone::find($idPhone);
+
+        $phone->number = $request['number'];
+        $phone->phone_type_id = $request['phone_type'];
+
+        $phone->save();
+        $phone->users()->sync($request['user']);
+
+        return redirect('/admin');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $idPhone
      * @return \Illuminate\Http\Response
      */
-    public function deletePhone($id)
+    public function deletePhone($idPhone)
     {
-        //
+        Phone::destroy($idPhone);
+
+        return redirect()->back();
     }
 }
