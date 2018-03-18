@@ -52,12 +52,12 @@ class PhoneTypesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idPhoneType
      * @return \Illuminate\Http\Response
      */
-    public function viewPhoneType($id)
+    public function viewPhoneType($idPhoneType)
     {
-        $phoneType = PhoneType::find($id);
+        $phoneType = PhoneType::find($idPhoneType);
 
         return view('painel.phoneTypes.view', compact('phoneType'));
     }
@@ -65,33 +65,42 @@ class PhoneTypesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $idPhoneType
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editPhoneType($idPhoneType)
     {
-        //
+        $phoneType = PhoneType::find($idPhoneType);
+
+        return view('painel.phoneTypes.edit', compact('phoneType'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $idPhoneType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatePhoneType(Request $request, $idPhoneType)
     {
-        //
+        $phoneType = PhoneType::find($idPhoneType);
+
+        $phoneType->name = $request->name;
+        $phoneType->description = $request->description;
+
+        $phoneType->save();
+
+        return redirect('/admin/');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $idPhoneType
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($idPhoneType)
     {
         //
     }
