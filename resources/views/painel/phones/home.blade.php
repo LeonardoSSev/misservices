@@ -23,7 +23,7 @@
                         <td>{{ $phone->number }}</td>
                         <td>{{ $phone->phoneType->name }}</td>
                         <td>
-                            <a href="/admin/phone/users/{{ $phone->id }}"><i class="fa fa-lg fa-phone" title="Visualizar usuários que usam {{ $phone->number }}"></i></a>
+                            <a href="/admin/phone/usersPhone/{{ $phone->id }}"><i class="fa fa-lg fa-user" title="Visualizar usuários que usam {{ $phone->number }}"></i></a>
                             <a href="/admin/phone/edit/{{ $phone->id }}"><i class="fa fa-lg fa-pencil" title="Editar {{ $phone->number }}"></i></a>
                             <a href="/admin/phone/delete/{{ $phone->id }}"><i class="fa fa-lg fa-times" title="Excluir {{ $phone->number }}"></i></a>
                             <a href="/admin/phone/view/{{ $phone->id }}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $phone->number }}"></i></a>
