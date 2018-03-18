@@ -31,7 +31,17 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
-                    <label for="telephone">UF</label>
+                    <label for="dddTelephone">DDD (Telefone)</label>
+                    <input id="dddTelephone" type="text" placeholder="DDD (Telefone)" class="form-control {{ $errors->has('dddTelephone') ? ' is-invalid' : '' }}" name="dddTelephone" value="{{ old('dddTelephone') }}" required>
+
+                    @if ($errors->has('ddd'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('ddd') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
+                    <label for="telephone">Telefone</label>
                     <input id="telephone" type="text" placeholder="Telefone" class="form-control {{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ old('telephone') }}" required>
 
                     @if ($errors->has('telephone'))
@@ -41,12 +51,22 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
-                    <label for="celphone">UF</label>
-                    <input id="celphone" type="text" placeholder="Celular" class="form-control {{ $errors->has('celphone') ? ' is-invalid' : '' }}" name="state" value="{{ old('celphone') }}" required>
+                    <label for="dddCellphone">DDD (Celular)</label>
+                    <input id="dddCellphone" type="text" placeholder="DDD (Celular)" class="form-control {{ $errors->has('dddCellphone') ? ' is-invalid' : '' }}" name="dddCellphone" value="{{ old('dddCellphone') }}" required>
 
-                    @if ($errors->has('celphone'))
+                    @if ($errors->has('dddCellphone'))
                         <span class="invalid-feedback">
-                            <strong>{{ $errors->first('celphone') }}</strong>
+                            <strong>{{ $errors->first('dddCellphone') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
+                    <label for="cellphone">Celular</label>
+                    <input id="cellphone" type="text" placeholder="Celular" class="form-control {{ $errors->has('cellphone') ? ' is-invalid' : '' }}" name="state" value="{{ old('cellphone') }}" required>
+
+                    @if ($errors->has('cellphone'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('cellphone') }}</strong>
                         </span>
                     @endif
                 </div>
