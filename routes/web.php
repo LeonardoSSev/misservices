@@ -67,7 +67,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('category/delete/{id}', 'Painel\CategoryController@deleteCategory');
     Route::get('category/view/{id}', 'Painel\CategoryController@viewCategory');
 
-    Route::get('phone_types/', 'Painel\PhoneTypes@index');
+    Route::get('phone_types/', 'Painel\PhoneTypesController@index');
     Route::get('phone_type/create/', 'Painel\PhoneTypesController@createPhoneType');
     Route::post('phone_type/store/', 'Painel\PhoneTypesController@storePhoneType');
     Route::get('phone_type/edit/{id}', 'Painel\PhoneTypesController@editPhoneType');
