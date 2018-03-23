@@ -81,8 +81,18 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
+                    <label for="zipcode">CEP</label>
+                    <input id="zipcode" type="text" placeholder="CEP (Sem traços e pontos)" class="form-control {{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="{{ old('zipcode') }}" required>
+
+                    @if ($errors->has('zipcode'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('zipcode') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="state">UF</label>
-                    <input id="state" type="text" placeholder="UF" class="form-control {{ $errors->has('state') ? ' is-invalid' : '' }}" name="state" value="{{ old('state') }}" required>
+                    <input id="state" type="text" placeholder="UF" class="form-control {{ $errors->has('state') ? ' is-invalid' : '' }}" name="state" value="{{ old('state') }}" maxlength="2" required>
 
                     @if ($errors->has('state'))
                         <span class="invalid-feedback">
@@ -101,16 +111,6 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
-                    <label for="zipcode">CEP</label>
-                    <input id="zipcode" type="text" placeholder="CEP (Sem traços e pontos)" class="form-control {{ $errors->has('zipcode') ? ' is-invalid' : '' }}" name="zipcode" value="{{ old('zipcode') }}" required>
-
-                    @if ($errors->has('zipcode'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('zipcode') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="neighbourhood">Bairro</label>
                     <input id="neighbourhood" type="text" placeholder="Bairro" class="form-control {{ $errors->has('neighbourhood') ? ' is-invalid' : '' }}" name="neighbourhood" value="{{ old('neighbourhood') }}" required>
 
@@ -122,7 +122,7 @@
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="address">Endereço</label>
-                    <input id="address" type="text" placeholder="Endereço" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" required>
+                    <input id="address" type="text" placeholder="Endereço" class="form-control {{ $errors->has('address') ? ' is-invalid' : '' }}" name="address" value="{{ old('address') }}" maxlength="250" required>
 
                     @if ($errors->has('address'))
                         <span class="invalid-feedback">
