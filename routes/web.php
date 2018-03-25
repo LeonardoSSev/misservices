@@ -22,7 +22,7 @@ Route::get('/contact',  ['as' => 'contact', 'uses' => 'Portal\SiteController@con
 Route::get('/how',      ['as' => 'how',     'uses' => 'Portal\SiteController@howItWork']);
 
 Route::group(['prefix' => 'admin'], function(){
-    Route::get('/', 'Portal\SiteController@admin');
+    Route::get('/',                      ['as' => 'admin.index',             'uses' => 'Portal\SiteController@admin']);
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
     Route::get('user/create/',           ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);
@@ -60,12 +60,12 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('permission/view/{id}',   ['as' => 'admin.permission.view',   'uses' => 'Painel\PermissionController@viewPermission']);
 
     Route::get('categories/',            ['as' => 'admin.categories',        'uses' => 'Painel\CategoryController@index']);
-    Route::get('category/create/',       ['as' => 'admin.categorie.create',  'uses' => 'Painel\CategoryController@createCategory']);
-    Route::post('category/store/',       ['as' => 'admin.categorie.store',   'uses' => 'Painel\CategoryController@storeCategory']);
-    Route::get('category/edit/{id}',     ['as' => 'admin.categorie.edit',    'uses' => 'Painel\CategoryController@editCategory']);
-    Route::get('category/update/{id}',   ['as' => 'admin.categorie.update',  'uses' => 'Painel\CategoryController@updateCategory']);
-    Route::get('category/delete/{id}',   ['as' => 'admin.categorie.delete',  'uses' => 'Painel\CategoryController@deleteCategory']);
-    Route::get('category/view/{id}',     ['as' => 'admin.categorie.view',    'uses' => 'Painel\CategoryController@viewCategory']);
+    Route::get('category/create/',       ['as' => 'admin.category.create',  'uses' => 'Painel\CategoryController@createCategory']);
+    Route::post('category/store/',       ['as' => 'admin.category.store',   'uses' => 'Painel\CategoryController@storeCategory']);
+    Route::get('category/edit/{id}',     ['as' => 'admin.category.edit',    'uses' => 'Painel\CategoryController@editCategory']);
+    Route::get('category/update/{id}',   ['as' => 'admin.category.update',  'uses' => 'Painel\CategoryController@updateCategory']);
+    Route::get('category/delete/{id}',   ['as' => 'admin.category.delete',  'uses' => 'Painel\CategoryController@deleteCategory']);
+    Route::get('category/view/{id}',     ['as' => 'admin.category.view',    'uses' => 'Painel\CategoryController@viewCategory']);
 
     Route::get('phone_types/',           ['as' => 'admin.phone_types',       'uses' => 'Painel\PhoneTypesController@index']);
     Route::get('phone_type/create/',     ['as' => 'admin.phone_type.create', 'uses' => 'Painel\PhoneTypesController@createPhoneType']);
