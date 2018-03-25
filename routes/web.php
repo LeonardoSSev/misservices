@@ -61,6 +61,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('phone_type/update/{id}', ['as' => 'admin.phone_type.update', 'uses' => 'Painel\PhoneTypesController@updatePhoneType']);
     Route::get('phone_type/delete/{id}', ['as' => 'admin.phone_type.delete', 'uses' => 'Painel\PhoneTypesController@deletePhoneType']);
     Route::get('phone_type/view/{id}',   ['as' => 'admin.phone_type.view',   'uses' => 'Painel\PhoneTypesController@viewPhoneType']);
+    Route::get('phone_type/phones/{id}', ['as' => 'admin.phone_type.phones', 'uses' => 'Painel\PhoneTypesController@phonesPhoneType']);
 
     Route::get('phones/',                ['as' => 'admin.phones',            'uses' => 'Painel\PhoneController@index']);
     Route::get('phone/create/',          ['as' => 'admin.phone.create',      'uses' => 'Painel\PhoneController@createPhone']);
