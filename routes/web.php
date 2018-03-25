@@ -21,7 +21,7 @@ Route::get('/', 'Portal\SiteController@index')->name('index');
 Route::get('/contact', 'Portal\SiteController@contact');
 Route::get('/how', 'Portal\SiteController@howItWork');
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){
     Route::get('/', 'Portal\SiteController@admin');
 
     Route::get('users/', 'Painel\UserController@index');
