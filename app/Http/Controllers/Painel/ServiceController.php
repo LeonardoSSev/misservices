@@ -38,7 +38,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect('/admin/services');
+        return redirect()->route('admin.services');
     }
 
     public function editService($idService, User $users)
@@ -59,7 +59,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect('admin/services');
+        return redirect()->route('admin.services');
     }
 
     public function viewService($idService)
@@ -73,6 +73,6 @@ class ServiceController extends Controller
     {
         Service::destroy($idService);
 
-        return redirect()->back();
+        return redirect()->route('admin.services');
     }
 }

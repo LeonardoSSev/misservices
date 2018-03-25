@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->sync($request->role);
 
-        return redirect('/admin/users');
+        return redirect()->route('admin.users');
     }
 
     public function editUser($idUser)
@@ -68,7 +68,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->sync($request->role);
 
-        return redirect('/admin/users');
+        return redirect()->route('admin.users');
     }
 
     public function viewUser($idUser)
@@ -91,8 +91,6 @@ class UserController extends Controller
     {
         User::destroy($idUser);
 
-        return redirect()->back();
+        return redirect()->route('admin.users');
     }
-
-
 }

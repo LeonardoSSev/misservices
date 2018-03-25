@@ -29,7 +29,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('/admin/categories');
+        return redirect()->route('admin.categories');
     }
     public function editCategory($idCategory)
     {
@@ -47,7 +47,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect('admin/categories');
+        return redirect()->route('admin.categories');
     }
 
     public function viewCategory($idCtegory)
@@ -61,6 +61,6 @@ class CategoryController extends Controller
     {
         Category::destroy($idCategory);
 
-        return redirect()->back();
+        return redirect()->route('admin.categories');
     }
 }

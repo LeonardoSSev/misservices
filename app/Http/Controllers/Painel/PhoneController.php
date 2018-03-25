@@ -51,7 +51,7 @@ class PhoneController extends Controller
         $phone->save();
         $phone->users()->sync($request['user']);
 
-        return redirect('/admin');
+        return redirect()->route('admin.phones');
     }
 
     /**
@@ -99,7 +99,7 @@ class PhoneController extends Controller
         $phone->save();
         $phone->users()->sync($request['user']);
 
-        return redirect('/admin');
+        return redirect()->route('admin.phones');
     }
 
     /**
@@ -112,7 +112,7 @@ class PhoneController extends Controller
     {
         Phone::destroy($idPhone);
 
-        return redirect()->back();
+        return redirect()->route('admin.phones');
     }
 
     /**
