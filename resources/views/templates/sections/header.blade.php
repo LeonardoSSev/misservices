@@ -34,16 +34,16 @@
                     <a href="#contact">Contact</a>
                 </li> -->
                 <li>
-                    <a href="/">Inicio</a>
+                    <a href="{{route('index') }}">Inicio</a>
                 </li>
                 <li>
-                    <a href="/how">Como Funciona</a>
+                    <a href="{{route('how') }}">Como Funciona</a>
                 </li>
                 <li>
-                    <a href="/contact">Contato</a>
+                    <a href="{{route('contact') }}">Contato</a>
                 </li>
                 @can('Admin')
-                    <li><a href="/admin">Painel</a></li>
+                    <li><a href="{{route('admin.index') }}">Painel</a></li>
                 @endcan
                 @guest
                     <li>

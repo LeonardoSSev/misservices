@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/admin"> <img src="images/logo-misservices.png" alt="log"> </a>
+            <a class="navbar-brand" href="{{route('admin.index')}}"><img src="{{asset('images/logo-misservices.png')}}" alt="log"> </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,14 +20,14 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li><a href="/admin">Home</a></li>
-                <li><a href="/admin/users">Usuários</a></li>
-                <li><a href="/admin/categories">Categorias</a></li>
-                <li><a href="/admin/services">Serviços</a></li>
-                <li><a href="/admin/roles">Papéis</a></li>
-                <li><a href="/admin/permissions">Permissões</a></li>
-                <li><a href="/admin/phone_types">Tipos de telefone</a></li>
-                <li><a href="/admin/phones">Telefones</a></li>
+                <li><a href="{{route('admin.index')}}">Home</a></li>
+                <li><a href="{{route('admin.users')}}">Usuários</a></li>
+                <li><a href="{{route('admin.categories')}}">Categorias</a></li>
+                <li><a href="{{route('admin.services')}}">Serviços</a></li>
+                <li><a href="{{route('admin.roles')}}">Papéis</a></li>
+                <li><a href="{{route('admin.permissions')}}">Permissões</a></li>
+                <li><a href="{{route('admin.phone_types')}}">Tipos de telefone</a></li>
+                <li><a href="{{route('admin.phones')}}">Telefones</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
