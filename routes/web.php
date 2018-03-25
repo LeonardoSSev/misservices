@@ -1,27 +1,14 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-
-
 Auth::routes();
 
-Route::get('/roles-permission', 'Portal\SiteController@rolesPermissions');
+Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions']);
 
-Route::get('/',         ['as' => 'index',   'uses' => 'Portal\SiteController@index']);
-Route::get('/contact',  ['as' => 'contact', 'uses' => 'Portal\SiteController@contact']);
-Route::get('/how',      ['as' => 'how',     'uses' => 'Portal\SiteController@howItWork']);
+Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
+Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
+Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/',                      ['as' => 'admin.index',             'uses' => 'Portal\SiteController@admin']);
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
