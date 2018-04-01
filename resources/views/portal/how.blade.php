@@ -26,28 +26,51 @@
         <div class="row">
             <div class="slider">
                 <div class="slide">
-                    <div class="col-md-12">
+                    <div class="clientereveal col-md-12">
                         <h3>Procure</h3>
                         <hr class="star-second">
 
                         <div class="txt-procure">
-                            <p></p>
+                            <div class="col-md-6">
+                                <img src="images/procure.jpg" alt="procurar serviço" class="img-responsive">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Encontrar o Profissional que você precisa é bem simples,
+                                basta digitar o qual serviço você deseja.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="clientereveal col-md-12">
                         <h3>Escolha</h3>
                         <hr class="star-second">
                         
                         <div class="txt-escolha">
-                            <p></p>
+                            <div class="col-md-6">
+                                <p>Após procurar o que precisa, será exibido uma lista de profissionais
+                                    mais próximos a sua região, você poderá ver o perfil de cada um 
+                                    onde consta as habilidades e as avaliações dos serviços do prestador.
+                                    Basta apenas escolher qual profissional você acha que atende melhor as 
+                                    suas necessidades.
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="images/escolha2.jpg" alt="escolher serviço" class="img-responsive">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-12">
+                    <div class="clientereveal col-md-12">
                         <h3>Contrate</h3>
                         <hr class="star-second">
 
                         <div class="txt-contrate">
-                            <p></p>
+                            <div class="col-md-6">
+                                <img src="images/contrate2.jpg" alt="contratar serviço" class="img-responsive">
+                            </div>
+                            <div class="col-md-6">
+                                <p>Escolhido o profissional, basta apenas solicitar o serviço,
+                                    negociar o preço, determinar um prazo e após a realização do serviço
+                                    avaliar o profissional. Simples!</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -57,7 +80,7 @@
 </section>
 @include('portal.sections.how.how-works')
 
-<section class="join-us">
+<section class="join-us" style="background: url(images/joinus.jpg) center center/100% no-repeat">
     <h2>Junte-se a nós</h2>
     <h3>O que você está esperando?</h3>
     <a href="{{ route('register') }}"><button>Comece aqui</button></a>

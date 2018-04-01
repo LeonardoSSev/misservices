@@ -9447,24 +9447,13 @@ form .row:first-child .floating-label-form-group {
   color: #25aae1;
 }
 
-#como-funciona .slider {
-  margin-top: 20px;
-  overflow: hidden;
-}
-
-#como-funciona .slider h3 {
+#como-funciona .slider .slide .clientereveal h3 {
   text-align: center;
   color: #25aae1;
 }
 
-#como-funciona .slider .slide h1 {
-  text-align: center;
-  font-size: 1.4em;
-}
-
-#como-funciona .slider .slide .img-how {
-  border-radius: 100% !important;
-  height: 340px !important;
+#como-funciona .slider .slide .clientereveal p {
+  margin-top: 150px;
 }
 
 #como-funciona .quadros {
@@ -9490,6 +9479,43 @@ form .row:first-child .floating-label-form-group {
   color: #fff;
   background: #25aae1;
   outline: #fff;
+}
+
+#about .slider {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+#about .slider .slide h1 {
+  text-align: center;
+  font-size: 1.4em;
+}
+
+#about .slider .slide .img-how {
+  border-radius: 100% !important;
+  height: 340px !important;
+}
+
+.join-us {
+  text-align: center;
+  color: #fff;
+}
+
+.join-us button {
+  text-transform: uppercase;
+  width: 150px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.join-us button:hover {
+  -webkit-transition: ease 0.7s;
+  transition: ease 0.7s;
+  background: #fff;
+  color: #233140;
+  border: 1px solid #233140;
 }
 
 #cadastro,

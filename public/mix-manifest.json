@@ -1,13 +1,18 @@
 {
     "/css/main.css": "/css/main.css",
     "/js/app.js": "/js/app.js",
+    "/images/contrate2.jpg": "/images/contrate2.jpg",
     "/images/eletricista.jpg": "/images/eletricista.jpg",
+    "/images/escolha2.jpg": "/images/escolha2.jpg",
     "/images/contrate.jpg": "/images/contrate.jpg",
     "/images/escolha.jpg": "/images/escolha.jpg",
     "/images/seguranca.jpg": "/images/seguranca.jpg",
+    "/images/joinus.jpg": "/images/joinus.jpg",
+    "/images/joinus2.jpg": "/images/joinus2.jpg",
     "/images/limpeza.jpg": "/images/limpeza.jpg",
     "/images/manutencao.jpg": "/images/manutencao.jpg",
     "/images/marceneiro.jpg": "/images/marceneiro.jpg",
     "/images/pedreiro.jpg": "/images/pedreiro.jpg",
-    "/images/pintor.jpg": "/images/pintor.jpg"
+    "/images/pintor.jpg": "/images/pintor.jpg",
+    "/images/procure.jpg": "/images/procure.jpg"
 }

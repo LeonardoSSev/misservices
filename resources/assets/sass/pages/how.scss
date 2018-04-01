@@ -11,24 +11,17 @@
     }
 
     .slider{
-        margin-top: 20px;
-        overflow: hidden;
-
-        h3{
-            text-align: center;
-            color: $blue;
-        }
 
         .slide{
-
-            h1{
-                text-align: center;
-                font-size: 1.4em;
-            }
-
-            .img-how{
-                border-radius: 100% !important;
-                height: 340px !important;
+            .clientereveal{
+                h3{
+                    text-align: center;
+                    color: $blue;
+                }
+                
+                p{
+                    margin-top: 150px;
+                }
             }
         }
     }
@@ -52,6 +45,46 @@
                 background: $blue;
                 outline: #fff;
             }
+        }
+    }
+}
+
+#about{
+    .slider{
+        margin-top: 20px;
+        overflow: hidden;
+    
+        .slide{
+            h1{
+                text-align: center;
+                font-size: 1.4em;
+            }
+
+            .img-how{
+                border-radius: 100% !important;
+                height: 340px !important;
+            }
+        }
+    }
+}
+
+.join-us{
+    text-align: center;
+    color: #fff;
+
+    button{
+        text-transform: uppercase;
+        width: 150px;
+        height: 40px;
+        background: transparent;
+        border: 1px solid #fff;
+        color: #fff;
+
+        &:hover{
+            transition: ease 0.7s;
+            background: #fff;
+            color: $dkblue;
+            border: 1px solid $dkblue;
         }
     }
 }

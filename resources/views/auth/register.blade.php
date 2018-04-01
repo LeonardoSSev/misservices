@@ -31,32 +31,12 @@
                     @endif
                 </div>
                 <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
-                    <label for="dddTelephone">DDD (Telefone)</label>
-                    <input id="dddTelephone" type="text" placeholder="DDD (Telefone)" class="form-control {{ $errors->has('dddTelephone') ? ' is-invalid' : '' }}" name="dddTelephone" value="{{ old('dddTelephone') }}" required>
-
-                    @if ($errors->has('ddd'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('ddd') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
                     <label for="telephone">Telefone</label>
                     <input id="telephone" type="text" placeholder="Telefone" class="form-control {{ $errors->has('telephone') ? ' is-invalid' : '' }}" name="telephone" value="{{ old('telephone') }}" required>
 
                     @if ($errors->has('telephone'))
                         <span class="invalid-feedback">
                             <strong>{{ $errors->first('telephone') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="col-md-6 form-group col-xs-12 floating-label-form-group">
-                    <label for="dddCellphone">DDD (Celular)</label>
-                    <input id="dddCellphone" type="text" placeholder="DDD (Celular)" class="form-control {{ $errors->has('dddCellphone') ? ' is-invalid' : '' }}" name="dddCellphone" value="{{ old('dddCellphone') }}" required>
-
-                    @if ($errors->has('dddCellphone'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('dddCellphone') }}</strong>
                         </span>
                     @endif
                 </div>
@@ -145,7 +125,7 @@
                     <input id="password-confirm" type="password" placeholder="Confirme a senha" class="form-control" name="password_confirmation" required>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-lg btn-form">
+                    <button type="submit" onclick="removeMasks()" class="btn btn-lg btn-form">
                         Cadastrar
                     </button>
                 </div>
