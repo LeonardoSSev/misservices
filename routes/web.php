@@ -8,8 +8,16 @@ Route::get('/',                         ['as' => 'index',                    'us
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
+
+Route::group(['prefix' => 'user'], function() {
+    Route::get('{id}/profile', 'User\UserController@userProfile');
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){
     Route::get('/',                      ['as' => 'admin.index',             'uses' => 'Portal\SiteController@admin']);
+
+
+
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
     Route::get('user/create/',           ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);
