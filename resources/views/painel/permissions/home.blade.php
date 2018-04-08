@@ -4,7 +4,7 @@
     @include('painel.templates.menu-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
-        <a href="/admin/permission/create">Adicionar</a>
+        <a href="{{route('admin.permission.create')}}">Adicionar</a>
         <input type="text" class="box box-desk radius" placeholder="Pesquise uma permissão..." name="pesquisar">
         <table class="table">
             <thead>
@@ -21,9 +21,9 @@
                         <td>{{ $permission->name }}</td>
                         <td>{{ $permission->description }}</td>
                         <td>
-                            <a href="/admin/permission/edit/{{ $permission->id }}"><i class="fa fa-lg fa-pencil" title="Editar {{ $permission->name }}"></i></a>
-                            <a href="/admin/permission/delete/{{ $permission->id }}"><i class="fa fa-lg fa-times" title="Excluir {{ $permission->name }}"></i></a>
-                            <a href="/admin/permission/view/{{ $permission->id }}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $permission->name }}"></i></a>
+                            <a href="{{route('admin.permission.edit', $permission->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $permission->name }}"></i></a>
+                            <a href="{{route('admin.permission.delete', $permission->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $permission->name }}"></i></a>
+                            <a href="{{route('admin.permission.view', $permission->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $permission->name }}"></i></a>
                         </td>
                     </tr>
                 @endforeach

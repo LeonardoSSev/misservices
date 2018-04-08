@@ -29,7 +29,7 @@ class RoleController extends Controller
 
         $role->save();
 
-        return redirect('/admin/roles');
+        return redirect()->route('admin.roles');
     }
 
     public function editRole($idRole)
@@ -48,7 +48,7 @@ class RoleController extends Controller
 
         $role->save();
 
-        return redirect('admin/roles');
+        return redirect()->route('admin.roles');
     }
 
     public function viewRole($idRole)
@@ -80,6 +80,6 @@ class RoleController extends Controller
     {
         Role::destroy($idRole);
 
-        return redirect()->back();
+        return redirect()->route('admin.roles');
     }
 }

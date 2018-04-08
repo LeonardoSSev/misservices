@@ -33,7 +33,7 @@ class PermissionController extends Controller
         $permission->save();
         $permission->roles()->sync($request->role);
 
-        return redirect('/admin/permissions');
+        return redirect()->route('admin.permissions');
     }
 
 
@@ -56,7 +56,7 @@ class PermissionController extends Controller
         $permission->save();
         $permission->roles()->sync($request->role);
 
-        return redirect('admin/permissions');
+        return redirect()->route('admin.permissions');
     }
 
     public function viewPermission($idPermission)
@@ -70,6 +70,6 @@ class PermissionController extends Controller
     {
         Permission::destroy($idPermission);
 
-        return redirect()->back();
+        return redirect()->route('admin.permissions');
     }
 }

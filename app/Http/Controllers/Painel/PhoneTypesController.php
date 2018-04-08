@@ -46,7 +46,7 @@ class PhoneTypesController extends Controller
 
         $phone_type->save();
 
-        return redirect('/admin/');
+        return redirect()->route('admin.phone_types');
     }
 
     /**
@@ -91,7 +91,7 @@ class PhoneTypesController extends Controller
 
         $phoneType->save();
 
-        return redirect('/admin/');
+        return redirect()->route('admin.phone_types');
     }
 
     /**
@@ -104,7 +104,7 @@ class PhoneTypesController extends Controller
     {
         PhoneType::destroy($idPhoneType);
 
-        return redirect()->back();
+        return redirect()->route('admin.phone_types');
 
 
     }
