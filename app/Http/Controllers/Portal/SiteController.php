@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Portal;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Category;
+use Illuminate\Support\Facades\DB;
 
 
 class SiteController extends Controller
@@ -46,7 +48,17 @@ class SiteController extends Controller
         }
     }
 
+    public function showServices()
+    {
+        $users = array();
+        $services = DB::table('categories')
+                        ->join('services', 'services.category_id', '=', 'categories.id')
+                        ->join('users', 'services.user_id', '=', 'users.id')
+                        ->select('categories.name as cat_name', 'services.name', 'services.description',
+                            'users.id as user_id', 'users.name as user_name')
+                        ->get();
 
-
+        return view('portal.categories', compact('services'));
+    }
 
 }
