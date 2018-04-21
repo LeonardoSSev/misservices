@@ -1,5 +1,5 @@
-@extends('templates.temp')
-@include('painel.templates.menu-admin')
+@extends('painel.admin')
+@section('content-admin')
 <div class="container" id="cadastro">
 
     <form method="POST" action="/admin/service/store" name="cadastroForm">
@@ -58,4 +58,4 @@
     </form>
 </div>
 
-@include('templates.sections.footer')
+@endsection

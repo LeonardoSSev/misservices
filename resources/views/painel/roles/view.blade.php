@@ -1,5 +1,5 @@
-@extends('templates.temp')
-@include('painel.templates.menu-admin')
+@extends('painel.admin')
+@section('content-admin')
 <div class="container" id="cadastro">
     <h1>Visualizar {{ $role->name }}</h1>
     <div class="form-group row">
@@ -15,4 +15,4 @@
     </div>
 </div>
 
-@include('templates.sections.footer')
+@endsection

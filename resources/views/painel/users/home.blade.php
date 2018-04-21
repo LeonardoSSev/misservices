@@ -1,8 +1,6 @@
-@extends('templates.temp')
-<!-- MENU ADMIN-->
-<div>
-    @include('painel.templates.menu-admin')
-    <main class="painel container">
+@extends('painel.admin')
+@section('content-admin')
+    <main class="painel">
         <h1>Painel de Administração</h1>
         <a href="{{ route('admin.user.create') }}">Adicionar</a>
         <input type="text" class="box box-desk radius" placeholder="Pesquise um usuário..." name="pesquisar">
@@ -31,6 +29,4 @@
             </tbody>
         </table>
     </main>
-</div>
-
-@include('templates.sections.footer')
+@endsection

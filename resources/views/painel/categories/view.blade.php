@@ -1,5 +1,5 @@
-@extends('templates.temp')
-@include('painel.templates.menu-admin')
+@extends('painel.admin')
+@section('content-admin')
 <div class="container" id="cadastro">
     <h1>Visualizar Categoria: {{$category->name}}</h1>
     <form method="GET" action="/admin/category/update/{{$category->id}}" name="cadastroForm">
@@ -19,5 +19,4 @@
     </form>
 
 </div>
-
-@include('templates.sections.footer')
+@endsection

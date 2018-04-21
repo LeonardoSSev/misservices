@@ -1,7 +1,5 @@
-@extends('templates.temp')
-<!-- MENU ADMIN-->
-<div>
-    @include('painel.templates.menu-admin')
+@extends('painel.admin')
+@section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
         <a href="{{ route('admin.phone_type.create') }}">Adicionar</a>
@@ -32,5 +30,4 @@
         </table>
     </main>
 </div>
-
-@include('templates.sections.footer')
+@endsection
