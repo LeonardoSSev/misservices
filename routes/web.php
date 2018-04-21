@@ -10,7 +10,7 @@ Route::get('/how',                      ['as' => 'how',                      'us
 
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('{id}/profile', 'User\UserController@userProfile');
+    Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'User\UserController@userProfile']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){

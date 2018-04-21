@@ -36,6 +36,11 @@
                 <li>
                     <a href="{{route('index') }}">Inicio</a>
                 </li>
+                @if (Auth::check())
+                    <li>
+                        <a href="{{route('user.profile', [Auth::user()->id]) }}">Perfil</a>
+                    </li>
+                @endif
                 <li>
                     <a href="{{route('how') }}">Como Funciona</a>
                 </li>
