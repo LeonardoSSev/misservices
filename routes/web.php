@@ -3,14 +3,14 @@
 Auth::routes();
 
 Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions']);
-
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'User\UserController@userProfile']);
+    Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
+    Route::get('/search/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){

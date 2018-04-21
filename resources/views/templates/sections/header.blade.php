@@ -47,6 +47,11 @@
                 <li>
                     <a href="{{route('contact') }}">Contato</a>
                 </li>
+                @if (Auth::check())
+                <li>
+                    <a href="{{route('user.search.services') }}">Serviços</a>
+                </li>
+                @endif
                 @can('Admin')
                     <li><a href="{{route('admin.index') }}">Painel</a></li>
                 @endcan
