@@ -9,9 +9,11 @@ use App\Role;
 
 class UserController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate($this->numberPagination);
 
         return view('painel.users.home', compact('users'));
     }

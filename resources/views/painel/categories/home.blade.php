@@ -29,6 +29,7 @@
                 @endforeach
             </tbody>
         </table>
+        {!! $categories->links() !!}
     </main>
 </div>
 

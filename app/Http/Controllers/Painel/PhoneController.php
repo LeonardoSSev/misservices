@@ -10,6 +10,8 @@ use App\PhoneType;
 
 class PhoneController extends Controller
 {
+    private $numberPagination = 10;
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +19,7 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        $phones = Phone::all();
+        $phones = Phone::paginate($this->numberPagination);
 
         return view('painel.phones.home', compact('phones'));
     }

@@ -32,6 +32,7 @@
                 @endforeach
             </tbody>
         </table>
+        {!! $phones->links() !!}
     </main>
 </div>
 
