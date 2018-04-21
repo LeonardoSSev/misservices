@@ -8,9 +8,10 @@ use App\User;
 use App\Category;
 use Illuminate\Support\Facades\DB;
 
-
 class SiteController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
         return view('portal.home');
@@ -48,17 +49,25 @@ class SiteController extends Controller
         }
     }
 
-    public function showServices()
+    public function showCategories()
     {
-        $users = array();
+        $categories = Category::paginate($this->numberPagination);
+
+        return view('portal.categories', compact('categories'));
+    }
+
+    public function showServices(int $category_id)
+    {
+        $category = Category::find($category_id);
         $services = DB::table('categories')
                         ->join('services', 'services.category_id', '=', 'categories.id')
                         ->join('users', 'services.user_id', '=', 'users.id')
-                        ->select('categories.name as cat_name', 'services.name', 'services.description',
-                            'users.id as user_id', 'users.name as user_name')
-                        ->get();
+                        ->select('services.name', 'services.description', 'users.id as user_id',
+                            'users.name as user_name')
+                        ->where('categories.id', '=', $category_id)
+                        ->paginate($this->numberPagination);
 
-        return view('portal.categories', compact('services'));
+        return view('portal.services', compact(['services', 'category']));
     }
 
 }
