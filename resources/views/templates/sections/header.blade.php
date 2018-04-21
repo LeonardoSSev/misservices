@@ -49,7 +49,7 @@
                 </li>
                 @if (Auth::check())
                 <li>
-                    <a href="{{route('user.search.services') }}">Serviços</a>
+                    <a href="{{route('user.search.categories') }}">Serviços</a>
                 </li>
                 @endif
                 @can('Admin')
