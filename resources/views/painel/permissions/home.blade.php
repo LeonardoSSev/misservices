@@ -29,6 +29,7 @@
                 @endforeach
             </tbody>
         </table>
+        {!! $permissions->links() !!}
     </main>
 </div>
 

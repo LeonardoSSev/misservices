@@ -8,9 +8,11 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::paginate($this->numberPagination);
 
         return view('painel.categories.home', compact('categories'));
     }

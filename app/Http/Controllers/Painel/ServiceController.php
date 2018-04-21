@@ -10,9 +10,11 @@ use App\User;
 
 class ServiceController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
-        $services = Service::all();
+        $services = Service::paginate($this->numberPagination);;
 
         return view('painel.services.home', compact('services'));
     }
