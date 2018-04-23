@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/* $(document).ready(function(){
 
     // Index
     $('#about .slider.owl-carousel').owlCarousel({
@@ -50,4 +50,4 @@ function removeMasks(){
     $('#cellphone').unmask();
     $('#cpf').unmask();
     $('#zipcode').unmask();
-}
+} */

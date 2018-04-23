@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
 <div class="contact-page">
@@ -6,3 +7,4 @@
 </div>
 
 @include('templates.sections.footer')
+@stop

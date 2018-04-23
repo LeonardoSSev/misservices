@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
     <div class="row">
         <div class="col-lg-3">
             @include('painel.templates.menu-admin')
@@ -7,5 +8,5 @@
             @yield('content-admin')
         </div>
     </div>
-</div>
 @include('templates.sections.footer')
+@stop

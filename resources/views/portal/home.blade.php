@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
 <header>
@@ -23,5 +24,5 @@
 @include('portal.sections.home.last-services')
 @include('portal.sections.how.how-works')
 @include('portal.sections.contact.contact-form')
-
 @include('templates.sections.footer')
+@stop

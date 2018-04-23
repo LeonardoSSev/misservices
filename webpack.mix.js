@@ -1,12 +1,12 @@
 let mix = require('laravel-mix');
 
 mix.scripts([
-        'resources/assets/js/plugins/jquery.min.js',
-        'resources/assets/js/plugins/bootstrap.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
+        'node_modules/owl.carousel/dist/owl.carousel.js',
+        'node_modules/jquery-mask-plugin/dist/jquery.mask.min.js',
+        'node_modules/scrollreveal/dist/scrollreveal.min.js',
         'resources/assets/js/plugins/jquery.easing.min.js',
-        'resources/assets/js/plugins/jquery.mask.min.js',
-        'resources/assets/js/plugins/scrollreveal.min.js',
-        'resources/assets/js/plugins/owl.carousel.js',
         'resources/assets/js/plugins/classie.js',
         'resources/assets/js/plugins/cbpAnimatedHeader.min.js',
         'resources/assets/js/plugins/freelancer.js',
