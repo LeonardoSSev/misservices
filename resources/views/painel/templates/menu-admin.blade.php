@@ -1,9 +1,6 @@
 <body id="page-top">
     <header class="header-admin">
-            <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed">
-            <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span>
@@ -14,8 +11,7 @@
                     <a class="navbar-brand" href="{{route('admin.index')}}"><img src="{{asset('images/logo-misservices.png')}}" alt="log"> </a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="hidden">
                             <a href="#page-top"></a>
@@ -39,7 +35,7 @@
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
-            </div>
+            
             <!-- /.container-fluid -->
         </nav>
     </header>

@@ -20,3 +20,14 @@ footer {
 		background-color: #233140;
 	}
 }
+
+.footer-admin{
+	footer{
+		float: right;
+		width: 80vw;
+
+		.container{
+			width: 970px !important;
+		}
+	}
+}
