@@ -72,4 +72,45 @@
 
 #admin-table{
     margin-top: 65px;
+
+    .table{
+        background: #F5F5F5;
+    }
+
+    .fa{
+        color: $dkblue;
+        //margin-right: 10px;
+    }
+
+    .fa-times{
+        &:hover{
+            color: red!important; 
+        }
+    }
+
+    .fa-pencil{
+        &:hover{
+            color: #8B4513 !important;
+        }
+    }
+
+    .fa-lock{
+        &:hover{
+            color: $blue;
+        }        
+    }
+
+    .fa-eye{
+        &:hover{
+            color: #5F9EA0;
+        }
+    }
+
+    #cadastro{
+        padding: 0 0 35%;
+
+        h1{
+            margin-bottom: 30px;
+        }
+    }
 }

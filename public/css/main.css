@@ -9615,6 +9615,38 @@ form .row:first-child .floating-label-form-group {
   margin-top: 65px;
 }
 
+#admin-table .table {
+  background: #F5F5F5;
+}
+
+#admin-table .fa {
+  color: #233140;
+}
+
+#admin-table .fa-times:hover {
+  color: red !important;
+}
+
+#admin-table .fa-pencil:hover {
+  color: #8B4513 !important;
+}
+
+#admin-table .fa-lock:hover {
+  color: #25aae1;
+}
+
+#admin-table .fa-eye:hover {
+  color: #5F9EA0;
+}
+
+#admin-table #cadastro {
+  padding: 0 0 35%;
+}
+
+#admin-table #cadastro h1 {
+  margin-bottom: 30px;
+}
+
 input[name="pesquisar"] {
   margin-bottom: 30px;
 }

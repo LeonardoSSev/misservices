@@ -2,8 +2,8 @@
 @section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
-        <a href="{{route('admin.service.create')}}">Adicionar</a>
-        <input type="text" class="box box-desk radius" placeholder="Pesquise um serviço..." name="pesquisar">
+        <a href="{{route('admin.service.create')}}" class="btn btn-primary">Adicionar</a>
+        <input type="text" class="form-control" placeholder="Pesquise um serviço..." name="pesquisar">
         <table class="table">
             <thead>
             <th>ID</th>

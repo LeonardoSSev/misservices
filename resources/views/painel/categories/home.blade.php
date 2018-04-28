@@ -2,8 +2,10 @@
 @section('content-admin')
 <main class="painel">
     <h1>Painel de Administração</h1>
-    <a href="{{route('admin.category.create')}}">Adicionar</a>
-    <input type="text" class="box box-desk radius" placeholder="Pesquise uma categoria..." name="pesquisar">
+    <a href="{{route('admin.category.create')}}" class="btn btn-primary">Adicionar</a>
+    <div class="col-lg-3">
+        <input type="text" class="form-control" placeholder="Pesquise uma categoria..." name="pesquisar">
+    </div>
     <table class="table">
         <thead>
             <th>ID</th>
