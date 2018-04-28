@@ -66,8 +66,12 @@ class SiteController extends Controller
                             'users.name as user_name')
                         ->where('categories.id', '=', $category_id)
                         ->paginate($this->numberPagination);
-
         return view('portal.search.services', compact(['services', 'category']));
+    }
+
+    public function showUserServiceDetails(int $userId)
+    {
+        return view('portal.search.user_service');
     }
 
 }

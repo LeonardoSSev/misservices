@@ -12,6 +12,8 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
     Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
     Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
+    Route::get('/service_detail/{id}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
+
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){

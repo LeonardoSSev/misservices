@@ -9,6 +9,9 @@
         <p>{{$service->name}}</p>
         <p>{{$service->description}}</p>
         <p>{{$service->user_name}}</p>
+        <a href="{{route('user.service.details', [$service->user_id])}}">
+            <p>Ver detalhes</p>
+        </a>
     </div>
 @endforeach
 {!! $services->links() !!}
