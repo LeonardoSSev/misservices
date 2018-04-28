@@ -53,7 +53,7 @@ class SiteController extends Controller
     {
         $categories = Category::paginate($this->numberPagination);
 
-        return view('portal.categories', compact('categories'));
+        return view('portal.search.categories', compact('categories'));
     }
 
     public function showServices(int $category_id)
@@ -67,7 +67,7 @@ class SiteController extends Controller
                         ->where('categories.id', '=', $category_id)
                         ->paginate($this->numberPagination);
 
-        return view('portal.services', compact(['services', 'category']));
+        return view('portal.search.services', compact(['services', 'category']));
     }
 
 }
