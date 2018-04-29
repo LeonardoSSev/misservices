@@ -1,7 +1,7 @@
 @extends('templates.temp')
 @include('templates.sections.header')
 
-<div style="padding-top: 10%";>
+<div style="padding-top: 15%";>
 
     @if($numberServices != 0)
         <p>Número de vezes que fez esse serviço: {{$numberServices}}</p>
@@ -10,6 +10,7 @@
         <p>Este usuário ainda não realizou nenhuma vez esse tipo de serviço.</p>
         <p>Esse usuário não tem nenhuma avaliação ainda.</p>
     @endif
+        <p><button>Requisitar serviço</button></p>
 </div>
 
 @include('templates.sections.footer')
