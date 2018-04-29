@@ -51,7 +51,8 @@ class SiteController extends Controller
 
     public function showCategories()
     {
-        $categories = Category::paginate($this->numberPagination);
+        $categories = Category::orderBy('name', 'asc')->paginate($this->numberPagination);
+
 
         return view('portal.search.categories', compact('categories'));
     }
@@ -65,6 +66,7 @@ class SiteController extends Controller
                         ->select('services.name', 'services.description', 'users.id as user_id',
                             'users.name as user_name')
                         ->where('categories.id', '=', $category_id)
+                        ->orderBy('services.name', 'asc')
                         ->paginate($this->numberPagination);
         return view('portal.search.services', compact(['services', 'category']));
     }
