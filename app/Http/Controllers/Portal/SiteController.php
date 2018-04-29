@@ -63,7 +63,7 @@ class SiteController extends Controller
         $services = DB::table('categories')
                         ->join('services', 'services.category_id', '=', 'categories.id')
                         ->join('users', 'services.user_id', '=', 'users.id')
-                        ->select('services.name', 'services.description', 'users.id as user_id',
+                        ->select('services.id', 'services.name', 'services.description', 'users.id as user_id',
                             'users.name as user_name')
                         ->where('categories.id', '=', $category_id)
                         ->orderBy('services.name', 'asc')
@@ -71,9 +71,19 @@ class SiteController extends Controller
         return view('portal.search.services', compact(['services', 'category']));
     }
 
-    public function showUserServiceDetails(int $userId)
+    public function showUserServiceDetails(int $userId, int $serviceId)
     {
-        return view('portal.search.user_service');
+        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId]];
+        $numberServices = DB::table('provided_services')
+                              ->where($where)
+                              ->count();
+        $rateServices = DB::table('provided_services')
+            ->where($where)
+            ->sum('rate');
+
+        $rate = $numberServices == 0 ? 0 : $rateServices / $numberServices;
+
+        return view('portal.search.user_service', compact(['numberServices', 'rate']));
     }
 
 }

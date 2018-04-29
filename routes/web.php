@@ -8,19 +8,16 @@ Route::get('/contact',                  ['as' => 'contact',                  'us
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
 
-Route::group(['prefix' => 'user', 'middleware' => 'restrictClient'], function() {
+Route::group(['prefix' => 'user'], function() {
     Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
     Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
     Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
-    Route::get('/service_detail/{id}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
+    Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
 
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){
     Route::get('/',                      ['as' => 'admin.index',             'uses' => 'Portal\SiteController@admin']);
-
-
-
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
     Route::get('user/create/',           ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);
