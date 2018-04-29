@@ -18,9 +18,9 @@ class ClientRestrictedPages
     {
         $loggedUser = \Auth::user();
 
-        if (!$loggedUser->hasAnyRoles('Admin'))
+        if ($loggedUser == null || !$loggedUser->hasAnyRoles('Admin')) {
             return redirect()->route('index')->with('error', 'Acesso negado!');
-
+        }
         return $next($request);
     }
 }
