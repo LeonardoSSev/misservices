@@ -54,7 +54,7 @@ class SiteController extends Controller
         $categories = Category::orderBy('name', 'asc')->paginate($this->numberPagination);
 
 
-        return view('portal.search.categories', compact('categories'));
+        return view('portal.user.search.categories', compact('categories'));
     }
 
     public function showServices(int $category_id)
@@ -68,7 +68,7 @@ class SiteController extends Controller
                         ->where('categories.id', '=', $category_id)
                         ->orderBy('services.name', 'asc')
                         ->paginate($this->numberPagination);
-        return view('portal.search.services', compact(['services', 'category']));
+        return view('portal.user.search.services', compact(['services', 'category']));
     }
 
     public function showUserServiceDetails(int $userId, int $serviceId)
@@ -83,7 +83,7 @@ class SiteController extends Controller
 
         $rate = $numberServices == 0 ? 0 : $rateServices / $numberServices;
 
-        return view('portal.search.user_service', compact(['numberServices', 'rate']));
+        return view('portal.user.search.user_service', compact(['numberServices', 'rate']));
     }
 
 }

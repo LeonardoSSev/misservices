@@ -12,7 +12,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('user.profile', compact('user'));
+        return view('portal.user.profile', compact('user'));
     }
 
 }
