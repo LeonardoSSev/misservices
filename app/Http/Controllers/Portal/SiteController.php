@@ -73,7 +73,7 @@ class SiteController extends Controller
 
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
-        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId]];
+        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId], ['status', '=', 'PAID']];
         $numberServices = DB::table('provided_services')
                               ->where($where)
                               ->count();

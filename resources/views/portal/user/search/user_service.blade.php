@@ -1,7 +1,7 @@
 @extends('templates.temp')
 @include('templates.sections.header')
 
-<div style="padding-top: 15%";>
+<div class="container" style="padding-top: 15%;">
 
     @if($numberServices != 0)
         <p>Número de vezes que fez esse serviço: {{$numberServices}}</p>
