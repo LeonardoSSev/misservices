@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Portal;
 
+use App\ProvidedService;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -73,6 +75,7 @@ class SiteController extends Controller
 
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
+        $service = Service::find($serviceId);
         $serviceDetails = DB::table('provided_services')
                               ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
                               ->join('users', 'provided_services.client_id', '=', 'users.id')
@@ -92,7 +95,7 @@ class SiteController extends Controller
 
         $averageRate = $this->getAverageRateProvidedService($userId);
 
-        return view('portal.user.search.user_service', compact(['serviceDetails', 'averageRate']));
+        return view('portal.user.search.user_service', compact(['serviceDetails', 'averageRate', 'service']));
     }
 
     private function getAverageRateProvidedService(int $providerId)
@@ -110,6 +113,21 @@ class SiteController extends Controller
         $average = $rateTimes == 0 ? 0 : $summedRate / $rateTimes;
 
         return $average;
+    }
+
+    public function requestProvidedService(int $providerId, int $serviceId, int $categoryId)
+    {
+        $provided_service = new ProvidedService();
+
+        $provided_service->provider_id = $providerId;
+        $provided_service->client_id = \Auth::user()->id;
+        $provided_service->service_id = $serviceId;
+        $provided_service->category_id = $categoryId;
+        $provided_service->status = "OPENEND";
+        $provided_service->price = 0.00;
+        $provided_service->save();
+
+        return redirect()->route('user.service.details', [$providerId, $serviceId])->with('status', 'O serviço foi solicitado!');
     }
 
 }

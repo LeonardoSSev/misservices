@@ -13,6 +13,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
     Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
+    Route::get('/request_service/{providerId}/{serviceId}/{categoryId}', ['as' => 'user.request.service', 'uses' => 'Portal\SiteController@requestProvidedService']);
 
 });
 
