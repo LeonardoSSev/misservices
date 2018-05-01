@@ -20,7 +20,6 @@ class CreateProvidedServicesTable extends Migration
             $table->integer('category_id')->unsigned();
             $table->integer('client_id')->unsigned();
             $table->string('status')->default('OPENED');
-            $table->decimal('rate', 3, 1);
             $table->float('price', 8, 2);
             $table->foreign('provider_id')
                 ->references('id')
