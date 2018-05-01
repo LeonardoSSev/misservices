@@ -123,7 +123,7 @@ class SiteController extends Controller
         $provided_service->client_id = \Auth::user()->id;
         $provided_service->service_id = $serviceId;
         $provided_service->category_id = $categoryId;
-        $provided_service->status = "OPENEND";
+        $provided_service->status = "OPENED";
         $provided_service->price = 0.00;
         $provided_service->save();
 
