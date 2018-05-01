@@ -65,7 +65,7 @@ class SiteController extends Controller
                         ->join('users', 'services.user_id', '=', 'users.id')
                         ->select('services.id', 'services.name', 'services.description', 'users.id as user_id',
                             'users.name as user_name')
-                        ->where('categories.id', '=', $category_id)
+                        ->where([['categories.id', '=', $category_id], ['users.id', '<>', \Auth::user()->id]])
                         ->orderBy('services.name', 'asc')
                         ->paginate($this->numberPagination);
         return view('portal.user.search.services', compact(['services', 'category']));
