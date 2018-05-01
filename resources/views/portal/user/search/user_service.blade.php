@@ -2,15 +2,29 @@
 @include('templates.sections.header')
 
 <div class="container" style="padding-top: 15%;">
-
-    @if($numberServices != 0)
-        <p>Número de vezes que fez esse serviço: {{$numberServices}}</p>
-        <p>Avaliações: {{$rate}}/5</p>
+    <h3>Dados sobre o Provedor de Serviços:</h3>
+    <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+        @if($averageRate != 0)
+            <p>Média de avaliações: {{$averageRate}}/5</p>
+        @else
+            <p>Esse usuário não realizou ou concluiu esse serviço ainda!</p>
+        @endif
+    </div>
+    <h3>Últimos comentários:</h3>
+    @if(count($serviceDetails) > 0)
+        @foreach($serviceDetails as $detail)
+        <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+            <p>{{$detail->userId}} - {{$detail->userName}}</p>
+            <p>{{$detail->rate}}</p>
+            <p>{{$detail->comment}}</p>
+            <p>R${{$detail->price}}</p>
+        </div>
+        @endforeach
     @else
-        <p>Este usuário ainda não realizou nenhuma vez esse tipo de serviço.</p>
-        <p>Esse usuário não tem nenhuma avaliação ainda.</p>
+        <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+            <p>Esse usuário não realizou ou concluiu esse serviço ainda!</p>
+        </div>
     @endif
-        <p><button>Requisitar serviço</button></p>
 </div>
 
 @include('templates.sections.footer')

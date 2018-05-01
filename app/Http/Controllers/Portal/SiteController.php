@@ -73,17 +73,57 @@ class SiteController extends Controller
 
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
-        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId], ['status', '=', 'PAID']];
-        $numberServices = DB::table('provided_services')
-                              ->where($where)
-                              ->count();
-        $rateServices = DB::table('provided_services')
-            ->where($where)
-            ->sum('rate');
+//        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId], ['status', '=', 'PAID']];
+//        $numberServices = DB::table('provided_services')
+//                              ->where($where)
+//                              ->count();
+//        $rateServices = DB::table('provided_services')
+//            ->where($where)
+//            ->sum('rate');
+//
+//        $rate = $numberServices == 0 ? 0 : $rateServices / $numberServices;
+//
+//        return view('portal.user.search.user_service', compact(['numberServices', 'rate']));
 
-        $rate = $numberServices == 0 ? 0 : $rateServices / $numberServices;
+        $serviceDetails = DB::table('provided_services')
+                              ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
+                              ->join('users', 'provided_services.client_id', '=', 'users.id')
+                              ->where([
+                                  ['provided_services.service_id', '=', $serviceId],
+                                  ['provided_services.provider_id', '=', $userId],
+                                  ['provided_services.status', '=', 'PAID']
+                              ])
+                              ->select(
+                                  'provided_services.id as providedServiceId', 'provided_services.client_id as clientId',
+                                  'provided_services.status as providedserviceStatus', 'provided_services.price as price',
+                                  'rates.id as ratesId', 'rates.comment as comment', 'rates.rate as rate', 'users.id 
+                                  as userId', 'users.name as userName'
+                              )
+                              ->limit(5)
+                              ->get();
 
-        return view('portal.user.search.user_service', compact(['numberServices', 'rate']));
+
+        $averageRate = $this->getAverageRateProvidedService($userId);
+
+        return view('portal.user.search.user_service', compact(['serviceDetails', 'averageRate']));
+    }
+
+    private function getAverageRateProvidedService(int $providerId)
+    {
+
+        $summedRate = floatval(DB::table('provided_services')
+            ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
+            ->where('provided_services.provider_id', '=', $providerId )
+            ->sum('rate'));
+
+        $rateTimes = intval(DB::table('provided_services')
+            ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
+            ->where('provided_services.provider_id', '=', $providerId)
+            ->count('rate'));
+
+        $average = $rateTimes == 0 ? 0 : $summedRate / $rateTimes;
+
+        return $average;
     }
 
 }
