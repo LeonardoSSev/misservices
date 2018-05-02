@@ -8,9 +8,9 @@
         </div>
     @endif
 
-    <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
-        @if($servicesRequests)
-            @foreach($servicesRequests as $request)
+    @if(count($servicesRequests) > 0)
+        @foreach($servicesRequests as $request)
+            <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
                 <p>{{$request->userName}}</p>
                 <p>{{$request->serviceName}}</p>
                 <p>{{$request->date}}</p>
@@ -20,10 +20,13 @@
                 <a href="{{route('user.request.refuse', $request->id)}}">
                     <button>Recusar</button>
                 </a>
-            @endforeach
-        @else
-        
-    </div>
+            </div>
+        @endforeach
+    @else
+        <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+            <p>Não há nenhuma solicitação para o seu serviço ainda.</p>
+        </div>
+    @endif
 
 </div>
 

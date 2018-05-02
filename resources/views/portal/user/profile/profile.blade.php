@@ -4,7 +4,7 @@
 <div class="container" id="cadastro">
     <h1>Informações pessoais de {{ $user->name }}  <button href="user/{{$user->id}}/edit">Editar</button></h1>
     <ul>
-        <a href="#"><li>Pedidos</li></a>
+        <a href="{{route('user.requested')}}"><li>Pedidos</li></a>
         <a href="{{route('user.requests')}}"><li>Solicitações</li></a>
         <a href="#"><li>Mensagens</li></a>
         <a href="#"><li>Senha</li></a>

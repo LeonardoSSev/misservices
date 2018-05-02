@@ -15,6 +15,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
 
     Route::get('/requests', ['as' => 'user.requests', 'uses' => 'Portal\User\UserController@showServicesRequests']);
+    Route::get('/requested', ['as' => 'user.requested', 'uses' => 'Portal\User\UserController@showServicesRequested']);
     Route::get('/request_service/{providerId}/{serviceId}/{categoryId}', ['as' => 'user.request.service', 'uses' => 'Portal\SiteController@requestProvidedService']);
     Route::get('/request/accept/{providedServiceId}/', ['as' => 'user.request.accept', 'uses' => 'Portal\User\UserController@acceptServiceRequest']);
     Route::get('/request/refuse/{providedServiceId}/', ['as' => 'user.request.refuse', 'uses' => 'Portal\User\UserController@refuseServiceRequest']);
