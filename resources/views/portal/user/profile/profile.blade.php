@@ -4,8 +4,8 @@
 <div class="container" id="cadastro">
     <h1>Informações pessoais de {{ $user->name }}  <button href="user/{{$user->id}}/edit">Editar</button></h1>
     <ul>
-        <a href="#"><li>Meus pedidos</li></a>
-        <a href="#"><li>Minhas solicitações</li></a>
+        <a href="#"><li>Pedidos</li></a>
+        <a href="{{route('user.requests')}}"><li>Solicitações</li></a>
         <a href="#"><li>Mensagens</li></a>
         <a href="#"><li>Senha</li></a>
     </ul>
