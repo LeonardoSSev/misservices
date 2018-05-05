@@ -1,14 +1,12 @@
-@extends('templates.temp')
-@section('content')
-    <div class="col-lg-3">
-        @include('painel.templates.menu-admin')
-    </div>
-    <div class="col-lg-9">
-        <div  id="admin-table">
-            @yield('content-admin')
-        </div>
-    </div>
-    <div class="footer-admin">
-        @include('templates.sections.footer')
-    </div>
+@extends('painel.templates.template-admin')
+@section('content-admin')
+
+<p>Total de Usuários: {{$totalUsers}}</p>
+<p>Total de Categorias: {{$totalCategories}}</p>
+<p>Total de Serviços: {{$totalServices}}</p>
+<p>Total de Papéis: {{$totalRoles}}</p>
+<p>Total de Permissões: {{$totalPermissions}}</p>
+<p>Total de Telefones: {{$totalPhones}}</p>
+<p>Total de Tipos de Telefone: {{$totalPhoneTypes}}</p>
+
 @stop

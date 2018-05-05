@@ -1,9 +1,11 @@
-@extends('painel.admin')
+@extends('painel.templates.template-admin')
 @section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
-        <a href="{{route('admin.phone.create')}}">Adicionar</a>
-        <input type="text" class="box box-desk radius" placeholder="Pesquise um telefone..." number="pesquisar">
+        <a href="{{route('admin.phone.create')}}" class="btn btn-primary">Adicionar</a>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Pesquise um telefone..." number="pesquisar">
+        </div>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -30,6 +32,7 @@
                 @endforeach
             </tbody>
         </table>
+        {!! $phones->links() !!}
     </main>
 </div>
 @endsection

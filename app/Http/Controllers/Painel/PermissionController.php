@@ -9,9 +9,11 @@ use App\Permission;
 
 class PermissionController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
-        $permissions = Permission::all();
+        $permissions = Permission::paginate($this->numberPagination);
 
         return view('painel.permissions.home', compact('permissions'));
     }

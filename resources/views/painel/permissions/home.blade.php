@@ -1,4 +1,4 @@
-@extends('painel.admin')
+@extends('painel.templates.template-admin')
 @section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
@@ -29,5 +29,6 @@
                 @endforeach
             </tbody>
         </table>
+        {!! $permissions->links() !!}
     </main>
 @endsection

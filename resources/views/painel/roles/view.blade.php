@@ -1,4 +1,4 @@
-@extends('painel.admin')
+@extends('painel.templates.template-admin')
 @section('content-admin')
 <div class="container" id="cadastro">
     <h1>Visualizar {{ $role->name }}</h1>

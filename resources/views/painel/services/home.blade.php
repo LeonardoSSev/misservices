@@ -1,9 +1,11 @@
-@extends('painel.admin')
+@extends('painel.templates.template-admin')
 @section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
         <a href="{{route('admin.service.create')}}" class="btn btn-primary">Adicionar</a>
-        <input type="text" class="form-control" placeholder="Pesquise um serviço..." name="pesquisar">
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Pesquise um serviço..." name="pesquisar">
+        </div>
         <table class="table">
             <thead>
             <th>ID</th>
@@ -29,6 +31,7 @@
             @endforeach
             </tbody>
         </table>
+        {!! $services->links() !!}
     </main>
 </div>
 

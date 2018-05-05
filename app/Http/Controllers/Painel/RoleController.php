@@ -8,9 +8,11 @@ use App\Role;
 
 class RoleController extends Controller
 {
+    private $numberPagination = 10;
+
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::paginate($this->numberPagination);
 
         return view('painel.roles.home', compact('roles'));
     }
