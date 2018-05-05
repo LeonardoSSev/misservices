@@ -11,8 +11,7 @@ use App\Role;
 use App\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
+use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
@@ -63,7 +62,41 @@ class SiteController extends Controller
         }
     }
 
+    public function showCategories()
+    {
+        $categories = Category::orderBy('name', 'asc')->paginate($this->numberPagination);
 
 
+        return view('portal.user.search.categories', compact('categories'));
+    }
+
+    public function showServices(int $category_id)
+    {
+        $category = Category::find($category_id);
+        $services = DB::table('categories')
+                        ->join('services', 'services.category_id', '=', 'categories.id')
+                        ->join('users', 'services.user_id', '=', 'users.id')
+                        ->select('services.id', 'services.name', 'services.description', 'users.id as user_id',
+                            'users.name as user_name')
+                        ->where('categories.id', '=', $category_id)
+                        ->orderBy('services.name', 'asc')
+                        ->paginate($this->numberPagination);
+        return view('portal.user.search.services', compact(['services', 'category']));
+    }
+
+    public function showUserServiceDetails(int $userId, int $serviceId)
+    {
+        $where = [['service_id', '=', $serviceId], ['provider_id', '=', $userId], ['status', '=', 'PAID']];
+        $numberServices = DB::table('provided_services')
+                              ->where($where)
+                              ->count();
+        $rateServices = DB::table('provided_services')
+            ->where($where)
+            ->sum('rate');
+
+        $rate = $numberServices == 0 ? 0 : $rateServices / $numberServices;
+
+        return view('portal.user.search.user_service', compact(['numberServices', 'rate']));
+    }
 
 }

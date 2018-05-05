@@ -2,22 +2,22 @@
 
 Auth::routes();
 
-Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions']);
-
+Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions', 'middleware' => 'restrictClient']);
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
 
 Route::group(['prefix' => 'user'], function() {
-    Route::get('{id}/profile', 'User\UserController@userProfile');
+    Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
+    Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
+    Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
+    Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
+
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function(){
     Route::get('/',                      ['as' => 'admin.index',             'uses' => 'Portal\SiteController@admin']);
-
-
-
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
     Route::get('user/create/',           ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);

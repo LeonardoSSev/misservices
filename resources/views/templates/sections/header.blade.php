@@ -36,12 +36,22 @@
                 <li>
                     <a href="{{route('index') }}">Inicio</a>
                 </li>
+                @if (Auth::check())
+                    <li>
+                        <a href="{{route('user.profile', [Auth::user()->id]) }}">Perfil</a>
+                    </li>
+                @endif
                 <li>
                     <a href="{{route('how') }}">Como Funciona</a>
                 </li>
                 <li>
                     <a href="{{route('contact') }}">Contato</a>
                 </li>
+                @if (Auth::check())
+                <li>
+                    <a href="{{route('user.search.categories') }}">Serviços</a>
+                </li>
+                @endif
                 @can('Admin')
                     <li><a href="{{route('admin.index') }}">Painel</a></li>
                 @endcan
