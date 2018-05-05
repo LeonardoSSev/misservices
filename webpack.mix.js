@@ -13,7 +13,6 @@ mix.scripts([
         'resources/assets/js/plugins/validacep.js',
         'resources/assets/js/script.js'
     ], 'public/js/main.js')
-    .js('resources/assets/js/app.js', 'public/js')
    .sass('resources/assets/sass/main.scss', 'public/css/')
    .copy('resources/assets/img/**/*', 'public/images')
    .browserSync('localhost:8000');

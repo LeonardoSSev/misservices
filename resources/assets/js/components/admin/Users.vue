@@ -32,7 +32,7 @@
             <input type="text" v-on:keyup="filterTerm()" class="form-control" placeholder="Pesquise um usuário..." name="pesquisar">
         </div>
         <div class="col-lg-12">
-        <table class="table">
+        <table class="table ">
             <thead>
                 <th>ID</th>
                 <th>Nome</th>
