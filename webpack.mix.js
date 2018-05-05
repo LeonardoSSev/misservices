@@ -11,6 +11,7 @@ mix.scripts([
     'resources/assets/js/plugins/cbpAnimatedHeader.min.js',
     'resources/assets/js/plugins/freelancer.js',
     'resources/assets/js/plugins/validacep.js',
+    'resources/assets/js/plugins/chart.js',
     'resources/assets/js/script.js'
     ], 'public/js/app.js')
    .sass('resources/assets/sass/main.scss', 'public/css/')

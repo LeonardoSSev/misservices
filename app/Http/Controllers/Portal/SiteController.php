@@ -32,7 +32,7 @@ class SiteController extends Controller
         $totalServices = Service::all()->count();
         $totalUsers = User::all()->count();
 
-        return view('painel.templates.template-admin', compact(['totalCategories', 'totalPermissions', 'totalPhones', 'totalPhoneTypes', 'totalRoles', 'totalServices', 'totalUsers']));
+        return view('painel.admin', compact(['totalCategories', 'totalPermissions', 'totalPhones', 'totalPhoneTypes', 'totalRoles', 'totalServices', 'totalUsers']));
     }
 
     public function howItWork()
