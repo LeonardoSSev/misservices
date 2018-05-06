@@ -9555,6 +9555,96 @@ form .row:first-child .floating-label-form-group {
   text-transform: uppercase;
 }
 
+#perfil {
+  padding: 10% 0 15%;
+}
+
+#perfil ul {
+  list-style: none;
+}
+
+#perfil a {
+  text-decoration: none;
+  color: #fff;
+  -webkit-transition: ease 0.4s;
+  transition: ease 0.4s;
+}
+
+#perfil a:hover {
+  color: #25aae1;
+}
+
+#perfil #perfil-info {
+  background: #233140;
+  padding: 5% 0 10%;
+}
+
+#perfil #perfil-info .primary-info {
+  padding: 25px 0;
+}
+
+#perfil #perfil-info .primary-info .name-user {
+  text-transform: capitalize;
+  font-size: 1.8em;
+  color: #888;
+  float: left;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+#perfil #perfil-info .primary-info .img-perfil {
+  margin-left: 45px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #000;
+  float: left;
+}
+
+#perfil #perfil-info ul > li {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #888;
+}
+
+#perfil #perfil-info ul > li b {
+  color: #fff;
+}
+
+#perfil #actions a {
+  color: #fff;
+}
+
+#perfil #actions a :hover {
+  color: #fff;
+}
+
+#perfil #actions .box-list {
+  background: #25aae1;
+  border: 1px solid #233140;
+  padding: 3%;
+  height: 150px;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.3em;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+#perfil #actions .box-list span,
+#perfil #actions .box-list i {
+  width: 100%;
+}
+
+#perfil #actions .box-list i {
+  font-size: 3em;
+  margin-top: 15px;
+}
+
+#perfil #actions .box-list:hover {
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
 .header-admin {
   position: fixed;
   height: 100vh;
