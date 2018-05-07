@@ -1,0 +1,78 @@
+#perfil{
+    padding: 10% 0 15%;
+    ul{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+        color: #fff;
+        transition: ease 0.4s;
+        &:hover{
+            color: $blue;
+        }
+    }
+
+    #perfil-info{
+        background: $dkblue;
+        padding: 5% 0 10%;
+
+        .primary-info{
+            padding: 25px 0;
+
+            .name-user{
+                text-transform: capitalize;
+                font-size: 1.8em;
+                color: #888;
+                float: left;
+                margin-left: 50px;
+                margin-top: 30px;
+            }
+
+            .img-perfil{
+                margin-left: 45px;
+                width: 100px;
+                height: 100px;
+                border: 1px solid #000;
+                float: left;
+            }
+        }
+
+        ul > li{
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #888;
+            b{ color: #fff; }
+        }
+    }
+
+    #actions{
+        a{
+            color: #fff;
+            :hover{ color: #fff; }
+        }
+        .box-list{
+            background: $blue;
+            border: 1px solid $dkblue;
+            padding: 3%;
+            height: 150px;
+            margin: 10px;
+            text-align: center;
+            font-size: 1.3em;
+            transition: ease 0.5s;
+
+            span, i{
+                width: 100%;
+            }
+
+            i{
+                font-size: 3em;
+                margin-top: 15px;
+            }
+
+            &:hover{
+                box-shadow: 1px 2px 4px rgba(0, 0, 0, .7);
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
 <div id="cadastro">
@@ -136,3 +137,4 @@
 </div>
 
 @include('templates.sections.footer')
+@stop

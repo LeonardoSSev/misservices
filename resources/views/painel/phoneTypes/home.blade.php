@@ -1,11 +1,11 @@
-@extends('templates.temp')
-<!-- MENU ADMIN-->
-<div>
-    @include('painel.templates.menu-admin')
+@extends('painel.templates.template-admin')
+@section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
-        <a href="{{ route('admin.phone_type.create') }}">Adicionar</a>
-        <input type="text" class="box box-desk radius" placeholder="Pesquise um tipo de telefone..." name="pesquisar">
+        <a href="{{ route('admin.phone_type.create') }}" class="btn btn-primary">Adicionar</a>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Pesquise um tipo de telefone..." name="pesquisar">
+        </div>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -33,5 +33,4 @@
         {!! $phoneTypes->links() !!}
     </main>
 </div>
-
-@include('templates.sections.footer')
+@endsection

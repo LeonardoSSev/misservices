@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
 <section id="como-funciona">
@@ -87,3 +88,4 @@
 </section>
 
 @include('templates.sections.footer')
+@stop

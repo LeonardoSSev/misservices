@@ -1,11 +1,11 @@
-@extends('templates.temp')
-<!-- MENU ADMIN-->
-<div>
-    @include('painel.templates.menu-admin')
+@extends('painel.templates.template-admin')
+@section('content-admin')
     <main class="painel container">
         <h1>Painel de Administração</h1>
-        <a href="{{route('admin.permission.create')}}">Adicionar</a>
-        <input type="text" class="box box-desk radius" placeholder="Pesquise uma permissão..." name="pesquisar">
+        <a href="{{route('admin.permission.create')}}" class="btn btn-primary">Adicionar</a>
+        <div class="col-lg-4">
+            <input type="text" class="form-control" placeholder="Pesquise uma permissão..." name="pesquisar">
+        </div>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -31,6 +31,4 @@
         </table>
         {!! $permissions->links() !!}
     </main>
-</div>
-
-@include('templates.sections.footer')
+@endsection

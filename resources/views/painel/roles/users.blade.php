@@ -1,5 +1,5 @@
-@extends('templates.temp')
-@include('painel.templates.menu-admin')
+@extends('painel.templates.template-admin')
+@section('content-admin')
 
 <main class="painel container">
     <h1>Usuários <-> Papel: {{ $role->name }}</h1>
@@ -20,4 +20,4 @@
     </table>
 </main>
 
-@include('templates.sections.footer')
+@endsection

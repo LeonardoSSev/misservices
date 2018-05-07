@@ -1,4 +1,5 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
 <div id="login">
@@ -60,3 +61,4 @@
 </div>
 
 @include('templates.sections.footer')
+@stop

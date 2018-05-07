@@ -1,12 +1,12 @@
-@extends('templates.temp')
-@include('painel.templates.menu-admin')
+@extends('painel.templates.template-admin')
+@section('content-admin')
 <div class="container" id="cadastro">
     <h1>Categoria: {{$service->name}}</h1>
     <form method="GET" action="/admin/service/update/{{$service->id}}" name="cadastroForm">
         @csrf
         <div class="form-group row">
-            <div class="col-md-6">
-                <input id="name" type="text" class="box box-desk radius{{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{$service->name}}" name="name" required autofocus>
+            <div class="col-md-4">
+                <input id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" value="{{$service->name}}" name="name" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">
@@ -17,8 +17,8 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6">
-                <input id="description" type="text" class="box box-desk radius{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $service->description }}" required>
+            <div class="col-md-4">
+                <input id="description" type="text" class="form-control {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $service->description }}" required>
 
                 @if ($errors->has('description'))
                     <span class="invalid-feedback">
@@ -29,8 +29,8 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6">
-                <select id="category" class="box box-desk radius" name="category" value="{{ $service->category_id }}"required>
+            <div class="col-md-4">
+                <select id="category" class="form-control " name="category" value="{{ $service->category_id }}"required>
                     @foreach( $categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -39,8 +39,8 @@
         </div>
 
         <div class="form-group row">
-            <div class="col-md-6">
-                <select id="user" class="box box-desk radius" name="user" value="{{ $service->user_id }}" required>
+            <div class="col-md-4">
+                <select id="user" class="form-control " name="user" value="{{ $service->user_id }}" required>
                     @foreach( $users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }} - {{ $user->email }}</option>
                     @endforeach
@@ -59,4 +59,4 @@
 
 </div>
 
-@include('templates.sections.footer')
+@endsection
