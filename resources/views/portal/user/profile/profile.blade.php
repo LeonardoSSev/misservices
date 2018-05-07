@@ -12,6 +12,7 @@
             <li><b>Seu e-mail:</b> {{ $user->email }}</li>
             <li><b>Estado:</b> {{ $user->state }}</li>
             <li><b>Cidade:</b> {{ $user->city }}</li>
+            <li><b>Sobre mim:</b> {{ $user->about }}</li>
             <li><a href="user/{{$user->id}}/edit">Editar Informações</a></li>
         </ul>
     </div>
