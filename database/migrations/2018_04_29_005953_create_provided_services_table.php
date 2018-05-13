@@ -23,20 +23,16 @@ class CreateProvidedServicesTable extends Migration
             $table->float('price', 8, 2);
             $table->foreign('provider_id')
                 ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
+                ->on('users');
             $table->foreign('service_id')
                 ->references('id')
-                ->on('services')
-                ->onDelete('cascade');
+                ->on('services');
             $table->foreign('category_id')
                 ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
+                ->on('categories');
             $table->foreign('client_id')
                 ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
+                ->on('categories');
             $table->softDeletes();
             $table->timestamps();
         });
