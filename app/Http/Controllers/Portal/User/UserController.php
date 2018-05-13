@@ -75,15 +75,10 @@ class UserController extends Controller
         $user = User::find($userId);
 
         $data = $request->all();
-//        $request['image'] = $user->image;
         $data['image'] = $user->image;
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            if ($user->image) {
-                $name = $user->image;
-            } else {
-                $name = $user->id.kebab_case($user->name);
-            }
+            $name = $user->id.kebab_case($user->name);
 
             $extension = $request->image->extension();
             $imageName = "{$name}.{$extension}";
@@ -105,7 +100,6 @@ class UserController extends Controller
         }
 
         return redirect()->route('user.profile', $user);
-
 
     }
 }
