@@ -6,6 +6,9 @@
     <div class="col-lg-4" id="perfil-info">
         <div class="row primary-info">
             <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+            <form action="{{route('user.profile.image', $user->id)}}" >
+                <input type="file">
+            </form>
             <span class="name-user">{{ $user->name }}</span>
         </div>
         <ul>
