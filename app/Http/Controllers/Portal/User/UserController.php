@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Portal\User;
 
+use App\Phone;
 use App\ProvidedService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,59 @@ class UserController extends Controller
         $user = Auth()->user();
 
         return view('portal.user.profile.profile', compact('user'));
+    }
+
+    public function editProfile()
+    {
+        $user = Auth()->user();
+
+        $telephone = DB::table('phone_user')
+            ->join('phones', 'phone_id', '=', 'phones.id')
+            ->select('phone_id', 'number')
+            ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '1']])
+            ->get();
+
+        $cellphone = DB::table('phone_user')
+            ->join('phones', 'phone_id', '=', 'phones.id')
+            ->select('phone_id', 'number')
+            ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '2']])
+            ->get();
+//        dd($cellphone, $telephone, $user);
+
+        return view('portal.user.profile.edit', compact(['user', 'telephone', 'cellphone']));
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $user = Auth()->user();
+
+        $user->name          = $request->name;
+        $user->email         = $request->email;
+        $user->cpf           = $request->cpf;
+        $user->state         = $request->state;
+        $user->city          = $request->city;
+        $user->zipcode       = $request->zipcode;
+        $user->neighbourhood = $request->neighbourhood;
+        $user->address       = $request->address;
+        $user->about         = $request->about;
+
+        $telephone = DB::table('phones')
+                          ->select('id')
+                          ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '1']])
+                          ->get();
+
+        $cellphone = DB::table('phones')
+                          ->select('id')
+                          ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '2']])
+                          ->get();
+
+    }
+
+
+
+    public function updatePassword(Request $request)
+    {
+
     }
 
     public function showUserRequests(int $userId)
