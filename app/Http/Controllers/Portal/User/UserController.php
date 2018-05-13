@@ -69,4 +69,43 @@ class UserController extends Controller
 
         return view('portal.user.profile.services_requested', compact('servicesRequested'));
     }
+
+    public function uploadProfilePicture(Request $request, int $userId)
+    {
+        $user = User::find($userId);
+
+        $data = $request->all();
+//        $request['image'] = $user->image;
+        $data['image'] = $user->image;
+
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            if ($user->image) {
+                $name = $user->image;
+            } else {
+                $name = $user->id.kebab_case($user->name);
+            }
+
+            $extension = $request->image->extension();
+            $imageName = "{$name}.{$extension}";
+
+            $data['image'] = $imageName;
+
+            $upload = $request->image->storeAs('users', $imageName);
+
+            if (!$upload) {
+                return redirect()->route('user.profile', $user)->with('errors', 'Falha ao fazer o upload da imagem');
+            }
+
+        }
+
+        $update = $user->update($data);
+
+        if (!$update) {
+            return redirect()->route('user.profile', $user)->with('errors', 'Falha ao fazer o upload da imagem');
+        }
+
+        return redirect()->route('user.profile', $user);
+
+
+    }
 }

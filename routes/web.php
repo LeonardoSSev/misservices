@@ -10,7 +10,7 @@ Route::get('/how',                      ['as' => 'how',                      'us
 
 Route::group(['prefix' => 'user'], function() {
     Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
-    Route::get('{id}/profile/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadPicture']);
+    Route::post('{id}/profile/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadProfilePicture']);
     Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
     Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);

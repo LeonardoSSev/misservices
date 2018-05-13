@@ -3,12 +3,21 @@
 @include('templates.sections.header')
 
 <div class="container" id="perfil">
+    @if (session('errors'))
+        <div class="alert alert-danger">
+            {{session('errors')}}
+        </div>
+    @endif
     <div class="col-lg-4" id="perfil-info">
         <div class="row primary-info">
             <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
-            <form action="{{route('user.profile.image', $user->id)}}" >
-                <input type="file">
-            </form>
+            <div class="col-md2">
+                <form action="{{route('user.profile.image', $user->id)}}" enctype="multipart/form-data" method="POST">
+                    {{ csrf_field() }}
+                    <input type="file" name="image">
+                    <button type="submit">Enviar imagem</button>
+                </form>
+            </div>
             <span class="name-user">{{ $user->name }}</span>
         </div>
         <ul>
