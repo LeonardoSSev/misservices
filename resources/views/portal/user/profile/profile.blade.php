@@ -1,63 +1,41 @@
 @extends('templates.temp')
+@section('content')
 @include('templates.sections.header')
 
-<div class="container" id="cadastro">
-    <h1>Informações pessoais de {{ $user->name }}  <button href="user/{{$user->id}}/edit">Editar</button></h1>
-    <ul>
-        <a href="{{route('user.requested')}}"><li>Pedidos</li></a>
-        <a href="{{route('user.requests')}}"><li>Solicitações</li></a>
-        <a href="#"><li>Mensagens</li></a>
-        <a href="#"><li>Senha</li></a>
-    </ul>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="name" type="text" class="box box-desk radius" value="{{ $user->name }}" disabled>
+<div class="container" id="perfil">
+    <div class="col-lg-4" id="perfil-info">
+        <div class="row primary-info">
+            <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+            <span class="name-user">{{ $user->name }}</span>
         </div>
+        <ul>
+            <li><b>Seu e-mail:</b> {{ $user->email }}</li>
+            <li><b>Estado:</b> {{ $user->state }}</li>
+            <li><b>Cidade:</b> {{ $user->city }}</li>
+            <li><b>Sobre mim:</b> {{ $user->about }}</li>
+            <li><a href="user/{{$user->id}}/edit">Editar Informações</a></li>
+        </ul>
     </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="email" type="email" class="box box-desk radius" value="{{ $user->email }}" disabled>
-        </div>
+    <div class="col-lg-8" id="actions">
+        <ul>
+            <a href="#"><li class="box-list col-lg-3">
+                <span>Mensagens</span>
+                <i class="fa fa-comment-o"></i>
+            </li></a>
+            <a href="#"><li class="box-list col-lg-3">
+                <span> Habilidades</span>
+                <i class="fa fa-address-card-o"></i>
+            </li></a>
+            <a href="#"><li class="box-list col-lg-3">
+                <span> Propostas</span>
+                <i class="fa fa-paper-plane-o"></i>
+            </li></a>
+            <a href="#"><li class="box-list col-lg-3">
+                <span> Trabalhos Realizados</span>
+                <i class="fa fa-cogs"></i>
+            </li></a>
+        </ul>
     </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="cpf" type="text" class="box box-desk radius" value="{{ $user->cpf }}" disabled>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="state" type="text" class="box box-desk radius" value="{{ $user->state }}" disabled>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="city" type="text" class="box box-desk radius" value="{{ $user->city }}" disabled>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="zipcode" type="text" class="box box-desk radius" value="{{ $user->zipcode }}" disabled>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="neighbourhood" type="text" class="box box-desk radius" value="{{ $user->neighbourhood }}" disabled>
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-md-6">
-            <input id="address" type="text" class="box box-desk radius" value="{{ $user->address }}" disabled>
-        </div>
-    </div>
-
 </div>
-
 @include('templates.sections.footer')
+@stop

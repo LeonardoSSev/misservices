@@ -1,11 +1,11 @@
-@extends('templates.temp')
-<!-- MENU ADMIN-->
-<div>
-    @include('painel.templates.menu-admin')
-    <main class="painel container">
+@extends('painel.templates.template-admin')
+@section('content-admin')
+    <main class="painel">
         <h1>Painel de Administração</h1>
-        <a href="{{ route('admin.user.create') }}">Adicionar</a>
-        <input type="text" class="box box-desk radius" placeholder="Pesquise um usuário..." name="pesquisar">
+        <a href="{{ route('admin.user.create') }}" class="btn btn-primary">Adicionar</a>
+        <div class="col-lg-3">
+            <input type="text" class="form-control" placeholder="Pesquise um usuário..." name="pesquisar">
+        </div>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -32,6 +32,5 @@
         </table>
         {!! $users->links() !!}
     </main>
-</div>
 
-@include('templates.sections.footer')
+@stop

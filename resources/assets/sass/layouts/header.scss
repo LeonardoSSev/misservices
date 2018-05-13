@@ -112,6 +112,14 @@ border: 0;
 
     //Header
     header{
+        .img-home-principal{
+            width: 200px;
+        }
+
+        #secao-intro-home{
+            margin-top: -5%;
+        }
+
         .buscar{
             .txt_buscar{
                 width: 60%;
@@ -128,11 +136,7 @@ border: 0;
 
         .intro-text{
             .name{
-                font-size: 5em;
-            }
-
-            .skills {
-                font-size: 1.75em;
+                font-size: 3em;
             }
         }
     }

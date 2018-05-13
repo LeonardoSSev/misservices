@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Portal;
 
+
 use App\ProvidedService;
+
+use App\Category;
+use App\PhoneType;
+use App\User;
 use App\Service;
+use App\Phone;
+use App\Role;
+use App\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Category;
 use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
@@ -21,7 +27,15 @@ class SiteController extends Controller
 
     public function admin()
     {
-        return view('painel.admin');
+        $totalCategories = Category::all()->count();
+        $totalPermissions = Permission::all()->count();
+        $totalPhones = Phone::all()->count();
+        $totalPhoneTypes = PhoneType::all()->count();
+        $totalRoles = Role::all()->count();
+        $totalServices = Service::all()->count();
+        $totalUsers = User::all()->count();
+
+        return view('painel.admin', compact(['totalCategories', 'totalPermissions', 'totalPhones', 'totalPhoneTypes', 'totalRoles', 'totalServices', 'totalUsers']));
     }
 
     public function howItWork()
