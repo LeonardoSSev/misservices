@@ -90,9 +90,10 @@ class RegisterController extends Controller
 
         if ($data['cellphone']) {
             $cellphone = new Phone;
-            $cellphone->ddd           = $data['dddCellphone'];
+
+            $cellphone->ddd           = substr($data['cellphone'], 0, 2);
             $cellphone->number        = $data['cellphone'];
-            $cellphone->phone_types_id = 2;
+            $cellphone->phone_type_id = 2;
 
             $cellphone->save();
             $cellphone->users()->sync($user->id);
@@ -100,9 +101,9 @@ class RegisterController extends Controller
         if ($data['telephone']) {
             $telephone = new Phone;
 
-            $cellphone->ddd           = $data['dddTelephone'];
+            $cellphone->ddd           = substr($data['telephone'], 0, 2);
             $telephone->number        = $data['telephone'];
-            $telephone->phone_types_id = 1;
+            $telephone->phone_type_id = 1;
 
             $telephone->save();
             $telephone->users()->sync($user->id);
