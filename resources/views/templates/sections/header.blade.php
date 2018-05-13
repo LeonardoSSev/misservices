@@ -38,7 +38,7 @@
                 </li>
                 @if (Auth::check())
                     <li>
-                        <a href="{{route('user.profile', [Auth::user()->id]) }}">Perfil</a>
+                        <a href="{{route('user.profile')}}">Perfil</a>
                     </li>
                 @endif
                 <li>

@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
-    public function userProfile($id)
+    public function userProfile()
     {
-        $user = User::find($id);
+        $user = Auth()->user();
 
         return view('portal.user.profile.profile', compact('user'));
     }
@@ -71,9 +71,9 @@ class UserController extends Controller
         return view('portal.user.profile.services_requested', compact('servicesRequested'));
     }
 
-    public function uploadProfilePicture(Request $request, int $userId)
+    public function uploadProfilePicture(Request $request)
     {
-        $user = User::find($userId);
+        $user = Auth()->user();
 
         $data = $request->all();
         $data['image'] = $user->image;
