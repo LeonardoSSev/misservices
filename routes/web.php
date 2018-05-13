@@ -16,6 +16,9 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
 
     Route::get('/requests', ['as' => 'user.requests', 'uses' => 'Portal\User\UserController@showServicesRequests']);
+    Route::get('/abilities', ['as' => 'user.abilities', 'uses' => 'Portal\User\UserController@showOwnUserAbilities']);
+    Route::post('/abilities/store/', ['as' => 'user.add.abilities', 'uses' => 'Portal\User\UserController@storeUserAbilities']);
+    Route::get('/abilities/delete/{id}', ['as' => 'user.remove.ability', 'uses' => 'Portal\User\UserController@deleteUserAbility']);
     Route::get('/requested', ['as' => 'user.requested', 'uses' => 'Portal\User\UserController@showServicesRequested']);
     Route::get('/request_service/{providerId}/{serviceId}/{categoryId}', ['as' => 'user.request.service', 'uses' => 'Portal\SiteController@requestProvidedService']);
     Route::get('/request/accept/{providedServiceId}/', ['as' => 'user.request.accept', 'uses' => 'Portal\User\UserController@acceptServiceRequest']);

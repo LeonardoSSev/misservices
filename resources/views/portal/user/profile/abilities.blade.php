@@ -3,9 +3,14 @@
 @include('templates.sections.header')
 
 <div class="container" id="perfil">
-    @if (session('errors'))
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
+        @if (session('statusFalse'))
         <div class="alert alert-danger">
-            {{session('errors')}}
+            {{session('statusFalse')}}
         </div>
     @endif
     <div class="col-lg-4" id="perfil-info">
@@ -34,24 +39,28 @@
         </ul>
     </div>
     <div class="col-lg-8" id="actions">
-        <ul>
-            <a href="#"><li class="box-list col-lg-3">
-                <span>Mensagens</span>
-                <i class="fa fa-comment-o"></i>
-            </li></a>
-            <a href="{{route('user.abilities')}}"><li class="box-list col-lg-3">
-                <span>Habilidades</span>
-                <i class="fa fa-address-card-o"></i>
-            </li></a>
-            <a href="{{route('user.requests')}}"><li class="box-list col-lg-3">
-                <span>Propostas</span>
-                <i class="fa fa-paper-plane-o"></i>
-            </li></a>
-            <a href="{{route('user.requested')}}"><li class="box-list col-lg-3">
-                <span>Trabalhos Realizados</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-        </ul>
+        <div>
+            <form action="{{route('user.add.abilities')}}" method="POST">
+                {{ csrf_field() }}
+                <label for="ability">Adicionar habilidade:</label>
+                <input type="text" name="ability">
+                <button type="submit">Adicionar habilidade</button>
+            </form>
+        </div>
+        <div>
+            @if(!count($abilities) > 0)
+                <div style="border: 2px black solid;">
+                    <p>Você não possui nenhuma habilidade cadastrada ainda</p>
+                </div>
+            @else
+
+                @foreach($abilities as $ability)
+                    <div style="border: 2px black solid;">
+                        <p>{{$ability->name}}<span style="float:right;"><a href="{{route('user.remove.ability', $ability->id)}}" style="text-decoration: none; color: black;">X</a></span></p>
+                    </div>
+                @endforeach
+            @endif
+        </div>
     </div>
 </div>
 @include('templates.sections.footer')
