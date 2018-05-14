@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Portal\User;
 
 use App\Phone;
 use App\ProvidedService;
+use App\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     public function userProfile()
     {
         $user = Auth()->user();
@@ -209,5 +211,13 @@ class UserController extends Controller
         Ability::destroy($abilityId);
 
         return redirect()->route('user.abilities')->with('statusFalse', 'Habilidade excluída');
+    }
+
+    public function showOwnServices()
+    {
+        $services = Service::where('user_id', Auth()->user()->id);
+        $numServices = Service::where('user_id', Auth()->user()->id)->count();
+
+        return view('portal.user.profile.own_services', compact(['services', 'numServices']));
     }
 }

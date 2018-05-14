@@ -22,19 +22,19 @@
             @endif
 
             <div class="col-md2">
-                <form action="{{route('user.profile.image', $user->id)}}" enctype="multipart/form-data" method="POST">
+                <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
                     {{ csrf_field() }}
                     <input type="file" name="image">
                     <button type="submit">Enviar imagem</button>
                 </form>
             </div>
-            <span class="name-user">{{ $user->name }}</span>
+            <span class="name-user">{{ Auth()->user()->name }}</span>
         </div>
         <ul>
-            <li><b>Seu e-mail:</b> {{ $user->email }}</li>
-            <li><b>Estado:</b> {{ $user->state }}</li>
-            <li><b>Cidade:</b> {{ $user->city }}</li>
-            <li><b>Sobre mim:</b> {{ $user->about }}</li>
+            <li><b>Seu e-mail:</b> {{ Auth()->user()->email }}</li>
+            <li><b>Estado:</b> {{ Auth()->user()->state }}</li>
+            <li><b>Cidade:</b> {{ Auth()->user()->city }}</li>
+            <li><b>Sobre mim:</b> {{ Auth()->user()->about }}</li>
             <li><a href="{{route('user.edit.profile')}}">Editar Informações</a></li>
         </ul>
     </div>
