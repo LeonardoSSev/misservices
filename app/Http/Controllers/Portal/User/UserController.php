@@ -262,4 +262,21 @@ class UserController extends Controller
 
         return redirect()->route('user.services')->with('status', 'Serviço adicionado com sucesso');
     }
+
+    public function showCurrencyRequests()
+    {
+        // 2 consultas. Uma para cliente e outra para prestador.
+        $servicesRequests = DB::table('provided_services')
+//                                ->join('services', 'services.user_id', '=', 'provided_services.client_id')
+//                                ->join('users', 'provided_services.client_id', '=', 'users.id')
+//                                ->select('users.name')
+                                ->select('*')
+                                ->where([
+                                    ['client_id', '=', Auth()->user()->id],
+                                    ['status', '=', 'PROGRESS']
+                                ])
+                                ->get();
+
+        return view('portal.user.profile.currency_requests', compact(['servicesRequests']));
+    }
 }

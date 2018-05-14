@@ -39,32 +39,20 @@
         </ul>
     </div>
     <div class="col-lg-8" id="actions">
-        <ul>
-            <a href="#"><li class="box-list col-lg-3">
-                <span>Mensagens</span>
-                <i class="fa fa-comment-o"></i>
-            </li></a>
-            <a href="{{route('user.abilities')}}"><li class="box-list col-lg-3">
-                <span>Habilidades</span>
-                <i class="fa fa-address-card-o"></i>
-            </li></a>
-            <a href="{{route('user.requests')}}"><li class="box-list col-lg-3">
-                <span>Propostas</span>
-                <i class="fa fa-paper-plane-o"></i>
-            </li></a>
-            <a href="{{route('user.current.services')}}"><li class="box-list col-lg-3">
-                <span>Serviços em Andamento</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-            <a href="{{route('user.requested')}}"><li class="box-list col-lg-3">
-                <span>Trabalhos Realizados</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-            <a href="{{route('user.services')}}"><li class="box-list col-lg-3">
-                <span>Meus Serviços</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-        </ul>
+        @if(!count($servicesRequests) > 0)
+            <div style="border: 2px solid black;">
+                <p>Não há nenhum serviço em andamento</p>
+                <a href="{{route('user.search.categories') }}">
+                    <p>Procurar por um serviço</p>
+                </a>
+            </div>
+        @else
+            @foreach($servicesRequests as $requests)
+                <div style="border: 2px solid black;">
+                    {{--<p>{{$requests}}</p>--}}
+                </div>
+            @endforeach
+        @endif
     </div>
 </div>
 @include('templates.sections.footer')

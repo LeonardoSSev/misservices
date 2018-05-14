@@ -21,6 +21,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
 
     Route::get('/requests', ['as' => 'user.requests', 'uses' => 'Portal\User\UserController@showServicesRequests']);
+    Route::get('/requests/currency', ['as' => 'user.current.services', 'uses' => 'Portal\User\UserController@showCurrencyRequests']);
     Route::get('/abilities', ['as' => 'user.abilities', 'uses' => 'Portal\User\UserController@showOwnUserAbilities']);
     Route::post('/abilities/store/', ['as' => 'user.add.abilities', 'uses' => 'Portal\User\UserController@storeUserAbilities']);
     Route::get('/abilities/delete/{id}', ['as' => 'user.remove.ability', 'uses' => 'Portal\User\UserController@deleteUserAbility']);
