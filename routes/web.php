@@ -12,7 +12,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::get('/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
     Route::get('/profile/edit', ['as' => 'user.edit.profile', 'uses' => 'Portal\User\UserController@editProfile']);
     Route::get('/services', ['as' => 'user.services', 'uses' => 'Portal\User\UserController@showOwnServices']);
-    Route::get('/services/create', ['as' => 'user.create.service', 'uses' => 'Portal\User\UserController@createOwnServices']);
+    Route::post('/services/store', ['as' => 'user.store.service', 'uses' => 'Portal\User\UserController@storeOwnServices']);
     Route::post('/profile/update', ['as' => 'user.update.profile', 'uses' => 'Portal\User\UserController@updateProfile']);
     Route::post('/profile/password/update', ['as' => 'user.update.password', 'uses' => 'Portal\User\UserController@updatePassword']);
     Route::post('/profile/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadProfilePicture']);

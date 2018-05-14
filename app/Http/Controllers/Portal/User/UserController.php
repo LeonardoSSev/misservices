@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Portal\User;
 use App\Phone;
 use App\ProvidedService;
 use App\Service;
+use App\User;
+use App\Category;
+use App\Ability;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Ability;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -215,9 +216,27 @@ class UserController extends Controller
 
     public function showOwnServices()
     {
-        $services = Service::where('user_id', Auth()->user()->id);
+        $services = DB::table('services')
+                         ->select('*')
+                         ->where('user_id', '=', Auth()->user()->id)
+                         ->get();
         $numServices = Service::where('user_id', Auth()->user()->id)->count();
+        $categories = Category::all();
 
-        return view('portal.user.profile.own_services', compact(['services', 'numServices']));
+        return view('portal.user.profile.own_services', compact(['services', 'numServices', 'categories']));
+    }
+
+    public function storeOwnServices(Request $request)
+    {
+        $service = new Service;
+
+        $service->name = $request->name;
+        $service->description = $request->description;
+        $service->category_id = $request->category;
+        $service->user_id = Auth()->user()->id;
+
+        $service->save();
+
+        return redirect()->route('user.services')->with('status', 'Serviço adicionado com sucesso');
     }
 }

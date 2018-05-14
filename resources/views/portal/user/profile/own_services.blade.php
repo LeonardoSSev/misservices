@@ -39,7 +39,30 @@
             </ul>
         </div>
         <div class="col-lg-8" id="actions">
-            <h4><a href="{{route('user.create.service')}}" style="color: black;">Cadastrar serviço</a></h4>
+            <h4>Cadastrar serviço</h4>
+            <div>
+                <form action="{{route('user.store.service')}}" method="POST">
+                    {{ csrf_field() }}
+                    <div>
+                        <label for="name">Nome do serviço:</label>
+                        <input type="text" name="name">
+                    </div>
+                    <div>
+                        <label for="description">Descrição do serviço:</label>
+                        <input type="text" name="description">
+                    </div>
+                    <div class="form-group row">
+                        <select id="category" class="box box-desk radius" name="category" required>
+                            @foreach( $categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit">Adicionar serviço</button>
+                    </div>
+                </form>
+            </div>
             @if(!$numServices > 0)
                  <div style="border: 2px black solid;">
                      <p>Você ainda não tem nenhum serviço cadastrado</p>
