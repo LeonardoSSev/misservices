@@ -64,18 +64,20 @@
                     </div>
                 </form>
             </div>
-            @if(!$numServices > 0)
-                 <div style="border: 2px black solid;">
-                     <p>Você ainda não tem nenhum serviço cadastrado</p>
-                 </div>
-            @else
-                @foreach($services as $service)
-                    <div style="border: 2px black solid;">
-                        <p>{{$service->name}}</p>
-                        <p>{{$service->description}}</p>
-                    </div>
-                @endforeach
-            @endif
+            <div>
+                @if(!$numServices > 0)
+                     <div style="border: 2px black solid;">
+                         <p>Você ainda não tem nenhum serviço cadastrado</p>
+                     </div>
+                @else
+                    @foreach($services as $service)
+                        <div style="border: 2px black solid;">
+                            <p>{{$service->name}}</p>
+                            <p>{{$service->description}}</p>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
     </div>
     @include('templates.sections.footer')

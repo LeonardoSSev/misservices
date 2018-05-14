@@ -113,7 +113,28 @@ class UserController extends Controller
                                 ->where([['provider_id', '=', \Auth::user()->id], ['status', '=', 'OPENED']])
                                 ->get();
 
-        return view('portal.user.profile.requests', compact('servicesRequests'));
+        $services = DB::table('services')
+                        ->select('*')
+                        ->where('user_id', '=', Auth()->user()->id)
+                        ->get();
+
+        $numServices = Service::where('user_id', Auth()->user()->id)->count();
+
+        return view('portal.user.profile.requests', compact(['servicesRequests', 'services', 'numServices']));
+    }
+
+    private function getOwnServices()
+    {
+        $servicesId = [];
+        $userServicesId = DB::table('services')
+                                ->select('id')
+                                ->where('user_id', '=', Auth()->user()->id)
+                                ->get();
+        foreach ($userServicesId as $id) {
+            $servicesId[] = $id->id;
+        }
+
+        return $servicesId;
     }
 
     public function acceptServiceRequest(int $providedService_id)
@@ -220,7 +241,9 @@ class UserController extends Controller
                          ->select('*')
                          ->where('user_id', '=', Auth()->user()->id)
                          ->get();
+
         $numServices = Service::where('user_id', Auth()->user()->id)->count();
+
         $categories = Category::all();
 
         return view('portal.user.profile.own_services', compact(['services', 'numServices', 'categories']));
