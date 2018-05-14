@@ -35,7 +35,7 @@
             <li><b>Estado:</b> {{ $user->state }}</li>
             <li><b>Cidade:</b> {{ $user->city }}</li>
             <li><b>Sobre mim:</b> {{ $user->about }}</li>
-            <li><a href="user/{{$user->id}}/edit">Editar Informações</a></li>
+            <li><a href="{{route('user.edit.profile')}}">Editar Informações</a></li>
         </ul>
     </div>
     <div class="col-lg-8" id="actions">

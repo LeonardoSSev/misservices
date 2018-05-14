@@ -33,47 +33,47 @@
             </ul>
         </div>
         <div class="col-lg-8" id="actions">
-            <form action="{{route('user.edit.profile')}}" method="POST">
+            <form action="{{route('user.update.profile')}}" method="POST">
                 {{ csrf_field() }}
                 <div>
                     <label for="name">Nome:</label>
-                    <input type="text" name="name" value="{{$user->name}}">
+                    <input type="text" name="name" value="{{$user->name}}" required>
                 </div>
                 <div>
                     <label for="email">E-mail:</label>
-                    <input type="email" name="email" value="{{$user->email}}">
+                    <input type="email" name="email" value="{{$user->email}}" required>
                 </div>
                 <div>
                     <label for="cpf">CPF:</label>
-                    <input type="text" name="cpf" value="{{$user->cpf}}">
+                    <input type="text" name="cpf" value="{{$user->cpf}}" required>
                 </div>
                 <div>
                     <label for="telephone">Telefone:</label>
-                    <input type="text" name="telephone" value="{{$telephone[0]->number}}">
+                    <input type="text" name="telephone" value="{{$telephone->number}}" required>
                 </div>
                 <div>
                     <label for="cellphone">Celular:</label>
-                    <input type="text" name="cellphone" value="{{$cellphone[0]->number}}">
+                    <input type="text" name="cellphone" value="{{$cellphone->number}}" required>
                 </div>
                 <div>
                     <label for="state">UF:</label>
-                    <input type="text" name="state" value="{{$user->state}}">
+                    <input type="text" name="state" value="{{$user->state}}" required>
                 </div>
                 <div>
                     <label for="city">Cidade:</label>
-                    <input type="text" name="city" value="{{$user->city}}">
+                    <input type="text" name="city" value="{{$user->city}}" required>
                 </div>
                 <div>
                     <label for="zipcode">CEP:</label>
-                    <input type="text" name="zipcode" value="{{$user->zipcode}}">
+                    <input type="text" name="zipcode" value="{{$user->zipcode}}" required>
                 </div>
                 <div>
                     <label for="neighbourhood">Bairro:</label>
-                    <input type="text" name="neighbourhood" value=""{{$user->neighbourhood}}>
+                    <input type="text" name="neighbourhood" value=""{{$user->neighbourhood}} required>
                 </div>
                 <div>
                     <label for="address">Endereço:</label>
-                    <input type="text" name="address" value="{{$user->address}}">
+                    <input type="text" name="address" value="{{$user->address}}" required>
                 </div>
                 <div>
                     <label for="about">Sobre mim:</label>

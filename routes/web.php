@@ -11,8 +11,8 @@ Route::get('/how',                      ['as' => 'how',                      'us
 Route::group(['prefix' => 'user'], function() {
     Route::get('/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
     Route::get('/profile/edit', ['as' => 'user.edit.profile', 'uses' => 'Portal\User\UserController@editProfile']);
-    Route::get('/profile/update', ['as' => 'user.update.profile', 'uses' => 'Portal\User\UserController@updateProfile']);
-    Route::get('/profile/password/update', ['as' => 'user.update.password', 'uses' => 'Portal\User\UserController@updatePassword']);
+    Route::post('/profile/update', ['as' => 'user.update.profile', 'uses' => 'Portal\User\UserController@updateProfile']);
+    Route::post('/profile/password/update', ['as' => 'user.update.password', 'uses' => 'Portal\User\UserController@updatePassword']);
     Route::post('/profile/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadProfilePicture']);
     Route::get('/search/categories', ['as' => 'user.search.categories', 'uses' => 'Portal\SiteController@showCategories']);
     Route::get('/search/categories/{id}/services', ['as' => 'user.search.services', 'uses' => 'Portal\SiteController@showServices']);

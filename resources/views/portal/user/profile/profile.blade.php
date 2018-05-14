@@ -8,6 +8,11 @@
             {{session('errors')}}
         </div>
     @endif
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <div class="col-lg-4" id="perfil-info">
         <div class="row primary-info">
             @if(auth()->user()->image != null)
@@ -30,7 +35,7 @@
             <li><b>Estado:</b> {{ $user->state }}</li>
             <li><b>Cidade:</b> {{ $user->city }}</li>
             <li><b>Sobre mim:</b> {{ $user->about }}</li>
-            <li><a href="user/{{$user->id}}/edit">Editar Informações</a></li>
+            <li><a href="{{route('user.edit.profile')}}">Editar Informações</a></li>
         </ul>
     </div>
     <div class="col-lg-8" id="actions">

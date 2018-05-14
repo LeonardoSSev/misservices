@@ -23,18 +23,8 @@ class UserController extends Controller
     {
         $user = Auth()->user();
 
-        $telephone = DB::table('phone_user')
-            ->join('phones', 'phone_id', '=', 'phones.id')
-            ->select('phone_id', 'number')
-            ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '1']])
-            ->get();
-
-        $cellphone = DB::table('phone_user')
-            ->join('phones', 'phone_id', '=', 'phones.id')
-            ->select('phone_id', 'number')
-            ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '2']])
-            ->get();
-//        dd($cellphone, $telephone, $user);
+        $telephone = Phone::find($this->getOwnUserTelephoneId(1));
+        $cellphone = Phone::find($this->getOwnUserTelephoneId(2));
 
         return view('portal.user.profile.edit', compact(['user', 'telephone', 'cellphone']));
     }
@@ -53,19 +43,38 @@ class UserController extends Controller
         $user->address       = $request->address;
         $user->about         = $request->about;
 
-        $telephone = DB::table('phones')
-                          ->select('id')
-                          ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '1']])
-                          ->get();
 
-        $cellphone = DB::table('phones')
-                          ->select('id')
-                          ->where([['user_id', '=', $user->id], ['phone_type_id', '=', '2']])
-                          ->get();
+        $telephone = Phone::find($this->getOwnUserTelephoneId(1));
+        $cellphone = Phone::find($this->getOwnUserTelephoneId(2));
+
+        if ($telephone->number !== $request->telephone) {
+            $telephone->ddd = substr($request->telephone, 0, 2);
+            $telephone->number = $request->telephone;
+            $telephone->save();
+        }
+
+        if ($cellphone->number !== $request->cellphone) {
+            $cellphone->ddd = substr($request->cellphone, 0, 2);
+            $cellphone->number = $request->cellphone;
+            $cellphone->save();
+        }
+
+        $user->save();
+
+        return redirect()->route('user.profile')->with('status', 'Informações atualizadas');
 
     }
 
+    private function getOwnUserTelephoneId($phoneTypeId)
+    {
+        $telephone = DB::table('phone_user')
+                          ->join('phones', 'phone_id', '=', 'phones.id')
+                          ->select('phone_id')
+                          ->where([['user_id', '=', Auth()->user()->id], ['phone_type_id', '=', $phoneTypeId]])
+                          ->get();
 
+        return $telephone[0]->phone_id;
+    }
 
     public function updatePassword(Request $request)
     {
