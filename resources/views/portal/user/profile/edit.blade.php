@@ -89,11 +89,11 @@
                 {{ csrf_field() }}
                 <div>
                     <label for="password">Nova senha:</label>
-                    <input type="password" name="password">
+                    <input type="password" name="password" required>
                 </div>
                 <div>
                     <label for="password">Digite novamente a nova senha:</label>
-                    <input type="password" name="password2">
+                    <input type="password" name="password2" required>
                 </div>
                 <div>
                     <button type="submit">Editar senha</button>

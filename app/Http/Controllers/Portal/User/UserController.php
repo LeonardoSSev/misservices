@@ -82,7 +82,16 @@ class UserController extends Controller
 
     public function updatePassword(Request $request)
     {
+        $user = Auth()->user();
 
+        if ($request->password !== $request->password2) {
+            return redirect()->route('user.edit.profile')->with('errors', 'Valores diferentes para senha e senha digitada novamente');
+        }
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect()->route('user.profile')->with('status', 'Senha atualizada');
     }
 
     public function showUserRequests(int $userId)
