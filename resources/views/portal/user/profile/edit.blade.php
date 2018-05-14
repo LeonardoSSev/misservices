@@ -49,11 +49,11 @@
                 </div>
                 <div>
                     <label for="telephone">Telefone:</label>
-                    <input type="text" name="telephone" value="{{$telephone->number}}" required>
+                    <input type="text" name="telephone" value="{{$telephone->ddd.$telephone->number}}" required>
                 </div>
                 <div>
                     <label for="cellphone">Celular:</label>
-                    <input type="text" name="cellphone" value="{{$cellphone->number}}" required>
+                    <input type="text" name="cellphone" value="{{$cellphone->ddd.$cellphone->number}}" required>
                 </div>
                 <div>
                     <label for="state">UF:</label>
@@ -69,7 +69,7 @@
                 </div>
                 <div>
                     <label for="neighbourhood">Bairro:</label>
-                    <input type="text" name="neighbourhood" value=""{{$user->neighbourhood}} required>
+                    <input type="text" name="neighbourhood" value="{{$user->neighbourhood}}" required>
                 </div>
                 <div>
                     <label for="address">Endereço:</label>

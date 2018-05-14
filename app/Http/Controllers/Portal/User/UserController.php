@@ -44,20 +44,11 @@ class UserController extends Controller
         $user->about         = $request->about;
 
 
-        $telephone = Phone::find($this->getOwnUserTelephoneId(1));
-        $cellphone = Phone::find($this->getOwnUserTelephoneId(2));
+        $telephone = $this->setOwnUserTelephone(1, $request);
+        $cellphone = $this->setOwnUserTelephone(2, $request);
 
-        if ($telephone->number !== $request->telephone) {
-            $telephone->ddd = substr($request->telephone, 0, 2);
-            $telephone->number = $request->telephone;
-            $telephone->save();
-        }
-
-        if ($cellphone->number !== $request->cellphone) {
-            $cellphone->ddd = substr($request->cellphone, 0, 2);
-            $cellphone->number = $request->cellphone;
-            $cellphone->save();
-        }
+        $telephone->save();
+        $cellphone->save();
 
         $user->save();
 
@@ -65,12 +56,25 @@ class UserController extends Controller
 
     }
 
+    private function setOwnUserTelephone($phoneTypeId, $request)
+    {
+        $telephone = Phone::find($this->getOwnUserTelephoneId($phoneTypeId));
+
+        if ($telephone->number !== $request->telephone || $telephone->ddd !== substr($request->telephone, 0, 2)) {
+            $telephone->ddd = substr($request->telephone, 0, 2);
+            $telephone->number = substr($request->telephone, 2, strlen($request->telephone));
+        }
+        return $telephone;
+    }
+
     private function getOwnUserTelephoneId($phoneTypeId)
     {
+        $user = Auth()->user();
+
         $telephone = DB::table('phone_user')
                           ->join('phones', 'phone_id', '=', 'phones.id')
                           ->select('phone_id')
-                          ->where([['user_id', '=', Auth()->user()->id], ['phone_type_id', '=', $phoneTypeId]])
+                          ->where([['user_id', '=', $user->id], ['phone_type_id', '=', $phoneTypeId]])
                           ->get();
 
         return $telephone[0]->phone_id;
