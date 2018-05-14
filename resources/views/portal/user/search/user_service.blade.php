@@ -15,7 +15,8 @@
             <p>Esse usuário não realizou ou concluiu esse serviço ainda!</p>
         @endif
     </div>
-    <form action="{{route('user.request.service', [$service->user_id, $service->id, $service->category_id])}}">
+    <form action="{{route('user.request.service', [$service->id])}}" method="POST">
+        {{ csrf_field() }}
         <div>
             <button type="submit">Solicitar Serviço</button>
         </div>
