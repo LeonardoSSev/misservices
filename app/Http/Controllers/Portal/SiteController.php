@@ -80,7 +80,7 @@ class SiteController extends Controller
                         ->join('services', 'services.category_id', '=', 'categories.id')
                         ->join('users', 'services.user_id', '=', 'users.id')
                         ->select('services.id', 'services.name', 'services.description', 'users.id as user_id',
-                            'users.name as user_name')
+                            'users.name as user_name', 'users.image as user_image')
                         ->where([['categories.id', '=', $category_id], ['users.id', '<>', \Auth::user()->id]])
                         ->orderBy('services.name', 'asc')
                         ->paginate($this->numberPagination);
@@ -102,7 +102,7 @@ class SiteController extends Controller
                                   'provided_services.id as providedServiceId', 'provided_services.client_id as clientId',
                                   'provided_services.status as providedserviceStatus', 'provided_services.price as price',
                                   'rates.id as ratesId', 'rates.comment as comment', 'rates.rate as rate', 'users.id 
-                                  as userId', 'users.name as userName'
+                                  as userId', 'users.name as userName', 'users.image as userImage'
                               )
                               ->limit(5)
                               ->get();
@@ -129,19 +129,19 @@ class SiteController extends Controller
         return $average;
     }
 
-    public function requestProvidedService(int $providerId, int $serviceId, int $categoryId)
+    public function requestProvidedService(int $serviceId)
     {
+        $service = Service::find($serviceId);
         $provided_service = new ProvidedService();
 
-        $provided_service->provider_id = $providerId;
-        $provided_service->client_id = \Auth::user()->id;
-        $provided_service->service_id = $serviceId;
-        $provided_service->category_id = $categoryId;
+        $provided_service->provider_id = $service->user_id;
+        $provided_service->client_id = Auth()->user()->id;
+        $provided_service->service_id = $service->id;
+        $provided_service->category_id = $service->category_id;
         $provided_service->status = "OPENED";
-        $provided_service->price = 0.00;
         $provided_service->save();
 
-        return redirect()->route('user.service.details', [$providerId, $serviceId])->with('status', 'O serviço foi solicitado!');
+        return redirect()->route('user.service.details', [$service->user_id, $service->id])->with('status', 'O serviço foi solicitado!');
     }
 
 }

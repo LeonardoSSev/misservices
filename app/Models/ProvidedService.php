@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProvidedService extends Model
 {
+
+    protected $fillable = [
+        'provider_id', 'service_id', 'category_id', 'client_id', 'status', 'price'
+    ];
+
     public function provider() {
         return $this->belongsTo(User::class, 'provider_id');
     }

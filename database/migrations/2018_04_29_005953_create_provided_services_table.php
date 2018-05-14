@@ -32,7 +32,7 @@ class CreateProvidedServicesTable extends Migration
                 ->on('categories');
             $table->foreign('client_id')
                 ->references('id')
-                ->on('categories');
+                ->on('users');
             $table->softDeletes();
             $table->timestamps();
         });
