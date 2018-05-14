@@ -51,7 +51,8 @@
                         <label for="description">Descrição do serviço:</label>
                         <input type="text" name="description">
                     </div>
-                    <div class="form-group row">
+                    <div>
+                        <label for="category"></label>
                         <select id="category" class="box box-desk radius" name="category" required>
                             @foreach( $categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
