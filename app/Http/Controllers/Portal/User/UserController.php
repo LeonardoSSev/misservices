@@ -113,6 +113,10 @@ class UserController extends Controller
                                 ->where([['provider_id', '=', \Auth::user()->id], ['status', '=', 'OPENED']])
                                 ->get();
 
+        foreach ($servicesRequests as $services) {
+            $services->date = Helper::getFormatDate($services->date);
+        }
+
         $services = DB::table('services')
                         ->select('*')
                         ->where('user_id', '=', Auth()->user()->id)
@@ -267,12 +271,11 @@ class UserController extends Controller
     {
         $helper = new Helper();
         $servicesRequestsInProgress = $helper->getServices('PROGRESS');
-
+        $servicesRequestsInProgressForProvider = $helper->getServices('PROGRESS', true);
         $servicesRequestsNotAnswered = $helper->getServices('OPENED');
 
-        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress', 'servicesRequestsNotAnswered']));
+        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress', 'servicesRequestsNotAnswered', 'servicesRequestsInProgressForProvider']));
     }
-
 
     public function cancelRequest($providedServiceId)
     {

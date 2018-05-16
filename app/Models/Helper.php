@@ -31,14 +31,17 @@ class Helper extends Model
     }
 
 
-    public function getServices(string $providedServiceStatus)
+    public function getServices(string $providedServiceStatus, $isProvider = null)
     {
+        if ($isProvider === true) {
+            $where = [['provider_id', '=', Auth()->user()->id], ['status', '=', $providedServiceStatus]];
+        } else {
+            $where = [['client_id', '=', Auth()->user()->id], ['status', '=', $providedServiceStatus]];
+        }
+
         $ids = DB::table('provided_services')
             ->select('id', 'client_id', 'provider_id', 'service_id')
-            ->where([
-                ['client_id', '=', Auth()->user()->id],
-                ['status', '=', $providedServiceStatus]
-            ])
+            ->where($where)
             ->get();
 
         $providedServices = $this->getProvidedService($ids);
@@ -74,4 +77,10 @@ class Helper extends Model
         return $obj;
     }
 
+    public static function getFormatDate($date)
+    {
+        $formatDate = new \DateTime($date);
+
+        return$formatDate->format('d/m/Y');
+    }
 }

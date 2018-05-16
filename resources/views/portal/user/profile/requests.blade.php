@@ -59,9 +59,9 @@
                 @foreach($servicesRequests as $request)
                     <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
                         <div></div>
-                        <p>{{$request->userName}}</p>
-                        <p>{{$request->serviceName}}</p>
-                        <p>{{$request->date}}</p>
+                        <p>Solicitante: {{$request->userName}}</p>
+                        <p>Serviço solicitado: {{$request->serviceName}}</p>
+                        <p>Data de solicitação: {{$request->date}}</p>
                         <a href="{{route('user.request.accept', $request->id)}}" style="color: black;">
                             <button>Aprovar</button>
                         </a>

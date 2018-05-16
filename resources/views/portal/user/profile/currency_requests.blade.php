@@ -56,16 +56,40 @@
         <div>
             @if(!count($servicesRequestsInProgress) > 0)
                 <div style="border: 2px solid black;">
-                    <p>Não há nenhum serviço em andamento</p>
+                    <p>Não há nenhum serviço solicitado em andamento</p>
                     <a href="{{route('user.search.categories') }}">
                         <p>Procurar por um serviço</p>
                     </a>
                 </div>
             @else
                 @foreach($servicesRequestsInProgress as $servicesInProgress)
-                    <h5>Serviço em andamento</h5>
+                    <h5>Serviço solicitado em andamento</h5>
                     <div style="border: 2px solid black;">
-                        <p>{{$servicesInProgress}}</p>
+                        <p>{{$servicesInProgress->clientName}}</p>
+                        <p>{{$servicesInProgress->providerName}}</p>
+                        <p>{{$servicesInProgress->serviceName}}</p>
+                        <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+        <hr>
+        <div>
+            @if(!count($servicesRequestsInProgressForProvider) > 0)
+                <div style="border: 2px solid black;">
+                    <p>Não há nenhum serviço em andamento</p>
+                    <a href="{{route('user.search.categories') }}">
+                        <p>Procurar por um serviço</p>
+                    </a>
+                </div>
+            @else
+                @foreach($servicesRequestsInProgressForProvider as $servicesInProgress)
+                    <h5>Serviço provido em andamento</h5>
+                    <div style="border: 2px solid black;">
+                        <p>{{$servicesInProgress->providerName}}</p>
+                        <p>{{$servicesInProgress->clientName}}</p>
+                        <p>{{$servicesInProgress->serviceName}}</p>
+                        <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
                     </div>
                 @endforeach
             @endif
