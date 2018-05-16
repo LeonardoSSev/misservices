@@ -77,7 +77,7 @@
         <div>
             @if(!count($servicesRequestsInProgressForProvider) > 0)
                 <div style="border: 2px solid black;">
-                    <p>Não há nenhum serviço em andamento</p>
+                    <p>Não há nenhum serviço provido em andamento</p>
                     <a href="{{route('user.search.categories') }}">
                         <p>Procurar por um serviço</p>
                     </a>
