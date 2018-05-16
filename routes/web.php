@@ -5,6 +5,7 @@ Auth::routes();
 Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions', 'middleware' => 'restrictClient']);
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
+Route::get('/contact/{message}',       ['as' => 'contact.message',          'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
 
 

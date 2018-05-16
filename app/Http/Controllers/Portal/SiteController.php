@@ -15,6 +15,7 @@ use App\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Helper;
 
 class SiteController extends Controller
 {
@@ -43,9 +44,15 @@ class SiteController extends Controller
         return view('portal.how');
     }
 
-    public function contact()
+    public function contact(string $subject = null)
     {
-        return view('portal.contact');
+        $emailContent = null;
+
+        if ($subject !== null) {
+            $emailContent = Helper::getContactEmailData($subject);
+        }
+
+        return view('portal.contact', compact(['emailContent']));
     }
 
     public function rolesPermissions()

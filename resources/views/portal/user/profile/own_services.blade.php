@@ -60,7 +60,12 @@
                         </select>
                     </div>
                     <div>
-                        <button type="submit">Adicionar serviço</button>
+                        <div>
+                            <button type="submit">Adicionar serviço</button>
+                        </div>
+                        <div>
+                            <a href="{{route('contact.message', ['Categoria inexistente'])}}" style="color: dodgerblue;">Não tem nenhuma categoria relacionada ao seu serviço? Contate-nos</a>
+                        </div>
                     </div>
                 </form>
             </div>

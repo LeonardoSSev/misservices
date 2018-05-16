@@ -89,5 +89,15 @@ class Helper extends Model
         return $formatDate->format('d/m/Y');
     }
 
+    public static function getContactEmailData(string $subject)
+    {
+        $emailData = [];
+
+        if ($subject === 'Categoria inexistente') {
+            $emailData['message'] = "Meu serviço não se enquadra em nenhuma das categorias disponíveis na plataforma.\nO meu serviço é [informe o seu serviço] e está relacionado a [informe a categoria que acredita que seja relativa ao seu tipo de serviço].";
+        }
+
+        return $emailData;
+    }
 
 }

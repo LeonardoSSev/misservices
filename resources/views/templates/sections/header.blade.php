@@ -45,7 +45,7 @@
                     <a href="{{route('how') }}">Como Funciona</a>
                 </li>
                 <li>
-                    <a href="{{route('contact') }}">Contato</a>
+                    <a href="{{route('contact')}}">Contato</a>
                 </li>
                 @if (Auth::check())
                 <li>
