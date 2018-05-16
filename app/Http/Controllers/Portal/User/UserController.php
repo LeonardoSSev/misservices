@@ -168,8 +168,9 @@ class UserController extends Controller
 
         $ids = DB::table('provided_services')
                                  ->select('id', 'client_id', 'provider_id', 'service_id')
-                                 ->where('client_id', '=', Auth()->user()->id)
-                                 ->orWhere('provider_id', '=', Auth()->user()->id)
+                                 ->where([['client_id', '=', Auth()->user()->id], ['status', '=', 'CANCELED']])
+                                 ->orWhere([['provider_id', '=', Auth()->user()->id], ['status', '=', 'PAID']])
+                                 ->orWhere('status', '=', 'CLOSED')
                                  ->get();
 
         $providedServices = $helper->getProvidedService($ids);

@@ -57,7 +57,7 @@
                 <i class="fa fa-cogs"></i>
             </li></a>
             <a href="{{route('user.requested')}}"><li class="box-list col-lg-3">
-                <span>Trabalhos Realizados</span>
+                <span>Histórico de Serviços</span>
                 <i class="fa fa-cogs"></i>
             </li></a>
             <a href="{{route('user.services')}}"><li class="box-list col-lg-3">
