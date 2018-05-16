@@ -50,7 +50,7 @@ class Helper extends Model
     }
 
 
-    private function getProvidedService($ids)
+    public function getProvidedService($ids)
     {
         $servicesReturn = [];
 
@@ -72,7 +72,12 @@ class Helper extends Model
 
         $obj->serviceName = Service::find($data->service_id)->name;
 
-        $obj->providedServiceId = ProvidedService::find($data->id)->id;
+        $providedService = ProvidedService::find($data->id);
+
+        $obj->providedServiceId = $providedService->id;
+        $obj->providedServiceStatus = $providedService->status;
+        $obj->providedServiceCreatedAt = self::getFormatDate($providedService->created_at);
+        $obj->providedServiceUpdatedAt = self::getFormatDate($providedService->updated_at);
 
         return $obj;
     }
@@ -81,6 +86,8 @@ class Helper extends Model
     {
         $formatDate = new \DateTime($date);
 
-        return$formatDate->format('d/m/Y');
+        return $formatDate->format('d/m/Y');
     }
+
+
 }

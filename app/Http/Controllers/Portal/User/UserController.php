@@ -162,17 +162,19 @@ class UserController extends Controller
 
     }
 
-    public function showServicesRequested()
+    public function showServicesHistory()
     {
-        $servicesRequested = DB::table('provided_services')
-                                 ->join('users', 'provided_services.client_id', '=', 'users.id')
-                                 ->join('services', 'provided_services.service_id', '=', 'services.id')
-                                 ->select('provided_services.id', 'services.name as serviceName', 'provided_services.status',
-                                      'users.name as userName', 'provided_services.created_at as date')
-                                 ->where('client_id', '=', \Auth::user()->id)
+        $helper = new Helper();
+
+        $ids = DB::table('provided_services')
+                                 ->select('id', 'client_id', 'provider_id', 'service_id')
+                                 ->where('client_id', '=', Auth()->user()->id)
+                                 ->orWhere('provider_id', '=', Auth()->user()->id)
                                  ->get();
 
-        return view('portal.user.profile.services_requested', compact('servicesRequested'));
+        $providedServices = $helper->getProvidedService($ids);
+
+        return view('portal.user.profile.services_requested', compact('providedServices'));
     }
 
     public function uploadProfilePicture(Request $request)
