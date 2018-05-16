@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Portal\User;
 
+use App\Helper;
 use App\Phone;
 use App\ProvidedService;
 use App\Service;
-use App\User;
 use App\Category;
 use App\Ability;
 use Illuminate\Http\Request;
@@ -265,18 +265,25 @@ class UserController extends Controller
 
     public function showCurrencyRequests()
     {
-        // 2 consultas. Uma para cliente e outra para prestador.
-        $servicesRequests = DB::table('provided_services')
-//                                ->join('services', 'services.user_id', '=', 'provided_services.client_id')
-//                                ->join('users', 'provided_services.client_id', '=', 'users.id')
-//                                ->select('users.name')
-                                ->select('*')
-                                ->where([
-                                    ['client_id', '=', Auth()->user()->id],
-                                    ['status', '=', 'PROGRESS']
-                                ])
-                                ->get();
+        $helper = new Helper();
+        $servicesRequestsInProgress = $helper->getServices('PROGRESS');
 
-        return view('portal.user.profile.currency_requests', compact(['servicesRequests']));
+        $servicesRequestsNotAnswered = $helper->getServices('OPENED');
+
+        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress', 'servicesRequestsNotAnswered']));
     }
+
+
+    public function cancelRequest($providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        $providedService->status = 'CANCELED';
+
+        $providedService->save();
+
+        return redirect()->route('user.current.services')->with('errors', 'Solicitação cancelada');
+    }
+
+
 }

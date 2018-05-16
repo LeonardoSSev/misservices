@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Helper extends Model
 {
@@ -30,5 +31,47 @@ class Helper extends Model
     }
 
 
+    public function getServices(string $providedServiceStatus)
+    {
+        $ids = DB::table('provided_services')
+            ->select('id', 'client_id', 'provider_id', 'service_id')
+            ->where([
+                ['client_id', '=', Auth()->user()->id],
+                ['status', '=', $providedServiceStatus]
+            ])
+            ->get();
+
+        $providedServices = $this->getProvidedService($ids);
+
+        return $providedServices;
+    }
+
+
+    private function getProvidedService($ids)
+    {
+        $servicesReturn = [];
+
+        foreach ($ids as $id) {
+            $servicesReturn[] = $this->setProvidedService($id);
+        }
+
+
+        return $servicesReturn;
+    }
+
+    private function setProvidedService($data)
+    {
+        $obj = new \stdClass();
+
+        $obj->clientName = User::find($data->client_id)->name;
+
+        $obj->providerName = User::find($data->provider_id)->name;
+
+        $obj->serviceName = Service::find($data->service_id)->name;
+
+        $obj->providedServiceId = ProvidedService::find($data->id)->id;
+
+        return $obj;
+    }
 
 }
