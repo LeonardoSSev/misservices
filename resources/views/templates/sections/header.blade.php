@@ -24,22 +24,13 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <!-- <li class="page-scroll">
-                    <a href="#portfolio">Home</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#about">Como Funciona</a>
-                </li>
-                <li class="page-scroll">
-                    <a href="#contact">Contact</a>
-                </li> -->
                 <li>
                     <a href="{{route('index') }}">Inicio</a>
                 </li>
                 @if (Auth::check())
-                    <li>
-                        <a href="{{route('user.profile', [Auth::user()->id]) }}">Perfil</a>
-                    </li>
+                <li>
+                    <a href="{{route('user.search.categories') }}">Serviços</a>
+                </li>
                 @endif
                 <li>
                     <a href="{{route('how') }}">Como Funciona</a>
@@ -48,9 +39,9 @@
                     <a href="{{route('contact') }}">Contato</a>
                 </li>
                 @if (Auth::check())
-                <li>
-                    <a href="{{route('user.search.categories') }}">Serviços</a>
-                </li>
+                    <li>
+                        <a href="{{route('user.profile', [Auth::user()->id]) }}">Perfil</a>
+                    </li>
                 @endif
                 @can('Admin')
                     <li><a href="{{route('admin.index') }}">Painel</a></li>

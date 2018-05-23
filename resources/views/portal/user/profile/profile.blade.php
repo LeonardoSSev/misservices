@@ -10,11 +10,15 @@
     @endif
     <div class="col-lg-4" id="perfil-info">
         <div class="row primary-info">
-            @if(auth()->user()->image != null)
-                <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
-                @else
-                <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
-            @endif
+            <figure>
+                <figcaption>
+                @if(auth()->user()->image != null)
+                    <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
+                    @else
+                    <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+                @endif
+                </figcaption>
+            </figure>
 
             <div class="col-md2">
                 <form action="{{route('user.profile.image', $user->id)}}" enctype="multipart/form-data" method="POST">

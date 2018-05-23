@@ -12,8 +12,10 @@
                     <hr class="star-light">
                     <span class="skills">Encontre aqui o serviço que você precisa</span>
                     <div class="buscar">
-                        <input type="text" class="txt_buscar" name="servico" id="servico">
-                        <button><i class="fa fa-search"></i></button>
+                        <form action=" @route( search.service ) " method="GET">
+                            <input type="text" class="txt_buscar" name="service" id="servico">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
             </div>

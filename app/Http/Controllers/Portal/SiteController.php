@@ -87,6 +87,13 @@ class SiteController extends Controller
         return view('portal.user.search.services', compact(['services', 'category']));
     }
 
+    public function getSearchService(){
+        $serviceName = $_GET['service'];
+        $service = new Service();
+        $services = $service->getServiceByName($serviceName);
+        return view('portal.user.search.services', compact(['services']));
+    }
+
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
         $service = Service::find($serviceId);
