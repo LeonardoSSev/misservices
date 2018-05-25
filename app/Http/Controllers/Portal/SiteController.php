@@ -108,7 +108,7 @@ class SiteController extends Controller
                               ->select(
                                   'provided_services.id as providedServiceId', 'provided_services.client_id as clientId',
                                   'provided_services.status as providedserviceStatus', 'provided_services.price as price',
-                                  'rates.id as ratesId', 'rates.comment as comment', 'rates.rate as rate', 'users.id 
+                                  'rates.id as ratesId', 'rates.rate as rate', 'users.id 
                                   as userId', 'users.name as userName', 'users.image as userImage'
                               )
                               ->limit(5)

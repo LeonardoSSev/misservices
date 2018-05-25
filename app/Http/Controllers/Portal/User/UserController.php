@@ -145,7 +145,7 @@ class UserController extends Controller
     {
         $provided_service = ProvidedService::find($providedService_id);
 
-        $provided_service->status = 'PROGRESS';
+        $provided_service->status = 'IN PROGRESS';
         $provided_service->save();
 
         return redirect()->route('user.requests')->with('status', 'O serviço foi aceito!');
@@ -168,7 +168,7 @@ class UserController extends Controller
 
         $ids = DB::table('provided_services')
                                  ->select('id', 'client_id', 'provider_id', 'service_id')
-                                 ->where([['client_id', '=', Auth()->user()->id], ['status', '=', 'CANCELED']])
+                                 ->where([['client_id', '=', Auth()->user()->id], ['status', '=', 'CANCELLED']])
                                  ->orWhere([['provider_id', '=', Auth()->user()->id], ['status', '=', 'PAID']])
                                  ->orWhere('status', '=', 'CLOSED')
                                  ->get();
@@ -273,8 +273,8 @@ class UserController extends Controller
     public function showCurrencyRequests()
     {
         $helper = new Helper();
-        $servicesRequestsInProgress = $helper->getServices('PROGRESS');
-        $servicesRequestsInProgressForProvider = $helper->getServices('PROGRESS', true);
+        $servicesRequestsInProgress = $helper->getServices('IN PROGRESS');
+        $servicesRequestsInProgressForProvider = $helper->getServices('IN PROGRESS', true);
         $servicesRequestsNotAnswered = $helper->getServices('OPENED');
 
         return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress', 'servicesRequestsNotAnswered', 'servicesRequestsInProgressForProvider']));

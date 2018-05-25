@@ -47,6 +47,7 @@
                         <p>Cliente: {{$servicesNotOpened->clientName}}</p>
                         <p>Prestador de serviço: {{$servicesNotOpened->providerName}}</p>
                         <p>Serviço: {{$servicesNotOpened->serviceName}}</p>
+                        <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
                         <a href="{{route('user.cancel.request', $servicesNotOpened->providedServiceId)}}"><button style="color: black;">Cancelar solicitação</button></a>
                     </div>
                 @endforeach
@@ -65,9 +66,10 @@
                 @foreach($servicesRequestsInProgress as $servicesInProgress)
                     <h5>Serviço solicitado em andamento</h5>
                     <div style="border: 2px solid black;">
-                        <p>{{$servicesInProgress->clientName}}</p>
-                        <p>{{$servicesInProgress->providerName}}</p>
-                        <p>{{$servicesInProgress->serviceName}}</p>
+                        <p>Cliente: {{$servicesInProgress->clientName}}</p>
+                        <p>Prestador de serviço: {{$servicesInProgress->providerName}}</p>
+                        <p>Serviço: {{$servicesInProgress->serviceName}}</p>
+                        <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
                         <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
                     </div>
                 @endforeach
@@ -86,9 +88,10 @@
                 @foreach($servicesRequestsInProgressForProvider as $servicesInProgress)
                     <h5>Serviço provido em andamento</h5>
                     <div style="border: 2px solid black;">
-                        <p>{{$servicesInProgress->providerName}}</p>
-                        <p>{{$servicesInProgress->clientName}}</p>
-                        <p>{{$servicesInProgress->serviceName}}</p>
+                        <p>Prestador de serviço: {{$servicesInProgress->providerName}}</p>
+                        <p>Cliente: {{$servicesInProgress->clientName}}</p>
+                        <p>Serviço: {{$servicesInProgress->serviceName}}</p>
+                        <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
                         <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
                     </div>
                 @endforeach

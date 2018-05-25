@@ -75,11 +75,31 @@ class Helper extends Model
         $providedService = ProvidedService::find($data->id);
 
         $obj->providedServiceId = $providedService->id;
-        $obj->providedServiceStatus = $providedService->status;
+        $obj->providedServiceStatus = $this->setStatus($providedService->status);
         $obj->providedServiceCreatedAt = self::getFormatDate($providedService->created_at);
         $obj->providedServiceUpdatedAt = self::getFormatDate($providedService->updated_at);
 
         return $obj;
+    }
+
+    private function setStatus(string $status)
+    {
+        if ($status === 'IN PROGRESS') {
+            return "Em Progresso";
+        } elseif ($status === 'PAID') {
+            return "Pago";
+        } elseif ($status === 'RATING REMAIN') {
+            return "A espera de avaliação";
+        } elseif ($status === 'CANCELLED') {
+            return "Cancelado";
+        } elseif ($status === 'DONE') {
+            return "Finalizado";
+        } elseif ($status === 'OPENED') {
+            return "A espera de resposta";
+        } elseif ($status === 'REFUSED') {
+            return "Recusado";
+        }
+
     }
 
     public static function getFormatDate($date)

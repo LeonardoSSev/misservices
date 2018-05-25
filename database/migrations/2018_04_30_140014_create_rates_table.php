@@ -15,14 +15,18 @@ class CreateRatesTable extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('comment');
-            $table->decimal('rate', 3, 1)->nullable();
             $table->integer('provided_service_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+            $table->decimal('rate', 3, 1)->nullable();
             $table->timestamps();
+
             $table->foreign('provided_service_id')
                 ->references('id')
-                ->on('provided_services')
-                ->onDelete('cascade');
+                ->on('provided_services');
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users');
         });
     }
 
