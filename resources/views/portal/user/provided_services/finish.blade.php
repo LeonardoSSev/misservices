@@ -42,27 +42,33 @@
             <h5>Confirmar pagamento</h5>
         </div>
         <div style="border: 2px solid black; margin-top: 10px;">
-            @if(Auth()->user()->id === $providedService->client_id)
-                <h5>Avaliar Prestador de Serviço</h5>
+            <h3>Avaliação</h3>
+            @if($rateDone)
+                <div>
+                    <h5>Você já avaliou esse serviço</h5>
+                </div>
             @else
-                <h5>Avaliar Cliente</h5>
+                <div>
+                    <h5>Avaliar {{Auth()->user()->id === $providedService->client_id ? "Prestador de Serviço" : "Cliente"}}</h5>
+                    <form action="{{route('user.rate.request', $providedService->id)}}" method="POST">
+                        {!! csrf_field() !!}
+                        <div>
+                            <label for="rate">
+                                Nota que você daria para o {{Auth()->user()->id === $providedService->client_id ? "prestador de serviço" : "cliente"}} em relação ao serviço realizado?
+                            </label>
+                            <select name="rate" id="rate">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                            <button type="submit">Avaliar</button>
+                        </div>
+                    </form>
+                </div>
             @endif
-                <form action="" method="POST">
-                    {!! csrf_field() !!}
-                    <div>
-                        <label for="rate">
-                            Nota que você daria para o {{Auth()->user()->id === $providedService->client_id ? "prestador de serviço" : "cliente"}} em relação ao serviço realizado?
-                        </label>
-                        <select name="rate" id="rate">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                        <button type="submit">Avaliar</button>
-                    </div>
-                </form>
+            </div>
         </div>
     </div>
 </div>

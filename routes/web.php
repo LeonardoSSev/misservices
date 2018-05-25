@@ -28,6 +28,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('/refuse/{providedServiceId}/', ['as' => 'user.request.refuse', 'uses' => 'Portal\User\ProvidedServiceController@refuseServiceRequest']);
         Route::get('/cancel/{providedServideId}',  ['as' => 'user.cancel.request', 'uses' => 'Portal\User\ProvidedServiceController@cancelRequest']);
         Route::get('/finish/{providedServiceId}',  ['as' => 'user.finish.request', 'uses' => 'Portal\User\ProvidedServiceController@finishRequest']);
+        Route::post('/rate/{providedServiceId}',   ['as' => 'user.rate.request', 'uses' => 'Portal\User\ProvidedServiceController@rateProvidedService']);
     });
 
     Route::group(['prefix' => 'requests'], function() {

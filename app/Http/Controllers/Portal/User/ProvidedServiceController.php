@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Portal\User;
 
+use App\Rate;
 use Illuminate\Http\Request;
 use App\ProvidedService;
 use App\Service;
@@ -43,7 +44,8 @@ class ProvidedServiceController extends Controller
         $servicesRequestsInProgressForProvider = $helper->getServices('IN PROGRESS', true);
         $servicesRequestsNotAnswered = $helper->getServices('OPENED');
 
-        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress', 'servicesRequestsNotAnswered', 'servicesRequestsInProgressForProvider']));
+        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress',
+            'servicesRequestsNotAnswered', 'servicesRequestsInProgressForProvider']));
     }
 
     public function showServicesHistory()
@@ -98,7 +100,44 @@ class ProvidedServiceController extends Controller
     {
         $providedService = ProvidedService::find($providedServiceId);
 
-        return view('portal.user.provided_services.finish', compact(['providedService']));
+        $rateDone = $this->verifyIfUserAlreadyRated($providedService->id);
+
+        return view('portal.user.provided_services.finish', compact(['providedService', 'rateDone']));
     }
 
+    private function verifyIfUserAlreadyRated($providedServiceId)
+    {
+        $rate = DB::table('rates')
+                    ->select('user_id')
+                    ->where([
+                        ['provided_service_id', '=', $providedServiceId],
+                        ['user_id', '<>', Auth()->user()->id]
+                    ])
+                    ->get();
+
+        if (is_object($rate)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function rateProvidedService(Request $request, $providedServiceId)
+    {
+
+        $providedService = ProvidedService::find($providedServiceId);
+
+
+        $rate = new Rate();
+        $rate->provided_service_id = $providedService->id;
+        $rate->user_id = Auth()->user()->id === $providedService->client_id ? $providedService->provider_id : $providedService->client_id;
+        $rate->rate = $request['rate'];
+
+        $rate->save();
+
+        $providedService->status = 'RATING REMAIN';
+        $providedService->save();
+
+        return redirect()->route('user.finish.request', $providedService->id)->with(['status' => 'Avaliação realizada.']);
+    }
 }

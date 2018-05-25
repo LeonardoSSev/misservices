@@ -71,13 +71,14 @@
                         <p>Serviço: {{$servicesInProgress->serviceName}}</p>
                         <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
                         <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
+                        <a href="{{route('user.finish.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Finalizar Serviço</button></a>
                     </div>
                 @endforeach
             @endif
         </div>
         <hr>
         <div>
-            @if(!count($servicesRequestsInProgressForProvider) > 0)
+            @if(count($servicesRequestsInProgressForProvider) === 0)
                 <div style="border: 2px solid black;">
                     <p>Não há nenhum serviço provido em andamento</p>
                     <a href="{{route('user.search.categories') }}">
