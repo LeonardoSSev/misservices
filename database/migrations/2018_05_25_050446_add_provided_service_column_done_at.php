@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddProvidedServiceColumns extends Migration
+class AddProvidedServiceColumnDoneAt extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddProvidedServiceColumns extends Migration
     public function up()
     {
         Schema::table('provided_services', function (Blueprint $table) {
-            $table->binary('isPaid')->after('price')->nullable();
-            $table->binary('isProviderRated')->after('isPaid')->nullable();
-            $table->binary('isClientRated')->after('isProviderRated')->nullable();
+            $table->timestamp('done_at')->after('isClientRated')->nullable();
         });
     }
 
