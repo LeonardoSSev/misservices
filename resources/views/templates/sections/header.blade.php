@@ -29,12 +29,9 @@
                 </li>
                 @if (Auth::check())
                 <li>
-                    <a href="{{route('user.search.categories') }}">Serviços</a>
+                    <a href="search-service?service=">Serviços</a>
                 </li>
                 @endif
-                <li>
-                    <a href="{{route('how') }}">Como Funciona</a>
-                </li>
                 <li>
                     <a href="{{route('contact') }}">Contato</a>
                 </li>
@@ -47,6 +44,9 @@
                     <li><a href="{{route('admin.index') }}">Painel</a></li>
                 @endcan
                 @guest
+                    <li>
+                        <a href="{{route('how') }}">Como Funciona</a>
+                    </li>
                     <li>
                         <a href="{{ route("register") }}">Cadastro</a>
                     </li>

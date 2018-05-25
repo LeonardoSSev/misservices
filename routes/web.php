@@ -6,7 +6,7 @@ Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'us
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
-Route::get('/{service}',                ['as' => 'search.service',           'uses' => 'Portal\SiteController@getSearchService']);
+Route::get('/{service}',                ['as' => 'search-service',           'uses' => 'Portal\SiteController@getSearchService']);
 
 Route::group(['prefix' => 'user'], function() {
     Route::get('{id}/profile', ['as' => 'user.profile', 'uses' => 'Portal\User\UserController@userProfile']);
