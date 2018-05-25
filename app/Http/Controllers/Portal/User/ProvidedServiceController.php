@@ -94,4 +94,11 @@ class ProvidedServiceController extends Controller
         return redirect()->route('user.current.services')->with('errors', 'Solicitação cancelada');
     }
 
+    public function finishRequest($providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        return view('portal.user.provided_services.finish', compact(['providedService']));
+    }
+
 }
