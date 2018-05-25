@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\Process\Process;
 
 class Helper extends Model
 {
@@ -75,6 +76,7 @@ class Helper extends Model
         $providedService = ProvidedService::find($data->id);
 
         $obj->providedServiceId = $providedService->id;
+        $obj->providedServicePrice = $providedService->price;
         $obj->providedServiceStatus = $this->setStatus($providedService->status);
         $obj->providedServiceCreatedAt = self::getFormatDate($providedService->created_at);
         $obj->providedServiceUpdatedAt = self::getFormatDate($providedService->updated_at);
@@ -120,4 +122,43 @@ class Helper extends Model
         return $emailData;
     }
 
+    public static function verifyIfServiceIsPaidAndRated($providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        $isPaid = $providedService->isPaid;
+        $isClientRated = $providedService->isClientRated;
+        $isProviderRated = $providedService->isProviderRated;
+
+        if ($isPaid == 1 && $isClientRated == 1 && $isProviderRated ==1) {
+            $providedService->status = "DONE";
+            $providedService->done_at = date("Y-m-d H:i:s");
+            $providedService->save();
+            return true;
+        }
+
+        return false;
+    }
+
+
+    public static function checkForEmptyProvidedServicePrice($providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        if ($providedService->price === null) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static function getUserHistory($isProvider = null)
+    {
+        return DB::table('provided_services')
+            ->select('id', 'client_id', 'provider_id', 'service_id')
+            ->where([['client_id', '=', Auth()->user()->id], ['status', '<>', 'OPENED']])
+            ->orWhere([['provider_id', '=', Auth()->user()->id], ['status', '<>', 'OPENED']])
+            ->orderByDesc('status')
+            ->get();
+    }
 }

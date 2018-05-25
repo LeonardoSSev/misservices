@@ -93,7 +93,15 @@
                         <p>Cliente: {{$servicesInProgress->clientName}}</p>
                         <p>Serviço: {{$servicesInProgress->serviceName}}</p>
                         <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
+                        <form action="{{route('user.price.request', $servicesInProgress->providedServiceId)}}" method="POST">
+                            {!!csrf_field() !!}
+                            <label for="price">Valor (RS):</label>
+                            RS<input type="number" name="price" id="price" value="{{$servicesInProgress->providedServicePrice}}">
+                            <button style="color: black;" type="submit">Alterar valor Serviço</button>
+                        </form>
                         <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
+
+                        <a href="{{route('user.finish.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Finalizar Serviço</button></a>
                     </div>
                 @endforeach
             @endif

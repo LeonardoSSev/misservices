@@ -7,7 +7,8 @@
         @foreach($providedServices as $requested)
             <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
                 <p>Cliente: {{$requested->clientName}}</p>
-                <p>Prestador de serviço: {{$requested->serviceName}}</p>
+                <p>Serviço: {{$requested->serviceName}}</p>
+                <p>Prestador do Serviço: {{$requested->providerName}}</p>
                 <p>Estado: {{$requested->providedServiceStatus}}</p>
                 <p>Início: {{$requested->providedServiceCreatedAt}}</p>
                 <p>Última atualização:{{ $requested->providedServiceUpdatedAt }}</p>

@@ -52,12 +52,7 @@ class ProvidedServiceController extends Controller
     {
         $helper = new Helper();
 
-        $ids = DB::table('provided_services')
-            ->select('id', 'client_id', 'provider_id', 'service_id')
-            ->where([['client_id', '=', Auth()->user()->id], ['status', '=', 'CANCELLED']])
-            ->orWhere([['provider_id', '=', Auth()->user()->id], ['status', '=', 'PAID']])
-            ->orWhere('status', '=', 'CLOSED')
-            ->get();
+        $ids = Helper::getUserHistory();
 
         $providedServices = $helper->getProvidedService($ids);
 
@@ -115,7 +110,7 @@ class ProvidedServiceController extends Controller
                     ])
                     ->get();
 
-        if (is_object($rate)) {
+        if (is_object($rate) && (isset($rate[0]))) {
             return true;
         }
 
@@ -124,20 +119,68 @@ class ProvidedServiceController extends Controller
 
     public function rateProvidedService(Request $request, $providedServiceId)
     {
-
         $providedService = ProvidedService::find($providedServiceId);
-
 
         $rate = new Rate();
         $rate->provided_service_id = $providedService->id;
-        $rate->user_id = Auth()->user()->id === $providedService->client_id ? $providedService->provider_id : $providedService->client_id;
+        if (Auth()->user()->id === $providedService->client_id) {
+            $rate->user_id = $providedService->provider_id;
+            $providedService->isProviderRated = 1;
+        } else {
+            $rate->user_id = $providedService->client_id;
+            $providedService->isClientRated = 1;
+        }
         $rate->rate = $request['rate'];
-
         $rate->save();
-
-        $providedService->status = 'RATING REMAIN';
         $providedService->save();
 
-        return redirect()->route('user.finish.request', $providedService->id)->with(['status' => 'Avaliação realizada.']);
+        $serviceDone = Helper::verifyIfServiceIsPaidAndRated($providedServiceId);
+
+        if ($serviceDone) {
+            return redirect()->route('user.current.services')->with(['status' => 'Serviço finalizado']);
+        }
+
+        return redirect()->route('user.finish.request', $providedService->id)->with(['status' => 'Avaliação 
+        realizada.']);
+    }
+
+    public function payProvidedService(Request $request, $providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        if (!Helper::checkForPaidButNotRated($providedServiceId)) {
+            return redirect()->route('user.finish.request', $providedServiceId)->with(['error' => 'É preciso que
+            ambos usuários façam a avaliação do serviço']);
+        }
+        if (Auth()->user()->id === $providedService->client_id) {
+            $providedService->isPaid = 0;
+            $providedService->save();
+            return redirect()->route('user.finish.request', $providedServiceId)->with(['status' => 'Serviço 
+            declarado como pago. Aguarde a avaliação final do prestador de serviço']);
+        }
+
+        $providedService->isPaid = 1;
+        $providedService->save();
+
+
+        $serviceDone = Helper::verifyIfServiceIsPaidAndRated($providedServiceId);
+
+        if ($serviceDone) {
+            return redirect()->route('user.current.services')->with(['status' => 'Serviço finalizado']);
+        }
+
+        return redirect()->route('user.finish.request', $providedServiceId)->with(['status' => 'Serviço declarado 
+        como pago. Aguarde a avaliação final do prestador de serviço']);
+    }
+
+    public function setProvidedServicePrice(Request $request, $providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        $providedService->price = $request['price'];
+
+        $providedService->save();
+
+        return redirect()->route('user.current.services')->with(['status' => 'Preço de serviço alterado.']);
     }
 }

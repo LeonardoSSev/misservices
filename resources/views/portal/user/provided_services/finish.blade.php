@@ -40,6 +40,34 @@
     <div class="col-lg-8" id="actions">
         <div style="border: 2px solid black;">
             <h5>Confirmar pagamento</h5>
+            @if(Auth()->user()->id === $providedService->client_id)
+
+                @if ($providedService->price == null)
+                    <h5>Aguardando prestador de serviço definir valor</h5>
+                @else
+                    <h5>O valor é R${{$providedService->price}}</h5>
+                @endif
+
+                @if ($providedService->isPaid == "1")
+                    <h5>Aguardando avaliação dos usuários.</h5>
+                @elseif ($providedService->isPaid == "0")
+                    <h5>Aguardando aprovação de pagamento pelo prestador de serviço</h5>
+                @else
+                    <form action="{{route('user.pay.request', $providedService->id)}}" method="POST">
+                        {!! csrf_field() !!}
+                        <button type="submit">Confirmar Pagamento</button>
+                    </form>
+                @endif
+            @else
+                @if ($providedService === "0")
+                    <form action="{{route('user.pay.request', $providedService->id)}}" method="POST">
+                        {!! csrf_field() !!}
+                        <button type="submit">Confirmar Pagamento do Cliente</button>
+                    </form>
+                @else
+                    <h5>Aguardando avaliação dos usuários.</h5>
+                @endif
+            @endif
         </div>
         <div style="border: 2px solid black; margin-top: 10px;">
             <h3>Avaliação</h3>
