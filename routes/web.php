@@ -50,6 +50,9 @@ Route::group(['prefix' => 'user'], function() {
         Route::get('/delete/{id}', ['as' => 'user.remove.ability', 'uses' => 'Portal\User\AbilityController@deleteUserAbility']);
     });
 
+    Route::group(['prefix' => 'messages'], function() {
+       Route::get('/', ['as' => 'user.messages', 'uses' => 'Portal\User\MessageController@showUserMessages']);
+    });
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
     Route::post('/request_service/{serviceId}', ['as' => 'user.request.service', 'uses' => 'Portal\SiteController@requestProvidedService']);
 
