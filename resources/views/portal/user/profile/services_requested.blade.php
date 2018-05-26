@@ -11,7 +11,7 @@
     <h3>Histórico de serviços</h3>
     @if (count($providedServices) > 0)
         @foreach($providedServices as $requested)
-            <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+            <div class="box box-shadow">
                 <p>Cliente: {{$requested->clientName}}</p>
                 <p>Serviço: {{$requested->serviceName}}</p>
                 <p>Prestador do Serviço: {{$requested->providerName}}</p>
@@ -21,7 +21,7 @@
             </div>
         @endforeach
     @else
-        <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+        <div class="box">
             <p>Você ainda não tem nenhum serviço em seu histórico.</p>
         </div>
     @endif

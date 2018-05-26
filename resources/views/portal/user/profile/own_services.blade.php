@@ -8,29 +8,35 @@
     </div>
     <h4>Cadastrar serviço</h4>
     <div>
-        <form action="{{route('user.store.service')}}" method="POST">
+        <form action="{{route('user.store.service')}}" class="form" method="POST">
             {{ csrf_field() }}
-            <div>
-                <label for="name">Nome do serviço:</label>
-                <input type="text" name="name">
-            </div>
-            <div>
-                <label for="description">Descrição do serviço:</label>
-                <input type="text" name="description">
-            </div>
-            <div>
-                <label for="category"></label>
-                <select id="category" class="form-control" name="category" required>
-                    @foreach( $categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div>
-                <div>
-                    <button type="submit">Adicionar serviço</button>
+            <div class="row">
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <label for="name">Nome do serviço:</label>
+                    <input class="form-control" type="text" placeholder="Nome do serviço" name="name">
                 </div>
-                <div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <label for="description">Descrição do serviço:</label>
+                    <input type="text" class="form-control" placeholder="Descrição do serviço" name="description">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <label for="category">Categoria</label>
+                    <select id="category" class="form-control" name="category" required>
+                        @foreach( $categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-12 floating-label-form-group">
+                    <button class="btn btn-form" type="submit">Adicionar serviço</button>
+                </div>
+                <div class="col-xs-12 floating-label-form-group">
                     <a href="{{route('contact.message', ['Categoria inexistente'])}}" style="color: dodgerblue;">Não tem nenhuma categoria relacionada ao seu serviço? Contate-nos</a>
                 </div>
             </div>
@@ -38,14 +44,19 @@
     </div>
     <div>
         @if(!$numServices > 0)
-                <div style="border: 2px black solid;">
+                <div class="box">
                     <p>Você ainda não tem nenhum serviço cadastrado</p>
                 </div>
         @else
             @foreach($services as $service)
-                <div style="border: 2px black solid;">
+                <div class="box box-shadow">
                     <p>{{$service->name}}</p>
                     <p>{{$service->description}}</p>
+                    <span>
+                        <a href="" class="right">
+                            <i class="fa fa-trash-o"></i>
+                        </a>
+                    </span>
                 </div>
             @endforeach
         @endif

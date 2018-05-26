@@ -5,3 +5,14 @@
 .btn-left{
     float: left;
 }
+
+.buttons-decision{
+    margin-bottom: 20px;
+    a{
+        margin-left: 10px;
+
+        button.btn-success{
+            background: #69bb69 !important; 
+        }
+    }
+}
