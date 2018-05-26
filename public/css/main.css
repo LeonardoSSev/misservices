@@ -9436,6 +9436,62 @@ footer .footer-below {
   float: left;
 }
 
+.breadcrumb {
+  padding: 0;
+  margin: 0;
+  border-radius: none;
+  background: transparent;
+}
+
+.breadcrumb ul li {
+  display: inline;
+  /*&::after{
+
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: url('../images/chevron-right.png') center/100%;
+            }*/
+}
+
+.breadcrumb ul li a {
+  color: #233140 !important;
+}
+
+.box {
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  padding: 2%;
+}
+
+.box h4 {
+  color: #233140;
+}
+
+.box p {
+  font-size: 1.2em;
+}
+
+.box a {
+  float: right;
+  text-decoration: none;
+  color: #233140;
+  -webkit-transition: ease 0.4s;
+  transition: ease 0.4s;
+  margin-top: -20px;
+  font-size: 1.2em;
+}
+
+.box a:hover {
+  color: #25aae1;
+}
+
+.box.box-shadow:hover {
+  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
 section {
   padding: 100px 0;
 }
@@ -9781,6 +9837,17 @@ form .row:first-child .floating-label-form-group {
   color: #fff;
 }
 
+#perfil #actions .box span a {
+  color: #233140 !important;
+  float: right;
+  margin-right: 10px;
+  margin-top: -15px;
+}
+
+#perfil #actions .box span a :hover {
+  color: red !important;
+}
+
 #perfil #actions .box-list {
   background: #25aae1;
   border: 1px solid #233140;
@@ -9806,6 +9873,18 @@ form .row:first-child .floating-label-form-group {
 #perfil #actions .box-list:hover {
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
           box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#perfil #actions .lista-propostas .box .buttons-decision {
+  margin-bottom: 20px;
+}
+
+#perfil #actions .lista-propostas .box .buttons-decision a {
+  margin-left: 10px;
+}
+
+#perfil #actions .lista-propostas .box .buttons-decision a button.btn-success {
+  background: #69bb69 !important;
 }
 
 .services-research {
@@ -9842,39 +9921,6 @@ form .row:first-child .floating-label-form-group {
   color: #25aae1;
   -webkit-transition: ease 0.5s;
   transition: ease 0.5s;
-}
-
-.services-research .service-box {
-  border: 1px solid #ccc;
-  margin-top: 10px;
-  padding: 2%;
-}
-
-.services-research .service-box h4 {
-  color: #233140;
-}
-
-.services-research .service-box p {
-  font-size: 1.2em;
-}
-
-.services-research .service-box a {
-  float: right;
-  text-decoration: none;
-  color: #233140;
-  -webkit-transition: ease 0.4s;
-  transition: ease 0.4s;
-  margin-top: -15px;
-  font-size: 1.2em;
-}
-
-.services-research .service-box a:hover {
-  color: #25aae1;
-}
-
-.services-research .service-box:hover {
-  -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
-          box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .header-admin {

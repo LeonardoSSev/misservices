@@ -85,6 +85,20 @@
             color: #fff;
             :hover{ color: #fff; }
         }
+
+        .box{
+            span{
+                a{
+                    color: $dkblue !important;
+                    float: right;
+                    margin-right: 10px;
+                    margin-top: -15px;
+    
+                    :hover{ color: red !important; }
+                }   
+            }
+        }
+
         .box-list{
             background: $blue;
             border: 1px solid $dkblue;
@@ -106,6 +120,21 @@
 
             &:hover{
                 box-shadow: 1px 2px 4px rgba(0, 0, 0, .7);
+            }
+        }
+
+        .lista-propostas{
+            .box{
+                .buttons-decision{
+                    margin-bottom: 20px;
+                    a{
+                        margin-left: 10px;
+
+                        button.btn-success{
+                            background: #69bb69 !important; 
+                        }
+                    }
+                }
             }
         }
     }

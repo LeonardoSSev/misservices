@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $user = Auth()->user();
 
-        return view('portal.user.profile.profile', compact('user'));
+        return view('portal.user.profile.profile_index', compact('user'));
     }
 
     public function editProfile()
@@ -154,6 +154,9 @@ class UserController extends Controller
 
     public function showOwnServices()
     {
+
+        $user = Auth()->user();
+        
         $services = DB::table('services')
                          ->select('*')
                          ->where('user_id', '=', Auth()->user()->id)
@@ -163,7 +166,7 @@ class UserController extends Controller
 
         $categories = Category::all();
 
-        return view('portal.user.profile.own_services', compact(['services', 'numServices', 'categories']));
+        return view('portal.user.profile.own_services', compact(['user', 'services', 'numServices', 'categories']));
     }
 
     public function storeOwnServices(Request $request)

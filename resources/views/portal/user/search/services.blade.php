@@ -17,7 +17,7 @@
         <div class="col-md-7 list-services">
             @if( $services->count() > 0 )
                 @foreach ($services as $service)                
-                        <div class="service-box">
+                        <div class="box box-shadow">
                             <h4>{{$service->user_name}} - {{$service->name}}</h4>
                             <p>{{$service->description}}</p>
                             <a href="{{route('user.service.details', [$service->user_id, $service->id])}}">

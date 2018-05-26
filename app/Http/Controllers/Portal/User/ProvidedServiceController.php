@@ -15,6 +15,9 @@ class ProvidedServiceController extends Controller
 {
     public function showServicesRequests()
     {
+
+        $user = Auth()->user();
+
         $servicesRequests = DB::table('provided_services')
             ->join('users', 'provided_services.client_id', '=', 'users.id')
             ->join('services', 'provided_services.service_id', '=', 'services.id')
@@ -34,17 +37,18 @@ class ProvidedServiceController extends Controller
 
         $numServices = Service::where('user_id', Auth()->user()->id)->count();
 
-        return view('portal.user.profile.requests', compact(['servicesRequests', 'services', 'numServices']));
+        return view('portal.user.profile.requests', compact(['user', 'servicesRequests', 'services', 'numServices']));
     }
 
     public function showCurrencyRequests()
     {
+        $user = Auth()->user();
         $helper = new Helper();
         $servicesRequestsInProgress = $helper->getServices('IN PROGRESS');
         $servicesRequestsInProgressForProvider = $helper->getServices('IN PROGRESS', true);
         $servicesRequestsNotAnswered = $helper->getServices('OPENED');
 
-        return view('portal.user.profile.currency_requests', compact(['servicesRequestsInProgress',
+        return view('portal.user.profile.currency_requests', compact(['user', 'servicesRequestsInProgress',
             'servicesRequestsNotAnswered', 'servicesRequestsInProgressForProvider']));
     }
 
@@ -52,11 +56,13 @@ class ProvidedServiceController extends Controller
     {
         $helper = new Helper();
 
+        $user = Auth()->user();
+
         $ids = Helper::getUserHistory();
 
         $providedServices = $helper->getProvidedService($ids);
 
-        return view('portal.user.profile.services_requested', compact('providedServices'));
+        return view('portal.user.profile.services_requested', compact(['user', 'providedServices']));
     }
 
     public function acceptServiceRequest(int $providedService_id)

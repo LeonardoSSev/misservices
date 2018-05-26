@@ -1,7 +1,13 @@
-@extends('templates.temp')
-@include('templates.sections.header')
+@extends('portal.user.profile.profile')
+@section('content-profile')
+    <div class="breadcrumb">
+        <ul>
+            <li><a href="{{ route('user.profile') }}">Perfil</a></li>
+            <li><a href="">Histórico de Serviços</a></li>
+        </ul>
+    </div>
 
-<div class="container" style="padding-top: 15%;">
+<div>
     <h3>Histórico de serviços</h3>
     @if (count($providedServices) > 0)
         @foreach($providedServices as $requested)
@@ -20,5 +26,4 @@
         </div>
     @endif
 </div>
-
-@include('templates.sections.footer')
+@stop

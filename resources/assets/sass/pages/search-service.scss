@@ -31,35 +31,4 @@
             }
         }
     }
-
-    .service-box{
-        border: 1px solid #ccc;
-        margin-top: 10px;
-        padding: 2%;
-
-        h4{
-            color: $dkblue;
-        }
-
-        p{
-            font-size: 1.2em;
-        }
-
-        a{
-            float: right;
-            text-decoration: none;
-            color: $dkblue;
-            transition: ease 0.4s;
-            margin-top: -15px;
-            font-size: 1.2em;
-            
-            &:hover{
-                color: $blue;
-            }
-        }
-
-        &:hover{
-            box-shadow: 1px 2px 4px rgba(0, 0, 0, .7);
-        }
-    }
 }

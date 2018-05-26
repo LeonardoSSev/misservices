@@ -1,0 +1,25 @@
+.breadcrumb{
+    padding: 0;
+    margin: 0;
+    border-radius: none;
+    background: transparent;
+
+    ul{
+        li{
+            display: inline;
+
+            /*&::after{
+
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                background: url('../images/chevron-right.png') center/100%;
+            }*/
+
+            a{
+                color: $dkblue !important;
+            }
+        }
+    }
+}
