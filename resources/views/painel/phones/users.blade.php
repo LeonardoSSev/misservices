@@ -1,6 +1,6 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-<main class="painel container">
+<main class="painel">
     <h1>Usuários <-> Papel: {{ $phone->Number }}</h1>
     <table class="table">
         <thead>

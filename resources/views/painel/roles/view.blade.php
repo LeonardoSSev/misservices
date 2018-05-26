@@ -4,13 +4,13 @@
     <h1>Visualizar {{ $role->name }}</h1>
     <div class="form-group row">
         <div class="col-md-6">
-            <input id="name" type="text" class="box box-desk radius" value="{{ $role->name }}" disabled>
+            <input id="name" type="text" class="form-control" value="{{ $role->name }}" disabled>
         </div>
     </div>
 
     <div class="form-group row">
         <div class="col-md-6">
-            <input id="description" type="text" class="box box-desk radius" value="{{ $role->description }}" disabled>
+            <input id="description" type="text" class="form-control" value="{{ $role->description }}" disabled>
         </div>
     </div>
 </div>

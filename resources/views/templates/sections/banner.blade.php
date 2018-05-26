@@ -8,7 +8,7 @@
             </div>
             <div class="buttons">
                 <form action="{{ route("register") }}">
-                  <button class="btn btn-cadastrar bg-white radius"> Cadastrar <i class="fa fa-arrow-circle-right"></i></button>
+                  <button class="btn btn-cadastrar  radius"> Cadastrar <i class="fa fa-arrow-circle-right"></i></button>
                 </form>
                 <form action="/como-funciona">
                   <button class="btn btn-sobre bg-black radius"> Sobre <i class="fa fa-question-circle"></i></button>

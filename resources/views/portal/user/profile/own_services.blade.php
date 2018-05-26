@@ -53,7 +53,7 @@
                     </div>
                     <div>
                         <label for="category"></label>
-                        <select id="category" class="box box-desk radius" name="category" required>
+                        <select id="category" class="form-control" name="category" required>
                             @foreach( $categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach

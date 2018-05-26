@@ -1,8 +1,8 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-    <main class="painel container">
+    <div class="painel">
         {{--<h1>Painel de Administração</h1>--}}
-        {{--<input type="text" class="box box-desk radius" placeholder="Pesquise um usuário..." name="pesquisar">--}}
+        {{--<input type="text" class="form-control" placeholder="Pesquise um usuário..." name="pesquisar">--}}
         {{--<table class="table">--}}
             {{--<th>ID</th>--}}
             {{--<th>Nome</th>--}}
@@ -18,5 +18,5 @@
                 {{--</td>--}}
             {{--</tr>--}}
         {{--</table>--}}
-    </main>
+    </div>
 @endsection

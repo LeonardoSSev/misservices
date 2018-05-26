@@ -6,7 +6,7 @@
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="name" type="text" class="box box-desk radius{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nome" name="name" value="{{ old('name') }}" required autofocus>
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nome" name="name" value="{{ old('name') }}" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">
@@ -18,7 +18,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="description" placeholder="Descrição" type="text" class="box box-desk radius{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required>
+                <input id="description" placeholder="Descrição" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}" required>
 
                 @if ($errors->has('description'))
                     <span class="invalid-feedback">
@@ -30,7 +30,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <select id="category" class="box box-desk radius" name="category" required>
+                <select id="category" class="form-control" name="category" required>
                     @foreach( $categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -40,7 +40,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <select id="user" class="box box-desk radius" name="user" required>
+                <select id="user" class="form-control" name="user" required>
                     @foreach( $users as $user)
                         <option value="{{ $user->id }}">{{ $user->name }} - {{ $user->email }}</option>
                     @endforeach
@@ -50,7 +50,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-desk radius bg-white">
+                <button type="submit" class="btn btn-default ">
                     Criar
                 </button>
             </div>

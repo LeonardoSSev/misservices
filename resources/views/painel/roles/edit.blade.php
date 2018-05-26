@@ -6,7 +6,7 @@
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="name" type="text" class="box box-desk radius{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $role->description }}" required autofocus>
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $role->description }}" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">
@@ -18,7 +18,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="description" type="text" class="box box-desk radius{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $role->description }}" required>
+                <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $role->description }}" required>
 
                 @if ($errors->has('description'))
                     <span class="invalid-feedback">
@@ -30,7 +30,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-desk radius bg-white">
+                <button type="submit" class="btn btn-default ">
                     Editar
                 </button>
             </div>

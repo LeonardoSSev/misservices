@@ -9297,7 +9297,9 @@ footer .footer-below {
 }
 
 .footer-admin footer {
-  float: right;
+  right: 0;
+  position: fixed;
+  bottom: 0;
   width: 80vw;
 }
 
@@ -9398,6 +9400,14 @@ footer .footer-below {
   .overlay-modal .modal #image-selected {
     margin-top: 50px;
   }
+}
+
+.btn-right {
+  float: right;
+}
+
+.btn-left {
+  float: left;
 }
 
 section {
@@ -9843,6 +9853,7 @@ form .row:first-child .floating-label-form-group {
 
 .header-admin {
   position: fixed;
+  z-index: 20;
   height: 100vh;
   width: 20vw;
   left: 0;
