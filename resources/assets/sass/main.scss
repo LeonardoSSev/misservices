@@ -17,11 +17,15 @@
 @import 'layouts/header';
 @import 'layouts/footer';
 
+//components
+@import 'components/modal';
+
 //Pages
 @import 'pages/index';
 @import 'pages/contact';
 @import 'pages/how';
 @import 'pages/register';
 @import 'pages/perfil';
+@import 'pages/search-service';
 @import 'pages/admin/header';
 @import 'pages/admin/main';

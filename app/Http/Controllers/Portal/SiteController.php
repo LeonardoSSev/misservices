@@ -94,6 +94,17 @@ class SiteController extends Controller
         return view('portal.user.search.services', compact(['services', 'category']));
     }
 
+    public function getSearchService(){
+        if( !empty(\Auth::user()->id) ){
+            $serviceName = $_GET['service'];
+            $service = new Service();
+            $services = $service->getServiceByName($serviceName);
+            return view('portal.user.search.services', compact(['services']));
+        } else{
+            return view('auth.register');
+        }
+    }
+
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
         $service = Service::find($serviceId);
@@ -124,12 +135,12 @@ class SiteController extends Controller
         $summedRate = floatval(DB::table('provided_services')
             ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
             ->where('provided_services.provider_id', '=', $providerId )
-            ->sum('rate'));
+            ->sum('rates.rate'));
 
         $rateTimes = intval(DB::table('provided_services')
             ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
             ->where('provided_services.provider_id', '=', $providerId)
-            ->count('rate'));
+            ->count('rates.rate'));
 
         $average = $rateTimes == 0 ? 0 : $summedRate / $rateTimes;
 
