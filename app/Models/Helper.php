@@ -172,4 +172,16 @@ class Helper extends Model
 
         return true;
     }
+
+    public static function getProvidedServicesChat()
+    {
+        $providedServices = DB::table('chats')
+                            ->join('provided_services', 'provided_services.id', '=', 'chats.provided_service_id')
+                            ->select('chats.provided_service_id')
+                            ->where('client_id', Auth()->user()->id)
+                            ->orWhere('provider_id', Auth()->user()->id)
+                            ->get();
+
+        return $providedServices;
+    }
 }

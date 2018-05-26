@@ -33,7 +33,7 @@
                     </li>
                 @endif
                 <li>
-                    <a href="{{ route('search-service') }}">Serviços</a>
+                    <a href="{{route('search-service')}}">Serviços</a>
                 </li>
                 <li>
                     <a href="{{route('contact')}}">Contato</a>
