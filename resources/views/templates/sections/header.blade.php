@@ -29,7 +29,7 @@
                 </li>
                 @if (Auth::check())
                 <li>
-                    <a href="search-service?service=">Serviços</a>
+                    <a href="{{route('search-service')}}">Serviços</a>
                 </li>
                 @endif
                 <li>
