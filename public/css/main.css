@@ -9301,6 +9301,7 @@ footer .footer-below {
   position: fixed;
   bottom: 0;
   width: 80vw;
+  z-index: 5;
 }
 
 .footer-admin footer .container {
@@ -9950,5 +9951,9 @@ form .row:first-child .floating-label-form-group {
 
 input[name="pesquisar"] {
   margin-bottom: 30px;
+}
+
+.painel {
+  padding-bottom: 10%;
 }
 

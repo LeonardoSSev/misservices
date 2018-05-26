@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Helper;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -94,17 +95,15 @@ class SiteController extends Controller
         return view('portal.user.search.services', compact(['services', 'category']));
     }
 
-    public function getSearchService(){
-        if( !empty(\Auth::user()->id) ){
-            if( isset($_GET['service']) ){
-                $serviceName = $_GET['service'];
-                $service = new Service();
-                $services = $service->getServiceByName($serviceName);
-                return view('portal.user.search.services', compact(['services']));
-            }
-        } else{
-            return view('auth.register');
+    public function getSearchService(Request $request){
+        if (!Auth::user()) {
+            return redirect('/login')->with(['status' => 'Para pesquisar sobre os serviços, você precisa estar logado.']);
         }
+
+        $serviceName = $request['service'];
+        $service = new Service();
+        $services = $service->getServiceByName($serviceName);
+        return view('portal.user.search.services', compact(['services']));
     }
 
     public function showUserServiceDetails(int $userId, int $serviceId)
@@ -137,12 +136,12 @@ class SiteController extends Controller
         $summedRate = floatval(DB::table('provided_services')
             ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
             ->where('provided_services.provider_id', '=', $providerId )
-            ->sum('rate'));
+            ->sum('rates.rate'));
 
         $rateTimes = intval(DB::table('provided_services')
             ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
             ->where('provided_services.provider_id', '=', $providerId)
-            ->count('rate'));
+            ->count('rates.rate'));
 
         $average = $rateTimes == 0 ? 0 : $summedRate / $rateTimes;
 
