@@ -1,8 +1,15 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <div id="cadastro">
-    <h1>Visualizar {{ $user->name }}</h1>
-
+    <div class="col-md-8">
+        <div class="title-content">
+            <h1 class="left">Visualizar {{ $user->name }}</h1>
+            <a href="{{ route( 'admin.users' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
+    <div class="form-view">
         <div class="form-group row">
             <div class="col-md-6">
                 <input id="name" type="text" class="form-control" value="{{ $user->name }}" disabled>
@@ -50,6 +57,6 @@
                 <input id="address" type="text" class="form-control" value="{{ $user->address }}" disabled>
             </div>
         </div>
-
+    </div>
 </div>
 @endsection

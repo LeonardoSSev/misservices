@@ -1,7 +1,14 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <div id="cadastro">
-    <h1>Editar {{ $user->name }}</h1>
+    <div class="col-md-8">
+        <div class="title-content">
+            <h1 class="left">Editar {{ $user->name }}</h1>
+            <a href="{{ route( 'admin.users' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
     <form method="GET" action="/admin/user/update/{{ $user->id }}" name="cadastroForm">
         @csrf
         <div class="form-group row">
@@ -130,9 +137,6 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <a href="{{ route( 'admin.users' ) }}" class="btn btn-default">
-                    Voltar
-                </a>
                 <button type="submit" class="btn btn-right btn-primary ">
                     Salvar Dados
                 </button>

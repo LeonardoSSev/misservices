@@ -25,7 +25,6 @@
                             <a href="{{route('admin.role.permissions', $role->id)}}"><i class="fa fa-lg fa-unlock" title="Permissões de {{ $role->name }}"></i></a>
                             <a href="{{route('admin.role.edit', $role->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $role->name }}"></i></a>
                             <a href="{{route('admin.role.delete', $role->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $role->name }}"></i></a>
-                            <a href="{{route('admin.role.view', $role->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $role->name }}"></i></a>
                         </td>
                     </tr>
                 @endforeach

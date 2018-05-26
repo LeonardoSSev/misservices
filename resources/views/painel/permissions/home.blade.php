@@ -23,7 +23,6 @@
                         <td>
                             <a href="{{route('admin.permission.edit', $permission->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $permission->name }}"></i></a>
                             <a href="{{route('admin.permission.delete', $permission->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $permission->name }}"></i></a>
-                            <a href="{{route('admin.permission.view', $permission->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $permission->name }}"></i></a>
                         </td>
                     </tr>
                 @endforeach

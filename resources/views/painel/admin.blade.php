@@ -1,16 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 
-<div class="">
-<h1>Painel de Administração</h1>
+<div class="painel">
+    <h1>Painel de Administração</h1>
 
-<h4>Relatório Geral</h4>
-<div class="box">
-    <div class="box-body">
-        <canvas id="chart-total-users" data-plugin="chart" height="80"
-        </canvas>
+    <h4 class="admin-subtitle">Relatório Geral</h4>
+    <div class="box">
+        <div class="box-body">
+            <canvas id="chart-total-users" data-plugin="chart" height="100"
+            </canvas>
+        </div>
     </div>
-</div>
 </div>
 
 <script>

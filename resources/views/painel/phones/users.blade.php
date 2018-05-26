@@ -1,7 +1,14 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <main class="painel">
-    <h1>Usuários <-> Papel: {{ $phone->Number }}</h1>
+    <div class="col-md-10">
+        <div class="title-content">
+            <h1>Usuários <-> Papel: {{ $phone->Number }}</h1>
+            <a href="{{ route( 'admin.phones' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
     <table class="table">
         <thead>
             <th>Nome</th>

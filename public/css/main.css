@@ -8499,6 +8499,31 @@ hr.star-primary:after {
   }
 }
 
+textarea {
+  resize: none !important;
+}
+
+textarea.form-control {
+  height: 110px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.title-content {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.title-content a {
+  margin-top: 25px;
+}
+
 .preloader {
   display: none;
   width: 100%;
@@ -9942,7 +9967,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 #admin-table #cadastro {
-  padding: 0 0 35%;
+  padding: 0 0 10%;
 }
 
 #admin-table #cadastro h1 {
@@ -9955,5 +9980,13 @@ input[name="pesquisar"] {
 
 .painel {
   padding-bottom: 10%;
+}
+
+.painel .admin-subtitle {
+  margin: 15px 0;
+}
+
+.painel .box {
+  margin-top: 50px;
 }
 

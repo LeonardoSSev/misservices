@@ -1,7 +1,14 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <div id="cadastro">
-
+    <div class="col-md-10">
+        <div class="title-content">
+            <h1 class="left">Criar Telefone</h1>
+            <a href="{{ route( 'admin.phones' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
     <form method="GET" action="/admin/phone/update/{{ $phone->id }}" name="cadastroForm">
         @csrf
         <div class="form-group row">

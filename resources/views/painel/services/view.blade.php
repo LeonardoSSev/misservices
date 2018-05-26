@@ -1,7 +1,14 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-<div class="container" id="cadastro">
-    <h1>Serviço: {{$service->name}}</h1>
+<div id="cadastro">
+    <div class="col-md-10">
+        <div class="title-content">
+            <h1 class="left">Serviço: {{$service->name}}</h1>
+            <a href="{{ route( 'admin.services' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
         <div class="form-group row">
             <div class="col-md-6">
                 <input id="name" type="text" class="form-control" value="{{$service->name}}" disabled>
