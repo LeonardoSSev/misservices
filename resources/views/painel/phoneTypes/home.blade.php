@@ -1,6 +1,6 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-    <main class="painel container">
+    <main class="painel">
         <h1>Painel de Administração</h1>
         <a href="{{ route('admin.phone_type.create') }}" class="btn btn-primary">Adicionar</a>
         <div class="col-lg-3">
@@ -21,10 +21,8 @@
                         <td>{{ $phone_type->name }}</td>
                         <td>{{ $phone_type->description }}</td>
                         <td>
-                            <!--a href="{{ route('admin.phone_type.phones', $phone_type->id) }}/admin/phone_type/phones/{{ $phone_type->id }}"><i class="fa fa-lg fa-phone" title="Visualizar tipos de telefone que são {{ $phone_type->name }}"></i></a-->
                             <a href="{{ route('admin.phone_type.edit', $phone_type->id) }}"><i class="fa fa-lg fa-pencil" title="Editar {{ $phone_type->name }}"></i></a>
                             <a href="{{ route('admin.phone_type.delete', $phone_type->id) }}"><i class="fa fa-lg fa-times" title="Excluir {{ $phone_type->name }}"></i></a>
-                            <a href="{{ route('admin.phone_type.view', $phone_type->id) }}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $phone_type->name }}"></i></a>
                         </td>
                     </tr>
                 @endforeach

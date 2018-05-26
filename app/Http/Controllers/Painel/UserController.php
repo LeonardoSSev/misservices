@@ -14,6 +14,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate($this->numberPagination);
+        //$users->where(['id', '<>', '1']);
 
         return view('painel.users.home', compact('users'));
     }

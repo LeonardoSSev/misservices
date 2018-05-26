@@ -1,12 +1,20 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-<div class="container" id="cadastro">
-
+<div id="cadastro">
+    <div class="col-md-12">
+        <div class="title-content">
+            <h1 class="left">Editar Tipo Telefone: {{ $phoneType->name }}</h1>
+            <a href="{{ route( 'admin.phone_types' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
     <form method="GET" action="/admin/phone_type/update/{{ $phoneType->id }}" name="cadastroForm">
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="name" type="text" class="box box-desk radius{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $phoneType->name }}" required autofocus>
+                <span>Nome</span>
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $phoneType->name }}" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">
@@ -18,7 +26,8 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="description" type="text" class="box box-desk radius{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $phoneType->description}}" required>
+                <span>Descrição</span>
+                <input id="description" type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ $phoneType->description}}" required>
 
                 @if ($errors->has('description'))
                     <span class="invalid-feedback">
@@ -30,8 +39,8 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-desk radius bg-white">
-                    Editar
+                <button type="submit" class="btn btn-primary ">
+                    Atualizar
                 </button>
             </div>
         </div>

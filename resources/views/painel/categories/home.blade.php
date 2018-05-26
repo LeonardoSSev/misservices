@@ -23,7 +23,6 @@
                     <td>
                         <a href="{{route('admin.category.edit', $category->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $category->name }}"></i></a>
                         <a href="{{route('admin.category.delete', $category->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $category->name }}"></i></a>
-                        <a href="{{route('admin.category.view', $category->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $category->name }}"></i></a>
                     </td>
                 </tr>
             @endforeach

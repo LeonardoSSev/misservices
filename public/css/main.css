@@ -8499,6 +8499,31 @@ hr.star-primary:after {
   }
 }
 
+textarea {
+  resize: none !important;
+}
+
+textarea.form-control {
+  height: 110px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.title-content {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.title-content a {
+  margin-top: 25px;
+}
+
 .preloader {
   display: none;
   width: 100%;
@@ -9297,8 +9322,11 @@ footer .footer-below {
 }
 
 .footer-admin footer {
-  float: right;
+  right: 0;
+  position: fixed;
+  bottom: 0;
   width: 80vw;
+  z-index: 5;
 }
 
 .footer-admin footer .container {
@@ -9398,6 +9426,14 @@ footer .footer-below {
   .overlay-modal .modal #image-selected {
     margin-top: 50px;
   }
+}
+
+.btn-right {
+  float: right;
+}
+
+.btn-left {
+  float: left;
 }
 
 section {
@@ -9843,6 +9879,7 @@ form .row:first-child .floating-label-form-group {
 
 .header-admin {
   position: fixed;
+  z-index: 20;
   height: 100vh;
   width: 20vw;
   left: 0;
@@ -9930,7 +9967,7 @@ form .row:first-child .floating-label-form-group {
 }
 
 #admin-table #cadastro {
-  padding: 0 0 35%;
+  padding: 0 0 10%;
 }
 
 #admin-table #cadastro h1 {
@@ -9939,5 +9976,17 @@ form .row:first-child .floating-label-form-group {
 
 input[name="pesquisar"] {
   margin-bottom: 30px;
+}
+
+.painel {
+  padding-bottom: 10%;
+}
+
+.painel .admin-subtitle {
+  margin: 15px 0;
+}
+
+.painel .box {
+  margin-top: 50px;
 }
 

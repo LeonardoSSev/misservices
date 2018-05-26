@@ -1,6 +1,6 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-    <main class="painel container">
+    <main class="painel">
         <h1>Painel de Administração</h1>
         <a href="{{route('admin.permission.create')}}" class="btn btn-primary">Adicionar</a>
         <div class="col-lg-4">
@@ -23,7 +23,6 @@
                         <td>
                             <a href="{{route('admin.permission.edit', $permission->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $permission->name }}"></i></a>
                             <a href="{{route('admin.permission.delete', $permission->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $permission->name }}"></i></a>
-                            <a href="{{route('admin.permission.view', $permission->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $permission->name }}"></i></a>
                         </td>
                     </tr>
                 @endforeach

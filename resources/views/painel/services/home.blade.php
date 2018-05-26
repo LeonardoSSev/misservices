@@ -1,6 +1,6 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-    <main class="painel container">
+    <main class="painel">
         <h1>Painel de Administração</h1>
         <a href="{{route('admin.service.create')}}" class="btn btn-primary">Adicionar</a>
         <div class="col-lg-3">
@@ -23,9 +23,9 @@
                     <td>{{ $service->user->name }}</td>
                     <td>{{ $service->description }}</td>
                     <td>
+                    <a href="{{route('admin.service.view', $service->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $service->name }}"></i></a>
                         <a href="{{route('admin.service.edit', $service->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $service->name }}"></i></a>
-                        <a href="{{route('admin.service.delete', $service->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $service->name }}"></i></a>
-                        <a href="{{route('admin.service.view', $service->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $service->name }}"></i></a>
+                        <a href="{{route('admin.service.delete', $service->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $service->name }}"></i></a>                        
                     </td>
                 </tr>
             @endforeach

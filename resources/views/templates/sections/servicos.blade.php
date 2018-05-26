@@ -1,6 +1,6 @@
 <!-- SERVICOS --> 
 <main class="servicos container">
-            <article class="servico bg-white radius">
+            <article class="servico  radius">
                <a href="#"><img src="" alt="Cliente ou Profissional"></a>
                <div class="inner">
                    <a href="#"> Seja um cliente ou profissional </a>
@@ -11,7 +11,7 @@
                    </p>
                </div>
             </article>
-            <article class="servico bg-white radius">
+            <article class="servico  radius">
                <a href="#"><img src="" alt="Avalie o serviço"></a>
                <div class="inner">
                    <a href="#"> Avalie o serviço </a>
@@ -22,7 +22,7 @@
                    </p>
                </div>
             </article>
-            <article class="servico bg-white radius">
+            <article class="servico  radius">
                <a href="#"><img src="" alt="Profissional no MisServices"></a>
                <div class="inner">
                    <a href="#"> Profissional no MisServices </a>

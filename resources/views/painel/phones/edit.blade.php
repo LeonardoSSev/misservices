@@ -1,12 +1,19 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
-<div class="container" id="cadastro">
-
+<div id="cadastro">
+    <div class="col-md-10">
+        <div class="title-content">
+            <h1 class="left">Criar Telefone</h1>
+            <a href="{{ route( 'admin.phones' ) }}" class="btn btn-default right">
+                Voltar
+            </a>
+        </div>
+    </div>
     <form method="GET" action="/admin/phone/update/{{ $phone->id }}" name="cadastroForm">
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="number" type="text" class="box box-desk radius{{ $errors->has('number') ? ' is-invalid' : '' }}" name="number" value="{{ $phone->name }}" required autofocus>
+                <input id="number" type="text" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" name="number" value="{{ $phone->name }}" required autofocus>
 
                 @if ($errors->has('number'))
                     <span class="invalid-feedback">
@@ -18,7 +25,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <select id="phone_type" class="box box-desk radius" name="phone_type" value="{{ $phone->phoneType->id }}" required>
+                <select id="phone_type" class="form-control" name="phone_type" value="{{ $phone->phoneType->id }}" required>
                     @foreach( $phone_types as $phone_type)
                         <option value="{{ $phone_type->id }}">{{ $phone_type->name }}</option>
                     @endforeach
@@ -28,7 +35,7 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <select id="user" class="box box-desk radius" name="user" required>
+                <select id="user" class="form-control" name="user" required>
                     @foreach( $users as $user)
                         <option value="{{ $user->id }}">{{ $user->number }} - {{ $user->email }}</option>
                     @endforeach
@@ -38,7 +45,7 @@
 
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-desk radius bg-white">
+                <button type="submit" class="btn btn-default ">
                     Editar
                 </button>
             </div>
