@@ -59,7 +59,7 @@
                 <div style="border: 2px solid black;">
                     <p>Não há nenhum serviço solicitado em andamento</p>
                     <a href="{{route('user.search.categories') }}">
-                        <p>Procurar por um serviço</p>
+                        <p style="color: dodgerblue;">Procurar por um serviço</p>
                     </a>
                 </div>
             @else

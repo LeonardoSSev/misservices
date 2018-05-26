@@ -6,7 +6,7 @@
     <div class="modal">
         <div class="this-modal-content">
             <span class="close"><i class="fa fa-times"></i></span>
-            <form action="{{route('user.profile.image', $user->id)}}" enctype="multipart/form-data" method="POST">
+            <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
                 {{ csrf_field() }}
                 <label for="image-upload" class="select-image">
                     <span>Selecionar Imagem</span>
@@ -44,7 +44,7 @@
                     </button>
                 </figcaption>
             </figure>
-            <span class="name-user">{{ $user->name }}</span>
+            <span class="name-user">{{ Auth()->user()->name }}</span>
         </div>
         <ul>
             <li><b>Seu e-mail:</b> {{ Auth()->user()->email }}</li>
@@ -55,32 +55,20 @@
         </ul>
     </div>
     <div class="col-lg-8" id="actions">
-        <ul>
-            <a href="{{route('user.messages')}}"><li class="box-list col-lg-3">
-                <span>Mensagens</span>
-                <i class="fa fa-comment-o"></i>
-            </li></a>
-            <a href="{{route('user.abilities')}}"><li class="box-list col-lg-3">
-                <span>Habilidades</span>
-                <i class="fa fa-address-card-o"></i>
-            </li></a>
-            <a href="{{route('user.requests')}}"><li class="box-list col-lg-3">
-                <span>Propostas</span>
-                <i class="fa fa-paper-plane-o"></i>
-            </li></a>
-            <a href="{{route('user.current.services')}}"><li class="box-list col-lg-3">
-                <span>Serviços em Andamento</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-            <a href="{{route('user.requested')}}"><li class="box-list col-lg-3">
-                <span>Histórico de Serviços</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-            <a href="{{route('user.services')}}"><li class="box-list col-lg-3">
-                <span>Meus Serviços</span>
-                <i class="fa fa-cogs"></i>
-            </li></a>
-        </ul>
+        @if (count($userProvidedServices) > 0)
+            @foreach ($userProvidedServices as $providedService)
+                <div style="border: 2px solid black;">
+                    <p>{{$providedService->status}}</p>
+                </div>
+            @endforeach
+        @else
+            <div style="border: 2px solid black;">
+                <p>Não há nenhuma mensagem</p>
+            </div>
+        @endif
+        <div style="border: 2px solid black;">
+            <a href="#" style="color: dodgerblue;">Envie uma mensagem</a>
+        </div>
     </div>
 </div>
 @include('templates.sections.footer')
