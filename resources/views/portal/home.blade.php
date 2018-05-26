@@ -12,8 +12,8 @@
                     <hr class="star-light">
                     <span class="skills">Encontre aqui o serviço que você precisa</span>
                     <div class="buscar">
-                        <form action="search-service" method="GET">
-                            <input type="text" class="txt_buscar" name="service" id="servico">
+                        <form action="{{route('search-service')}}" method="GET">
+                            <input type="text" class="txt_buscar" name="service" id="service">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>

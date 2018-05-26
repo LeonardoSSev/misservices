@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\Helper;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -94,15 +95,15 @@ class SiteController extends Controller
         return view('portal.user.search.services', compact(['services', 'category']));
     }
 
-    public function getSearchService(){
-        if( !empty(\Auth::user()->id) ){
-            $serviceName = $_GET['service'];
-            $service = new Service();
-            $services = $service->getServiceByName($serviceName);
-            return view('portal.user.search.services', compact(['services']));
-        } else{
-            return view('auth.register');
+    public function getSearchService(Request $request){
+        if (!Auth::user()) {
+            return redirect('/login')->with(['status' => 'Para pesquisar sobre os serviços, você precisa estar logado.']);
         }
+
+        $serviceName = $request['service'];
+        $service = new Service();
+        $services = $service->getServiceByName($serviceName);
+        return view('portal.user.search.services', compact(['services']));
     }
 
     public function showUserServiceDetails(int $userId, int $serviceId)
