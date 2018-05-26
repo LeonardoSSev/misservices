@@ -59,7 +59,7 @@
                     </form>
                 @endif
             @else
-                @if ($providedService === "0")
+                @if ($providedService->isPaid == "0")
                     <form action="{{route('user.pay.request', $providedService->id)}}" method="POST">
                         {!! csrf_field() !!}
                         <button type="submit">Confirmar Pagamento do Cliente</button>

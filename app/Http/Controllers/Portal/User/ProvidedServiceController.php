@@ -149,6 +149,7 @@ class ProvidedServiceController extends Controller
         $providedService = ProvidedService::find($providedServiceId);
 
         if (!Helper::checkForPaidButNotRated($providedServiceId)) {
+
             return redirect()->route('user.finish.request', $providedServiceId)->with(['error' => 'É preciso que
             ambos usuários façam a avaliação do serviço']);
         }

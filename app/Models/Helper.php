@@ -161,4 +161,15 @@ class Helper extends Model
             ->orderByDesc('status')
             ->get();
     }
+
+    public static function checkForPaidButNotRated($providedServiceId)
+    {
+        $providedService = ProvidedService::find($providedServiceId);
+
+        if ($providedService->isProviderRated != 1 && $providedService->isClientRated != 1) {
+            return false;
+        }
+
+        return true;
+    }
 }
