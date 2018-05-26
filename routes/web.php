@@ -7,7 +7,7 @@ Route::get('/',                         ['as' => 'index',                    'us
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
 Route::get('/contact/{message}',        ['as' => 'contact.message',          'uses' => 'Portal\SiteController@contact']);
 Route::get('/how',                      ['as' => 'how',                      'uses' => 'Portal\SiteController@howItWork']);
-
+Route::get('/{service}',                ['as' => 'search-service',           'uses' => 'Portal\SiteController@getSearchService']);
 
 Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'profile'], function() {

@@ -94,6 +94,19 @@ class SiteController extends Controller
         return view('portal.user.search.services', compact(['services', 'category']));
     }
 
+    public function getSearchService(){
+        if( !empty(\Auth::user()->id) ){
+            if( isset($_GET['service']) ){
+                $serviceName = $_GET['service'];
+                $service = new Service();
+                $services = $service->getServiceByName($serviceName);
+                return view('portal.user.search.services', compact(['services']));
+            }
+        } else{
+            return view('auth.register');
+        }
+    }
+
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
         $service = Service::find($serviceId);

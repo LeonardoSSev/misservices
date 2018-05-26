@@ -43,6 +43,37 @@ $(document).ready(function(){
         origin: 'right' 
     });
 
+    //Modal
+    $('#add-image').click(function(){
+        $('.overlay-modal').fadeIn('slow');
+    });
+
+    $('.modal .close').click(function(){
+        $('.overlay-modal').fadeOut('slow');
+    });
+
+    //Upload de Imagens
+    $("#image-upload").on('change', function () {
+ 
+        if (typeof (FileReader) != "undefined") {
+     
+            var image_holder = $("#image-selected");
+            image_holder.empty();
+     
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "img-responsive"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else{
+            alert("Este navegador nao suporta FileReader.");
+        }
+    });
+
 });
 
 function removeMasks(){
