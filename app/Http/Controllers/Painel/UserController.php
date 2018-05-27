@@ -43,7 +43,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->sync($request->role);
 
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.users')->with(['status' => 'O usuário foi criado com sucesso.']);
     }
 
     public function editUser($idUser)
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->sync($request->role);
 
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.users')->with(['status' => 'O serviço foi atualizado com sucesso.']);
     }
 
     public function viewUser($idUser)
@@ -94,6 +94,6 @@ class UserController extends Controller
     {
         User::destroy($idUser);
 
-        return redirect()->route('admin.users');
+        return redirect()->route('admin.users')->with(['status' => 'O serviço foi excluído com sucesso.']);
     }
 }

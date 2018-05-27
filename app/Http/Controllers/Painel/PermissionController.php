@@ -35,7 +35,7 @@ class PermissionController extends Controller
         $permission->save();
         $permission->roles()->sync($request->role);
 
-        return redirect()->route('admin.permissions');
+        return redirect()->route('admin.permissions')->with(['status' => 'A permissão foi criada com sucesso.']);
     }
 
 
@@ -58,7 +58,7 @@ class PermissionController extends Controller
         $permission->save();
         $permission->roles()->sync($request->role);
 
-        return redirect()->route('admin.permissions');
+        return redirect()->route('admin.permissions')->with(['status' => 'A permissão foi atualizada com sucesso.']);
     }
 
     public function viewPermission($idPermission)
@@ -72,6 +72,6 @@ class PermissionController extends Controller
     {
         Permission::destroy($idPermission);
 
-        return redirect()->route('admin.permissions');
+        return redirect()->route('admin.permissions')->with(['status' => 'A permissão foi excluída com sucesso.']);
     }
 }

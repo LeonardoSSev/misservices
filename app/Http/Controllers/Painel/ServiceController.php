@@ -40,7 +40,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect()->route('admin.services');
+        return redirect()->route('admin.services')->with(['status' => 'O serviço foi criado com sucesso.']);
     }
 
     public function editService($idService, User $users)
@@ -61,7 +61,7 @@ class ServiceController extends Controller
 
         $service->save();
 
-        return redirect()->route('admin.services');
+        return redirect()->route('admin.services')->with(['status' => 'O serviço foi atualizado com sucesso.']);
     }
 
     public function viewService($idService)
@@ -75,6 +75,6 @@ class ServiceController extends Controller
     {
         Service::destroy($idService);
 
-        return redirect()->route('admin.services');
+        return redirect()->route('admin.services')->with(['status' => 'O serviço foi excluído com sucesso.']);
     }
 }

@@ -31,7 +31,7 @@ class RoleController extends Controller
 
         $role->save();
 
-        return redirect()->route('admin.roles');
+        return redirect()->route('admin.roles')->with(['status' => 'O papel foi criado com sucesso.']);
     }
 
     public function editRole($idRole)
@@ -50,7 +50,7 @@ class RoleController extends Controller
 
         $role->save();
 
-        return redirect()->route('admin.roles');
+        return redirect()->route('admin.roles')->with(['status' => 'O papel foi atualizado com sucesso.']);
     }
 
     public function viewRole($idRole)
@@ -82,6 +82,6 @@ class RoleController extends Controller
     {
         Role::destroy($idRole);
 
-        return redirect()->route('admin.roles');
+        return redirect()->route('admin.roles')->with(['status' => 'O papel foi excluído com sucesso.']);
     }
 }
