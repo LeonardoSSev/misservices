@@ -1,6 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <main class="painel">
+    @if (session('errors'))
+        <div class="alert alert-danger">
+            {{session('errors')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <div class="col-md-10">
         <div class="title-content">
             <h1>Usuários <-> Papel: {{ $phone->Number }}</h1>

@@ -1,6 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <main class="painel">
+    @if (session('errors'))
+        <div class="alert alert-danger">
+            {{session('errors')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <h1>Painel de Administração</h1>
     <a href="{{route('admin.category.create')}}" class="btn btn-primary">Adicionar</a>
     <div class="col-lg-3">

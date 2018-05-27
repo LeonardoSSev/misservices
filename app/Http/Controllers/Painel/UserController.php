@@ -32,10 +32,10 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->cpf = $request->cpf;
+        $user->cpf = str_replace(['.', '-'], '', $request->zipcode);
         $user->state = $request->state;
         $user->city = $request->city;
-        $user->zipcode = $request->zipcode;
+        $user->zipcode = str_replace('-', '', $request->zipcode);
         $user->neighbourhood = $request->neighbourhood;
         $user->address = $request->address;
         $user->password = bcrypt($request->password);
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user->save();
         $user->roles()->sync($request->role);
 
-        return redirect()->route('admin.users')->with(['status' => 'O serviço foi atualizado com sucesso.']);
+        return redirect()->route('admin.users')->with(['status' => 'O usuário foi atualizado com sucesso.']);
     }
 
     public function viewUser($idUser)
@@ -94,6 +94,6 @@ class UserController extends Controller
     {
         User::destroy($idUser);
 
-        return redirect()->route('admin.users')->with(['status' => 'O serviço foi excluído com sucesso.']);
+        return redirect()->route('admin.users')->with(['status' => 'O usuário foi excluído com sucesso.']);
     }
 }
