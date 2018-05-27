@@ -6,21 +6,23 @@
 
     ul{
         padding: 0 !important;
-        
+
         li{
             display: inline;
+            font-size: 16px;
 
-            /*&::after{
-
-                content: "/";
-                position: absolute;
-                width: 15px;
-                height: 15px;
-                background: url('../images/chevron-right.png') center/100%;
-            }*/
+            &+li:before{
+                padding: 8px;
+                color: black;
+                content: "/\00a0";
+            }
 
             a{
                 color: $dkblue !important;
+
+                &:hover{
+                    text-decoration: underline !important;
+                }
             }
         }
     }

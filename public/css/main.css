@@ -9461,18 +9461,21 @@ footer .footer-below {
 
 .breadcrumb ul li {
   display: inline;
-  /*&::after{
+  font-size: 16px;
+}
 
-                content: "/";
-                position: absolute;
-                width: 15px;
-                height: 15px;
-                background: url('../images/chevron-right.png') center/100%;
-            }*/
+.breadcrumb ul li + li:before {
+  padding: 8px;
+  color: black;
+  content: "/\A0";
 }
 
 .breadcrumb ul li a {
   color: #233140 !important;
+}
+
+.breadcrumb ul li a:hover {
+  text-decoration: underline !important;
 }
 
 .box {
