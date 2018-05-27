@@ -2,6 +2,16 @@
 @section('content-admin')
 <?php $selected = 'selected' ?>
 <div id="cadastro">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <div class="col-md-10">
         <div class="title-content">
             <h1 class="left">Serviço: {{$service->name}}</h1>
@@ -10,7 +20,7 @@
             </a>
         </div>
     </div>
-    <form method="GET" action="/admin/service/update/{{$service->id}}" name="cadastroForm">
+    <form method="POST" action="{{route('admin.service.update', $service->id)}}" name="cadastroForm">
         @csrf
         <div class="form-group row">
             <div class="col-md-4">

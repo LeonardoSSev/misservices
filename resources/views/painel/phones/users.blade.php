@@ -1,9 +1,9 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <main class="painel">
-    @if (session('errors'))
+    @if (session('error'))
         <div class="alert alert-danger">
-            {{session('errors')}}
+            {{session('error')}}
         </div>
     @endif
     @if (session('status'))

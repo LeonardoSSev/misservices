@@ -32,7 +32,7 @@ class UserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->cpf = str_replace(['.', '-'], '', $request->zipcode);
+        $user->cpf = str_replace(['.', '-'], '', $request->cpf);
         $user->state = $request->state;
         $user->city = $request->city;
         $user->zipcode = str_replace('-', '', $request->zipcode);
@@ -57,6 +57,16 @@ class UserController extends Controller
     public function updateUser(Request $request, $idUser)
     {
         $user = User::find($idUser);
+        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
+        $request->zipcode = str_replace('-', '', $request->zipcode);
+
+        if ($request->password !== $request->password_confirmation) {
+           return redirect()->route('admin.user.edit', $user)->with(['error' => 'As senhas informadas não são iguais.']);
+        }
+
+        if (User::where(['cpf', $request->cpf])) {
+            return redirect()->route('admin.user.edit', $user)->with(['error' => 'O CPF informado já está cadastrado no sistema.']);
+        }
 
         $user->name = $request->name;
         $user->email = $request->email;
