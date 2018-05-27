@@ -57,15 +57,30 @@ class UserController extends Controller
     public function updateUser(Request $request, $idUser)
     {
         $user = User::find($idUser);
+        $cpfCount = 0;
+        $emailCount = 0;
         $request->cpf = str_replace(['.', '-'], '', $request->cpf);
         $request->zipcode = str_replace('-', '', $request->zipcode);
 
-        if ($request->password !== $request->password_confirmation) {
-           return redirect()->route('admin.user.edit', $user)->with(['error' => 'As senhas informadas não são iguais.']);
+        $users = User::all();
+
+        foreach ($users as $us) {
+            if ($us->cpf === $request->cpf) {
+                $cpfCount++;
+            }
+            if ($us->email === $request->email) {
+                $emailCount++;
+            }
         }
 
-        if (User::where(['cpf', $request->cpf])) {
-            return redirect()->route('admin.user.edit', $user)->with(['error' => 'O CPF informado já está cadastrado no sistema.']);
+        if ($cpfCount > 0 && $request->cpf !== $user->cpf) {
+            return redirect()->route('admin.user.edit', $user)
+                                ->with(['error' => 'O CPF informado já está cadastrado no sistema. Por favor, informe ou CPF.']);
+        }
+
+        if ($emailCount > 0 && $request->email !== $user->email) {
+            return redirect()->route('admin.user.edit', $user)
+                                ->with(['error' => 'O e-mail informado já está cadastrado no sistema. Por favor, informe outro e-mail.']);
         }
 
         $user->name = $request->name;
@@ -82,6 +97,21 @@ class UserController extends Controller
         $user->roles()->sync($request->role);
 
         return redirect()->route('admin.users')->with(['status' => 'O usuário foi atualizado com sucesso.']);
+    }
+
+    public function updateUserPassword(Request $request, $idUser)
+    {
+        $user = User::find($idUser);
+        if ($request->password !== $request->password_confirmation) {
+            return redirect()->route('admin.user.edit', $user)->with(['error' => 'As senhas informadas não são iguais.']);
+        }
+
+
+
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect()->route('admin.users')->with(['status' => 'A senha do usuário foi atualizada com sucesso.']);
     }
 
     public function viewUser($idUser)

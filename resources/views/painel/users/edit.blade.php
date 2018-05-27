@@ -119,24 +119,6 @@
 
         <div class="form-group row">
             <div class="col-md-6">
-                <input id="password" type="password" placeholder="Senha para seu perfil" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                @if ($errors->has('password'))
-                    <span class="invalid-feedback">
-                        <strong>{{ $errors->first('password') }}</strong>
-                    </span>
-                @endif
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-md-6">
-                <input id="password_confirmation" type="password" placeholder="Repita a senha" class="form-control" name="password_confirmation" required>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-md-6">
                 <select id="role" class="form-control" name="role" required>
                     @foreach( $roles as $role)
                         <option value="{{ $role->id }}">{{ $role->name }}</option>
@@ -153,6 +135,33 @@
             </div>
         </div>
     </form>
+    <form action="{{route('admin.user.password.update', $user->id)}}" method="POST">
+        @csrf
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input id="password" type="password" placeholder="Senha" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+                <input id="password_confirmation" type="password" placeholder="Repita a senha" class="form-control" name="password_confirmation" required>
+            </div>
+        </div>
+
+        <div class="form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <button type="submit" class="btn btn-right btn-primary ">
+                    Atualizar Senha
+                </button>
+            </div>
+        </div>
+    </form>
 </div>
 @endsection
