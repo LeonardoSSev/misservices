@@ -63,13 +63,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
 
     Route::get('users/',                 ['as' => 'admin.users',             'uses' =>  'Painel\UserController@index']);
     Route::group(['prefix' => 'user'], function() {
-        Route::get('/create',            ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);
-        Route::post('/store',            ['as' => 'admin.user.store',        'uses' =>  'Painel\UserController@storeUser']);
-        Route::get('/edit/{id}',         ['as' => 'admin.user.edit',         'uses' =>  'Painel\UserController@editUser']);
-        Route::post('/update/{id}',      ['as' => 'admin.user.update',       'uses' =>  'Painel\UserController@updateUser']);
-        Route::get('/delete/{id}',       ['as' => 'admin.user.delete',       'uses' =>  'Painel\UserController@deleteUser']);
-        Route::get('/view/{id}',         ['as' => 'admin.user.view',         'uses' =>  'Painel\UserController@viewUser']);
-        Route::get('/roles/{id}',        ['as' => 'admin.user.roles',        'uses' =>  'Painel\UserController@rolesUser']);
+        Route::get('/create',                ['as' => 'admin.user.create',          'uses' =>  'Painel\UserController@createUser']);
+        Route::post('/store',                ['as' => 'admin.user.store',           'uses' =>  'Painel\UserController@storeUser']);
+        Route::get('/edit/{id}',             ['as' => 'admin.user.edit',            'uses' =>  'Painel\UserController@editUser']);
+        Route::post('/update/{id}',          ['as' => 'admin.user.update',          'uses' =>  'Painel\UserController@updateUser']);
+        Route::post('/password/update/{id}', ['as' => 'admin.user.password.update', 'uses' =>  'Painel\UserController@updateUserPassword']);
+        Route::get('/delete/{id}',           ['as' => 'admin.user.delete',          'uses' =>  'Painel\UserController@deleteUser']);
+        Route::get('/view/{id}',             ['as' => 'admin.user.view',            'uses' =>  'Painel\UserController@viewUser']);
+        Route::get('/roles/{id}',            ['as' => 'admin.user.roles',           'uses' =>  'Painel\UserController@rolesUser']);
     });
 
     Route::get('services/',              ['as' => 'admin.services',          'uses' =>  'Painel\ServiceController@index']);
