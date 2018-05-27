@@ -95,7 +95,8 @@ class PhoneController extends Controller
     {
         $phone = Phone::find($idPhone);
 
-        $phone->number = $request['number'];
+        $phone->ddd = $request->ddd;
+        $phone->number = $request->number;
         $phone->phone_type_id = $request['phone_type'];
 
         $phone->save();

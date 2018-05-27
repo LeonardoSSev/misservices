@@ -24,7 +24,7 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <span>DDD</span>
-                <input id="ddd" type="text" class="form-control{{ $errors->has('ddd') ? ' is-invalid' : '' }}" placeholder="DDD" name="ddd" value="{{ old('ddd') }}" required autofocus>
+                <input id="ddd" type="text" class="form-control{{ $errors->has('ddd') ? ' is-invalid' : '' }}" placeholder="DDD" name="ddd" value="{{ old('ddd') }}" maxlength="2" required autofocus>
 
                 @if ($errors->has('number'))
                     <span class="invalid-feedback">
@@ -37,7 +37,7 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <span>Número Telefone</span>
-                <input id="number" type="text" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" placeholder="Telefone" name="number" value="{{ old('number') }}" required>
+                <input id="number" type="text" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" placeholder="Telefone" name="number" value="{{ old('number') }}" maxlength="10" required>
 
                 @if ($errors->has('number'))
                     <span class="invalid-feedback">
