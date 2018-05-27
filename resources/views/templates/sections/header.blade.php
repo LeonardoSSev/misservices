@@ -28,11 +28,6 @@
                     <a href="{{route('index') }}">Inicio</a>
                 </li>
                 @if (Auth::check())
-                    <li>
-                        <a href="{{route('user.profile')}}">Perfil</a>
-                    </li>
-                @endif
-                @if (Auth::check())
                 <li>
                     <a href="{{route('search-service')}}">Serviços</a>
                 </li>

@@ -2,9 +2,9 @@
 @include('templates.sections.header')
 
 <div class="container" id="perfil">
-    @if (session('errors'))
+    @if (session('error'))
         <div class="alert alert-danger">
-            {{session('errors')}}
+            {{session('error')}}
         </div>
     @endif
     @if (session('status'))
