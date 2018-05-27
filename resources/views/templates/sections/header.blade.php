@@ -32,9 +32,11 @@
                         <a href="{{route('user.profile')}}">Perfil</a>
                     </li>
                 @endif
+                @if (Auth::check())
                 <li>
                     <a href="{{route('search-service')}}">Serviços</a>
                 </li>
+                @endif
                 <li>
                     <a href="{{route('contact')}}">Contato</a>
                 </li>
