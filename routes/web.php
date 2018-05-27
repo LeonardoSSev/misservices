@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
         Route::get('/create',            ['as' => 'admin.user.create',       'uses' =>  'Painel\UserController@createUser']);
         Route::post('/store',            ['as' => 'admin.user.store',        'uses' =>  'Painel\UserController@storeUser']);
         Route::get('/edit/{id}',         ['as' => 'admin.user.edit',         'uses' =>  'Painel\UserController@editUser']);
-        Route::get('/update/{id}',       ['as' => 'admin.user.update',       'uses' =>  'Painel\UserController@updateUser']);
+        Route::post('/update/{id}',      ['as' => 'admin.user.update',       'uses' =>  'Painel\UserController@updateUser']);
         Route::get('/delete/{id}',       ['as' => 'admin.user.delete',       'uses' =>  'Painel\UserController@deleteUser']);
         Route::get('/view/{id}',         ['as' => 'admin.user.view',         'uses' =>  'Painel\UserController@viewUser']);
         Route::get('/roles/{id}',        ['as' => 'admin.user.roles',        'uses' =>  'Painel\UserController@rolesUser']);
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
         Route::get('/create',         ['as' => 'admin.service.create',    'uses' =>  'Painel\ServiceController@createService']);
         Route::post('/store',         ['as' => 'admin.service.store',     'uses' =>  'Painel\ServiceController@storeService']);
         Route::get('/edit/{id}',      ['as' => 'admin.service.edit',      'uses' =>  'Painel\ServiceController@editService']);
-        Route::get('/update/{id}',    ['as' => 'admin.service.update',    'uses' =>  'Painel\ServiceController@updateService']);
+        Route::post('/update/{id}',   ['as' => 'admin.service.update',    'uses' =>  'Painel\ServiceController@updateService']);
         Route::get('/delete/{id}',    ['as' => 'admin.service.delete',    'uses' =>  'Painel\ServiceController@deleteService']);
         Route::get('/view/{id}',      ['as' => 'admin.service.view',      'uses' =>  'Painel\ServiceController@viewService']);
     });
@@ -87,7 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
         Route::get('/create',            ['as' => 'admin.role.create',       'uses' => 'Painel\RoleController@createRole']);
         Route::post('/store',            ['as' => 'admin.role.store',        'uses' => 'Painel\RoleController@storeRole']);
         Route::get('/edit/{id}',         ['as' => 'admin.role.edit',         'uses' => 'Painel\RoleController@editRole']);
-        Route::get('/update/{id}',       ['as' => 'admin.role.update',       'uses' => 'Painel\RoleController@updateRole']);
+        Route::post('/update/{id}',      ['as' => 'admin.role.update',       'uses' => 'Painel\RoleController@updateRole']);
         Route::get('/delete/{id}',       ['as' => 'admin.role.delete',       'uses' => 'Painel\RoleController@deleteRole']);
         Route::get('/view/{id}',         ['as' => 'admin.role.view',         'uses' => 'Painel\RoleController@viewRole']);
         Route::get('/users/{id}',        ['as' => 'admin.role.users',        'uses' => 'Painel\RoleController@usersRole']);
@@ -96,12 +96,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
 
     Route::get('permissions/',           ['as' => 'admin.permissions',       'uses' => 'Painel\PermissionController@index']);
     Route::group(['prefix' => 'permission'], function() {
-        Route::get('/create',      ['as' => 'admin.permission.create', 'uses' => 'Painel\PermissionController@createPermission']);
-        Route::post('/store',      ['as' => 'admin.permission.store',  'uses' => 'Painel\PermissionController@storePermission']);
-        Route::get('/edit/{id}',   ['as' => 'admin.permission.edit',   'uses' => 'Painel\PermissionController@editPermission']);
-        Route::get('/update/{id}', ['as' => 'admin.permission.update', 'uses' => 'Painel\PermissionController@updatePermission']);
-        Route::get('/delete/{id}', ['as' => 'admin.permission.delete', 'uses' => 'Painel\PermissionController@deletePermission']);
-        Route::get('/view/{id}',   ['as' => 'admin.permission.view',   'uses' => 'Painel\PermissionController@viewPermission']);
+        Route::get('/create',       ['as' => 'admin.permission.create', 'uses' => 'Painel\PermissionController@createPermission']);
+        Route::post('/store',       ['as' => 'admin.permission.store',  'uses' => 'Painel\PermissionController@storePermission']);
+        Route::get('/edit/{id}',    ['as' => 'admin.permission.edit',   'uses' => 'Painel\PermissionController@editPermission']);
+        Route::post('/update/{id}', ['as' => 'admin.permission.update', 'uses' => 'Painel\PermissionController@updatePermission']);
+        Route::get('/delete/{id}',  ['as' => 'admin.permission.delete', 'uses' => 'Painel\PermissionController@deletePermission']);
+        Route::get('/view/{id}',    ['as' => 'admin.permission.view',   'uses' => 'Painel\PermissionController@viewPermission']);
     });
 
     Route::get('categories/',            ['as' => 'admin.categories',        'uses' => 'Painel\CategoryController@index']);
@@ -109,20 +109,20 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
         Route::get('/create',        ['as' => 'admin.category.create',  'uses' => 'Painel\CategoryController@createCategory']);
         Route::post('/store',        ['as' => 'admin.category.store',   'uses' => 'Painel\CategoryController@storeCategory']);
         Route::get('/edit/{id}',     ['as' => 'admin.category.edit',    'uses' => 'Painel\CategoryController@editCategory']);
-        Route::get('/update/{id}',   ['as' => 'admin.category.update',  'uses' => 'Painel\CategoryController@updateCategory']);
+        Route::post('/update/{id}',  ['as' => 'admin.category.update',  'uses' => 'Painel\CategoryController@updateCategory']);
         Route::get('/delete/{id}',   ['as' => 'admin.category.delete',  'uses' => 'Painel\CategoryController@deleteCategory']);
         Route::get('/view/{id}',     ['as' => 'admin.category.view',    'uses' => 'Painel\CategoryController@viewCategory']);
     });
 
     Route::get('phone_types/',           ['as' => 'admin.phone_types',       'uses' => 'Painel\PhoneTypesController@index']);
     Route::group(['prefix' => 'phone_type'], function() {
-        Route::get('/create',      ['as' => 'admin.phone_type.create', 'uses' => 'Painel\PhoneTypesController@createPhoneType']);
-        Route::post('/store',      ['as' => 'admin.phone_type.store',  'uses' => 'Painel\PhoneTypesController@storePhoneType']);
-        Route::get('/edit/{id}',   ['as' => 'admin.phone_type.edit',   'uses' => 'Painel\PhoneTypesController@editPhoneType']);
-        Route::get('/update/{id}', ['as' => 'admin.phone_type.update', 'uses' => 'Painel\PhoneTypesController@updatePhoneType']);
-        Route::get('/delete/{id}', ['as' => 'admin.phone_type.delete', 'uses' => 'Painel\PhoneTypesController@deletePhoneType']);
-        Route::get('/view/{id}',   ['as' => 'admin.phone_type.view',   'uses' => 'Painel\PhoneTypesController@viewPhoneType']);
-        Route::get('/phones/{id}', ['as' => 'admin.phone_type.phones', 'uses' => 'Painel\PhoneTypesController@phonesPhoneType']);
+        Route::get('/create',       ['as' => 'admin.phone_type.create', 'uses' => 'Painel\PhoneTypesController@createPhoneType']);
+        Route::post('/store',       ['as' => 'admin.phone_type.store',  'uses' => 'Painel\PhoneTypesController@storePhoneType']);
+        Route::get('/edit/{id}',    ['as' => 'admin.phone_type.edit',   'uses' => 'Painel\PhoneTypesController@editPhoneType']);
+        Route::post('/update/{id}', ['as' => 'admin.phone_type.update', 'uses' => 'Painel\PhoneTypesController@updatePhoneType']);
+        Route::get('/delete/{id}',  ['as' => 'admin.phone_type.delete', 'uses' => 'Painel\PhoneTypesController@deletePhoneType']);
+        Route::get('/view/{id}',    ['as' => 'admin.phone_type.view',   'uses' => 'Painel\PhoneTypesController@viewPhoneType']);
+        Route::get('/phones/{id}',  ['as' => 'admin.phone_type.phones', 'uses' => 'Painel\PhoneTypesController@phonesPhoneType']);
     });
 
     Route::get('phones/',                ['as' => 'admin.phones',            'uses' => 'Painel\PhoneController@index']);
@@ -130,7 +130,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'restrictClient'], function()
         Route::get('/create',           ['as' => 'admin.phone.create',      'uses' => 'Painel\PhoneController@createPhone']);
         Route::post('/store',           ['as' => 'admin.phone.store',       'uses' => 'Painel\PhoneController@storePhone']);
         Route::get('/edit/{id}',        ['as' => 'admin.phone.edit',        'uses' => 'Painel\PhoneController@editPhone']);
-        Route::get('/update/{id}',      ['as' => 'admin.phone.update',      'uses' => 'Painel\PhoneController@updatePhone']);
+        Route::post('/update/{id}',     ['as' => 'admin.phone.update',      'uses' => 'Painel\PhoneController@updatePhone']);
         Route::get('/delete/{id}',      ['as' => 'admin.phone.delete',      'uses' => 'Painel\PhoneController@deletePhone']);
         Route::get('/view/{id}',        ['as' => 'admin.phone.view',        'uses' => 'Painel\PhoneController@viewPhone']);
         Route::get('/users/{id}',       ['as' => 'admin.phone.users',       'uses' => 'Painel\PhoneController@usersPhone']);
