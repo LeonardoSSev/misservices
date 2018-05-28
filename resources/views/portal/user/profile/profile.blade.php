@@ -6,7 +6,7 @@
     <div class="modal">
         <div class="this-modal-content">
             <span class="close"><i class="fa fa-times"></i></span>
-            <form action="{{route('user.profile.image', $user->id)}}" enctype="multipart/form-data" method="POST">
+            <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
                 {{ csrf_field() }}
                 <label for="image-upload" class="select-image">
                     <span>Selecionar Imagem</span>
@@ -44,7 +44,7 @@
                     </button>
                 </figcaption>
             </figure>
-            <span class="name-user">{{ $user->name }}</span>
+            <span class="name-user">{{ Auth()->user()->name }}</span>
         </div>
         <ul>
             <li><b>Seu e-mail:</b> {{ Auth()->user()->email }}</li>
