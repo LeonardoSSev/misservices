@@ -209,9 +209,16 @@ class Helper extends Model
         $obj->providerName = User::find($ids->provider_id)->name;
 
         if (is_null($chat)) {
-            $obj->lastMessage = $chat;
+            $obj->lastMessage = null;
         } else {
-            $obj->lastMessage = Message::where('chat_id', '=', $chat->id)->first();
+            $lastMessage = DB::table('messages')
+                                    ->select('text')
+                                    ->where('chat_id', '=', $chat->id)
+                                    ->orderByDesc('created_at')
+                                    ->limit(1)
+                                    ->get();
+
+            $obj->lastMessage = $lastMessage;
         }
 
         return $obj;

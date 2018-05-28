@@ -61,7 +61,6 @@
                     <p>{{$providedService->serviceName}}</p>
                     <p>{{$providedService->clientName}}</p>
                     <p>{{$providedService->providerName}}</p>
-                    <p>{{$providedService->lastMessage}}</p>
                     <p><a href="{{route('user.service.chat', $providedService->providedServiceId)}}" style="color: dodgerblue;">Envie uma mensagem</a></p>
                 </div>
             @endforeach
