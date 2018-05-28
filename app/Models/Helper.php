@@ -175,13 +175,46 @@ class Helper extends Model
 
     public static function getProvidedServicesChat()
     {
-        $providedServices = DB::table('chats')
-                            ->join('provided_services', 'provided_services.id', '=', 'chats.provided_service_id')
-                            ->select('chats.provided_service_id')
-                            ->where('client_id', Auth()->user()->id)
-                            ->orWhere('provider_id', Auth()->user()->id)
+        $providedServicesIds = DB::table('provided_services')
+                            ->select('id', 'client_id', 'provider_id', 'service_id')
+                            ->where([['client_id', Auth()->user()->id], ['status', '=', 'IN PROGRESS']])
+                            ->orWhere([['provider_id', Auth()->user()->id], ['status', '=', 'IN PROGRESS']])
                             ->get();
 
-        return $providedServices;
+
+        $providedServicesChat = self::setProvidedServicesChat($providedServicesIds);
+
+        return $providedServicesChat;
+    }
+
+    private static function setProvidedServicesChat($providedServicesIds)
+    {
+        $providedServiceWithMessage = [];
+
+        foreach ($providedServicesIds as $ids) {
+            $providedServiceWithMessage[] = self::setProvidedServiceWithMessage($ids);
+        }
+
+        return $providedServiceWithMessage;
+    }
+
+    private static function setProvidedServiceWithMessage($ids)
+    {
+        $obj = new \stdClass();
+        $chat = Chat::where('provided_service_id', '=', $ids->id)->first();
+
+        $obj->providedServiceId = $ids->id;
+        $obj->serviceName = Service::find($ids->service_id)->name;
+        $obj->clientName = User::find($ids->client_id)->name;
+        $obj->providerName = User::find($ids->provider_id)->name;
+
+        if (is_null($chat)) {
+            $obj->lastMessage = $chat;
+        } else {
+            $obj->lastMessage = Message::where('chat_id', '=', $chat->id)->first();
+        }
+
+        return $obj;
+
     }
 }

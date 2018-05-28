@@ -17,4 +17,10 @@ class MessageController extends Controller
 
         return view('portal.user.messages.messages', compact(['userProvidedServices']));
     }
+
+    public function sendMessage(Request $request, $providedServiceId)
+    {
+        dd($providedServiceId, $request->message);
+        $message = $request->message;
+    }
 }
