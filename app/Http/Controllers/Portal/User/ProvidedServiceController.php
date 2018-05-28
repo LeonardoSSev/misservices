@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Portal\User;
 
 use App\Rate;
+use App\Chat;
 use Illuminate\Http\Request;
 use App\ProvidedService;
 use App\Service;
@@ -72,6 +73,7 @@ class ProvidedServiceController extends Controller
         $provided_service->status = 'IN PROGRESS';
         $provided_service->save();
 
+        Chat::create([$providedService_id]);
         return redirect()->route('user.requests')->with('status', 'O serviço foi aceito!');
     }
 
