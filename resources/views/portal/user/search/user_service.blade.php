@@ -8,7 +8,8 @@
         </div>
     @endif
     <h3>Dados sobre o Provedor de Serviços:</h3>
-    <div style="border: 2px solid black; border-radius: 5px; margin: 5px;">
+    {{ $service }}
+    <div class="box">
         @if($averageRate != 0)
             <p>Média de avaliações: {{$averageRate}}/5</p>
         @else

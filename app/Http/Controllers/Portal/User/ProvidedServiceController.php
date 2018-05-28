@@ -99,11 +99,13 @@ class ProvidedServiceController extends Controller
 
     public function finishRequest($providedServiceId)
     {
+        $user = Auth()->user();
+
         $providedService = ProvidedService::find($providedServiceId);
 
         $rateDone = $this->verifyIfUserAlreadyRated($providedService->id);
 
-        return view('portal.user.provided_services.finish', compact(['providedService', 'rateDone']));
+        return view('portal.user.provided_services.finish', compact(['user', 'providedService', 'rateDone']));
     }
 
     private function verifyIfUserAlreadyRated($providedServiceId)

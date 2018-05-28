@@ -3,7 +3,7 @@
     <div class="breadcrumb">
         <ul>
             <li><a href="{{ route('user.profile') }}">Perfil</a></li>
-            <li><a href="">Serviços em andamento</a></li>
+            <li><a href="{{ route('user.current.services') }}">Serviços em andamento</a></li>
         </ul>
     </div>
     <div>
@@ -15,7 +15,7 @@
                     <p>Prestador de serviço: {{$servicesNotOpened->providerName}}</p>
                     <p>Serviço: {{$servicesNotOpened->serviceName}}</p>
                     <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
-                    <a href="{{route('user.cancel.request', $servicesNotOpened->providedServiceId)}}"><button style="color: black;">Cancelar solicitação</button></a>
+                    <a href="{{route('user.cancel.request', $servicesNotOpened->providedServiceId)}}"><button class="btn btn-danger">Cancelar solicitação</button></a>
                 </div>
             @endforeach
         @endif
@@ -25,9 +25,6 @@
         @if(!count($servicesRequestsInProgress) > 0)
             <div class="box">
                 <p>Não há nenhum serviço solicitado em andamento</p>
-                <a href="{{route('user.search.categories') }}">
-                    <p>Procurar por um serviço</p>
-                </a>
             </div>
         @else
             @foreach($servicesRequestsInProgress as $servicesInProgress)
@@ -37,8 +34,10 @@
                     <p>Prestador de serviço: {{$servicesInProgress->providerName}}</p>
                     <p>Serviço: {{$servicesInProgress->serviceName}}</p>
                     <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
-                    <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Cancelar prestação de serviço</button></a>
-                    <a href="{{route('user.finish.request', $servicesInProgress->providedServiceId)}}"><button style="color: black;">Finalizar Serviço</button></a>
+                    <div class="buttons-decision">
+                        <a href="{{route('user.cancel.request', $servicesInProgress->providedServiceId)}}"><button class="btn btn-danger">Cancelar</button></a>
+                        <a href="{{route('user.finish.request', $servicesInProgress->providedServiceId)}}"><button class="btn btn-success">Confirmar Finalização</button></a>
+                    </div>
                 </div>
             @endforeach
         @endif
@@ -48,9 +47,6 @@
         @if(count($servicesRequestsInProgressForProvider) === 0)
             <div class="box">
                 <p>Não há nenhum serviço provido em andamento</p>
-                <a href="{{route('search-service') }}">
-                    <p>Procurar por um serviço</p>
-                </a>
             </div>
         @else
             @foreach($servicesRequestsInProgressForProvider as $servicesInProgress)

@@ -3,7 +3,7 @@
     <div class="breadcrumb">
         <ul>
             <li><a href="{{ route('user.profile') }}">Perfil</a></li>
-            <li><a href="">Histórico de Serviços</a></li>
+            <li><a href="{{ route('user.requested') }}">Histórico de Serviços</a></li>
         </ul>
     </div>
 

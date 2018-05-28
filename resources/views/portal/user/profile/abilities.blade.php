@@ -3,7 +3,7 @@
     <div class="breadcrumb">
         <ul>
             <li><a href="{{ route('user.profile') }}">Perfil</a></li>
-            <li><a href="">Habilidades</a></li>
+            <li><a href="{{ route('user.abilities') }}">Habilidades</a></li>
         </ul>
     </div>
     <div class="form-abilities">
