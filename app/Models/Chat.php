@@ -16,12 +16,18 @@ class Chat extends Model
 
     public static function getMessages($chatId)
     {
-        return DB::table('messages')
-                        ->join('chat_message', 'chat_message.message_id', '=', 'messages.id')
-                        ->select('chat_message.chat_id', 'sender_id', 'receiver_id', 'text')
-                        ->where('chat_message.chat_id', '=', $chatId)
+        $messages = DB::table('messages')
+                        ->select('chat_id', 'sender_id', 'receiver_id', 'text', 'updated_at')
+                        ->where('chat_id', '=', $chatId)
                         ->orderBy('messages.updated_at')
                         ->get();
+        foreach ($messages as $message) {
+            $message->receiverName = User::find($message->receiver_id)->name;
+            $message->senderName = User::find($message->sender_id)->name;
+            $message->updated_at = Helper::getFormatDate($message->updated_at);
+        }
+
+        return $messages;
     }
 
 }

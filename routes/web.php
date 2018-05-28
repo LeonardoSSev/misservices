@@ -55,8 +55,8 @@ Route::group(['prefix' => 'user'], function() {
     });
 
     Route::group(['prefix' => 'chat'], function() {
-       Route::get('/{idProvidedService}', ['as' => 'user.service.chat', 'uses' => 'Portal\User\ChatController@showChat']);
-       Route::post('/message/update/{providedServiceId}',              ['as' => 'user.service.chat.update', 'uses' => 'Portal\User\MessageController@sendMessage']);
+       Route::get('/{idProvidedService}',                 ['as' => 'user.service.chat', 'uses' => 'Portal\User\ChatController@showChat']);
+       Route::post('/message/update/{providedServiceId}', ['as' => 'user.service.chat.update', 'uses' => 'Portal\User\MessageController@sendMessage']);
     });
 
     Route::get('/{userId}/service_detail/{serviceId}', ['as' => 'user.service.details', 'uses' => 'Portal\SiteController@showUserServiceDetails']);
