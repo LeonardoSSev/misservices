@@ -53,7 +53,7 @@ class PhoneController extends Controller
         $phone->save();
         $phone->users()->sync($request['user']);
 
-        return redirect()->route('admin.phones');
+        return redirect()->route('admin.phones')->with(['status' => 'O telefone foi criado com sucesso.']);
     }
 
     /**
@@ -95,13 +95,14 @@ class PhoneController extends Controller
     {
         $phone = Phone::find($idPhone);
 
-        $phone->number = $request['number'];
+        $phone->ddd = $request->ddd;
+        $phone->number = $request->number;
         $phone->phone_type_id = $request['phone_type'];
 
         $phone->save();
         $phone->users()->sync($request['user']);
 
-        return redirect()->route('admin.phones');
+        return redirect()->route('admin.phones')->with(['status' => 'O telefone foi atualizado com sucesso.']);
     }
 
     /**
@@ -114,7 +115,7 @@ class PhoneController extends Controller
     {
         Phone::destroy($idPhone);
 
-        return redirect()->route('admin.phones');
+        return redirect()->route('admin.phones')->with(['status' => 'O telefone foi excluído com sucesso.']);
     }
 
     /**

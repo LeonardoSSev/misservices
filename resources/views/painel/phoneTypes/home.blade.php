@@ -1,6 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
     <main class="painel">
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{session('error')}}
+            </div>
+        @endif
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{session('status')}}
+            </div>
+        @endif
         <h1>Painel de Administração</h1>
         <a href="{{ route('admin.phone_type.create') }}" class="btn btn-primary">Adicionar</a>
         <div class="col-lg-3">
@@ -8,7 +18,6 @@
         </div>
         <table class="table">
             <thead>
-                <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th width="150px">Ações</th>
@@ -17,7 +26,6 @@
                 @foreach($phoneTypes as $phone_type)
                     <tr>
                         <div class="loading"></div>
-                        <td>{{ $phone_type->id }}</td>
                         <td>{{ $phone_type->name }}</td>
                         <td>{{ $phone_type->description }}</td>
                         <td>

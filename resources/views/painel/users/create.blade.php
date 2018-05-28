@@ -1,6 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <div id="cadastro">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <div class="col-md-8">
         <div class="title-content">
             <h1 class="left">Cadastrar</h1>
@@ -9,7 +19,7 @@
             </a>
         </div>
     </div>
-    <form method="POST" action="/admin/user/store" name="cadastroForm">
+    <form method="POST" action="{{route('admin.user.store')}}" name="cadastroForm">
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
@@ -138,7 +148,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary ">
-                    Salvar
+                    Criar usuários
                 </button>
             </div>
         </div>

@@ -48,7 +48,7 @@ class PhoneTypesController extends Controller
 
         $phone_type->save();
 
-        return redirect()->route('admin.phone_types');
+        return redirect()->route('admin.phone_types')->with(['status' => 'O tipo de telefone foi criado com sucesso.']);
     }
 
     /**
@@ -93,7 +93,7 @@ class PhoneTypesController extends Controller
 
         $phoneType->save();
 
-        return redirect()->route('admin.phone_types');
+        return redirect()->route('admin.phone_types')->with(['status' => 'O tipo de telefone foi atualizado com sucesso.']);
     }
 
     /**
@@ -106,7 +106,7 @@ class PhoneTypesController extends Controller
     {
         PhoneType::destroy($idPhoneType);
 
-        return redirect()->route('admin.phone_types');
+        return redirect()->route('admin.phone_types')->with(['status' => 'O tipo de telefone foi excluído com sucesso.']);
 
 
     }

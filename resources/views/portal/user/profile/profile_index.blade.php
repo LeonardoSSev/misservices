@@ -1,7 +1,7 @@
 @extends('portal.user.profile.profile')
 @section('content-profile')
 <ul>
-    <a href="#"><li class="box-list col-lg-3">
+    <a href="{{route('user.messages')}}"><li class="box-list col-lg-3">
         <span>Mensagens</span>
         <i class="fa fa-comment-o"></i>
     </li></a>

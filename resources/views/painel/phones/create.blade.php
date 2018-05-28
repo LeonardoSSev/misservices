@@ -1,6 +1,16 @@
 @extends('painel.templates.template-admin')
 @section('content-admin')
 <div id="cadastro">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
     <div class="col-md-10">
         <div class="title-content">
             <h1 class="left">Criar Permissão</h1>
@@ -9,12 +19,12 @@
             </a>
         </div>
     </div>
-    <form method="POST" action="/admin/phone/store" name="cadastroForm">
+    <form method="POST" action="{{route('admin.phone.store')}}" name="cadastroForm">
         @csrf
         <div class="form-group row">
             <div class="col-md-6">
                 <span>DDD</span>
-                <input id="ddd" type="text" class="form-control{{ $errors->has('ddd') ? ' is-invalid' : '' }}" placeholder="DDD" name="ddd" value="{{ old('ddd') }}" required autofocus>
+                <input id="ddd" type="text" class="form-control{{ $errors->has('ddd') ? ' is-invalid' : '' }}" placeholder="DDD" name="ddd" value="{{ old('ddd') }}" maxlength="2" required autofocus>
 
                 @if ($errors->has('number'))
                     <span class="invalid-feedback">
@@ -27,7 +37,7 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <span>Número Telefone</span>
-                <input id="number" type="text" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" placeholder="Telefone" name="number" value="{{ old('number') }}" required>
+                <input id="number" type="text" class="form-control{{ $errors->has('number') ? ' is-invalid' : '' }}" placeholder="Telefone" name="number" value="{{ old('number') }}" maxlength="10" required>
 
                 @if ($errors->has('number'))
                     <span class="invalid-feedback">
@@ -63,7 +73,7 @@
         <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4">
                 <button type="submit" class="btn btn-primary">
-                    Salvar
+                    Criar Telefone
                 </button>
             </div>
         </div>

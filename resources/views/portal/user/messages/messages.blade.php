@@ -20,9 +20,9 @@
 </div>
 
 <div class="container" id="perfil">
-    @if (session('errors'))
+    @if (session('error'))
         <div class="alert alert-danger">
-            {{session('errors')}}
+            {{session('error')}}
         </div>
     @endif
         @if (session('status'))
@@ -58,7 +58,10 @@
         @if (count($userProvidedServices) > 0)
             @foreach ($userProvidedServices as $providedService)
                 <div style="border: 2px solid black;">
-                    <p>{{$providedService->status}}</p>
+                    <p>{{$providedService->serviceName}}</p>
+                    <p>{{$providedService->clientName}}</p>
+                    <p>{{$providedService->providerName}}</p>
+                    <p><a href="{{route('user.service.chat', $providedService->providedServiceId)}}" style="color: dodgerblue;">Envie uma mensagem</a></p>
                 </div>
             @endforeach
         @else
@@ -66,9 +69,6 @@
                 <p>Não há nenhuma mensagem</p>
             </div>
         @endif
-        <div style="border: 2px solid black;">
-            <a href="#" style="color: dodgerblue;">Envie uma mensagem</a>
-        </div>
     </div>
 </div>
 @include('templates.sections.footer')

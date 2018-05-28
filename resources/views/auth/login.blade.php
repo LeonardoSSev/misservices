@@ -4,6 +4,16 @@
 
 <div id="login">
     <div class="container">
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{session('error')}}
+            </div>
+        @endif
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{session('status')}}
+            </div>
+        @endif
         <div class="col-g-12 text-center">
             <h1>Faça seu Login</h1>
             <hr class="star-primary">

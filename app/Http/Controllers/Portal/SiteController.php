@@ -97,7 +97,7 @@ class SiteController extends Controller
 
     public function getSearchService(Request $request){
         if (!Auth::user()) {
-            return redirect('/login')->with(['status' => 'Para pesquisar sobre os serviços, você precisa estar logado.']);
+            return redirect('/login')->with(['error' => 'Para pesquisar sobre os serviços, você precisa estar logado.']);
         }
 
         $serviceName = $request['service'];

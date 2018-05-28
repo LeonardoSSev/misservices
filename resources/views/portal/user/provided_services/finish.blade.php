@@ -1,6 +1,40 @@
+<<<<<<< HEAD
 @extends('portal.user.profile.profile')
 @section('content-profile')
     <div class="breadcrumb">
+=======
+@extends('templates.temp')
+@include('templates.sections.header')
+
+<div class="container" id="perfil">
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{session('status')}}
+        </div>
+    @endif
+    <div class="col-lg-4" id="perfil-info">
+        <div class="row primary-info">
+            @if(auth()->user()->image != null)
+                <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
+            @else
+                <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+            @endif
+
+            <div class="col-md2">
+                <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
+                    {{ csrf_field() }}
+                    <input type="file" name="image">
+                    <button type="submit">Enviar imagem</button>
+                </form>
+            </div>
+            <span class="name-user">{{ Auth()->user()->name }}</span>
+        </div>
+>>>>>>> cc01449d53fa9d7cd1337b688b3d5cd0eb8b3b3b
         <ul>
             <li><a href="{{ route('user.profile') }}">Perfil</a></li>
             <li><a href="{{ route('user.current.services') }}"></a>Serviços em Andamento</li>

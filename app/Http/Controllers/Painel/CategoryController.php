@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with(['status' => 'A categoria foi criada com sucesso.']);
     }
     public function editCategory($idCategory)
     {
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $category->save();
 
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with(['status' => 'A categoria foi atualizada com sucesso.']);
     }
 
     public function viewCategory($idCtegory)
@@ -63,6 +63,6 @@ class CategoryController extends Controller
     {
         Category::destroy($idCategory);
 
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with(['status' => 'A categoria foi excluída com sucesso.']);
     }
 }
