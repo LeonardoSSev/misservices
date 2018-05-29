@@ -28,7 +28,7 @@
             </div>
         @else
             @foreach($servicesRequestsInProgress as $servicesInProgress)
-                <h5>Serviço solicitado em andamento</h5>
+                <h5>Serviços solicitados em andamento</h5>
                 <div class="box box-shadow">
                     <p>Cliente: {{$servicesInProgress->clientName}}</p>
                     <p>Prestador de serviço: {{$servicesInProgress->providerName}}</p>
@@ -50,7 +50,7 @@
             </div>
         @else
             @foreach($servicesRequestsInProgressForProvider as $servicesInProgress)
-                <h5>Serviço provido em andamento</h5>
+                <h5>Serviços providos em andamento</h5>
                 <div class="box box-shadow">
                     <p>Prestador de serviço: {{$servicesInProgress->providerName}}</p>
                     <p>Cliente: {{$servicesInProgress->clientName}}</p>
@@ -58,10 +58,10 @@
                     <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
                     <form action="{{route('user.price.request', $servicesInProgress->providedServiceId)}}" class="form" method="POST">
                         {!!csrf_field() !!}
-                        <label for="price" class="col-md-12">Valor (RS):</label>
+                        <label for="price" class="col-md-12">Valor (RS):
                         <label for="price">
-                            RS<input class="form-control" type="number" name="price" id="price" value="{{$servicesInProgress->providedServicePrice}}">
-                        </label>
+                            <input class="form-control" type="number" name="price" id="price" value="{{$servicesInProgress->providedServicePrice}}">
+                        </label></label>
                         <button class="btn btn-primary" type="submit">Alterar</button>
                     </form>
                     <div class="buttons-decision">

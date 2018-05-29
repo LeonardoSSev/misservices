@@ -14,7 +14,7 @@
             @if ($providedService->price == null)
                 <h5>Aguardando prestador de serviço definir valor</h5>
             @else
-                <h5>O valor é R${{$providedService->price}}</h5>
+                <h5>O prestador de serviço definiu o valor de <span style="color: red;">R${{$providedService->price}}</span> para o serviço.</h5>
             @endif
 
             @if ($providedService->isPaid == "1")
@@ -22,10 +22,12 @@
             @elseif ($providedService->isPaid == "0")
                 <h5>Aguardando aprovação de pagamento pelo prestador de serviço</h5>
             @else
-                <form action="{{route('user.pay.request', $providedService->id)}}" method="POST">
-                    {!! csrf_field() !!}
-                    <button type="submit" class="btn btn-success" >Confirmar Pagamento</button>
-                </form>
+                @if ($providedService->price !== null)
+                    <form action="{{route('user.pay.request', $providedService->id)}}" method="POST">
+                        {!! csrf_field() !!}
+                        <button type="submit" class="btn btn-success" disabled}}>Confirmar Pagamento</button>
+                    </form>
+                @endif
             @endif
         @else
             @if ($providedService->isPaid == "0")
