@@ -73,7 +73,8 @@ class ProvidedServiceController extends Controller
         $provided_service->status = 'IN PROGRESS';
         $provided_service->save();
 
-        Chat::create([$providedService_id]);
+        $result = Chat::create(['provided_service_id' => $providedService_id]);
+
         return redirect()->route('user.requests')->with('status', 'O serviço foi aceito!');
     }
 

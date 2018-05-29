@@ -16,12 +16,12 @@ class AddChatIdColumn extends Migration
 
         Schema::dropIfExists('chat_message');
 
-        Schema::table('messages', function (Blueprint $table) {
-            $table->integer('chat_id')->unsigned;
-            $table->foreign('chat_id')
-                    ->references('id')
-                    ->on('chats');
-        });
+        // Schema::table('messages', function (Blueprint $table) {
+        //     $table->integer('chat_id')->unsigned;
+        //     $table->foreign('chat_id')
+        //             ->references('id')
+        //             ->on('chats');
+        // });
 
     }
 

@@ -13,6 +13,7 @@ class ChatController extends Controller
 {
     public function showChat($providedServiceId)
     {
+        $providedServiceId = intval($providedServiceId);
         $providedService = ProvidedService::find($providedServiceId);
         $chat = Chat::getMessages(Chat::where('provided_service_id', '=', $providedServiceId)->first()->id);
         $client = User::find($providedService->client_id);

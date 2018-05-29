@@ -24,7 +24,7 @@ class Chat extends Model
         foreach ($messages as $message) {
             $message->receiverName = User::find($message->receiver_id)->name;
             $message->senderName = User::find($message->sender_id)->name;
-            $message->updated_at = Helper::getFormatDate($message->updated_at);
+            $message->updated_at = Helper::getFormatDateAndHour($message->updated_at);
         }
 
         return $messages;

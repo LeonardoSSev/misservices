@@ -39,7 +39,7 @@ class MessageController extends Controller
         $message->save();
 
 
-        return redirect()->route('user.messages')->with(['status' => 'Mensagem enviada com sucesso.']);
+        return redirect('user/chat/' . $providedServiceId);
 
     }
 }

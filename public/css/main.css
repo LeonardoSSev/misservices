@@ -9934,6 +9934,90 @@ form .row:first-child .floating-label-form-group {
   transition: ease 0.5s;
 }
 
+.messages .box {
+  float: left;
+  width: 100%;
+}
+
+.messages .box a {
+  float: left;
+  width: 100%;
+}
+
+.messages .box a .user-information {
+  float: left;
+  width: 20%;
+}
+
+.messages .box a .user-information p {
+  margin: 10px 0;
+  color: #233140;
+  font-size: 16px;
+}
+
+.messages .box a .user-information p:hover {
+  color: #233140 !important;
+}
+
+.messages .box a .user-information p.nome {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.messages .box a .last-message {
+  float: right;
+  width: 80%;
+}
+
+.messages .box a .last-message p {
+  margin: 40px 0;
+  color: #233140;
+  font-size: 18px;
+}
+
+.messages .box a .last-message p:hover {
+  color: #233140 !important;
+}
+
+.messages .box a .last-message p.right {
+  margin-top: 50px;
+  font-size: 12px;
+}
+
+.messages .box.box-messages {
+  overflow: auto;
+  height: 400px;
+}
+
+.messages .box.box-messages .send,
+.messages .box.box-messages .received {
+  width: 60%;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.messages .box.box-messages .send p.right,
+.messages .box.box-messages .received p.right {
+  font-size: 12px;
+}
+
+.messages .box.box-messages .send {
+  float: right;
+  background: #25aae1;
+  color: #fff;
+}
+
+.messages .box.box-messages .received {
+  float: left;
+  background: #c1c1c1;
+}
+
+.messages .form textarea.form-control {
+  border-radius: none !important;
+}
+
 .header-admin {
   position: fixed;
   z-index: 20;

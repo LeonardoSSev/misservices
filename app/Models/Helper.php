@@ -111,6 +111,13 @@ class Helper extends Model
         return $formatDate->format('d/m/Y');
     }
 
+    public static function getFormatDateAndHour($date)
+    {
+        $formatDate = new \DateTime($date);
+
+        return $formatDate->format('d/m/Y H:m:s');
+    }
+
     public static function getContactEmailData(string $subject)
     {
         $emailData = [];
@@ -212,13 +219,14 @@ class Helper extends Model
             $obj->lastMessage = null;
         } else {
             $lastMessage = DB::table('messages')
-                                    ->select('text')
+                                    ->select('text', 'created_at')
                                     ->where('chat_id', '=', $chat->id)
                                     ->orderByDesc('created_at')
                                     ->limit(1)
                                     ->get();
 
             $obj->lastMessage = $lastMessage;
+            $obj->lastMessage[0]->created_at = self::getFormatDateAndHour( $obj->lastMessage[0]->created_at );
         }
 
         return $obj;

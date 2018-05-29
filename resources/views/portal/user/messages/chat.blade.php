@@ -1,27 +1,29 @@
 @extends('portal.user.profile.profile')
 @section('content-profile')
-    <div style="border: 2px solid black; width: 1000px; height: 500px;">
-        @foreach ($chat as $message)
-                @if($message->sender_id === Auth()->user()->id)
-                    <div style="background-color: lightgray;">
-                        <p>{{$message->senderName}}</p>
-                        <p style="float: right;">{{$message->text}}</p>
-                        <p>{{$message->updated_at}}</p>
-                    </div>
-                @else
-                    <div style="background-color: lightskyblue;">
-                        <p>{{$message->senderName}}</p>
-                        <p style="float: left;">{{$message->text}}</p>
-                        <p>{{$message->updated_at}}</p>
-                    </div>
-                @endif
-        @endforeach
-    </div>
-    <div>
-        <form action="{{route('user.service.chat.update', $providedService->id)}}" method="POST">
-            @csrf
-            <textarea name="message" id="" cols="140" rows="5"></textarea>
-            <button type="submit">Enviar Mensagem</button>
-        </form>
+    <div class="messages">
+        <div class="box box-messages">
+            @foreach ($chat as $message)
+                    @if($message->sender_id === Auth()->user()->id)
+                        <div class="send">
+                            <p class="name">{{$message->senderName}}</p>
+                            <p class="text-message">{{$message->text}}</p>
+                            <p class="right">{{$message->updated_at}}</p>
+                        </div>
+                    @else
+                        <div class="received">
+                            <p class="name">{{$message->senderName}}</p>
+                            <p class="text-message">{{$message->text}}</p>
+                            <p class="right">{{$message->updated_at}}</p>
+                        </div>
+                    @endif
+            @endforeach
+        </div>
+        <div>
+            <form action="{{route('user.service.chat.update', $providedService->id)}}" class="form" method="POST">
+                @csrf
+                <textarea name="message" class="form-control" placeholder="Digite sua mensagem"></textarea>
+                <button type="submit" class="btn btn-form right">Enviar Mensagem</button>
+            </form>
+        </div>
     </div>
 @stop
