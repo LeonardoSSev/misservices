@@ -18,6 +18,7 @@
         </div>
         <table class="table">
             <thead>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th width="150px">Ações</th>
@@ -26,6 +27,7 @@
                 @foreach($roles as $role)
                     <tr>
                         <div class="loading"></div>
+                        <td>{{ $role->id }}</td>
                         <td>{{ $role->name }}</td>
                         <td>{{ $role->description }}</td>
                         <td>

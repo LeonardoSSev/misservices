@@ -18,6 +18,7 @@
         </div>
         <table class="table">
             <thead>
+                <th>ID</th>
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th width="150px">Ações</th>
@@ -26,6 +27,7 @@
                 @foreach($permissions as $permission)
                     <tr>
                         <div class="loading"></div>
+                        <td>{{ $permission->id }}</td>
                         <td>{{ $permission->name }}</td>
                         <td>{{ $permission->description }}</td>
                         <td>

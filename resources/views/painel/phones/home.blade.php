@@ -18,6 +18,7 @@
         </div>
         <table class="table">
             <thead>
+                <th>ID</th>
                 <th>DDD</th>
                 <th>Número</th>
                 <th>Tipo de Telefone</th>
@@ -27,6 +28,7 @@
                 @foreach($phones as $phone)
                     <tr>
                         <div class="loading"></div>
+                        <td>{{ $phone->id }}</td>
                         <td>{{ $phone->ddd }}</td>
                         <td>{{ $phone->number }}</td>
                         <td>{{ $phone->phoneType->name }}</td>
