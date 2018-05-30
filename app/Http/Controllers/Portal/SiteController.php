@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Portal;
 
 
+use App\HttpRequest;
 use App\ProvidedService;
 
 use App\Category;

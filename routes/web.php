@@ -1,7 +1,7 @@
 <?php
 
 Auth::routes();
-
+Route::get('/send-email',               ['as' => 'send-email',               'uses' => 'Portal\EmailController@sendEmail']);
 Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions', 'middleware' => 'restrictClient']);
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
