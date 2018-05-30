@@ -14,7 +14,7 @@
                     <p>Cliente: {{$servicesNotOpened->clientName}}</p>
                     <p>Prestador de serviço: {{$servicesNotOpened->providerName}}</p>
                     <p>Serviço: {{$servicesNotOpened->serviceName}}</p>
-                    <p>Estado: {{$servicesInProgress->providedServiceStatus}}</p>
+                    <p>Estado: {{$servicesNotOpened->providedServiceStatus}}</p>
                     <a href="{{route('user.cancel.request', $servicesNotOpened->providedServiceId)}}"><button class="btn btn-danger">Cancelar solicitação</button></a>
                 </div>
             @endforeach

@@ -109,6 +109,15 @@ class SiteController extends Controller
     public function showUserServiceDetails(int $userId, int $serviceId)
     {
         $service = Service::find($serviceId);
+        $user = DB::table('users')
+                    ->select('users.name', 'users.state', 'users.city', 'users.about',
+                    'abilities.name as abilities')
+                    ->leftJoin('abilities', 'abilities.user_id', '=', 'users.id')
+                    ->where([
+                        ['users.id', '=', $userId]
+                    ])
+                    ->get();
+
         $serviceDetails = DB::table('provided_services')
                               ->join('rates', 'provided_services.id', '=', 'rates.provided_service_id')
                               ->join('users', 'provided_services.client_id', '=', 'users.id')
@@ -128,7 +137,7 @@ class SiteController extends Controller
 
         $averageRate = $this->getAverageRateProvidedService($userId);
 
-        return view('portal.user.search.user_service', compact(['serviceDetails', 'averageRate', 'service']));
+        return view('portal.user.search.user_service', compact(['user', 'serviceDetails', 'averageRate', 'service']));
     }
 
     private function getAverageRateProvidedService(int $providerId)

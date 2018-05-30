@@ -1,0 +1,21 @@
+.service-detail{
+    float: left;
+    width: 100%;
+    padding: 10% 0;
+
+    .block{
+        float: left;
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+
+        .box{
+            float: left;
+            width: 100%;
+        }
+
+        h3{
+            margin: 0;
+        }
+    }
+}

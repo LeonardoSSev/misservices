@@ -9319,6 +9319,8 @@ footer .footer-col {
 footer .footer-below {
   padding: 25px 0;
   background-color: #233140;
+  float: left;
+  width: 100vw;
 }
 
 .footer-admin footer {
@@ -9509,6 +9511,78 @@ footer .footer-below {
 .box.box-shadow:hover {
   -webkit-box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
           box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+#perfil-info {
+  background: #233140;
+  padding: 0 0 10%;
+}
+
+#perfil-info ul {
+  list-style: none;
+}
+
+#perfil-info .primary-info {
+  padding: 25px 0;
+}
+
+#perfil-info .primary-info .name-user {
+  text-transform: capitalize;
+  font-size: 1.8em;
+  color: #888;
+  float: left;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+#perfil-info .primary-info .box-img-perfil {
+  cursor: pointer;
+}
+
+#perfil-info .primary-info .box-img-perfil:hover figcaption {
+  opacity: 1;
+}
+
+#perfil-info .primary-info .box-img-perfil .img-perfil {
+  margin-left: 45px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000;
+  float: left;
+}
+
+#perfil-info .primary-info .box-img-perfil figcaption {
+  opacity: 0;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+  background: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  margin-left: 45px;
+}
+
+#perfil-info .primary-info .box-img-perfil figcaption button#add-image {
+  border: none;
+  position: absolute;
+  color: #25aae1;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  font-size: 26px;
+  opacity: 0.7;
+  outline: none !important;
+  width: 100%;
+}
+
+#perfil-info ul > li {
+  font-size: 1.2em;
+  margin-top: 20px;
+  color: #888;
+}
+
+#perfil-info ul > li b {
+  color: #fff;
 }
 
 section {
@@ -9780,74 +9854,6 @@ form .row:first-child .floating-label-form-group {
   color: #25aae1;
 }
 
-#perfil #perfil-info {
-  background: #233140;
-  padding: 5% 0 10%;
-}
-
-#perfil #perfil-info .primary-info {
-  padding: 25px 0;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil {
-  cursor: pointer;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil:hover figcaption {
-  opacity: 1;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil .name-user {
-  text-transform: capitalize;
-  font-size: 1.8em;
-  color: #888;
-  float: left;
-  margin-left: 50px;
-  margin-top: 30px;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil .img-perfil {
-  margin-left: 45px;
-  width: 150px;
-  height: 150px;
-  border: 1px solid #000;
-  float: left;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil figcaption {
-  opacity: 0;
-  -webkit-transition: ease 0.5s;
-  transition: ease 0.5s;
-  background: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  margin-left: 45px;
-}
-
-#perfil #perfil-info .primary-info .box-img-perfil figcaption button#add-image {
-  border: none;
-  position: absolute;
-  color: #25aae1;
-  top: 0;
-  bottom: 0;
-  background: transparent;
-  font-size: 26px;
-  opacity: 0.7;
-  outline: none !important;
-  width: 100%;
-}
-
-#perfil #perfil-info ul > li {
-  font-size: 1.2em;
-  margin-top: 20px;
-  color: #888;
-}
-
-#perfil #perfil-info ul > li b {
-  color: #fff;
-}
-
 #perfil #actions a {
   color: #fff;
 }
@@ -10016,6 +10022,28 @@ form .row:first-child .floating-label-form-group {
 
 .messages .form textarea.form-control {
   border-radius: none !important;
+}
+
+.service-detail {
+  float: left;
+  width: 100%;
+  padding: 10% 0;
+}
+
+.service-detail .block {
+  float: left;
+  width: 100%;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.service-detail .block .box {
+  float: left;
+  width: 100%;
+}
+
+.service-detail .block h3 {
+  margin: 0;
 }
 
 .header-admin {

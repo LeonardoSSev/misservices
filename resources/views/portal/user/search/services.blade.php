@@ -7,7 +7,7 @@
         <h2 class="text-center">Lista de Serviços</h2>
         <div class="col-md-5">
             <div class="filter">
-                <form action="search-service?service=" class="form-group">
+                <form action="{{route('search-service')}}" class="form-group">
                     <label>Encontre um serviço</label>
                     <input type="text" name="service" class="form-control">
                     <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
