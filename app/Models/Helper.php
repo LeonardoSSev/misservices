@@ -215,20 +215,6 @@ class Helper extends Model
         $obj->clientName = User::find($ids->client_id)->name;
         $obj->providerName = User::find($ids->provider_id)->name;
 
-        if (is_null($chat)) {
-            $obj->lastMessage = null;
-        } else {
-            $lastMessage = DB::table('messages')
-                                    ->select('text', 'created_at')
-                                    ->where('chat_id', '=', $chat->id)
-                                    ->orderByDesc('created_at')
-                                    ->limit(1)
-                                    ->get();
-
-            $obj->lastMessage = $lastMessage;
-            $obj->lastMessage[0]->created_at = self::getFormatDateAndHour( $obj->lastMessage[0]->created_at );
-        }
-
         return $obj;
 
     }
