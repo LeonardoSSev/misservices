@@ -5,6 +5,12 @@
         a{
             float: left;
             width: 100%;
+            color: $dkblue !important;
+
+            &:hover{
+                color: $dkblue!important;
+            }
+
             .user-information{
                 float: left;
                 width: 20%;

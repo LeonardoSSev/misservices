@@ -9948,6 +9948,11 @@ form .row:first-child .floating-label-form-group {
 .messages .box a {
   float: left;
   width: 100%;
+  color: #233140 !important;
+}
+
+.messages .box a:hover {
+  color: #233140 !important;
 }
 
 .messages .box a .user-information {
