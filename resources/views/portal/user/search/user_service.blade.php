@@ -45,12 +45,14 @@
                         <p>Este usuário não tem habilidades cadastradas</p>
                     @endif
                 </div>
-                <form action="{{route('user.request.service', [$service->id])}}" class="form" method="POST">
-                    {{ csrf_field() }}
-                    <div>
-                        <button type="submit" class="btn btn-form right">Solicitar Serviço</button>
-                    </div>
-                </form>
+                @cannot('Admin')
+                    <form action="{{route('user.request.service', [$service->id])}}" class="form" method="POST">
+                        {{ csrf_field() }}
+                        <div>
+                            <button type="submit" class="btn btn-form right">Solicitar Serviço</button>
+                        </div>
+                    </form>
+                @endcannot
             </div>
             <div class="block">
                 <h3>Últimos comentários:</h3>
