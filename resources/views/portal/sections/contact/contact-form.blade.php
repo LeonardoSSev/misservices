@@ -8,14 +8,15 @@
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
-                <form role="form">
+                <form role="form" method="POST" action="{{route('send-email')}}">
+                    @csrf
                     <div class="row">
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="name">Nome</label>
                             @guest
-                                <input class="form-control" type="text" name="name" placeholder="Name">
+                                <input class="form-control" type="text" name="name" placeholder="Name" required>
                             @else
-                                <input class="form-control" type="text" name="name" placeholder="Name" value="{{Auth()->user()->name}}">
+                                <input class="form-control" type="text" name="name" placeholder="Name" value="{{Auth()->user()->name}}" required>
                             @endguest
                         </div>
                     </div>
@@ -23,9 +24,9 @@
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="email">E-mail</label>
                             @guest
-                                <input class="form-control" type="email" name="email" placeholder="Email Address">
+                                <input class="form-control" type="email" name="email" placeholder="Email Address" required>
                             @else
-                                <input class="form-control" type="email" name="email" placeholder="Email Address" value="{{Auth()->user()->email}}">
+                                <input class="form-control" type="email" name="email" placeholder="Email Address" value="{{Auth()->user()->email}}" required>
                             @endguest
                         </div>
                     </div>
@@ -33,12 +34,12 @@
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="message">Mensagem</label>
                             @guest
-                                <textarea placeholder="Message" class="form-control" rows="5"></textarea>
+                                <textarea placeholder="Message" class="form-control" rows="5" name="message" required></textarea>
                             @else
                                 @if(isset($emailContent['message']) && (!is_null($emailContent)))
-                                    <textarea placeholder="Message" class="form-control" rows="5">{{$emailContent['message']}}</textarea>
+                                    <textarea placeholder="Message" class="form-control" rows="5" name="message" required>{{$emailContent['message']}}</textarea>
                                 @else
-                                    <textarea placeholder="Message" class="form-control" rows="5"></textarea>
+                                    <textarea placeholder="Message" class="form-control" rows="5" name="message" required></textarea>
                                 @endif
                             @endguest
 
