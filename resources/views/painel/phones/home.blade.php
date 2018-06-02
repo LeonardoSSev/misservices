@@ -12,10 +12,15 @@
             </div>
         @endif
         <h1>Painel de Administração</h1>
-        <a href="{{route('admin.phone.create')}}" class="btn btn-primary">Adicionar</a>
-        <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="Pesquise um telefone..." number="pesquisar">
-        </div>
+        <a href="{{route('admin.phone.create')}}" class="btn-add" title="Adicionar">+</a>
+        <form action="" class="form-group" method="GET">
+            <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Pesquise o ID de um telefone..." name="search-phones">
+            </div>
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </form>
         <table class="table">
             <thead>
                 <th>ID</th>
@@ -31,7 +36,7 @@
                         <td>{{ $phone->id }}</td>
                         <td>{{ $phone->ddd }}</td>
                         <td>{{ $phone->number }}</td>
-                        <td>{{ $phone->phoneType->name }}</td>
+                        <td>{{ $phone->phoneTypeName }}</td>
                         <td>
                             <a href="{{ route('admin.phone.users', $phone->id) }}"><i class="fa fa-lg fa-user" title="Visualizar usuários que usam {{ $phone->number }}"></i></a>
                             <a href="{{ route('admin.phone.edit', $phone->id) }}"><i class="fa fa-lg fa-pencil" title="Editar {{ $phone->number }}"></i></a>

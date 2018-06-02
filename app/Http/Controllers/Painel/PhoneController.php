@@ -19,7 +19,13 @@ class PhoneController extends Controller
      */
     public function index()
     {
-        $phones = Phone::paginate($this->numberPagination);
+        $thePhones = '';
+        if( !empty($_GET["search-phones"]) ){
+            $thePhones = $_GET["search-phones"];
+        }
+
+        $searchPhones = new Phone();
+        $phones = $searchPhones->getPhone( $thePhones, $this->numberPagination );
 
         return view('painel.phones.home', compact('phones'));
     }

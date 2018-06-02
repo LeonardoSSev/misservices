@@ -12,7 +12,13 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::paginate($this->numberPagination);
+        $theCategory = '';
+        if( !empty($_GET["search-category"]) ){
+            $theCategory = $_GET["search-category"];
+        }
+
+        $searchCategory = new Category();
+        $categories = $searchCategory->getCategories( $theCategory, $this->numberPagination );
 
         return view('painel.categories.home', compact('categories'));
     }

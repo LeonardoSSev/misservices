@@ -14,7 +14,13 @@ class ServiceController extends Controller
 
     public function index()
     {
-        $services = Service::paginate($this->numberPagination);;
+        $theService = '';
+        if( !empty($_GET["search-service"]) ){
+            $theService = $_GET["search-service"];
+        }
+
+        $searchService = new Service();
+        $services = $searchService->getServices( $theService, $this->numberPagination );
 
         return view('painel.services.home', compact('services'));
     }

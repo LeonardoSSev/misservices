@@ -28,4 +28,14 @@ class Service extends Model
         
         return $result;
     }
+
+    public function getServices($service, $pagination){
+        $result = DB::table('services')
+        ->select('services.id', 'services.name', 'services.description', 'users.name as username')
+        ->join('users', 'users.id', '=', 'services.user_id')
+        ->where('services.name', 'like', '%'. $service . '%')
+        ->paginate($pagination);
+
+        return $result;
+    }
 }

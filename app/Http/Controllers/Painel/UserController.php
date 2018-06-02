@@ -13,8 +13,12 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::paginate($this->numberPagination);
-        //$users->where(['id', '<>', '1']);
+        $theUser = '';
+        if( !empty($_GET["search-user"]) ){
+            $theUser = $_GET["search-user"];
+        }
+        $searchUsers = new User();
+        $users = $searchUsers->getUsers($theUser, $this->numberPagination);
 
         return view('painel.users.home', compact('users'));
     }

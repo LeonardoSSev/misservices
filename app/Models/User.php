@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Role;
+use Illuminate\Support\Facades\DB;
 
 
 class User extends Authenticatable
@@ -69,5 +70,13 @@ class User extends Authenticatable
         }
 
         return $noAdminUsers;
+    }
+
+    public function getUsers($user, $pagination){
+        $result = DB::table('users')
+        ->where('name' , 'like', '%'.$user.'%')
+        ->paginate($pagination);
+
+        return $result;
     }
 }
