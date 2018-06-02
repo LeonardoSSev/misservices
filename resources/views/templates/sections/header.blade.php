@@ -36,9 +36,11 @@
                     <a href="{{route('contact')}}">Contato</a>
                 </li>
                 @if (Auth::check())
-                    <li>
-                        <a href="{{route('user.profile') }}">Perfil</a>
-                    </li>
+                    @cannot('Admin')
+                        <li>
+                            <a href="{{route('user.profile') }}">Perfil</a>
+                        </li>
+                    @endcannot
                 @endif
                 @can('Admin')
                     <li><a href="{{route('admin.index') }}">Painel</a></li>

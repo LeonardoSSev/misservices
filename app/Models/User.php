@@ -30,6 +30,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function abilities()
+    {
+        return $this->hasMany(\App\Ability::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany(\App\Role::class);
