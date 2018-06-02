@@ -14,7 +14,7 @@
                 <div id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="hidden">
-                            <a href="#page-top"></a>
+                            <a></a>
                         </li>
                         <li><a href="{{route('admin.index')}}">Home</a></li>
                         <li><a href="{{route('admin.users')}}">Usuários</a></li>

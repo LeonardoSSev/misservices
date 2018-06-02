@@ -12,10 +12,15 @@
             </div>
         @endif
         <h1>Painel de Administração</h1>
-        <a href="{{ route('admin.phone_type.create') }}" class="btn btn-primary">Adicionar</a>
-        <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="Pesquise um tipo de telefone..." name="pesquisar">
-        </div>
+        <a href="{{ route('admin.phone_type.create') }}" class="btn-add" title="Adicionar">+</a>
+        <form action="" class="form-group" method="GET">
+            <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Pesquise um tipo de telefone..." name="search-types">
+            </div>
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </form>
         <table class="table">
             <thead>
                 <th>ID</th>

@@ -12,10 +12,15 @@
             </div>
         @endif
         <h1>Painel de Administração</h1>
-        <a href="{{route('admin.service.create')}}" class="btn btn-primary">Adicionar</a>
-        <div class="col-lg-3">
-            <input type="text" class="form-control" placeholder="Pesquise um serviço..." name="pesquisar">
-        </div>
+        <a href="{{route('admin.service.create')}}" class="btn-add" title="Adicionar">+</a>
+        <form action="" class="form-group" method="GET">
+            <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Pesquise um serviço..." name="search-service">
+            </div>
+            <div class="col-lg-3">
+                <button type="submit" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </form>
         <table class="table">
             <thead>
             <th>ID</th>
@@ -30,10 +35,10 @@
                     <div class="loading"></div>
                     <td>{{ $service->id }}</td>
                     <td>{{ $service->name }}</td>
-                    <td>{{ $service->user->name }}</td>
+                    <td>{{ $service->username }}</td>
                     <td>{{ $service->description }}</td>
                     <td>
-                    <a href="{{route('admin.service.view', $service->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $service->name }}"></i></a>
+                    
                         <a href="{{route('admin.service.edit', $service->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $service->name }}"></i></a>
                         <a href="{{route('admin.service.delete', $service->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $service->name }}"></i></a>                        
                     </td>

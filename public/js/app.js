@@ -2169,7 +2169,7 @@ $(document).ready(function(){
     $('.modal .close').click(function(){
         $('.overlay-modal').fadeOut('slow');
     });
-
+    
     //Upload de Imagens
     $("#image-upload").on('change', function () {
  
@@ -2191,6 +2191,8 @@ $(document).ready(function(){
             alert("Este navegador nao suporta FileReader.");
         }
     });
+
+    $
 
 });
 

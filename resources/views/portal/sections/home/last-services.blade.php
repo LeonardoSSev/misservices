@@ -23,11 +23,13 @@
                 <div class="row">
             <?php endif; ?>
                     <div class="col-sm-4 service-item">
-                        <!-- <div class="caption">
-                            <div class="caption-content">
-                                <i></i>
+                        <a href="{{ route('search-service') }}">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search"></i> Encontre um serviço
+                                </div>
                             </div>
-                        </div> -->
+                        </a>
                         <img src="<?php echo $img ?>" class="img-responsive" alt="" />
                     </div>
             <?php if($i%3 < 1): ?>

@@ -8524,6 +8524,38 @@ textarea.form-control {
   margin-top: 25px;
 }
 
+form {
+  padding-bottom: 30px;
+}
+
+.link {
+  text-align: center;
+  float: left;
+  padding-left: 5%;
+}
+
+.link a {
+  color: #25aae1;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+.link a:hover {
+  color: #233140;
+}
+
+@media (min-width: 768px) {
+  .link {
+    padding-left: 35%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .link {
+    padding-left: 40%;
+  }
+}
+
 .preloader {
   display: none;
   width: 100%;
@@ -9450,6 +9482,28 @@ footer .footer-below {
   background: #69bb69 !important;
 }
 
+.btn-add {
+  float: right;
+  background: #337ab7;
+  color: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 2px;
+  text-decoration: none !important;
+  font-size: 18px;
+  font-weight: 600;
+  -webkit-transition: ease 0.5s;
+  transition: ease 0.5s;
+}
+
+.btn-add:hover {
+  -webkit-box-shadow: 1px 2px 7px -1px #444;
+          box-shadow: 1px 2px 7px -1px #444;
+  color: #fff;
+}
+
 .breadcrumb {
   padding: 0 !important;
   margin: 0 !important;
@@ -9622,15 +9676,18 @@ section.success {
 
 #servicos .service-item img {
   margin-top: 15px;
-  width: 100%;
+  width: 410px;
+  height: 240px;
 }
 
 #servicos .service-item .caption {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  top: 15px;
+  left: 15px;
+  width: 360px;
+  height: 240px;
   opacity: 0;
-  background: rgba(37, 170, 225, 0.8);
+  background: rgba(0, 0, 0, 0.8);
   -webkit-transition: all ease .5s;
   transition: all ease .5s;
 }
@@ -9650,7 +9707,11 @@ section.success {
   color: #fff;
 }
 
-#servicos .service-item .caption .caption-content i {
+#servicos .service-item .caption .caption-content a {
+  color: #fff;
+}
+
+#servicos .service-item .caption .caption-content a i {
   margin-top: -12px;
 }
 

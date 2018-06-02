@@ -12,7 +12,13 @@ class RoleController extends Controller
 
     public function index()
     {
-        $roles = Role::paginate($this->numberPagination);
+        $theRole = '';
+        if( !empty($_GET["search-role"]) ){
+            $theRole = $_GET["search-role"];
+        }
+
+        $searchRoles = new Role();
+        $roles = $searchRoles->getRoles( $theRole, $this->numberPagination );
 
         return view('painel.roles.home', compact('roles'));
     }

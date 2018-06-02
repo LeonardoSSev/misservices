@@ -13,7 +13,13 @@ class PermissionController extends Controller
 
     public function index()
     {
-        $permissions = Permission::paginate($this->numberPagination);
+        $thePermission = '';
+        if( !empty($_GET["search-permission"]) ){
+            $thePermission = $_GET["search-permission"];
+        }
+
+        $searchPermission = new Permission();
+        $permissions = $searchPermission->getPermission( $thePermission, $this->numberPagination );
 
         return view('painel.permissions.home', compact('permissions'));
     }

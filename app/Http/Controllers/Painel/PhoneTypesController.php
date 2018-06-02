@@ -18,7 +18,13 @@ class PhoneTypesController extends Controller
      */
     public function index()
     {
-        $phoneTypes = PhoneType::paginate($this->numberPagination);
+        $theTypes = '';
+        if( !empty($_GET["search-types"]) ){
+            $theTypes = $_GET["search-types"];
+        }
+
+        $searchPhoneTypes = new PhoneType();
+        $phoneTypes = $searchPhoneTypes->getPhoneType( $theTypes, $this->numberPagination );
 
         return view('painel.phoneTypes.home', compact('phoneTypes'));
     }
