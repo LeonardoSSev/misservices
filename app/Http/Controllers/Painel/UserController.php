@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Ability;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
@@ -136,8 +137,16 @@ class UserController extends Controller
 
     public function deleteUser($idUser)
     {
+        $this->deleteUserAbilities(User::find($idUser));
         User::destroy($idUser);
 
         return redirect()->route('admin.users')->with(['status' => 'O usuário foi excluído com sucesso.']);
+    }
+
+    private function deleteUserAbilities(User $user)
+    {
+        foreach ($user->abilities as $ability) {
+            Ability::destroy($ability->id);
+        }
     }
 }
