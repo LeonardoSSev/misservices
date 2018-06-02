@@ -38,7 +38,7 @@
                     <td>{{ $service->username }}</td>
                     <td>{{ $service->description }}</td>
                     <td>
-                    <a href="{{route('admin.service.view', $service->id)}}"><i class="fa fa-lg fa-eye" title="Visualizar {{ $service->name }}"></i></a>
+                    
                         <a href="{{route('admin.service.edit', $service->id)}}"><i class="fa fa-lg fa-pencil" title="Editar {{ $service->name }}"></i></a>
                         <a href="{{route('admin.service.delete', $service->id)}}"><i class="fa fa-lg fa-times" title="Excluir {{ $service->name }}"></i></a>                        
                     </td>
