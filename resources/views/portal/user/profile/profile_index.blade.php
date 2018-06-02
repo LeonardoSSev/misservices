@@ -18,12 +18,12 @@
         <i class="fa fa-cogs"></i>
     </li></a>
     <a href="{{route('user.requested')}}"><li class="box-list col-lg-3">
-        <span>Histórico de Serviços</span>
-        <i class="fa fa-cogs"></i>
-    </li></a>
+            <span>Histórico de Serviços</span>
+            <i class="fa fa-address-book"></i>
+        </li></a>
     <a href="{{route('user.services')}}"><li class="box-list col-lg-3">
-        <span>Meus Serviços</span>
-        <i class="fa fa-cogs"></i>
-    </li></a>
+            <span>Meus Serviços</span>
+            <i class="fa fa-briefcase"></i>
+        </li></a>
 </ul>
 @stop
