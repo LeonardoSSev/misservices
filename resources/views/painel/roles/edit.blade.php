@@ -24,7 +24,7 @@
         <div class="form-group row">
             <div class="col-md-6">
                 <span>Nome</span>
-                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $role->description }}" required autofocus>
+                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ $role->name }}" required autofocus>
 
                 @if ($errors->has('name'))
                     <span class="invalid-feedback">

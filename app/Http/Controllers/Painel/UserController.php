@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Painel;
 
+use App\Ability;
+use App\Chat;
+use App\ProvidedService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -136,8 +140,57 @@ class UserController extends Controller
 
     public function deleteUser($idUser)
     {
+        $this->deleteUserAbilities(User::find($idUser));
+        $this->deleteUserProvidedServices(User::find($idUser));
         User::destroy($idUser);
 
         return redirect()->route('admin.users')->with(['status' => 'O usuário foi excluído com sucesso.']);
+    }
+
+    private function deleteUserAbilities(User $user)
+    {
+        foreach ($user->abilities as $ability) {
+            Ability::destroy($ability->id);
+        }
+    }
+
+    private function deleteUserProvidedServices(User $user)
+    {
+        $providedServices = DB::table('provided_services')
+                                ->select('id')
+                                ->where('client_id', '=', $user->id)
+                                ->orWhere('provider_id', '=', $user->id)
+                                ->get();
+
+        foreach ($providedServices as $ids) {
+            $this->deleteUserRates($ids->id);
+            $this->deleteUserMessages($user->id);
+            $this->deleteUserChats($ids->id);
+            ProvidedService::destroy($ids->id);
+        }
+    }
+
+    private function deleteUserRates($providedServiceId)
+    {
+        DB::table('rates')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
+    }
+
+    private function deleteUserMessages($userId)
+    {
+
+        DB::table('messages')
+            ->where('sender_id', '=', $userId)
+            ->orWhere('receiver_id', '=', $userId)
+            ->delete();
+    }
+
+    private function deleteUserChats($providedServiceId)
+    {
+
+        DB::table('chats')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
     }
 }

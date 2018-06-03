@@ -1,7 +1,7 @@
 <?php
 
 Auth::routes();
-Route::get('/send-email',               ['as' => 'send-email',               'uses' => 'Portal\EmailController@sendEmail']);
+Route::post('/send-email',              ['as' => 'send-email',               'uses' => 'Portal\EmailController@sendEmail']);
 Route::get('/roles-permission',         ['as' => 'debug.roles-permission',   'uses' => 'Portal\SiteController@rolesPermissions', 'middleware' => 'restrictClient']);
 Route::get('/',                         ['as' => 'index',                    'uses' => 'Portal\SiteController@index']);
 Route::get('/contact',                  ['as' => 'contact',                  'uses' => 'Portal\SiteController@contact']);
@@ -16,6 +16,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::post('/update', ['as' => 'user.update.profile', 'uses' => 'Portal\User\UserController@updateProfile']);
         Route::post('/password/update', ['as' => 'user.update.password', 'uses' => 'Portal\User\UserController@updatePassword']);
         Route::post('/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadProfilePicture']);
+        Route::post('/profile/delete', ['as' => 'user.profile.delete', 'uses' => 'Portal\User\UserController@deleteUser']);
     });
 
     Route::group(['prefix' => 'search'], function() {
