@@ -234,10 +234,11 @@ class User extends Authenticatable
         $users = User::all();
         $cpfCount = 0;
         $emailCount = 0;
+        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
         $count = null;
 
         foreach ($users as $us) {
-            if ($us->cpf === str_replace(['.', '-'], '', $request->cpf)) {
+            if ($us->cpf === $request->cpf) {
                 $cpfCount++;
             }
             if ($us->email === $request->email) {
@@ -245,24 +246,24 @@ class User extends Authenticatable
             }
         }
 
-        // if( !empty($user) ){
-        //     if ($cpfCount > 0 && $request->cpf !== $user->cpf) {
-        //         $count = 1;
-        //     }
+        if( !empty($user) ){
+            if ($cpfCount > 0 && $request->cpf !== $user->cpf) {
+                $count = 1;
+            }
     
-        //     if ($emailCount > 0 && $request->email !== $user->email) {
-        //         $count = 2;
-        //     }    
-        // }
-        // else{
-        //     if ($cpfCount > 0) {
-        //         $count = 1;
-        //     }
+            if ($emailCount > 0 && $request->email !== $user->email) {
+                $count = 2;
+            }    
+        }
+        else{
+            if ($cpfCount > 0) {
+                $count = 1;
+            }
     
-        //     if ($emailCount > 0) {
-        //         $count = 2;
-        //     }
-        // }
+            if ($emailCount > 0) {
+                $count = 2;
+            }
+        }
 
         return $count;
     }
