@@ -15,6 +15,10 @@ class UserController extends Controller
 {
     private $numberPagination = 10;
 
+    ////////////////////////////////////////////////////////////////////////////
+    // FUNÇÕES VIEW
+    ///////////////////////////////////////////////////////////////////////////
+
     public function index()
     {
         $theUser = '';
@@ -34,92 +38,12 @@ class UserController extends Controller
         return view('painel.users.create', compact('roles'));
     }
 
-    public function storeUser(Request $request)
-    {
-        $user = new User;
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->cpf = str_replace(['.', '-'], '', $request->cpf);
-        $user->state = $request->state;
-        $user->city = $request->city;
-        $user->zipcode = str_replace('-', '', $request->zipcode);
-        $user->neighbourhood = $request->neighbourhood;
-        $user->address = $request->address;
-        $user->password = bcrypt($request->password);
-
-        $user->save();
-        $user->roles()->sync($request->role);
-
-        return redirect()->route('admin.users')->with(['status' => 'O usuário foi criado com sucesso.']);
-    }
-
     public function editUser($idUser)
     {
         $user = User::find($idUser);
         $roles = Role::all();
 
         return view('painel.users.edit', compact(['user', 'roles']));
-    }
-
-    public function updateUser(Request $request, $idUser)
-    {
-        $user = User::find($idUser);
-        $cpfCount = 0;
-        $emailCount = 0;
-        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
-        $request->zipcode = str_replace('-', '', $request->zipcode);
-
-        $users = User::all();
-
-        foreach ($users as $us) {
-            if ($us->cpf === $request->cpf) {
-                $cpfCount++;
-            }
-            if ($us->email === $request->email) {
-                $emailCount++;
-            }
-        }
-
-        if ($cpfCount > 0 && $request->cpf !== $user->cpf) {
-            return redirect()->route('admin.user.edit', $user)
-                                ->with(['error' => 'O CPF informado já está cadastrado no sistema. Por favor, informe ou CPF.']);
-        }
-
-        if ($emailCount > 0 && $request->email !== $user->email) {
-            return redirect()->route('admin.user.edit', $user)
-                                ->with(['error' => 'O e-mail informado já está cadastrado no sistema. Por favor, informe outro e-mail.']);
-        }
-
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->cpf = $request->cpf;
-        $user->state = $request->state;
-        $user->city = $request->city;
-        $user->zipcode = $request->zipcode;
-        $user->neighbourhood = $request->neighbourhood;
-        $user->address = $request->address;
-        $user->password = bcrypt($request->password);
-
-        $user->save();
-        $user->roles()->sync($request->role);
-
-        return redirect()->route('admin.users')->with(['status' => 'O usuário foi atualizado com sucesso.']);
-    }
-
-    public function updateUserPassword(Request $request, $idUser)
-    {
-        $user = User::find($idUser);
-        if ($request->password !== $request->password_confirmation) {
-            return redirect()->route('admin.user.edit', $user)->with(['error' => 'As senhas informadas não são iguais.']);
-        }
-
-
-
-        $user->password = bcrypt($request->password);
-        $user->save();
-
-        return redirect()->route('admin.users')->with(['status' => 'A senha do usuário foi atualizada com sucesso.']);
     }
 
     public function viewUser($idUser)
@@ -138,59 +62,59 @@ class UserController extends Controller
         return view('painel.users.roles', compact(['user', 'roles']));
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    // FUNÇÕES TRATAMENTO DE DADOS
+    ///////////////////////////////////////////////////////////////////////////
+
+    public function storeUser(Request $request)
+    {
+        $user = new User;
+        $response = $user->insertUser( $request );
+
+        if( $response == 1 ){
+            return redirect()
+            ->route('admin.users')
+            ->with(['error' => 'O CPF informado já está cadastrado no sistema. Por favor, informe ou CPF.']);
+        } elseif ($response == 2) {
+            return redirect()
+            ->route('admin.users')
+            ->with(['error' => 'O e-mail informado já está cadastrado no sistema. Por favor, informe outro e-mail.']);
+        } else{
+            return redirect()->route('admin.users')->with(['status' => 'O usuário foi criado com sucesso.']);
+        }    
+    }
+
+    public function updateUser(Request $request, $idUser)
+    {
+        $user = new User();
+        $response = $user->updateUser( $request, $idUser );
+
+        if( $response == 1 ){
+            return redirect()
+            ->route('admin.user.edit', $idUser)
+            ->with(['error' => 'O CPF informado já está cadastrado no sistema. Por favor, informe ou CPF.']);
+        } elseif ($response == 2) {
+            return redirect()
+            ->route('admin.user.edit', $idUser)
+            ->with(['error' => 'O e-mail informado já está cadastrado no sistema. Por favor, informe outro e-mail.']);
+        } else{
+            return redirect()->route('admin.user.edit')->with(['status' => 'O usuário foi atualizado com sucesso.']);
+        }
+    }
+
+    public function updateUserPassword(Request $request, $idUser)
+    {
+        $user = new User();
+        $user->updateUserPassword( $request, $idUser );
+
+        return redirect()->route('admin.users')->with(['status' => 'A senha do usuário foi atualizada com sucesso.']);
+    }
+
     public function deleteUser($idUser)
     {
-        $this->deleteUserAbilities(User::find($idUser));
-        $this->deleteUserProvidedServices(User::find($idUser));
-        User::destroy($idUser);
+        $user = new User();
+        $user->deleteUser($idUser);
 
         return redirect()->route('admin.users')->with(['status' => 'O usuário foi excluído com sucesso.']);
-    }
-
-    private function deleteUserAbilities(User $user)
-    {
-        foreach ($user->abilities as $ability) {
-            Ability::destroy($ability->id);
-        }
-    }
-
-    private function deleteUserProvidedServices(User $user)
-    {
-        $providedServices = DB::table('provided_services')
-                                ->select('id')
-                                ->where('client_id', '=', $user->id)
-                                ->orWhere('provider_id', '=', $user->id)
-                                ->get();
-
-        foreach ($providedServices as $ids) {
-            $this->deleteUserRates($ids->id);
-            $this->deleteUserMessages($user->id);
-            $this->deleteUserChats($ids->id);
-            ProvidedService::destroy($ids->id);
-        }
-    }
-
-    private function deleteUserRates($providedServiceId)
-    {
-        DB::table('rates')
-            ->where('provided_service_id', '=', $providedServiceId)
-            ->delete();
-    }
-
-    private function deleteUserMessages($userId)
-    {
-
-        DB::table('messages')
-            ->where('sender_id', '=', $userId)
-            ->orWhere('receiver_id', '=', $userId)
-            ->delete();
-    }
-
-    private function deleteUserChats($providedServiceId)
-    {
-
-        DB::table('chats')
-            ->where('provided_service_id', '=', $providedServiceId)
-            ->delete();
     }
 }
