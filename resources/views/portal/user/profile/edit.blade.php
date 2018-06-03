@@ -1,5 +1,21 @@
 @extends('portal.user.profile.profile')
 @section('content-profile')
+
+<div class="overlay-modal">
+    <div class="modal">
+        <div class="this-modal-content">
+            <span class="close"><i class="fa fa-times"></i></span>
+            <div class="the-content">
+                <p>Deseja realmente Excluir a sua conta?</p>
+            </div>
+            <div class="modal-decision">
+                <a class="right" href="{{route('user.profile.delete')}}">Excluir</a>
+                <button class="left btn btn-primary close">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <div class="row">
         <div class="col-md-6">
             <form action="{{route('user.update.profile')}}" class="form" method="POST">
@@ -7,61 +23,61 @@
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="name">Nome:</label>
-                        <input class="form-control" type="text" id="name" name="name" value="{{$user->name}}" required>
+                        <input placeholder="Nome" class="form-control" type="text" id="name" name="name" value="{{$user->name}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="email">E-mail:</label>
-                        <input class="form-control" type="email" id="email" name="email" value="{{$user->email}}" required>
+                        <input placeholder="E-mail" class="form-control" type="email" id="email" name="email" value="{{$user->email}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="cpf">CPF:</label>
-                        <input class="form-control" type="text" id="cpf" name="cpf" value="{{$user->cpf}}" required>
+                        <input placeholder="CPF" class="form-control" type="text" id="cpf" name="cpf" value="{{$user->cpf}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="telephone">Telefone:</label>
-                        <input class="form-control" type="text" id="telephone" name="telephone" value="{{$telephone->ddd.$telephone->number}}" required>
+                        <input placeholder="Telefone" class="form-control" type="text" id="telephone" name="telephone" value="{{$telephone->ddd.$telephone->number}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="cellphone">Celular:</label>
-                        <input class="form-control" type="text" id="cellphone" name="cellphone" value="{{$cellphone->ddd.$cellphone->number}}" required>
+                        <input placeholder="Celular" class="form-control" type="text" id="cellphone" name="cellphone" value="{{$cellphone->ddd.$cellphone->number}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="state">UF:</label>
-                        <input class="form-control" type="text" id="state" name="state" value="{{$user->state}}" required maxlength="2">
+                        <input placeholder="UF" class="form-control" type="text" id="state" name="state" value="{{$user->state}}" required maxlength="2">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="city">Cidade:</label>
-                        <input class="form-control" type="text" id="city" name="city" value="{{$user->city}}" required>
+                        <input placeholder="Cidade" class="form-control" type="text" id="city" name="city" value="{{$user->city}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="zipcode">CEP:</label>
-                        <input class="form-control" type="text" id="zipcode" name="zipcode" value="{{$user->zipcode}}" required>
+                        <input placeholder="CEP" class="form-control" type="text" id="zipcode" name="zipcode" value="{{$user->zipcode}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="neighbourhood">Bairro:</label>
-                        <input class="form-control" type="text" id="neighbourhood" name="neighbourhood" value="{{$user->neighbourhood}}" required>
+                        <input placeholder="Bairro" class="form-control" type="text" id="neighbourhood" name="neighbourhood" value="{{$user->neighbourhood}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="address">Endereço:</label>
-                        <input class="form-control" type="text" id="address" name="address" value="{{$user->address}}" required>
+                        <input placeholder="Endereço" class="form-control" type="text" id="address" name="address" value="{{$user->address}}" required>
                     </div>
                 </div>
                 <div class="row">
@@ -85,13 +101,13 @@
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="password">Nova senha:</label>
-                        <input class="form-control" type="password" name="password" required>
+                        <input placeholder="Nova senha" class="form-control" type="password" name="password" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="password">Digite novamente a nova senha:</label>
-                        <input type="password" name="password2" class="form-control" required>
+                        <input placeholder="Digite novamente a nova senha" type="password" name="password2" class="form-control" required>
                     </div>
                 </div>
                 <div class="row">
@@ -102,8 +118,7 @@
             </form>
         </div>
     </div>
-    <form action="{{route('user.profile.delete')}}" method="POST">
-        @csrf
+    <div class="row">
         <button type="submit" class="btn btn-danger">Excluir Conta</button>
-    </form>
+    </div>
 @stop
