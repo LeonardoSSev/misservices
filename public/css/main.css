@@ -9437,6 +9437,16 @@ footer .footer-below {
   border: none;
 }
 
+.overlay-modal .modal .this-modal-content .the-content {
+  text-align: center;
+  font-size: 21px;
+  padding-top: 35px;
+}
+
+.overlay-modal .modal .this-modal-content .modal-decision {
+  padding: 15px;
+}
+
 @media screen and (min-width: 768px) {
   .overlay-modal .modal {
     width: 70vw;
@@ -9616,7 +9626,7 @@ footer .footer-below {
   margin-left: 45px;
 }
 
-#perfil-info .primary-info .box-img-perfil figcaption button#add-image {
+#perfil-info .primary-info .box-img-perfil figcaption button.add-image {
   border: none;
   position: absolute;
   color: #25aae1;
@@ -9963,6 +9973,10 @@ form .row:first-child .floating-label-form-group {
 
 #perfil #actions .own-services .link {
   margin-left: 15px;
+}
+
+#perfil #actions .form {
+  padding-left: 40px;
 }
 
 .services-research {

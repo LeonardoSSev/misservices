@@ -44,7 +44,7 @@ $(document).ready(function(){
     });
 
     //Modal
-    $('#add-image').click(function(){
+    $('#open-modal').click(function(){
         $('.overlay-modal').fadeIn('slow');
     });
 

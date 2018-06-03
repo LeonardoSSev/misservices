@@ -16,6 +16,7 @@ Route::group(['prefix' => 'user'], function() {
         Route::post('/update', ['as' => 'user.update.profile', 'uses' => 'Portal\User\UserController@updateProfile']);
         Route::post('/password/update', ['as' => 'user.update.password', 'uses' => 'Portal\User\UserController@updatePassword']);
         Route::post('/upload/picture', ['as' => 'user.profile.image', 'uses' => 'Portal\User\UserController@uploadProfilePicture']);
+        Route::post('/profile/delete', ['as' => 'user.profile.delete', 'uses' => 'Portal\User\UserController@deleteUser']);
     });
 
     Route::group(['prefix' => 'search'], function() {

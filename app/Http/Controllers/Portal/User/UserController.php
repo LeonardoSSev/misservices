@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Portal\User;
 
 use App\Helper;
 use App\Phone;
+use App\User;
 use App\ProvidedService;
 use App\Service;
 use App\Category;
@@ -36,6 +37,11 @@ class UserController extends Controller
     {
         $user = Auth()->user();
 
+        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
+        $request->zipcode = str_replace('-', '', $request->zipcode);
+        $request->telephone = str_replace(['-', '(', ')'], '', $request->telephone);
+        $request->cellphone = str_replace(['-', '(', ')'], '', $request->cellphone);
+
         $user->name          = $request->name;
         $user->email         = $request->email;
         $user->cpf           = $request->cpf;
@@ -47,8 +53,10 @@ class UserController extends Controller
         $user->about         = $request->about;
 
 
+
         $telephone = $this->setOwnUserTelephone(1, $request);
         $cellphone = $this->setOwnUserTelephone(2, $request);
+
 
         $telephone->save();
         $cellphone->save();
@@ -63,9 +71,17 @@ class UserController extends Controller
     {
         $telephone = Phone::find($this->getOwnUserTelephoneId($phoneTypeId));
 
-        if ($telephone->number !== $request->telephone || $telephone->ddd !== substr($request->telephone, 0, 2)) {
-            $telephone->ddd = substr($request->telephone, 0, 2);
-            $telephone->number = substr($request->telephone, 2, strlen($request->telephone));
+        if ($phoneTypeId === 1) {
+            if ($telephone->number !== $request->telephone || $telephone->ddd !== substr($request->telephone, 0, 2)) {
+                $telephone->ddd = substr($request->telephone, 0, 2);
+                $telephone->number = substr($request->telephone, 2, strlen($request->telephone));
+            }
+            return $telephone;
+        }
+
+        if ($telephone->number !== $request->cellphone || $telephone->ddd !== substr($request->cellphone, 0, 2)) {
+            $telephone->ddd = substr($request->cellphone, 0, 2);
+            $telephone->number = substr($request->cellphone, 2, strlen($request->cellphone));
         }
         return $telephone;
     }
@@ -183,4 +199,59 @@ class UserController extends Controller
         return redirect()->route('user.services')->with('status', 'Serviço adicionado com sucesso');
     }
 
+    public function deleteUser()
+    {
+        $this->deleteUserAbilities(User::find(Auth()->user()->id));
+        $this->deleteUserProvidedServices(User::find(Auth()->user()->id));
+        User::destroy(Auth()->user()->id);
+
+        return redirect()->route('index');
+    }
+
+    private function deleteUserAbilities(User $user)
+    {
+        foreach ($user->abilities as $ability) {
+            Ability::destroy($ability->id);
+        }
+    }
+
+    private function deleteUserProvidedServices(User $user)
+    {
+        $providedServices = DB::table('provided_services')
+            ->select('id')
+            ->where('client_id', '=', $user->id)
+            ->orWhere('provider_id', '=', $user->id)
+            ->get();
+
+        foreach ($providedServices as $ids) {
+            $this->deleteUserRates($ids->id);
+            $this->deleteUserMessages($user->id);
+            $this->deleteUserChats($ids->id);
+            ProvidedService::destroy($ids->id);
+        }
+    }
+
+    private function deleteUserRates($providedServiceId)
+    {
+        DB::table('rates')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
+    }
+
+    private function deleteUserMessages($userId)
+    {
+
+        DB::table('messages')
+            ->where('sender_id', '=', $userId)
+            ->orWhere('receiver_id', '=', $userId)
+            ->delete();
+    }
+
+    private function deleteUserChats($providedServiceId)
+    {
+
+        DB::table('chats')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
+    }
 }

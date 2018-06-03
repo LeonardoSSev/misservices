@@ -39,7 +39,7 @@
                     <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
                 @endif
                 <figcaption class="overlay-img-perfil" title="Adicionar/Alterar Imagem">
-                    <button id="add-image">
+                    <button id="open-modal" class="add-image">
                         <i class="fa fa-plus"></i>
                     </button>
                 </figcaption>

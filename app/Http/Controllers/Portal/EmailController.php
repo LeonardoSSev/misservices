@@ -5,31 +5,40 @@ namespace App\Http\Controllers\Portal;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Psr7\Request as GRequest;
 use GuzzleHttp\Client as GuzzleClient;
-use App\HttpRequest;
 use Illuminate\Http\Request;
+use App\Email;
+use App\User;
 
 class EmailController extends Controller
 {
 
     public function sendEmail(Request $request)
     {
+        $email = new Email();
 
         $message = $request->message;
         $name = $request->name;
-        $email = $request->email;
+        $userEmail = $request->email;
 
-        $request = new HttpRequest();
 
-        $body = '{"sender":{"name":"'.$name.'","email":"'.$email.'"},"to":[{"email":"misserviceswebapp@gmail.com","name":"MisServices"}],"bcc":[{"email":"jonatasfeijolopes@gmail.com","name":"Jonatas"}, {"email": "leonardossev@gmail.com", "name": "Leonardo"}, {"name": "MisServices", "email": "misserviceswebapp@gmail.com"}],"htmlContent":"'.$message.'","textContent":"'.$message.'","subject":"MisServices - Usuário","replyTo":{"email":"misservicsewebapp@gmail.com","name":"MisServices"},"tags":["MisServices"]}';
 
-        $request->addHeader('Accept', 'application/json');
-        $request->addHeader('Content-Type', 'application/json');
-        $request->addHeader('api-key', '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');
-        $request->setBody($body);
+        $message = trim(preg_replace('/\s\s+/', ' ', $request->message));
+        $body = '{"sender":{"name":"'.$name.'","email":"'.$userEmail.'"},"to":[{"email":"misserviceswebapp@gmail.com","name":"MisServices"}],"bcc":[{"email":"jonatasfeijolopes@gmail.com","name":"Jonatas"}, {"email": "leonardossev@gmail.com", "name": "Leonardo"}, {"name": "MisServices", "email": "misserviceswebapp@gmail.com"}],"htmlContent":"'.$message.'","textContent":"'.$message.'","subject":"MisServices - Usuário","replyTo":{"email":"misservicsewebapp@gmail.com","name":"MisServices"},"tags":["MisServices"]}';
 
-        $req = new GRequest('POST', 'https://api.sendinblue.com/v3/smtp/email', ['Accept' => 'application/json', 'Content-Type' => 'application/json', 'api-key' => env('SENDINBLUE_KEY')], $request->getBody());
+        $req = new GRequest('POST', 'https://api.sendinblue.com/v3/smtp/email', ['Accept' => 'application/json', 'Content-Type' => 'application/json', 'api-key' => env('SENDINBLUE_KEY')], $body);
 
         $client = new GuzzleClient();
+
+
+        $email->message = $message;
+
+        if ($user = User::where('email', '=', $userEmail)->first()) {
+            $email->user_id = $user->id;
+        } else {
+            $email->user_id = 0;
+        }
+        $email->save();
+
         $client->send($req);
 
         return redirect()->route('contact')->with(['status' => 'Sua mensagem foi enviada com sucesso. Iremos lhe retornar através do e-mail informado.']);
