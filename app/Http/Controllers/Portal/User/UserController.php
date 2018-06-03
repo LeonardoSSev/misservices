@@ -36,6 +36,11 @@ class UserController extends Controller
     {
         $user = Auth()->user();
 
+        $request->cpf = str_replace(['.', '-'], '', $request->cpf);
+        $request->zipcode = str_replace('-', '', $request->zipcode);
+        $request->telephone = str_replace(['-', '(', ')'], '', $request->telephone);
+        $request->cellphone = str_replace(['-', '(', ')'], '', $request->cellphone);
+
         $user->name          = $request->name;
         $user->email         = $request->email;
         $user->cpf           = $request->cpf;
@@ -47,9 +52,11 @@ class UserController extends Controller
         $user->about         = $request->about;
 
 
+
         $telephone = $this->setOwnUserTelephone(1, $request);
         $cellphone = $this->setOwnUserTelephone(2, $request);
 
+        
         $telephone->save();
         $cellphone->save();
 
@@ -63,9 +70,17 @@ class UserController extends Controller
     {
         $telephone = Phone::find($this->getOwnUserTelephoneId($phoneTypeId));
 
-        if ($telephone->number !== $request->telephone || $telephone->ddd !== substr($request->telephone, 0, 2)) {
-            $telephone->ddd = substr($request->telephone, 0, 2);
-            $telephone->number = substr($request->telephone, 2, strlen($request->telephone));
+        if ($phoneTypeId === 1) {
+            if ($telephone->number !== $request->telephone || $telephone->ddd !== substr($request->telephone, 0, 2)) {
+                $telephone->ddd = substr($request->telephone, 0, 2);
+                $telephone->number = substr($request->telephone, 2, strlen($request->telephone));
+            }
+            return $telephone;
+        }
+
+        if ($telephone->number !== $request->cellphone || $telephone->ddd !== substr($request->cellphone, 0, 2)) {
+            $telephone->ddd = substr($request->cellphone, 0, 2);
+            $telephone->number = substr($request->cellphone, 2, strlen($request->cellphone));
         }
         return $telephone;
     }

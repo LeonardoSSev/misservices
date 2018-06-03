@@ -7,13 +7,13 @@
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="name">Nome:</label>
-                        <input class="form-control" type="text" name="name" value="{{$user->name}}" required>
+                        <input class="form-control" type="text" id="name" name="name" value="{{$user->name}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="email">E-mail:</label>
-                        <input class="form-control" type="email" name="email" value="{{$user->email}}" required>
+                        <input class="form-control" type="email" id="email" name="email" value="{{$user->email}}" required>
                     </div>
                 </div>
                 <div class="row">
@@ -37,13 +37,13 @@
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="state">UF:</label>
-                        <input class="form-control" type="text" name="state" value="{{$user->state}}" required maxlength="2">
+                        <input class="form-control" type="text" id="state" name="state" value="{{$user->state}}" required maxlength="2">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="city">Cidade:</label>
-                        <input class="form-control" type="text" name="city" value="{{$user->city}}" required>
+                        <input class="form-control" type="text" id="city" name="city" value="{{$user->city}}" required>
                     </div>
                 </div>
                 <div class="row">
@@ -55,13 +55,13 @@
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="neighbourhood">Bairro:</label>
-                        <input class="form-control" type="text" name="neighbourhood" value="{{$user->neighbourhood}}" required>
+                        <input class="form-control" type="text" id="neighbourhood" name="neighbourhood" value="{{$user->neighbourhood}}" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12 floating-label-form-group">
                         <label for="address">Endereço:</label>
-                        <input class="form-control" type="text" name="address" value="{{$user->address}}" required>
+                        <input class="form-control" type="text" id="address" name="address" value="{{$user->address}}" required>
                     </div>
                 </div>
                 <div class="row">
