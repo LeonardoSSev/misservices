@@ -1,5 +1,5 @@
 @extends('portal.user.profile.profile')
-@section('content-profile')    
+@section('content-profile')
     <div class="row">
         <div class="col-md-6">
             <form action="{{route('user.update.profile')}}" class="form" method="POST">
@@ -102,4 +102,8 @@
             </form>
         </div>
     </div>
+    <form action="{{route('user.profile.delete')}}" method="POST">
+        @csrf
+        <button type="submit" class="btn btn-danger">Excluir Conta</button>
+    </form>
 @stop

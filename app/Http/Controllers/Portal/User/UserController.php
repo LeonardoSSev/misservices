@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Portal\User;
 
 use App\Helper;
 use App\Phone;
+use App\User;
 use App\ProvidedService;
 use App\Service;
 use App\Category;
@@ -56,7 +57,7 @@ class UserController extends Controller
         $telephone = $this->setOwnUserTelephone(1, $request);
         $cellphone = $this->setOwnUserTelephone(2, $request);
 
-        
+
         $telephone->save();
         $cellphone->save();
 
@@ -198,4 +199,59 @@ class UserController extends Controller
         return redirect()->route('user.services')->with('status', 'Serviço adicionado com sucesso');
     }
 
+    public function deleteUser()
+    {
+        $this->deleteUserAbilities(User::find(Auth()->user()->id));
+        $this->deleteUserProvidedServices(User::find(Auth()->user()->id));
+        User::destroy(Auth()->user()->id);
+
+        return redirect()->route('index');
+    }
+
+    private function deleteUserAbilities(User $user)
+    {
+        foreach ($user->abilities as $ability) {
+            Ability::destroy($ability->id);
+        }
+    }
+
+    private function deleteUserProvidedServices(User $user)
+    {
+        $providedServices = DB::table('provided_services')
+            ->select('id')
+            ->where('client_id', '=', $user->id)
+            ->orWhere('provider_id', '=', $user->id)
+            ->get();
+
+        foreach ($providedServices as $ids) {
+            $this->deleteUserRates($ids->id);
+            $this->deleteUserMessages($user->id);
+            $this->deleteUserChats($ids->id);
+            ProvidedService::destroy($ids->id);
+        }
+    }
+
+    private function deleteUserRates($providedServiceId)
+    {
+        DB::table('rates')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
+    }
+
+    private function deleteUserMessages($userId)
+    {
+
+        DB::table('messages')
+            ->where('sender_id', '=', $userId)
+            ->orWhere('receiver_id', '=', $userId)
+            ->delete();
+    }
+
+    private function deleteUserChats($providedServiceId)
+    {
+
+        DB::table('chats')
+            ->where('provided_service_id', '=', $providedServiceId)
+            ->delete();
+    }
 }
