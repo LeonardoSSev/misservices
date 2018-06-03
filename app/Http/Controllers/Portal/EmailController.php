@@ -17,8 +17,9 @@ class EmailController extends Controller
         $name = $request->name;
         $email = $request->email;
 
+        $message = trim(preg_replace('/\s\s+/', ' ', $request->message));
         $body = '{"sender":{"name":"'.$name.'","email":"'.$email.'"},"to":[{"email":"misserviceswebapp@gmail.com","name":"MisServices"}],"bcc":[{"email":"jonatasfeijolopes@gmail.com","name":"Jonatas"}, {"email": "leonardossev@gmail.com", "name": "Leonardo"}, {"name": "MisServices", "email": "misserviceswebapp@gmail.com"}],"htmlContent":"'.$message.'","textContent":"'.$message.'","subject":"MisServices - Usuário","replyTo":{"email":"misservicsewebapp@gmail.com","name":"MisServices"},"tags":["MisServices"]}';
-        str_replace()
+        
         $req = new GRequest('POST', 'https://api.sendinblue.com/v3/smtp/email', ['Accept' => 'application/json', 'Content-Type' => 'application/json', 'api-key' => env('SENDINBLUE_KEY')], $body);
 
         $client = new GuzzleClient();
