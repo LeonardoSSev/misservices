@@ -45,7 +45,11 @@ $(document).ready(function(){
 
     //Modal
     $('#open-modal').click(function(){
-        $('.overlay-modal').fadeIn('slow');
+        $('.perfil-modal > .overlay-modal').fadeIn('slow');
+    });
+
+    $('#open-modal-2').click(function(){
+        $('#actions .overlay-modal').fadeIn('slow');
     });
 
     $('.modal .close').click(function(){

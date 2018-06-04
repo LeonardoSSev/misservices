@@ -1,24 +1,24 @@
 @extends('templates.temp')
 @section('content')
 @include('templates.sections.header')
-
-<div class="overlay-modal">
-    <div class="modal">
-        <div class="this-modal-content">
-            <span class="close"><i class="fa fa-times"></i></span>
-            <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
-                {{ csrf_field() }}
-                <label for="image-upload" class="select-image">
-                    <span>Selecionar Imagem</span>
-                </label>
-                <input type="file" name="image" id="image-upload">
-                <div id="image-selected"></div>
-                <button type="submit" class="btn-upload-image">Enviar</button>
-            </form>
+<div class="perfil-modal">
+    <div class="overlay-modal">
+        <div class="modal">
+            <div class="this-modal-content">
+                <span class="close"><i class="fa fa-times"></i></span>
+                <form action="{{route('user.profile.image', Auth()->user()->id)}}" enctype="multipart/form-data" method="POST">
+                    {{ csrf_field() }}
+                    <label for="image-upload" class="select-image">
+                        <span>Selecionar Imagem</span>
+                    </label>
+                    <input type="file" name="image" id="image-upload">
+                    <div id="image-selected"></div>
+                    <button type="submit" class="btn-upload-image">Enviar</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 <div class="container" id="perfil">
     @if (session('error'))
         <div class="alert alert-danger">

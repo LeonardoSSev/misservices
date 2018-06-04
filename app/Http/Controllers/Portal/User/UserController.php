@@ -27,8 +27,8 @@ class UserController extends Controller
     {
         $user = Auth()->user();
 
-        $telephone = Phone::find($this->getOwnUserTelephoneId(1));
-        $cellphone = Phone::find($this->getOwnUserTelephoneId(2));
+        $telephone = Phone::find($this->getOwnUserTelephoneId(4));
+        $cellphone = Phone::find($this->getOwnUserTelephoneId(3));
 
         return view('portal.user.profile.edit', compact(['user', 'telephone', 'cellphone']));
     }

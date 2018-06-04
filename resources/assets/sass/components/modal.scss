@@ -5,11 +5,12 @@
     height: 100%;
     display: none;
     z-index: 10;
+    left: 0;
+    top: 0;
 
     .modal{
         display: block;
         width: 80vw;
-        height: 70vh;
         background: #fff;
         border-radius: 5px;
         padding: 3%;
@@ -76,6 +77,27 @@
 
             .modal-decision{
                 padding: 15px;
+                float: left;
+                position: relative;
+                width: 100%;
+                padding-top: 40%;
+
+                button.close {
+                    position: inherit;
+                    background: #337ab7 !important;
+                    color: #fff;
+                    padding: 9px 12px;
+                    border-radius: 4px;
+                    margin: 0!important;
+                    opacity: 1;
+                    font-size: 14px;
+                }
+                
+                button.close:hover{
+                    background: #104a7b;
+                    color: #fff;
+                    opacity: 1;
+                }
             }
         }
     }
@@ -83,21 +105,21 @@
     @media screen and (min-width: 768px) {
         .modal{
             width: 70vw;
-            height: 40vh;
+            // height: 40vh;
         }
     }
 
     @media screen and (min-width: 1024px) {
         .modal{
             width: 60vw;
-            height: 30vh;
+            // height: 30vh;
         }
     }
 
     @media screen and (min-width: 1200px) {
         .modal{
             width: 40vw;
-            height: 60vh;
+            max-height: 430px;
 
             #image-selected{
                 margin-top: 50px;
