@@ -5,8 +5,8 @@
         <div class="col-lg-4" id="perfil-info">
             <div class="row primary-info">
                 <figure class="box-img-perfil">
-                    @if( !empty($user[0]->image) )
-                        <img src="{{ url('storage/users/'.$user[0]->image) }}" alt="{{$user[0]->name}}" class="img-perfil img-responsive">
+                    @if( !empty($user[0]->image2) )
+                        <img src="{{ $user[0]->image2}}" alt="{{$user[0]->name}}" class="img-perfil img-responsive">
                     @else
                         <img src="{{ asset('images/profile.png') }}" alt="{{$user[0]->name}}" class="img-perfil img-responsive">
                     @endif

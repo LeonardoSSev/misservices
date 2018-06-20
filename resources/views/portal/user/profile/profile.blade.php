@@ -33,9 +33,8 @@
     <div class="col-lg-4" id="perfil-info">
         <div class="row primary-info">
             <figure class="box-img-perfil">
-                @if(auth()->user()->image != null)
-{{--                    <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">--}}
-                    <img src="{{auth()->user()->image2}}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
+                @if(auth()->user()->image2 != null)
+                    <img src="{{$user->image2}}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
                     @else
                     <img src="{{ asset('images/profile.png') }}" alt="perfil" class="img-perfil img-responsive">
                 @endif

@@ -95,7 +95,6 @@ class UserController extends Controller
                           ->select('phone_id')
                           ->where([['user_id', '=', $user->id], ['phone_type_id', '=', $phoneTypeId]])
                           ->get();
-
         return $telephone[0]->phone_id;
     }
 
