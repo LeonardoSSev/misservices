@@ -112,7 +112,7 @@ class SiteController extends Controller
         $service = Service::find($serviceId);
         $user = DB::table('users')
                     ->select('users.name', 'users.state', 'users.city', 'users.about',
-                    'abilities.name as abilities')
+                    'abilities.name as abilities', 'users.image')
                     ->leftJoin('abilities', 'abilities.user_id', '=', 'users.id')
                     ->where([
                         ['users.id', '=', $userId]
