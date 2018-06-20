@@ -5,10 +5,10 @@
         <div class="col-lg-4" id="perfil-info">
             <div class="row primary-info">
                 <figure class="box-img-perfil">
-                    @if( !empty($user[0]->image) )
-                        <img src="{{ $user[0]->image }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
+                    @if( !empty($user[0]->image2) )
+                        <img src="{{ $user[0]->image2}}" alt="{{$user[0]->name}}" class="img-perfil img-responsive">
                     @else
-                        <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+                        <img src="{{ asset('images/profile.png') }}" alt="{{$user[0]->name}}" class="img-perfil img-responsive">
                     @endif
                 </figure>
                 <span class="name-user">{{ $user[0]->name }}</span>
@@ -30,7 +30,7 @@
                 <div class="box">
                     @if($averageRate != 0)
                         <p class="left">Média de avaliações: {{$averageRate}}/5</p>
-                        <p class="right">Quantidade de serviços realizados: </p>
+                        <p class="right">Quantidade de serviços realizados: 1</p>
                     @else
                         <p>Esse usuário não realizou ou concluiu esse serviço ainda!</p>
                     @endif
@@ -53,23 +53,6 @@
                         </div>
                     </form>
                 @endcannot
-            </div>
-            <div class="block">
-                <h3>Últimos comentários:</h3>
-                @if(count($serviceDetails) > 0)
-                    @foreach($serviceDetails as $detail)
-                    <div class="box">
-                        <p>{{$detail->userId}} - {{$detail->userName}}</p>
-                        <p>{{$detail->rate}}</p>
-                        <p>{{$detail->comment}}</p>
-                        <p>R${{$detail->price}}</p>
-                    </div>
-                    @endforeach
-                @else
-                    <div class="box">
-                        <p>Esse usuário não realizou ou concluiu esse serviço ainda!</p>
-                    </div>
-                @endif
             </div>
         </div>
     </div>

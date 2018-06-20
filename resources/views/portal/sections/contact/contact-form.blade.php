@@ -14,9 +14,9 @@
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="name">Nome</label>
                             @guest
-                                <input class="form-control" type="text" name="name" placeholder="Name" required>
+                                <input class="form-control" type="text" name="name" placeholder="Nome" required>
                             @else
-                                <input class="form-control" type="text" name="name" placeholder="Name" value="{{Auth()->user()->name}}" required>
+                                <input class="form-control" type="text" name="name" placeholder="Nome" value="{{Auth()->user()->name}}" required>
                             @endguest
                         </div>
                     </div>
@@ -24,9 +24,9 @@
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="email">E-mail</label>
                             @guest
-                                <input class="form-control" type="email" name="email" placeholder="Email Address" required>
+                                <input class="form-control" type="email" name="email" placeholder="E-mail" required>
                             @else
-                                <input class="form-control" type="email" name="email" placeholder="Email Address" value="{{Auth()->user()->email}}" required>
+                                <input class="form-control" type="email" name="email" placeholder="E-mail" value="{{Auth()->user()->email}}" required>
                             @endguest
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="form-group col-xs-12 floating-label-form-group">
                             <label for="message">Mensagem</label>
                             @guest
-                                <textarea placeholder="Message" class="form-control" rows="5" name="message" required></textarea>
+                                <textarea placeholder="Mensagem" class="form-control" rows="5" name="message" required></textarea>
                             @else
                                 @if(isset($emailContent['message']) && (!is_null($emailContent)))
                                     <textarea placeholder="Message" class="form-control" rows="5" name="message" required>{{$emailContent['message']}}</textarea>

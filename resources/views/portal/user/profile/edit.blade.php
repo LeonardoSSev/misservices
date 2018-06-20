@@ -9,8 +9,8 @@
                 <p>Deseja realmente Excluir a sua conta?</p>
             </div>
             <div class="modal-decision">
-                <a class="right" href="{{route('user.profile.delete')}}">Excluir</a>
-                <button class="left btn btn-primary close">Cancelar</button>
+                <a class="right btn btn-danger" href="{{route('user.profile.delete')}}">Excluir</a>
+                <button class="left close">Cancelar</button>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12">
-                        <button class="btn btn-form" type="submit">Editar informações</button>
+                        <button class="btn btn-form" style="width: 50%" type="submit">Editar informações</button>
                     </div>
                 </div>
             </form>
@@ -112,13 +112,13 @@
                 </div>
                 <div class="row">
                     <div class="form-group col-xs-12">
-                        <button class="btn btn-form" type="submit">Editar senha</button>
+                        <button class="btn btn-form" style="width: 50%" type="submit">Editar senha</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
     <div class="row">
-        <button type="submit" class="btn btn-danger">Excluir Conta</button>
+        <button type="submit" class="btn btn-danger right" id="open-modal-2">Excluir Conta</button>
     </div>
 @stop

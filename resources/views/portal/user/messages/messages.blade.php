@@ -12,7 +12,11 @@
                 <div class="box box-shadow">
                     <a href="{{route('user.service.chat', $providedService->providedServiceId)}}">
                         <div class="user-information">
-                            <p class="nome">{{$providedService->providerName}}</p>
+                            @if ($providedService->providerName === Auth()->user()->name)
+                                <p class="nome">{{$providedService->clientName}}</p>
+                            @else
+                                <p class="nome">{{$providedService->providerName}}</p>
+                            @endif 
                             <p>{{$providedService->serviceName}}</p>
                         </div>
                         <div class="last-message">
