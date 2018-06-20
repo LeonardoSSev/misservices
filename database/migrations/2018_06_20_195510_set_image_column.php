@@ -14,7 +14,7 @@ class SetImageColumn extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->binary('image2')->after('image');
+            $table->binary('image2')->nullable()->after('image');
         });
     }
 
