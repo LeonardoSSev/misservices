@@ -11,7 +11,7 @@
                     <label for="image-upload" class="select-image">
                         <span>Selecionar Imagem</span>
                     </label>
-                    <input type="file" name="image" id="image-upload">
+                    <input type="file" name="image-upload" id="image-upload">
                     <div id="image-selected"></div>
                     <button type="submit" class="btn-upload-image">Enviar</button>
                 </form>
@@ -34,9 +34,10 @@
         <div class="row primary-info">
             <figure class="box-img-perfil">
                 @if(auth()->user()->image != null)
-                    <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
+{{--                    <img src="{{ url('storage/users/'.auth()->user()->image) }}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">--}}
+                    <img src="{{auth()->user()->image2}}" alt="{{auth()->user()->name}}" class="img-perfil img-responsive">
                     @else
-                    <img src="{{ asset('images/logo-misservices.png') }}" alt="perfil" class="img-perfil img-responsive">
+                    <img src="{{ asset('images/profile.png') }}" alt="perfil" class="img-perfil img-responsive">
                 @endif
                 <figcaption class="overlay-img-perfil" title="Adicionar/Alterar Imagem">
                     <button id="open-modal" class="add-image">

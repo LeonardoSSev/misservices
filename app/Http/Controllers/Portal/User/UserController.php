@@ -138,24 +138,11 @@ class UserController extends Controller
         $user = Auth()->user();
 
         $data = $request->all();
-        $data['image'] = $user->image;
 
-        if ($request->hasFile('image') && $request->file('image')->isValid()) {
-            $name = $user->id.kebab_case($user->name);
-
-            $extension = $request->image->extension();
-            $imageName = "{$name}.{$extension}";
-
-            $data['image'] = $imageName;
-
-            $upload = $request->image->storeAs('users', $imageName);
-
-            if (!$upload) {
-                return redirect()->route('user.profile', $user)->with('errors', 'Falha ao fazer o upload da imagem');
-            }
-
+        if ($request->hasFile('image-upload') && $request->file('image-upload')->isValid()) {
+            $image = base64_encode(file_get_contents($_FILES["image-upload"]["tmp_name"]));
+            $user->image2 = 'data:image/jpg;base64,'.$image;
         }
-
         $update = $user->update($data);
 
         if (!$update) {
