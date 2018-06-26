@@ -134,21 +134,23 @@ class UserController extends Controller
 
     public function uploadProfilePicture(Request $request)
     {
+
         $user = Auth()->user();
-
-        $data = $request->all();
-
-        if ($request->hasFile('image-upload') && $request->file('image-upload')->isValid()) {
-            $image = base64_encode(file_get_contents($_FILES["image-upload"]["tmp_name"]));
-            $user->image2 = 'data:image/jpg;base64,'.$image;
-        }
-        $update = $user->update($data);
-
-        if (!$update) {
-            return redirect()->route('user.profile', $user)->with('errors', 'Falha ao fazer o upload da imagem');
-        }
-
-        return redirect()->route('user.profile', $user);
+        return redirect()->route('user.profile', $user)->with('error', 'Falha ao fazer o upload da imagem. Tente
+        novamente mais tarde.');
+//        $data = $request->all();
+//
+//        if ($request->hasFile('image-upload') && $request->file('image-upload')->isValid()) {
+//            $image = base64_encode(file_get_contents($_FILES["image-upload"]["tmp_name"]));
+//            $user->image2 = 'data:image/jpg;base64,'.$image;
+//        }
+//        $update = $user->update($data);
+//
+//        if (!$update) {
+//            return redirect()->route('user.profile', $user)->with('errors', 'Falha ao fazer o upload da imagem');
+//        }
+//
+//        return redirect()->route('user.profile', $user);
 
     }
 
