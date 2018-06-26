@@ -112,7 +112,7 @@ class SiteController extends Controller
         $service = Service::find($serviceId);
         $user = DB::table('users')
                     ->select('users.name', 'users.state', 'users.city', 'users.about',
-                    'abilities.name as abilities', 'users.image')
+                    'abilities.name as abilities', 'users.image2')
                     ->leftJoin('abilities', 'abilities.user_id', '=', 'users.id')
                     ->where([
                         ['users.id', '=', $userId]
@@ -131,7 +131,7 @@ class SiteController extends Controller
                                   'provided_services.id as providedServiceId', 'provided_services.client_id as clientId',
                                   'provided_services.status as providedserviceStatus', 'provided_services.price as price',
                                   'rates.id as ratesId', 'rates.rate as rate', 'users.id 
-                                  as userId', 'users.name as userName', 'users.image as userImage'
+                                  as userId', 'users.name as userName'
                               )
                               ->limit(5)
                               ->get();
